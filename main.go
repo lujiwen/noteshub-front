@@ -1,10 +1,18 @@
 package main
 
 import (
-	"github.com/astaxie/beego"
-	_ "hello/routers"
+	"github.com/urfave/cli"
+	"mo/cmd"
+	"os"
 )
 
 func main() {
-	beego.Run()
+	app := cli.NewApp()
+	app.Name = "mo"
+	app.Usage = "create the notes faster than yesterday!"
+	app.Commands = []cli.Command{
+		cmd.Test,
+	}
+	app.Flags = append(app.Flags, []cli.Flag{}...)
+	app.Run(os.Args)
 }
