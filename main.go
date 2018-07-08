@@ -12,6 +12,7 @@ func main() {
 	app.Usage = "create the notes faster than yesterday!"
 	app.Commands = []cli.Command{
 		cmd.Test,
+		cmd.Web,
 	}
 	app.Flags = append(app.Flags, []cli.Flag{}...)
 	app.Run(os.Args)
