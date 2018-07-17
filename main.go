@@ -11,7 +11,8 @@ func main() {
 	app.Name = "mo"
 	app.Usage = "create the notes faster than yesterday!"
 	app.Commands = []cli.Command{
-		cmd.Test,
+		//cmd.Serv,
+		//cmd.Test,
 		cmd.Web,
 	}
 	app.Flags = append(app.Flags, []cli.Flag{}...)

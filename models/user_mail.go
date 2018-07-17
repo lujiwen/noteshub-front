@@ -9,6 +9,15 @@ import "fmt"
 type EmailNotFound struct {
 	Email string
 }
+// EmailAdresses is the list of all email addresses of a user. Can contain the
+// primary email address, but is not obligatory.
+type EmailAddress struct {
+	ID          int64
+	UID         int64  `xorm:"INDEX NOT NULL"`
+	Email       string `xorm:"UNIQUE NOT NULL"`
+	IsActivated bool
+	IsPrimary   bool `xorm:"-" json:"-"`
+}
 
 func IsEmailNotFound(err error) bool {
 	_, ok := err.(EmailNotFound)

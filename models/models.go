@@ -5,14 +5,12 @@
 package models
 
 import (
-	"bufio"
 	"database/sql"
 	"fmt"
 	"os"
 	"path"
 	"strings"
 
-	"github.com/Unknwon/com"
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
@@ -100,17 +98,18 @@ func init() {
 
 func LoadConfigs() {
 	sec := setting.Cfg.Section("database")
-	DbCfg.Type = sec.Key("DB_TYPE").String()
-	switch DbCfg.Type {
-	case "sqlite3":
-		setting.UseSQLite3 = true
-	case "mysql":
-		setting.UseMySQL = true
-	case "postgres":
-		setting.UsePostgreSQL = true
-	case "mssql":
-		setting.UseMSSQL = true
-	}
+	//DbCfg.Type = sec.Key("DB_TYPE").String()
+	//switch DbCfg.Type {
+	//case "sqlite3":
+	//	setting.UseSQLite3 = true
+	//case "mysql":
+	//	setting.UseMySQL = true
+	//case "postgres":
+	//	setting.UsePostgreSQL = true
+	//case "mssql":
+	//	setting.UseMSSQL = true
+	//}
+	setting.UseMySQL = true
 	DbCfg.Host = sec.Key("HOST").String()
 	DbCfg.Name = sec.Key("NAME").String()
 	DbCfg.User = sec.Key("USER").String()
@@ -121,60 +120,25 @@ func LoadConfigs() {
 	DbCfg.Path = sec.Key("PATH").MustString("data/gogs.db")
 }
 
-// parsePostgreSQLHostPort parses given input in various forms defined in
-// https://www.postgresql.org/docs/current/static/libpq-connect.html#LIBPQ-CONNSTRING
-// and returns proper host and port number.
-func parsePostgreSQLHostPort(info string) (string, string) {
-	host, port := "127.0.0.1", "5432"
-	if strings.Contains(info, ":") && !strings.HasSuffix(info, "]") {
-		idx := strings.LastIndex(info, ":")
-		host = info[:idx]
-		port = info[idx+1:]
-	} else if len(info) > 0 {
-		host = info
-	}
-	return host, port
-}
 
-func parseMSSQLHostPort(info string) (string, string) {
-	host, port := "127.0.0.1", "1433"
-	if strings.Contains(info, ":") {
-		host = strings.Split(info, ":")[0]
-		port = strings.Split(info, ":")[1]
-	} else if strings.Contains(info, ",") {
-		host = strings.Split(info, ",")[0]
-		port = strings.TrimSpace(strings.Split(info, ",")[1])
-	} else if len(info) > 0 {
-		host = info
-	}
-	return host, port
-}
 
 func getEngine() (*xorm.Engine, error) {
-	connStr := ""
-	var Param string = "?"
-	if strings.Contains(DbCfg.Name, Param) {
-		Param = "&"
-	}
-	if DbCfg.Host[0] == '/' { // looks like a unix socket
-		connStr = fmt.Sprintf("%s:%s@unix(%s)/%s%scharset=utf8mb4&parseTime=true",
-			DbCfg.User, DbCfg.Passwd, DbCfg.Host, DbCfg.Name, Param)
-	} else {
-		connStr = fmt.Sprintf("%s:%s@tcp(%s)/%s%scharset=utf8mb4&parseTime=true",
-			DbCfg.User, DbCfg.Passwd, DbCfg.Host, DbCfg.Name, Param)
-	}
-	var engineParams = map[string]string{"rowFormat": "DYNAMIC"}
-	return xorm.NewEngineWithParams(DbCfg.Type, connStr, engineParams)
-}
+	//connStr := ""
+	//var Param string = "?"
+	//if strings.Contains(DbCfg.Name, Param) {
+	//	Param = "&"
+	//}
+	//if DbCfg.Host[0] == '/' { // looks like a unix socket
+	//	connStr = fmt.Sprintf("%s:%s@unix(%s)/%s%scharset=utf8mb4&parseTime=true",
+	//		DbCfg.User, DbCfg.Passwd, DbCfg.Host, DbCfg.Name, Param)
+	//} else {
+	//	connStr = fmt.Sprintf("%s:%s@tcp(%s)/%s%scharset=utf8mb4&parseTime=true",
+	//		DbCfg.User, DbCfg.Passwd, DbCfg.Host, DbCfg.Name, Param)
+	//}
 
-func NewTestEngine(x *xorm.Engine) (err error) {
-	x, err = getEngine()
-	if err != nil {
-		return fmt.Errorf("Connect to database: %v", err)
-	}
-
-	x.SetMapper(core.GonicMapper{})
-	return x.StoreEngine("InnoDB").Sync2(tables...)
+	//var engineParams = map[string]string{"rowFormat": "DYNAMIC"}
+	//return xorm.NewEngineWithParams(DbCfg.Type, connStr, engineParams)
+	return xorm.NewEngine("mysql", "root:ljwGogs0@/test")
 }
 
 func SetEngine() (err error) {
@@ -212,10 +176,6 @@ func NewEngine() (err error) {
 	if err = SetEngine(); err != nil {
 		return err
 	}
-
-	//if err = migrations.Migrate(x); err != nil {
-	//	return fmt.Errorf("migrate: %v", err)
-	//}
 
 	if err = x.StoreEngine("InnoDB").Sync2(tables...); err != nil {
 		return fmt.Errorf("sync database struct error: %v\n", err)
@@ -290,94 +250,6 @@ func DumpDatabase(dirPath string) (err error) {
 			return fmt.Errorf("fail to dump table '%s': %v", tableName, err)
 		}
 		f.Close()
-	}
-	return nil
-}
-
-// ImportDatabase imports data from backup archive.
-func ImportDatabase(dirPath string, verbose bool) (err error) {
-	snakeMapper := core.SnakeMapper{}
-
-	skipInsertProcessors := map[string]bool{
-		"mirror": true,
-	}
-
-	// Purposely create a local variable to not modify global variable
-	tables := append(tables, new(Version))
-	for _, table := range tables {
-		tableName := strings.TrimPrefix(fmt.Sprintf("%T", table), "*models.")
-		tableFile := path.Join(dirPath, tableName+".json")
-		if !com.IsExist(tableFile) {
-			continue
-		}
-
-		if verbose {
-			log.Trace("Importing table '%s'...", tableName)
-		}
-
-		if err = x.DropTables(table); err != nil {
-			return fmt.Errorf("drop table '%s': %v", tableName, err)
-		} else if err = x.Sync2(table); err != nil {
-			return fmt.Errorf("sync table '%s': %v", tableName, err)
-		}
-
-		f, err := os.Open(tableFile)
-		if err != nil {
-			return fmt.Errorf("open JSON file: %v", err)
-		}
-		rawTableName := x.TableName(table)
-		_, isInsertProcessor := table.(xorm.BeforeInsertProcessor)
-		scanner := bufio.NewScanner(f)
-		for scanner.Scan() {
-			switch bean := table.(type) {
-			case *LoginSource:
-				meta := make(map[string]interface{})
-				if err = jsoniter.Unmarshal(scanner.Bytes(), &meta); err != nil {
-					return fmt.Errorf("unmarshal to map: %v", err)
-				}
-
-				tp := LoginType(com.StrTo(com.ToStr(meta["Type"])).MustInt64())
-				switch tp {
-				case LOGIN_LDAP, LOGIN_DLDAP:
-					bean.Cfg = new(LDAPConfig)
-				case LOGIN_SMTP:
-					bean.Cfg = new(SMTPConfig)
-				case LOGIN_PAM:
-					bean.Cfg = new(PAMConfig)
-				default:
-					return fmt.Errorf("unrecognized login source type:: %v", tp)
-				}
-				table = bean
-			}
-
-			if err = jsoniter.Unmarshal(scanner.Bytes(), table); err != nil {
-				return fmt.Errorf("unmarshal to struct: %v", err)
-			}
-
-			if _, err = x.Insert(table); err != nil {
-				return fmt.Errorf("insert strcut: %v", err)
-			}
-
-			// Reset created_unix back to the date save in archive because Insert method updates its value
-			if isInsertProcessor && !skipInsertProcessors[rawTableName] {
-				meta := make(map[string]interface{})
-				if err = jsoniter.Unmarshal(scanner.Bytes(), &meta); err != nil {
-					log.Error(2, "Failed to unmarshal to map: %v", err)
-				}
-				if _, err = x.Exec("UPDATE "+rawTableName+" SET created_unix=? WHERE id=?", meta["CreatedUnix"], meta["ID"]); err != nil {
-					log.Error(2, "Failed to reset 'created_unix': %v", err)
-				}
-			}
-		}
-
-		// PostgreSQL needs manually reset table sequence for auto increment keys
-		if setting.UsePostgreSQL {
-			rawTableName := snakeMapper.Obj2Table(tableName)
-			seqName := rawTableName + "_id_seq"
-			if _, err = x.Exec(fmt.Sprintf(`SELECT setval('%s', COALESCE((SELECT MAX(id)+1 FROM "%s"), 1), false);`, seqName, rawTableName)); err != nil {
-				return fmt.Errorf("reset table '%s' sequence: %v", rawTableName, err)
-			}
-		}
 	}
 	return nil
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/contrib/static"
 	"github.com/gin-gonic/gin"
 	"strconv"
+	"mo/models"
 )
 
 var Web = cli.Command{
@@ -20,6 +21,7 @@ var Web = cli.Command{
 }
 
 func runWeb(c *cli.Context) {
+	models.NewEngine()
 	// Set the router as the default one shipped with Gin
 	router := gin.Default()
 
