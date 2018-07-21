@@ -1,5 +1,5 @@
 import React,{ Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { Layout, Row, Col, Icon } from 'antd';
 import * as styles from './LayoutHead.css';
 const { Header } = Layout;

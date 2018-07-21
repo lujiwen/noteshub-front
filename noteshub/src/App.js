@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import LayoutFooter from "./components/Layout/LayoutFooter";
-// import LayoutHeader from "./components/Layout/LayoutHead"
+import LayoutHeader from "./components/Layout/LayoutHead"
 
 class App extends Component {
   render() {
