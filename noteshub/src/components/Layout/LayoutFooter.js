@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
-import { connect } from 'react-redux';
-import * as styles from './LayoutFooter.css';
+// import { connect } from 'react-redux';
+// import * as styles from './LayoutFooter.css';
 function LayoutFooter(props) {
   return (
     <footer className="layoutfooter" >
@@ -11,5 +11,5 @@ function LayoutFooter(props) {
 function mapStateToProps(state,oWnprops) {
   return state;
 }
-
-export default connect(mapStateToProps)(LayoutFooter)
+export default LayoutFooter
+// export default connect(mapStateToProps)(LayoutFooter)
