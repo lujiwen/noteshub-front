@@ -18,4 +18,4 @@ ReactDOM.render(
     <div>
         <Notes chord={chord1} />
         <Notes chord={chord2} />
-    </div>, document.getElementById("app"));
+    </div>, document.getElementById("stave"));

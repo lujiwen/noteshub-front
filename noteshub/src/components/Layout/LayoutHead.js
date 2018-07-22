@@ -13,7 +13,7 @@ function LayoutHead(props) {
         </Col>
         <Col span={12}>
           <div className="user">
-            { userName ? <img src={avatar} className="images" onClick={() => history.push('/personal')} /> : <Icon type="user" className="icon" onClick={() => history.push('/user')} /> }
+            { userName ? <img src={} className="images" onClick={() => history.push('/personal')} /> : <Icon type="user" className="icon" onClick={() => history.push('/user')} /> }
           </div>
         </Col>
       </Row>
