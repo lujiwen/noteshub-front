@@ -1,4 +1,4 @@
-package musicxml
+package main
 
 import (
 	"time"
@@ -32,7 +32,7 @@ type MeasureElement struct {
 type Measure struct {
 	width float64
 	measureElements MeasureElement
-	measureAttributes string
+	measureAttributes MeasureAttributes
 }
 
 type Part struct {
