@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import './components/stave/Stave'
+import './components/Vex/Stave'
 
 import LayoutFooter from "./components/Layout/LayoutFooter";
-import Stave from "./components/stave/Stave";
+import Stave from "./components/Vex/Stave";
 
 class App extends Component {
   render() {

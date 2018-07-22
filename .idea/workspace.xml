@@ -3,6 +3,17 @@
   <component name="ChangeListManager">
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/noteshub/public/stave.html" afterPath="$PROJECT_DIR$/noteshub/public/stave.html" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/App.js" afterPath="$PROJECT_DIR$/noteshub/src/App.js" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/README.md" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/README.md" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/Stave.jsx" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/Stave.jsx" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/Vex.jsx" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/Vex.jsx" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/dist/bundle.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/dist/bundle.js" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/index.html" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/index.html" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/index.jsx" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/index.jsx" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/package-lock.json" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/package-lock.json" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/package.json" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/package.json" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/stave/webpack.config.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Vex/webpack.config.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -64,10 +75,10 @@
         </entry>
       </file>
       <file leaf-file-name="Stave.jsx" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/Stave.jsx">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/Stave.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="216">
+              <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
               <folding>
                 <element signature="e#0#33#0" expanded="true" />
               </folding>
@@ -76,7 +87,7 @@
         </entry>
       </file>
       <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/package.json">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/package.json">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="108">
               <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
@@ -106,7 +117,7 @@
         </entry>
       </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/index.html">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
@@ -116,7 +127,7 @@
         </entry>
       </file>
       <file leaf-file-name="Vex.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/Vex.jsx">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/Vex.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-38">
               <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
@@ -128,7 +139,7 @@
         </entry>
       </file>
       <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/index.jsx">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/index.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
               <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
@@ -268,15 +279,7 @@
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="Layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="stave" type="462c0819:PsiDirectoryNode" />
+              <item name="Vex" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -458,7 +461,7 @@
       <workItem from="1531038030366" duration="362000" />
       <workItem from="1531038428723" duration="321000" />
       <workItem from="1532187082357" duration="5806000" />
-      <workItem from="1532229059278" duration="1657000" />
+      <workItem from="1532229059278" duration="1855000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1531150023693</created>
@@ -530,11 +533,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532231083207</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="stave wrapping half done!">
+      <created>1532231147774</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1532231147774</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24806000" />
+    <option name="totallyTimeSpent" value="25004000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="818" extended-state="6" />
@@ -876,7 +886,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/webpack.config.js">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -920,7 +930,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/Vex.jsx">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/Vex.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-38">
           <caret line="18" column="31" lean-forward="true" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
@@ -930,7 +940,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/package.json">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="12" lean-forward="false" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
@@ -938,7 +948,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/index.jsx">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="32" lean-forward="true" selection-start-line="18" selection-start-column="32" selection-end-line="18" selection-end-column="32" />
@@ -948,7 +958,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/index.html">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
@@ -984,10 +994,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/stave/Stave.jsx">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/Stave.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="216">
+          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
           <folding>
             <element signature="e#0#33#0" expanded="true" />
           </folding>
