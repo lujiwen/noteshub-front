@@ -19,6 +19,12 @@ type server struct {
 	XMLName    xml.Name `xml:"server"`
 	ServerName string   `xml:"serverName"`
 	ServerIP   string   `xml:"serverIP"`
+	ps		   []person `xml:"person"`
+}
+
+type person struct {
+	XMLName xml.Name `xml:"person"`
+	name string  `xml:"name"`
 }
 
 func main() {
@@ -40,5 +46,5 @@ func main() {
 		return
 	}
 
-	fmt.Println(v)
+	fmt.Println(v.Svs[0].ps)
 }

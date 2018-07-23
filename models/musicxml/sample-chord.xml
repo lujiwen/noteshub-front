@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<score-partwise version="3.1">
+  <part id="P1">
+    <measure number="1" width="333.95">
+      <print>
+        <system-layout>
+          <system-margins>
+            <left-margin>0.00</left-margin>
+            <right-margin>-0.00</right-margin>
+            </system-margins>
+          <top-system-distance>170.00</top-system-distance>
+          </system-layout>
+        </print>
+      <attributes>
+        <divisions>1</divisions>
+        <key>
+          <fifths>0</fifths>
+          </key>
+        <time>
+          <beats>4</beats>
+          <beat-type>4</beat-type>
+          </time>
+        <clef>
+          <sign>G</sign>
+          <line>2</line>
+          </clef>
+        </attributes>
+      <note default-x="75.17" default-y="-45.00">
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+          </pitch>
+        <duration>1</duration>
+        <voice>1</voice>
+        <type>quarter</type>
+        <stem>up</stem>
+        </note>
+      </measure>
+    <measure number="2" width="247.85">
+      <note>
+        <rest/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      </measure>
+    <measure number="3" width="247.85">
+      <note>
+        <rest/>
+        <duration>4</duration>
+        <voice>1</voice>
+        </note>
+      </measure>
+     </part>
+
+  <part id="P2">
+  <measure number="1" width="333.95">
+    <print>
+      <system-layout>
+        <system-margins>
+          <left-margin>0.00</left-margin>
+          <right-margin>-0.00</right-margin>
+        </system-margins>
+        <top-system-distance>170.00</top-system-distance>
+      </system-layout>
+    </print>
+    <attributes>
+      <divisions>1</divisions>
+      <key>
+        <fifths>0</fifths>
+      </key>
+      <time>
+        <beats>4</beats>
+        <beat-type>4</beat-type>
+      </time>
+      <clef>
+        <sign>G</sign>
+        <line>2</line>
+      </clef>
+    </attributes>
+    <note default-x="75.17" default-y="-45.00">
+      <pitch>
+        <step>D</step>
+        <octave>4</octave>
+      </pitch>
+      <duration>1</duration>
+      <voice>1</voice>
+      <type>quarter</type>
+      <stem>up</stem>
+    </note>
+  </measure>
+  <measure number="2" width="247.85">
+    <note>
+      <rest/>
+      <duration>4</duration>
+      <voice>1</voice>
+    </note>
+  </measure>
+  <measure number="3" width="247.85">
+    <note>
+      <rest/>
+      <duration>4</duration>
+      <voice>1</voice>
+    </note>
+  </measure>
+  </part>
+  </score-partwise>
