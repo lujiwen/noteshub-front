@@ -6,6 +6,7 @@ import LayoutFooter from "./components/Layout/LayoutFooter";
 import Stave from "./components/Vex/Stave";
 
 import Vex from 'vexflow';
+import {Button} from "antd";
 const {Accidental, StaveNote} = Vex.Flow;
 
 class App extends Component {
@@ -24,6 +25,8 @@ class App extends Component {
       <div className="App">
           <Stave chord={[chord1,chord2]}/>
           <LayoutFooter/>
+          <Button type="primary">Button</Button>
+
       </div>
     );
   }
