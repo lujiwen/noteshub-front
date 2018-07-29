@@ -4,8 +4,10 @@ import (
 	"net/http"
 	"github.com/gin-gonic/gin"
 	//"strconv"
-	//log "gopkg.in/clog.v1"
+	log "gopkg.in/clog.v1"
 	//"time"
+	"time"
+	"strconv"
 )
 
 
@@ -23,10 +25,7 @@ func main() {
 				"message": "pong",
 			})
 		})
-		api.GET("/sheet", GetSheet)
-		//api.GET("/jokes", JokeHandler)
-		//api.POST("/jokes/like/:jokeID", LikeJoke)
-
+		api.GET("/sheet/:sheetId", GetSheet)
 	}
 
 	// Start and run the server
@@ -35,60 +34,21 @@ func main() {
 
 func GetSheet(c *gin.Context) {
 	c.Header("Content-Type", "application/json")
-	c.JSON(http.StatusOK, sheets)
+	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
+		log.Info("get sheet by id : %s", &sheetId)
+		sheet := Sheet{sheetId, "./location", "1", time.Now(), time.Now()}
+		c.JSON(http.StatusOK, sheet)
+	} else {
+		c.AbortWithStatus(http.StatusNotFound)
+	}
+
 }
-
-//type Sheet struct {
-//	sheetId          string `json:"sheetId" binding:"required"`
-//	location         string `json:"location" binding:"required"`
-//	//userId           string `json:"userId" binding:"required"`
-//	//createTime       time.Time `json:"createTime" binding:"required"`
-//	//lastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
-//}
-
-
 
 // every field name should start with letter in upper case
 type Sheet struct {
-	sheetId     int     `json:"sheetId" binding:"required"`
-	userId  int     `json:"userId"`
-	location   string  `json:"location" binding:"required"`
+	SheetId          int `json:"sheetId" binding:"required"`
+	Location         string `json:"location" binding:"required"`
+	UserId           string `json:"userId" binding:"required"`
+	CreateTime       time.Time `json:"createTime" binding:"required"`
+	LastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
 }
-
-// We'll create a list of jokes
-
-var sheets = []Sheet{
-	{1, 0, "Did you hear about the restaurant on the moon? Great food, no atmosphere."},
-	{2, 0, "What do you call a fake noodle? An Impasta."},
-	{3, 0, "How many apples grow on a tree? All of them."},
-	{4, 0, "Want to hear a joke about paper? Nevermind it's tearable."},
-	{5, 0, "I just watched a program about beavers. It was the best dam program I've ever seen."},
-	{6, 0, "Why did the coffee file a police report? It got mugged."},
-	{7, 0, "How does a penguin build it's house? Igloos it together."},
-}
-
-// JokeHandler retrieves a list of available jokes
-//func JokeHandler(c *gin.Context) {
-//	c.Header("Content-Type", "application/json")
-//	c.JSON(http.StatusOK, jokes)
-//}
-
-// LikeJoke increments the likes of a particular joke Item
-//func LikeJoke(c *gin.Context) {
-//	// confirm Joke ID sent is valid
-//	// remember to import the `strconv` package
-//	if jokeid, err := strconv.Atoi(c.Param("jokeID")); err == nil {
-//		// find joke, and increment likes
-//		for i := 0; i < len(jokes); i++ {
-//			if jokes[i].ID == jokeid {
-//				jokes[i].Likes += 1
-//			}
-//		}
-//
-//		// return a pointer to the updated jokes list
-//		c.JSON(http.StatusOK, &jokes)
-//	} else {
-//		// Joke ID is invalid
-//		c.AbortWithStatus(http.StatusNotFound)
-//	}
-//}
