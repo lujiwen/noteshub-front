@@ -7,10 +7,11 @@ import (
 	"github.com/gin-gonic/gin"
 	"strconv"
 	"mo/models"
+	log "gopkg.in/clog.v1"
 )
 
 var Web = cli.Command{
-	Name:        "web",
+	Name:        "server",
 	Usage:       "Start web server with framework Gin",
 	Description: `backend with gin to serve http request and response with json`,
 	Action:      runWeb,
@@ -36,6 +37,7 @@ func runWeb(c *cli.Context) {
 				"message": "pong",
 			})
 		})
+		api.GET("/sheet", GetSheet)
 		api.GET("/jokes", JokeHandler)
 		api.POST("/jokes/like/:jokeID", LikeJoke)
 
@@ -43,6 +45,14 @@ func runWeb(c *cli.Context) {
 
 	// Start and run the server
 	router.Run(":8080")
+}
+
+func GetSheet(c *gin.Context) {
+	log.Info("get sheet")
+}
+
+func uploadSheet(c *gin.Context) {
+	log.Info("uploading file!")
 }
 
 func userHandler(c *gin.Context) {
