@@ -8,6 +8,7 @@ import (
 	//"time"
 	"time"
 	"strconv"
+	"fmt"
 )
 
 
@@ -26,10 +27,27 @@ func main() {
 			})
 		})
 		api.GET("/sheet/:sheetId", GetSheet)
+
+		api.POST("/upload", Upload)
+
 	}
 
 	// Start and run the server
 	router.Run(":8080")
+}
+
+//curl -X POST http://localhost:8080/upload \
+//-F "file=@/Users/appleboy/test.zip" \
+//-H "Content-Type: multipart/form-data"
+func Upload(c *gin.Context) {
+	// single file
+	file, _ := c.FormFile("file")
+	log.Info(file.Filename)
+
+	// Upload the file to specific dst.
+	// c.SaveUploadedFile(file, dst)
+
+	c.JSON(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
 }
 
 func GetSheet(c *gin.Context) {
@@ -41,7 +59,6 @@ func GetSheet(c *gin.Context) {
 	} else {
 		c.AbortWithStatus(http.StatusNotFound)
 	}
-
 }
 
 // every field name should start with letter in upper case
