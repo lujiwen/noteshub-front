@@ -3,9 +3,7 @@ package main
 import (
 	"net/http"
 	"github.com/gin-gonic/gin"
-	//"strconv"
 	log "gopkg.in/clog.v1"
-	//"time"
 	"time"
 	"strconv"
 	"fmt"
@@ -19,9 +17,9 @@ func main() {
 	// Serve frontend static files
 
 	// Setup route group for the API
-	api := router.Group("/api")
+	api := router.Group("/v1")
 	{
-		api.GET("/", func(c *gin.Context) {
+		api.GET("/ping", func(c *gin.Context) {
 			c.JSON(http.StatusOK, gin.H{
 				"message": "pong",
 			})
@@ -33,12 +31,8 @@ func main() {
 	}
 
 	// Start and run the server
-	router.Run(":8080")
-}
+	router.Run(":8080")}
 
-//curl -X POST http://localhost:8080/upload \
-//-F "file=@/Users/appleboy/test.zip" \
-//-H "Content-Type: multipart/form-data"
 func Upload(c *gin.Context) {
 	// single file
 	file, _ := c.FormFile("file")

@@ -54,10 +54,10 @@
       <file leaf-file-name="server.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+            <state relative-caret-position="407">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
               <folding>
-                <element signature="e#14#137#0" expanded="true" />
+                <element signature="e#14#114#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -249,24 +249,7 @@
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="cmd" type="462c0819:PsiDirectoryNode" />
-              <item name="web.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="models.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -726,7 +709,7 @@
       <workItem from="1532252332863" duration="1781000" />
       <workItem from="1532272543189" duration="15739000" />
       <workItem from="1532742205915" duration="7989000" />
-      <workItem from="1532852591723" duration="5685000" />
+      <workItem from="1532852591723" duration="6016000" />
     </task>
     <task id="LOCAL-00001" summary="added readme">
       <created>1531150023693</created>
@@ -910,11 +893,18 @@
       <option name="project" value="LOCAL" />
       <updated>1532856791229</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="upload file to server succeed">
+      <created>1532861051524</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1532861051524</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58552000" />
+    <option name="totallyTimeSpent" value="58883000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="824" extended-state="0" />
@@ -933,7 +923,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18792868" sideWeight="0.63376254" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1423462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18311875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921812" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -941,7 +931,7 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17832647" sideWeight="0.648784" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32098764" sideWeight="0.648784" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1004,7 +994,8 @@
     <MESSAGE value="moved parsers to tests" />
     <MESSAGE value="gin controller cut-through" />
     <MESSAGE value="sheet get by id succeed" />
-    <option name="LAST_COMMIT_MESSAGE" value="sheet get by id succeed" />
+    <MESSAGE value="upload file to server succeed" />
+    <option name="LAST_COMMIT_MESSAGE" value="upload file to server succeed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1421,10 +1412,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="60" column="5" lean-forward="false" selection-start-line="60" selection-start-column="5" selection-end-line="60" selection-end-column="5" />
+        <state relative-caret-position="407">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
-            <element signature="e#14#137#0" expanded="true" />
+            <element signature="e#14#114#0" expanded="true" />
           </folding>
         </state>
       </provider>
