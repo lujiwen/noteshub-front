@@ -7,13 +7,10 @@ import Stave from "./components/Vex/Stave";
 
 import Vex from 'vexflow';
 import {Upload, Icon, message } from 'antd';
+import { ApolloProvider } from "react-apollo";
 const {Accidental, StaveNote} = Vex.Flow;
 
 class App extends Component {
-
-
-
-
   render() {
       let chord1 = [new StaveNote({
           keys: ["c/0", "e/4", "g#/8"],
@@ -34,7 +31,7 @@ class App extends Component {
       const props = {
           name: 'file',
           multiple: true,
-          action: '//jsonplaceholder.typicode.com/posts/',
+          action: '//127.0.0.1/posts/',
           onChange(info) {
               const status = info.file.status;
               if (status !== 'uploading') {
@@ -50,17 +47,19 @@ class App extends Component {
 
 
       return (
-      <div className="App">
-          <Stave chord={[chord1,chord2]}/>
-          <LayoutFooter/>
-          <Dragger {...props}>
-              <p className="ant-upload-drag-icon">
-                  <Icon type="inbox" />
-              </p>
-              <p className="ant-upload-text">Click or drag file to this area to upload</p>
-              <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
-          </Dragger>
-      </div>
+          <ApolloProvider client={client}>
+              <div className="App">
+                  <Stave chord={[chord1,chord2]}/>
+                  <LayoutFooter/>
+                  <Dragger {...props}>
+                      <p className="ant-upload-drag-icon">
+                          <Icon type="inbox" />
+                      </p>
+                      <p className="ant-upload-text">Click or drag file to this area to upload</p>
+                      <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
+                  </Dragger>
+              </div>
+          </ApolloProvider>
     );
   }
 }
