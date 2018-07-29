@@ -7,6 +7,8 @@ import (
 	"time"
 	"strconv"
 	"fmt"
+	"io/ioutil"
+	"mo/models"
 )
 
 
@@ -37,6 +39,19 @@ func Upload(c *gin.Context) {
 	// single file
 	file, _ := c.FormFile("file")
 	log.Info(file.Filename)
+	filename := file.Filename
+	size := file.Size
+	log.Info("filename : %s , size :%s " , filename, size)
+	if fileContent, err := file.Open(); err == nil {
+		//no side effect
+		musicXml, _ := ioutil.ReadAll(fileContent) // why the long names though?
+		stave := models.ParseMxmlFromDataByte(musicXml)
+		fmt.Printf(stave.Composer)
+		fmt.Printf("size:%d", len(musicXml))
+	}
+
+	//defer file.close()
+
 
 	// Upload the file to specific dst.
 	// c.SaveUploadedFile(file, dst)

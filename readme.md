@@ -75,3 +75,17 @@ owner
 ）
 
 
+
+# how to solve the problem of cross-Domain requests
+execute the command below :
+``
+open -a "Google Chrome" --args --disable-web-security  --user-data-dir
+``
+
+# import functions from other module :
+
+## use modulename.functionname complete 
+ 
+## import the module where the function belongs automatically
+ 
+# defer will stack the following operation to cope with error returning but leave the resource opened

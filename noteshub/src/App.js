@@ -7,7 +7,6 @@ import Stave from "./components/Vex/Stave";
 
 import Vex from 'vexflow';
 import {Upload, Icon, message } from 'antd';
-import { ApolloProvider } from "react-apollo";
 const {Accidental, StaveNote} = Vex.Flow;
 
 class App extends Component {
@@ -31,7 +30,7 @@ class App extends Component {
       const props = {
           name: 'file',
           multiple: true,
-          action: '//127.0.0.1/posts/',
+          action: '//127.0.0.1:8080/v1/upload/',
           onChange(info) {
               const status = info.file.status;
               if (status !== 'uploading') {
@@ -47,7 +46,6 @@ class App extends Component {
 
 
       return (
-          <ApolloProvider client={client}>
               <div className="App">
                   <Stave chord={[chord1,chord2]}/>
                   <LayoutFooter/>
@@ -59,7 +57,6 @@ class App extends Component {
                       <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
                   </Dragger>
               </div>
-          </ApolloProvider>
     );
   }
 }
