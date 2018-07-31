@@ -16,6 +16,9 @@ func main() {
 	// Set the router as the default one shipped with Gin
 	router := gin.Default()
 
+	// connect to db
+	initializeDB()
+
 	// Serve frontend static files
 
 	// Setup route group for the API
@@ -29,11 +32,17 @@ func main() {
 		api.GET("/sheet/:sheetId", GetSheet)
 
 		api.POST("/upload", Upload)
-
 	}
 
 	// Start and run the server
-	router.Run(":8080")}
+	router.Run(":8080")
+}
+
+func initializeDB() {
+	if err := models.NewEngine(); err != nil {
+		log.Fatal(2, "Fail to initialize ORM engine: %v", err)
+	}
+}
 
 func Upload(c *gin.Context) {
 	// single file
@@ -52,9 +61,11 @@ func Upload(c *gin.Context) {
 
 	//defer file.close()
 
-
 	// Upload the file to specific dst.
 	// c.SaveUploadedFile(file, dst)
+	//save to db upload
+	sheetFile := models.SheetFile{SheetTp: models.Stave, FilePath: "./usr/loca/sheet.xml", Filename: filename, UploadTime: time.Now(), Uploader: "lujiwen" }
+	models.SaveSheetToDB(sheetFile)
 
 	c.JSON(http.StatusOK, fmt.Sprintf("'%s' uploaded!", file.Filename))
 }
