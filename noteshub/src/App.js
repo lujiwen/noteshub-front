@@ -49,7 +49,7 @@ class App extends Component {
 
 
       return (
-              <div className="App">
+              <div >
                   {/*<Stave chord={[chord1,chord2]}/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
