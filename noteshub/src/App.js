@@ -8,6 +8,8 @@ import Stave from "./components/Vex/Stave";
 import Vex from 'vexflow';
 import {Upload, Icon, message } from 'antd';
 import SheetContainer from "./containers/SheetContainer";
+import Header from "./containers/Header";
+import Scheme from "./containers/Scheme";
 const {Accidental, StaveNote} = Vex.Flow;
 
 class App extends Component {
@@ -57,7 +59,13 @@ class App extends Component {
                       {/*<p className="ant-upload-text">Click or drag file to this area to upload</p>*/}
                       {/*<p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>*/}
                   {/*</Dragger>*/}
-                  <SheetContainer/>
+                  {/*<Header />*/}
+                  {/*<SheetContainer/>*/}
+                  <Header />
+                  <div className='main'>
+                      <Scheme />
+                      <SheetContainer />
+                  </div>
               </div>
     );
   }

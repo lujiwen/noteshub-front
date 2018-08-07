@@ -6,11 +6,15 @@
     "antd": "3.4.0",
     "apollo-boost": "^0.1.12",
     "graphql": "^0.13.2",
+    "prop-types": "^15.6.2",
+    "rc-slider": "^8.6.1",
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",
     "react-dom": "^16.4.1",
     "react-redux": "5.0.7",
     "react-scripts": "1.1.4",
+    "react-select": "^2.0.0",
+    "react-switch": "^3.0.4",
     "redux": "3.7.2",
     "redux-devtools-extension": "^2.13.5",
     "redux-form": "^7.4.2",
@@ -27,6 +31,7 @@
   },
   "devDependencies": {
     "babel-plugin-import": "^1.8.0",
+    "jest": "^23.4.2",
     "react-app-rewired": "^1.5.2"
   }
 }
