@@ -7,6 +7,7 @@ import Stave from "./components/Vex/Stave";
 
 import Vex from 'vexflow';
 import {Upload, Icon, message } from 'antd';
+import SheetContainer from "./containers/SheetContainer";
 const {Accidental, StaveNote} = Vex.Flow;
 
 class App extends Component {
@@ -47,15 +48,16 @@ class App extends Component {
 
       return (
               <div className="App">
-                  <Stave chord={[chord1,chord2]}/>
-                  <LayoutFooter/>
-                  <Dragger {...props}>
-                      <p className="ant-upload-drag-icon">
-                          <Icon type="inbox" />
-                      </p>
-                      <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                      <p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>
-                  </Dragger>
+                  {/*<Stave chord={[chord1,chord2]}/>*/}
+                  {/*<LayoutFooter/>*/}
+                  {/*<Dragger {...props}>*/}
+                      {/*<p className="ant-upload-drag-icon">*/}
+                          {/*<Icon type="inbox" />*/}
+                      {/*</p>*/}
+                      {/*<p className="ant-upload-text">Click or drag file to this area to upload</p>*/}
+                      {/*<p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>*/}
+                  {/*</Dragger>*/}
+                  <SheetContainer/>
               </div>
     );
   }

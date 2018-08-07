@@ -9,7 +9,7 @@ type SheetType int
 const (
 	_ SheetType  = iota
 	Stave
-	GuitarSpectrum
+	GuitarTablature
 	ukeleleSpectrum
 )
 
