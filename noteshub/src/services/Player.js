@@ -43,9 +43,6 @@ class Player {
     this.beatCounter = 0;
     const notesToSwing = [];
 
-    // ограничения по мультиолям
-    // поддерживаются только с основанием 2
-    // вложенность не поддерживается
     if (voice.tuplets) {
       voice.tuplets.forEach(tuplet => {
         const { from, to } = tuplet;
