@@ -10,8 +10,8 @@ class Stave extends React.Component {
     render() {
         const { chord} = this.props
         return <div>
-            <p>{this.props.name}</p>
-            <Notes chord={chord[0]} />
+            {/*<p>{this.props.name}</p>*/}
+            {/*<Notes chord={chord[0]} />*/}
             <Notes chord={chord[1]} />
         </div>
     }

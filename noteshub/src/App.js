@@ -50,7 +50,7 @@ class App extends Component {
 
       return (
               <div >
-                  {/*<Stave chord={[chord1,chord2]}/>*/}
+                  <Stave chord={[chord1,chord2]}/>
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}
@@ -62,10 +62,10 @@ class App extends Component {
                   {/*<Header />*/}
                   {/*<SheetContainer/>*/}
                   {/*<Header />*/}
-                  <div >
-                      {/*<Scheme />*/}
-                      <SheetContainer />
-                  </div>
+                  {/*<div >*/}
+                      {/*/!*<Scheme />*!/*/}
+                      {/*<SheetContainer />*/}
+                  {/*</div>*/}
               </div>
     );
   }
