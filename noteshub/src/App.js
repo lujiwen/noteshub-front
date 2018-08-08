@@ -12,7 +12,11 @@ import Header from "./containers/Header";
 import Scheme from "./containers/Scheme";
 const {Accidental, StaveNote} = Vex.Flow;
 
+
+
 class App extends Component {
+
+
   render() {
       let chord1 = [new StaveNote({
           keys: ["c/0", "e/4", "g#/8"],
@@ -51,6 +55,7 @@ class App extends Component {
       return (
               <div >
                   <Stave chord={[chord1,chord2]}/>
+
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}
