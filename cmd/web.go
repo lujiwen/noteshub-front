@@ -37,7 +37,7 @@ func runWeb(c *cli.Context) {
 				"message": "pong",
 			})
 		})
-		api.GET("/sheet", GetSheet)
+		//api.GET("/sheet/:sheetID", GetSheet)
 		api.GET("/jokes", JokeHandler)
 		api.POST("/jokes/like/:jokeID", LikeJoke)
 
@@ -47,9 +47,13 @@ func runWeb(c *cli.Context) {
 	router.Run(":8080")
 }
 
-func GetSheet(c *gin.Context) {
-	log.Info("get sheet")
-}
+//func GetSheet(c *gin.Context) {
+//	log.Info("get sheet")
+//	if sheetId, err := strconv.Atoi(c.Param("jokeID")); err == nil {
+//		log.Info("sheetID: %s", sheetId )
+//		c.JSON(http.StatusOK, models.ParseMxml("models/musicxml/sample-chord.xml"))
+//	}
+//}
 
 func uploadSheet(c *gin.Context) {
 	log.Info("uploading file!")

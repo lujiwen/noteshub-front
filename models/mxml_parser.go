@@ -114,7 +114,3 @@ func ParseMxmlFromDataByte(data []byte) MXLDoc {
     }
     return v
 }
-
-func main() {
-    fmt.Print(ParseMxml("models/musicxml/sample-chord.xml"))
-}
