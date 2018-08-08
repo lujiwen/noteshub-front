@@ -11,7 +11,7 @@ import {AUTH_SIGNIN} from "./actions/UserAction";
 import { reducer as formReducer } from 'redux-form';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 // import authReducer from "./reducers/authReducer";
-
+import { ApolloProvider } from 'react-apollo';
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -53,8 +53,10 @@ if (token) {
 }
 
 ReactDOM.render(
-    <Provider store={store}>
-    <App />
-    </Provider>
+    <ApolloProvider store={store} client={client}>
+      {/*<Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>*/}
+        <App />
+      {/*</Router>*/}
+    </ApolloProvider>
     , document.getElementById('root'));
 registerServiceWorker();
