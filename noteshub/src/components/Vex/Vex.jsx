@@ -21,7 +21,7 @@ export default class Notes extends Component {
         const svgContainer = document.createElement('div');
         const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
         const ctx = renderer.getContext();
-        const stave = new Stave(0, 0, 500);  // x, y, width
+        const stave = new Stave(0, 0, 800);  // x, y, width
         stave.addClef("treble").setContext(ctx).draw();
         const bb = Formatter.FormatAndDraw(ctx, stave, chord);
 
