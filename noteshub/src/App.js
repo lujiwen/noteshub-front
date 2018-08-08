@@ -61,9 +61,9 @@ class App extends Component {
                   {/*</Dragger>*/}
                   {/*<Header />*/}
                   {/*<SheetContainer/>*/}
-                  <Header />
-                  <div className='main'>
-                      <Scheme />
+                  {/*<Header />*/}
+                  <div >
+                      {/*<Scheme />*/}
                       <SheetContainer />
                   </div>
               </div>

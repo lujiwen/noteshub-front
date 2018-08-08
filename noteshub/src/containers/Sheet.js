@@ -11,7 +11,7 @@ class Sheet extends Component {
   drawSheet = () => {
     new SheetDrawer(
       this.sheetContainer,
-      [this.props.intro,...this.props.sections,this.props.ending].filter(x => x !== null),
+      [...this.props.sections].filter(x => x !== null),
       {width: this.state.windowWidth, signature:this.props.signature,scale: this.props.scale}   
     ).draw();
   }  

@@ -16,7 +16,7 @@ const FIRST_NOTE_SPACE = 10;
 const LAST_NOTE_SPACE = 10;
 
 
-function disributeValue(arr, value, precision) {
+function distributeValue(arr, value, precision) {
   const sum = arr.reduce((sum, value) => sum + value, 0);
 
   const percentages = arr.map(value => value / sum);
@@ -63,7 +63,7 @@ class SheetDrawer {
     let barOffset = PADDING_LEFT;
 
     //if (widthRest !== 0) {
-    const widthRestArray = disributeValue(widthArray, widthRest, 0);
+    const widthRestArray = distributeValue(widthArray, widthRest, 0);
     //}
 
     currentRowBars.forEach((b, index) => {

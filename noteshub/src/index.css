@@ -57,7 +57,7 @@ body {
   flex-direction: row;
   display: flex;
   /* flex: auto; */
-  /*margin-top: 64px*/
+  margin-top: 64px
 }
 
 .scheme-wrapper {
