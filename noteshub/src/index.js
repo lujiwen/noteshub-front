@@ -5,7 +5,8 @@ import App from './App';
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 import configureStore from './store/configureStore'
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router} from 'react-router';
+import { BrowserRouter, Link, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import {AUTH_SIGNIN} from "./actions/UserAction";
 import { reducer as formReducer } from 'redux-form';
@@ -54,7 +55,7 @@ if (token) {
 
 ReactDOM.render(
     <ApolloProvider store={store} client={client}>
-      {/*<Router history={browserHistory} onUpdate={() => window.scrollTo(0, 0)}>*/}
+      {/*<Router history={browserHistory} >*/}
         <App />
       {/*</Router>*/}
     </ApolloProvider>

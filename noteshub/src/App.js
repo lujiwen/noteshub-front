@@ -10,6 +10,7 @@ import {Upload, Icon, message } from 'antd';
 import SheetContainer from "./containers/SheetContainer";
 import Header from "./containers/Header";
 import Scheme from "./containers/Scheme";
+import HomePageContainer from "./containers/HomePageContainer";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
@@ -55,7 +56,6 @@ class App extends Component {
       return (
               <div >
                   <Stave chord={[chord1,chord2]}/>
-
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}
