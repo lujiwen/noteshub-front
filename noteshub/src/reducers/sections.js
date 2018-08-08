@@ -7,8 +7,13 @@ function createSection(random = false) {
 
   const rightHandDemoPatterns = presets.rightHandPatterns.filter(p => p.demo);
 
-  const lhPatternInd = random ? getRandomInt(1,presets.leftHandPatterns.length): 0;
-  const rhPatternInd = random ? getRandomInt(1,rightHandDemoPatterns.length) : 0;
+  const lhPatternInd = 1;
+  const rhPatternInd = 1;
+  // const lhPatternInd = random ? getRandomInt(1,presets.leftHandPatterns.length): 0;
+  // const rhPatternInd = random ? getRandomInt(1,rightHandDemoPatterns.length) : 0;
+
+  console.log("lhPatternInd: " + lhPatternInd)
+  console.log("rhPatternInd: " + rhPatternInd)
 
   const { phrases: lhPhrases, ...leftHand } = presets.leftHandPatterns[lhPatternInd];
   const { phrases: rhPhrases, ...rightHand } = rightHandDemoPatterns[rhPatternInd];
@@ -18,9 +23,10 @@ function createSection(random = false) {
       bar.trebleVoices = rhPhrases[phraseIndex].bars[barIndex].trebleVoices;
     })
   })
-
+  var generatedId = generateId();
+  console.log("generatedId: " + generatedId)
   return {
-    id: generateId(),
+    id: generatedId,
     type: 'PROGRESSION',
     leftHand,
     rightHand,
