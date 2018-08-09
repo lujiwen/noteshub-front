@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import Notes from './Vex';
+import Notes from '../Notes';
 
 import Vex from 'vexflow';
 const {Accidental, StaveNote} = Vex.Flow;

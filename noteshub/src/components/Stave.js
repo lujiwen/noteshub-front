@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notes from './Vex/Vex';
+import Notes from './Notes';
 import SheetDrawer from "../services/SheetDrawer";
 import {generateId} from "../helpers";
 import PropTypes from "prop-types";
@@ -10,11 +10,7 @@ class Stave extends Component {
   state = {windowWidth: window.innerWidth};
 
   drawSheet = () => {
-    new SheetDrawer(
-        this.sheetContainer,
-        [...this.props.sections].filter(x => x !== null),
-        {width: this.state.windowWidth, signature:this.props.signature,scale: this.props.scale}
-    ).draw();
+
   }
 
 
@@ -50,7 +46,7 @@ class Stave extends Component {
     }
 
     render() {
-        const { chord} = this.props
+        const {chord} = this.props
         return <div>
             {/*<p>{this.props.name}</p>*/}
             {/*<Notes chord={chord[0]} />*/}
@@ -90,5 +86,5 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps)(Stave);
-// export default Stave
+// export default connect(mapStateToProps)(Stave);
+export default Stave
