@@ -6,7 +6,7 @@ import sections from './sections'
 import sheet from './sheet'
 import { combineReducers } from 'redux'
 
-const rootReducer = combineReducers({
+const sheetReducer = combineReducers({
     player,
     settings,
     intro,
@@ -15,4 +15,4 @@ const rootReducer = combineReducers({
     sheet
 })
 
-export default rootReducer
+export default sheetReducer

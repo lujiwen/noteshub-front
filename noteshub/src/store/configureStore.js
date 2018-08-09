@@ -7,7 +7,7 @@ import Player from '../services/Player';
 const player = new Player();
 
 
-function playerMiddleware () {
+export function playerMiddleware () {
   return store => next => action => {
     if (action.type === 'PLAY') {
       const {intro, sections, ending, settings , sheet } = store.getState();

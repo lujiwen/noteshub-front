@@ -9,11 +9,11 @@ class Sheet extends Component {
   state = {windowWidth: window.innerWidth};
 
   drawSheet = () => {
-    new SheetDrawer(
-      this.sheetContainer,
-      [...this.props.sections].filter(x => x !== null),
-      {width: this.state.windowWidth, signature:this.props.signature,scale: this.props.scale}   
-    ).draw();
+    // new SheetDrawer(
+    //   this.sheetContainer,
+    //   [...this.props.sections].filter(x => x !== null),
+    //   {width: this.state.windowWidth, signature:this.props.signature,scale: this.props.scale}
+    // ).draw();
   }  
 
   componentDidMount() {

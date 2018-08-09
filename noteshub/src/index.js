@@ -4,15 +4,16 @@ import './index.css';
 import App from './App';
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
-import configureStore from './store/configureStore'
+import configureStore, {playerMiddleware} from './store/configureStore'
 import { Router} from 'react-router';
 import { BrowserRouter, Link, Route } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import {AUTH_SIGNIN} from "./actions/UserAction";
 import { reducer as formReducer } from 'redux-form';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-// import authReducer from "./reducers/authReducer";
 import { ApolloProvider } from 'react-apollo';
+import sheetReducer from "./reducers";
+import authReducer from "./reducers";
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -38,11 +39,12 @@ const store = createStore(
     combineReducers({
       apollo: client.reducer(),
       form: formReducer,
-      // auth: authReducer,
+      auth: authReducer,
+      sheet: sheetReducer
     }),
     {}, // initial state
     compose(
-        applyMiddleware(client.middleware()),
+        applyMiddleware(client.middleware(),playerMiddleware),
         // If you are using the devToolsExtension, you can add it here also
         window.devToolsExtension ? window.devToolsExtension() : f => f,
     )
