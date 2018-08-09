@@ -1,7 +1,7 @@
-import React from 'react';
-import Notes from './Vex';
+import React, { Component } from 'react';
+import Notes from './Vex/Vex';
 
-class Stave extends React.Component {
+class Stave extends Component {
 
     constructor(props) {
         super(props);

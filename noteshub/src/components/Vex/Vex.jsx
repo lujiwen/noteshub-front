@@ -21,9 +21,11 @@ export default class Notes extends Component {
         const svgContainer = document.createElement('div');
         const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
         const ctx = renderer.getContext();
-        const stave = new Stave(0, 0, 800);  // x, y, width
-        stave.addClef("treble").setContext(ctx).draw();
-        const bb = Formatter.FormatAndDraw(ctx, stave, chord);
+        const trebleStave = new Stave(0, 0, 800);  // x, y, width
+        const bassStave = new Stave(0, 100, 800);  // x, y, width
+        trebleStave.addClef("treble").setContext(ctx).draw();
+        bassStave.addClef("bass").setContext(ctx).draw();
+        const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
 
         const svg = svgContainer.childNodes[0];
         const padding = 10;
@@ -39,6 +41,7 @@ export default class Notes extends Component {
         svgContainer.style.position = "relative";
         svgContainer.style.display = "inlineBlock";
 
-        this.refs.outer.appendChild(svgContainer);
+        // noinspection JSUnresolvedVariable
+      this.refs.outer.appendChild(svgContainer);
     }
 }

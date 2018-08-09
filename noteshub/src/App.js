@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import './components/Vex/Stave'
+
 
 import LayoutFooter from "./components/Layout/LayoutFooter";
-import Stave from "./components/Vex/Stave";
+import Stave from "./components/Stave";
 
 import Vex from 'vexflow';
 import {Upload, Icon, message } from 'antd';
