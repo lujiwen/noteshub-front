@@ -1,5 +1,5 @@
 import Vex from 'vexflow';
-
+import sheetjson from '../sheet'
 import React, {Component} from 'react';
 
 const {
@@ -42,7 +42,7 @@ export default class Notes extends Component {
     this.rowLastBars = [];
 
 
-    // this.signature = signature;
+     this.signature = 'C';
 
     // this.rowsCounter = 0;
 
@@ -65,17 +65,62 @@ export default class Notes extends Component {
 
       return valueDistribution;
     }
+
+
+
     componentDidMount() {
 
-      const {chord} = this.props;
+      const sheet = this.props;
+      console.log(sheet)
+
+      const trebleStave = new Stave(0, 0, 800);  // x, y, width
+      const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
+      let chord = []
+      sheet.sheet.parts.forEach(part => {
+        part.measures.forEach(measure => {
+
+
+              let key = []
+              for(let i in measure.notes) {
+                // console.log(measure.notes[i])
+                key.push(measure.notes[i].step+"/"+measure.notes[i].octave);
+              }
+              chord.push(new StaveNote({
+                keys: key,
+                duration: "w",
+              }).addAccidental(0, new Accidental("bb")).addAccidental(2, new Accidental("#")));
+
+        });
+      });
+
+
+      let chord1 = [new StaveNote({
+        keys: ["c/4", "e/4", "g#/4"],
+        duration: "w",
+      }).addAccidental(0, new Accidental("bb")).addAccidental(2, new Accidental("#"))];
 
       const svgContainer = document.createElement('div');
       const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
       const ctx = renderer.getContext();
-      const trebleStave = new Stave(0, 0, 800);  // x, y, width
-      const bassStave = new Stave(0, 100, 800);  // x, y, width
-      trebleStave.addClef("treble").setContext(ctx).draw();
-      bassStave.addClef("bass").setContext(ctx).draw();
+
+      ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
+
+      let rowsCounter = 0;
+      let currentWidth = 0;
+      const currentRowBars = [];
+      const widthArray = [];
+      let firstRow = true;
+
+      const sectionsLength = 10;
+
+      trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
+      bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
+
+      var startX = this.unifyNotesStartX(trebleStave, bassStave);
+
+      // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
+
+
       const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
 
       const svg = svgContainer.childNodes[0];
@@ -83,7 +128,7 @@ export default class Notes extends Component {
       const half = padding / 2;
       svg.style.top = -bb.y + half + Math.max(0, (100 - bb.h) * 2/3) + "px";
       svg.style.height = Math.max(100, bb.h);
-      svg.style.left = "0px";
+      svg.style.left = PADDING_LEFT;
       svg.style.width = 100 + "px";
       svg.style.position = "absolute";
       svg.style.overflow = "visible";
@@ -94,5 +139,12 @@ export default class Notes extends Component {
 
         // noinspection JSUnresolvedVariable
       this.refs.outer.appendChild(svgContainer);
+    }
+
+    unifyNotesStartX(trebleStave, bassStave) {
+      const startX = Math.max(trebleStave.getNoteStartX(), bassStave.getNoteStartX());
+      trebleStave.setNoteStartX(startX);
+      bassStave.setNoteStartX(startX);
+      return startX
     }
 }

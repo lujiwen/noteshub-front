@@ -47,10 +47,35 @@ class Stave extends Component {
 
     render() {
         const {chord} = this.props
+        const sheet = { parts : [
+            {
+              id: 'part1',
+              measures : [
+                {
+                  number : '1',
+                  notes: [
+                    {
+                      accidental : 0,
+                      step: "D",
+                      octave: 4,
+                      duration: 1,
+                    },
+                    {
+                      accidental : 0,
+                      step: "C",
+                      octave: 4,
+                      duration: 1,
+                    }
+                  ]}
+                  ,
+              ]
+            },
+          ]}
+          // console.log(sheet)
         return <div>
-            {/*<p>{this.props.name}</p>*/}
-            {/*<Notes chord={chord[0]} />*/}
-            <Notes chord={chord[1]} />
+            {/*/!*<p>{this.props.name}</p>*!/*/}
+            <Notes sheet={sheet} />
+            {/*/!*<Notes chord={chord[1]} />*!/*/}
         </div>
     }
 

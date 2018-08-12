@@ -26,8 +26,11 @@ class App extends Component {
 
       let chord2 = [new StaveNote({
           keys: ["d/4", "f#/4", "a#/4"],
-          duration: "w",
+          duration: "1",
       }).addAccidental(1, new Accidental("#")).addAccidental(2, new Accidental("#"))];
+
+      // staveNote.setAttribute('id', `${sInd}-${pInd}-${bInd}-${symbol}-${vInd}-${nInd}`);
+      // set id and add style class to it
 
       this.state = {
           top: 10,
