@@ -78,9 +78,13 @@ export default class Notes extends Component {
       const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
       let key = []
       let duration
+      let partCount = sheet.sheet.parts.length
+      console.log("total parts number: " + partCount)
+
+      let measureCount = sheet.sheet.parts[0].measures.length
+      console.log("total measures number: " + measureCount)
       sheet.sheet.parts.forEach(part => {
         part.measures.forEach(measure => {
-
               for(let i in measure.notes) {
                 key.push(measure.notes[i].step+"/"+measure.notes[i].octave);
                 duration = measure.notes[i].duration
