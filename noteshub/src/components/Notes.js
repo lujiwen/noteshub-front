@@ -76,29 +76,23 @@ export default class Notes extends Component {
 
       const trebleStave = new Stave(0, 0, 800);  // x, y, width
       const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
-      let chord = []
+      let key = []
+      let duration
       sheet.sheet.parts.forEach(part => {
         part.measures.forEach(measure => {
 
-
-              let key = []
               for(let i in measure.notes) {
-                // console.log(measure.notes[i])
                 key.push(measure.notes[i].step+"/"+measure.notes[i].octave);
+                duration = measure.notes[i].duration
               }
-              chord.push(new StaveNote({
-                keys: key,
-                duration: "w",
-              }).addAccidental(0, new Accidental("bb")).addAccidental(2, new Accidental("#")));
-
         });
       });
 
 
-      let chord1 = [new StaveNote({
-        keys: ["c/4", "e/4", "g#/4"],
-        duration: "w",
-      }).addAccidental(0, new Accidental("bb")).addAccidental(2, new Accidental("#"))];
+      let chord = [new StaveNote({
+        keys: key,
+        duration: duration.toString(),
+      })];
 
       const svgContainer = document.createElement('div');
       const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
@@ -128,7 +122,7 @@ export default class Notes extends Component {
       lineLeft.setContext(ctx).draw();
       lineRight.setContext(ctx).draw();
 
-      const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord1);
+      const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
 
       const svg = svgContainer.childNodes[0];
       const padding = 10;
