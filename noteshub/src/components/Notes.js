@@ -8,6 +8,7 @@ const {
     Stave,
     StaveNote,
     Renderer,
+    StaveConnector
 } = Vex.Flow;
 
 const SCHEME_WIDTH = 350;
@@ -121,7 +122,13 @@ export default class Notes extends Component {
       // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
 
 
-      const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
+      const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
+      const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
+
+      lineLeft.setContext(ctx).draw();
+      lineRight.setContext(ctx).draw();
+
+      const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord1);
 
       const svg = svgContainer.childNodes[0];
       const padding = 10;
