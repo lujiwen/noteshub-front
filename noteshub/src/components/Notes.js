@@ -1,5 +1,4 @@
 import Vex from 'vexflow';
-import sheetjson from '../sheet'
 import React, {Component} from 'react';
 
 const {
@@ -44,9 +43,6 @@ export default class Notes extends Component {
 
 
      this.signature = 'C';
-
-    // this.rowsCounter = 0;
-
   }
 
     render() {
@@ -67,28 +63,30 @@ export default class Notes extends Component {
       return valueDistribution;
     }
 
-
-
     componentDidMount() {
 
-      const sheet = this.props;
+      const sheet = this.props.sheet;
       console.log(sheet)
 
       const trebleStave = new Stave(0, 0, 800);  // x, y, width
       const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
       let key = []
-      let duration
-      let partCount = sheet.sheet.parts.length
+      var duration
+      let partCount = sheet.Parts.length
       console.log("total parts number: " + partCount)
 
-      let measureCount = sheet.sheet.parts[0].measures.length
+      let measureCount = sheet.Parts[0].Measures.length
       console.log("total measures number: " + measureCount)
-      sheet.sheet.parts.forEach(part => {
-        part.measures.forEach(measure => {
-              for(let i in measure.notes) {
-                key.push(measure.notes[i].step+"/"+measure.notes[i].octave);
-                duration = measure.notes[i].duration
-              }
+      sheet.Parts.forEach(part => {
+        part.Measures.forEach(measure => {
+          for(let i in measure.Notes) {
+            let note = measure.Notes[i];
+            let pitch = note.Pitch;
+            if(pitch.Step != ""){
+              key.push(pitch.Step + "/"+pitch.Octave);
+              duration = note.Duration
+            }
+          }
         });
       });
 

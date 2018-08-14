@@ -4,10 +4,12 @@ import SheetDrawer from "../services/SheetDrawer";
 import {generateId} from "../helpers";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
+import axios from 'axios'
 
 class Stave extends Component {
 
-  state = {windowWidth: window.innerWidth};
+  // state = {windowWidth: window.innerWidth};
+
 
   drawSheet = () => {
 
@@ -15,10 +17,17 @@ class Stave extends Component {
 
 
   constructor(props) {
-        super(props);
+      super(props);
+      this.state = {sheet: null};
+      // var sheet = this.props.sheet
   }
 
-
+  componentWillMount() {
+    axios.get("http://127.0.0.1:8080/v1/sheet/1")
+        .then(response => {
+          this.setState({sheet: response.data});
+        })
+  }
 
     componentDidMount() {
       // console.log('sheet did mount');
@@ -46,41 +55,14 @@ class Stave extends Component {
     }
 
     render() {
-        const {chord} = this.props
-        const sheet = { parts : [
-            {
-              id: 'part1',
-              measures : [
-                {
-                  number : '1',
-                  notes: [
-                    {
-                      accidental : 0,
-                      step: "D",
-                      octave: 4,
-                      duration: 1,
-                    },
-                    {
-                      accidental : 0,
-                      step: "C",
-                      octave: 4,
-                      duration: 1,
-                    }
-                  ]}
-                  ,
-              ]
-            },
-          ]}
-          // console.log(sheet)
+      if(this.state.sheet != null) {
         return <div>
-            {/*/!*<p>{this.props.name}</p>*!/*/}
-            <Notes sheet={sheet} />
-            {/*/!*<Notes chord={chord[1]} />*!/*/}
+          <Notes sheet={this.state.sheet} />
         </div>
+      } else {
+        return <div></div>
+      }
     }
-
-
-
 }
 
 Stave.propTypes = {
@@ -97,19 +79,6 @@ const mapStateToProps = (state) => {
     parts: state.parts,
   }
 }
-
-//
-// render() {
-//   // console.log('sheet render');
-//   // всегда передаем разный key, чтобы реакт каждый раз полностью пересоздавал
-//   // https://stackoverflow.com/questions/21749798/how-can-i-reset-a-react-component-including-all-transitively-reachable-state
-//   return (
-//       <div className='sheet' ref={(x) => this.sheetContainer = x} key = {generateId()} />
-//   );
-// }
-// }
-
-
 
 // export default connect(mapStateToProps)(Stave);
 export default Stave
