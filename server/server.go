@@ -71,7 +71,8 @@ func Upload(c *gin.Context) {
 }
 
 func GetSheet(c *gin.Context) {
-	c.Header("Content-Type", "application/json")
+	c.Header("Content-Type", "application/json; charset=UTF-8")
+	c.Header("Access-Control-Allow-Origin", "*")
 	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
 		log.Info("get sheet by id : %s", &sheetId)
 		//sheet := Sheet{sheetId, "./location", "1", time.Now(), time.Now()}
