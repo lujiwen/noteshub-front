@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/tests/Json_parser.go" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" afterPath="$PROJECT_DIR$/models/mxml_parser.go" />
-      <change beforePath="$PROJECT_DIR$/server/server.go" afterPath="$PROJECT_DIR$/server/server.go" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -53,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Notes.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Notes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
+            <state relative-caret-position="389">
+              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -97,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mxml_parser.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mxml_parser.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+            <state relative-caret-position="234">
+              <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -164,9 +162,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>router</find>
-      <find>apoll</find>
-      <find>IndexRoute</find>
       <find>tag</find>
       <find>react-router</find>
       <find>6</find>
@@ -194,6 +189,9 @@
       <find>notes</find>
       <find>seta</find>
       <find>xml:(.*&quot;)</find>
+      <find>Measures</find>
+      <find>meaures</find>
+      <find>parts</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -201,6 +199,10 @@
       <replace />
       <replace>react-app-rewired</replace>
       <replace>xml:$1 json:$1</replace>
+      <replace>meaures</replace>
+      <replace>measures</replace>
+      <replace>parts</replace>
+      <replace>part</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/noteshub</dir>
@@ -263,12 +265,12 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/models/musicxml/sample-chord.xml" />
         <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
         <option value="$PROJECT_DIR$/tests/xml_parser.go" />
         <option value="$PROJECT_DIR$/tests/Json_test.go" />
         <option value="$PROJECT_DIR$/Json_test.go" />
         <option value="$PROJECT_DIR$/server/server.go" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
       </list>
     </option>
   </component>
@@ -324,6 +326,24 @@
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="mxml_parser.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -638,21 +658,7 @@
       <workItem from="1532742205915" duration="7989000" />
       <workItem from="1532852591723" duration="6197000" />
       <workItem from="1532865062863" duration="30333000" />
-      <workItem from="1533805748125" duration="33004000" />
-    </task>
-    <task id="LOCAL-00011" summary="stave wrapping half done!">
-      <created>1532231147774</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1532231147774</updated>
-    </task>
-    <task id="LOCAL-00012" summary="rename stave package name from stave to vex">
-      <created>1532231370267</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1532231370267</updated>
+      <workItem from="1533805748125" duration="33599000" />
     </task>
     <task id="LOCAL-00013" summary="add xml parser sample code and music xml data struct">
       <created>1532274562139</created>
@@ -983,7 +989,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534556040425</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="convert json fields of sheet to lower case">
+      <created>1534560790241</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1534560790241</updated>
+    </task>
+    <task id="LOCAL-00061" summary="convert json fields of sheet to lower case">
+      <created>1534561555603</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1534561555603</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1019,7 +1039,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147188000" />
+    <option name="totallyTimeSpent" value="147783000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1091,7 +1111,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add sheet from blues piano" />
     <MESSAGE value="add images" />
     <MESSAGE value="add" />
     <MESSAGE value="add css of current note" />
@@ -1116,7 +1135,8 @@
     <MESSAGE value="add Access-Control-Allow-Origin to header" />
     <MESSAGE value="added function drawGrandStaveRow to draw a row of empty stave" />
     <MESSAGE value="returned a more real world stave sheet" />
-    <option name="LAST_COMMIT_MESSAGE" value="returned a more real world stave sheet" />
+    <MESSAGE value="convert json fields of sheet to lower case" />
+    <option name="LAST_COMMIT_MESSAGE" value="convert json fields of sheet to lower case" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1456,7 +1476,7 @@
         <state relative-caret-position="281">
           <caret line="59" column="14" lean-forward="true" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1512,16 +1532,6 @@
           <folding>
             <element signature="e#0#25#0" expanded="true" />
             <element signature="e#3949#4846#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="90" column="9" lean-forward="true" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1592,9 +1602,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="95" column="36" lean-forward="true" selection-start-line="95" selection-start-column="36" selection-end-line="95" selection-end-column="36" />
+        <state relative-caret-position="234">
+          <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="389">
+          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
