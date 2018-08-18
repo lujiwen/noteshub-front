@@ -263,7 +263,6 @@ class SheetDrawer {
             return this.buildVoice(voice, 'b', vInd, bInd, pInd, sInd);
           });
 
-
           const formatter = new VF.Formatter();
 
           formatter.joinVoices(trebleStaveVoices).joinVoices(bassStaveVoices);
@@ -350,8 +349,6 @@ class SheetDrawer {
     if (currentRowBars.length) {
       this.drawGrandStaveRow(currentRowBars, widthArray, rowsCounter);
     }
-
-
 
     this.beams.forEach((b) => {
       b.setContext(this.context).draw()
