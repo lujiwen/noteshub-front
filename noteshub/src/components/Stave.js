@@ -8,14 +8,6 @@ import axios from 'axios'
 
 class Stave extends Component {
 
-  // state = {windowWidth: window.innerWidth};
-
-
-  drawSheet = () => {
-
-  }
-
-
   constructor(props) {
       super(props);
       this.state = {sheet: null};
@@ -30,15 +22,10 @@ class Stave extends Component {
   }
 
     componentDidMount() {
-      // console.log('sheet did mount');
-
-      this.drawSheet();
       window.addEventListener("resize", this.updateDimensions);
     }
 
     componentDidUpdate() {
-      // console.log('sheet did update');
-      this.drawSheet();
     }
 
     componentWillUnmount() {

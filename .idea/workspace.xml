@@ -4,6 +4,8 @@
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Stave.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" afterPath="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -54,8 +56,8 @@
       <file leaf-file-name="Notes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+            <state relative-caret-position="273">
+              <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -63,53 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/server.go">
+      <file leaf-file-name="Stave.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/Stave.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Json_parser.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/Json_parser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="24" />
-              <folding>
-                <element signature="e#14#48#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/main.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mxml_parser.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="xml_parser.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/xml_parser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-68">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+            <state relative-caret-position="406">
+              <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
               <folding />
             </state>
           </provider>
@@ -118,33 +78,11 @@
       <file leaf-file-name="SheetDrawer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="252" column="0" lean-forward="true" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
+            <state relative-caret-position="140">
+              <caret line="222" column="9" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#3949#4846#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SheetContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/containers/SheetContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="presets.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="91">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding>
-                <element signature="e#4530#5904#0" expanded="false" />
+                <element signature="e#3630#4527#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -162,9 +100,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>tag</find>
-      <find>react-router</find>
-      <find>6</find>
       <find>SheetContainer</find>
       <find>Stave.jsx</find>
       <find>SAMPLES_LOADED</find>
@@ -192,6 +127,9 @@
       <find>Measures</find>
       <find>meaures</find>
       <find>parts</find>
+      <find>VF</find>
+      <find>sheetContainer</find>
+      <find>disributeValue</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -262,14 +200,14 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js" />
         <option value="$PROJECT_DIR$/noteshub/src/App.js" />
         <option value="$PROJECT_DIR$/noteshub/src/index.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/models/musicxml/sample-chord.xml" />
-        <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/tests/xml_parser.go" />
         <option value="$PROJECT_DIR$/tests/Json_test.go" />
         <option value="$PROJECT_DIR$/Json_test.go" />
         <option value="$PROJECT_DIR$/server/server.go" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
+        <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
       </list>
     </option>
@@ -285,6 +223,9 @@
       <expand />
       <select />
     </treeState>
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/noteshub/node_modules" />
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
     <option name="width" value="1440" />
@@ -308,7 +249,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -348,6 +290,20 @@
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="containers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -359,13 +315,6 @@
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="server.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
-              <item name="Sheet" type="b598f48:GoTreeStructureProvider$GoElementNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -373,13 +322,6 @@
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="tests" type="462c0819:PsiDirectoryNode" />
               <item name="Json_parser.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
-              <item name="Json_parser.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
-              <item name="User" type="b598f48:GoTreeStructureProvider$GoElementNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -389,60 +331,35 @@
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="main.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="Go SDK 1.10.3" type="20ee2d1f:SyntheticLibraryElementNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="Go SDK 1.10.3" type="20ee2d1f:SyntheticLibraryElementNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="gin-gonic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="gin-gonic" type="462c0819:PsiDirectoryNode" />
-              <item name="gin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="github.com" type="462c0819:PsiDirectoryNode" />
-              <item name="gin-gonic" type="462c0819:PsiDirectoryNode" />
-              <item name="gin" type="462c0819:PsiDirectoryNode" />
-              <item name="context.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -453,7 +370,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;notes&#9;null&#9;null&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;notes&#9;null&#9;null&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
     <property name="GO_FMT" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
@@ -461,6 +378,7 @@
     <property name="editorconfig.notification" value="null" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/noteshub/node_modules/react-scripts" />
     <property name="nodejs.mocha.mocha_node_package_dir" value="$PROJECT_DIR$/noteshub/node_modules/mocha" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -658,14 +576,8 @@
       <workItem from="1532742205915" duration="7989000" />
       <workItem from="1532852591723" duration="6197000" />
       <workItem from="1532865062863" duration="30333000" />
-      <workItem from="1533805748125" duration="33599000" />
-    </task>
-    <task id="LOCAL-00013" summary="add xml parser sample code and music xml data struct">
-      <created>1532274562139</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1532274562139</updated>
+      <workItem from="1533805748125" duration="33751000" />
+      <workItem from="1534561895906" duration="3936000" />
     </task>
     <task id="LOCAL-00014" summary="add xml parser sample code and music xml data struct">
       <created>1532275040549</created>
@@ -1003,7 +915,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534561555603</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="convert json fields of sheet to lower case in parser in front end">
+      <created>1534561579738</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1534561579738</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1039,7 +958,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147783000" />
+    <option name="totallyTimeSpent" value="151871000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1052,13 +971,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13905683" sideWeight="0.3576538" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13376252" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1898428" sideWeight="0.6530758" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10640871" sideWeight="0.6530758" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.09310762" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1680774" sideWeight="0.6423462" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17381974" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17596567" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15808298" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1070,6 +988,7 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32889965" sideWeight="0.49713877" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19835842" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1111,7 +1030,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add images" />
     <MESSAGE value="add" />
     <MESSAGE value="add css of current note" />
     <MESSAGE value="add all blues makers" />
@@ -1136,7 +1054,8 @@
     <MESSAGE value="added function drawGrandStaveRow to draw a row of empty stave" />
     <MESSAGE value="returned a more real world stave sheet" />
     <MESSAGE value="convert json fields of sheet to lower case" />
-    <option name="LAST_COMMIT_MESSAGE" value="convert json fields of sheet to lower case" />
+    <MESSAGE value="convert json fields of sheet to lower case in parser in front end" />
+    <option name="LAST_COMMIT_MESSAGE" value="convert json fields of sheet to lower case in parser in front end" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1168,8 +1087,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/noteshub/src/components/Notes.js</url>
-          <line>126</line>
-          <properties lambdaOrdinal="-1" />
+          <line>114</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
@@ -1213,7 +1131,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="522">
           <caret line="29" column="23" lean-forward="false" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,7 +1138,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-660">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,7 +1145,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1245,9 +1160,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1263,9 +1175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="43" lean-forward="true" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding>
-            <element signature="e#178#248#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1273,7 +1182,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="41" lean-forward="true" selection-start-line="0" selection-start-column="41" selection-end-line="0" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1281,9 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1291,9 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-71">
           <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1301,7 +1203,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="16" column="24" lean-forward="false" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1309,9 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="52" lean-forward="true" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#40#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1319,7 +1217,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8">
           <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1327,7 +1224,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1335,7 +1231,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="386" column="15" lean-forward="false" selection-start-line="386" selection-start-column="11" selection-end-line="386" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1343,7 +1238,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
           <caret line="3151" column="28" lean-forward="true" selection-start-line="3151" selection-start-column="28" selection-end-line="3151" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1351,7 +1245,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1359,7 +1252,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1375,7 +1267,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-461">
           <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1383,7 +1274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="122">
           <caret line="38" column="22" lean-forward="true" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1391,7 +1281,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="97" column="40" lean-forward="false" selection-start-line="97" selection-start-column="26" selection-end-line="97" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1399,7 +1288,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="153" column="14" lean-forward="true" selection-start-line="153" selection-start-column="14" selection-end-line="153" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1407,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1423,9 +1310,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="24" lean-forward="true" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#26#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1467,17 +1351,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1114">
           <caret line="292" column="29" lean-forward="true" selection-start-line="292" selection-start-column="29" selection-end-line="292" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Stave.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="59" column="14" lean-forward="true" selection-start-line="59" selection-start-column="14" selection-end-line="59" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#41#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1495,7 +1368,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
           <caret line="270" column="4" lean-forward="false" selection-start-line="270" selection-start-column="4" selection-end-line="270" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1503,36 +1375,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
           <caret line="662" column="0" lean-forward="true" selection-start-line="662" selection-start-column="0" selection-end-line="662" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <element signature="e#4530#5904#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/containers/SheetContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="252" column="0" lean-forward="true" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#3949#4846#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1540,7 +1382,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1475">
           <caret line="199" column="23" lean-forward="true" selection-start-line="199" selection-start-column="23" selection-end-line="199" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1558,45 +1399,12 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Json_test.go" />
     <entry file="file://$PROJECT_DIR$/tests/xml_parser.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        <state relative-caret-position="18">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Json_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="27" lean-forward="true" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="19" column="20" lean-forward="true" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Json_parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="24" lean-forward="true" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="24" />
-          <folding>
-            <element signature="e#14#48#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1608,10 +1416,73 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Json_parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="24" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="24" />
+          <folding>
+            <element signature="e#14#48#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="19" column="20" lean-forward="false" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="e#4530#5904#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/containers/SheetContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="16" column="3" lean-forward="false" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Stave.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="46" column="14" lean-forward="false" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="222" column="9" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#3630#4527#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="273">
+          <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

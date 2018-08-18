@@ -81,11 +81,6 @@ class SheetDrawer {
       trebleStave.setWidth(barWidth);
       bassStave.setWidth(barWidth);
 
-      //grand stave group
-      // const group = this.context.openGroup(b.sectionId);
-      // this.context.rect(barOffset, PADDING_TOP + rowsCounter * SPACE_BETWEEN_GRAND_STAVES + 40, barWidth, SPACE_BETWEEN_STAVES + 50 * 2 - 60, { stroke: 'none', fill: "rgba(124,240,10,0.1)" });
-      // this.context.closeGroup();
-
       barOffset += barWidth;
 
       if (b.text) {

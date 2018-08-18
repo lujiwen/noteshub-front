@@ -50,18 +50,6 @@ export default class Notes extends Component {
         </div>;
     }
 
-    disributeValue(arr, value, precision) {
-      const sum = arr.reduce((sum, value) => sum + value, 0);
-
-      const percentages = arr.map(value => value / sum);
-
-      const valueDistribution = percentages.map(percentage => {
-        const factor = Math.pow(10, precision);
-        return Math.round(value * percentage * factor) / factor;
-      });
-
-      return valueDistribution;
-    }
 
     componentDidMount() {
 
@@ -77,24 +65,24 @@ export default class Notes extends Component {
 
       let measureCount = sheet.part[0].measure.length
       console.log("total measures number: " + measureCount)
-      sheet.part.forEach(part => {
-        part.measure.forEach(measure => {
-          for(let i in measure.note) {
-            let note = measure.note[i];
-            let pitch = note.pitch;
-            if(pitch.step != ""){
-              key.push(pitch.step + "/"+pitch.octave);
-              duration = note.duration
-            }
-          }
-        });
-      });
-
-
-      let chord = [new StaveNote({
-        keys: key,
-        duration: duration.toString(),
-      })];
+      // sheet.part.forEach(part => {
+      //   part.measure.forEach(measure => {
+      //     for(let i in measure.note) {
+      //       let note = measure.note[i];
+      //       let pitch = note.pitch;
+      //       if(pitch.step != "" && pitch.step != null){
+      //         key.push(pitch.Step + "/"+pitch.octave);
+      //         duration = note.duration
+      //       }
+      //     }
+      //   });
+      // });
+      //
+      //
+      // let chord = [new StaveNote({
+      //   keys: key,
+      //   duration: duration.toString(),
+      // })];
 
       const svgContainer = document.createElement('div');
       const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
@@ -124,19 +112,21 @@ export default class Notes extends Component {
       lineLeft.setContext(ctx).draw();
       lineRight.setContext(ctx).draw();
 
-      const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
-
+      // const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
       const svg = svgContainer.childNodes[0];
       const padding = 10;
       const half = padding / 2;
-      svg.style.top = -bb.y + half + Math.max(0, (100 - bb.h) * 2/3) + "px";
-      svg.style.height = Math.max(100, bb.h);
+      // svg.style.top = -bb.y + half + Math.max(0, (100 - bb.h) * 2/3) + "px";
+      // svg.style.height = Math.max(100, bb.h);
+      svg.style.top = 10
+      svg.style.height = 1000
       svg.style.left = PADDING_LEFT;
       svg.style.width = 100 + "px";
       svg.style.position = "absolute";
       svg.style.overflow = "visible";
-      svgContainer.style.height = Math.max(100, bb.h + padding) + "px";
+      // svgContainer.style.height = Math.max(100, bb.h + padding) + "px";
       svgContainer.style.width = 100 + "px";
+      svgContainer.style.height = 1000 + "px"
       svgContainer.style.position = "relative";
       svgContainer.style.display = "inlineBlock";
 
@@ -151,60 +141,67 @@ export default class Notes extends Component {
       return startX
     }
 
+
+    calculateMeasureWidthRatio(arr, value, precision) {
+      const sum = arr.reduce((sum, value) => sum + value, 0);
+
+      const percentages = arr.map(value => value / sum);
+
+      const valueDistribution = percentages.map(percentage => {
+        const factor = Math.pow(10, precision);
+        return Math.round(value * percentage * factor) / factor;
+      });
+
+      return valueDistribution;
+    }
+
     // draw a single row of stave with full parts(tacks)
-  //   drawGrandStaveRow(currentRowMeasures, sectionWidthArray, currentRowIndex, widthRest = 0) {
-  //
-  //   this.rowFirstBars.push(currentRowMeasures[0].barId);
-  //   this.rowLastBars.push(currentRowMeasures[currentRowMeasures.length - 1].barId);
-  //
-  //   let barOffset = PADDING_LEFT;
-  //
-  //   //if (widthRest !== 0) {
-  //   const widthRestArray = distributeValue(sectionWidthArray, widthRest, 0);
-  //   //}
-  //
-  //   currentRowMeasures.forEach((b, index) => {
-  //
-  //     const barWidth = b.barWidth + (widthRest !== 0 ? widthRestArray[index] : 0)
-  //
-  //     const trebleStave = b.tStave;
-  //     const bassStave = b.bStave;
-  //
-  //     trebleStave.setX(barOffset);
-  //     bassStave.setX(barOffset);
-  //     trebleStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES);
-  //     bassStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-  //
-  //     trebleStave.setWidth(barWidth);
-  //     bassStave.setWidth(barWidth);
-  //
-  //     //grand stave group
-  //     // const group = this.context.openGroup(b.sectionId);
-  //     // this.context.rect(barOffset, PADDING_TOP + rowsCounter * SPACE_BETWEEN_GRAND_STAVES + 40, barWidth, SPACE_BETWEEN_STAVES + 50 * 2 - 60, { stroke: 'none', fill: "rgba(124,240,10,0.1)" });
-  //     // this.context.closeGroup();
-  //
-  //     barOffset += barWidth;
-  //
-  //     if (b.text) {
-  //       // trebleStave.setText(b.text[0], VF.Modifier.Position.ABOVE, { shift_y: 0, justification: VF.TextNote.Justification.LEFT });
-  //       trebleStave.setSection(b.text[0], 0);
-  //     }
-  //
-  //     const lineLeft = new VF.StaveConnector(trebleStave, bassStave).setType(1);
-  //     const lineRight = new VF.StaveConnector(trebleStave, bassStave).setType(b.isLastBar ? 6 : 0);
-  //
-  //     trebleStave.setContext(this.context).draw();
-  //     bassStave.setContext(this.context).draw();
-  //
-  //     lineLeft.setContext(this.context).draw();
-  //     lineRight.setContext(this.context).draw();
-  //
-  //     b.formatter.format(b.trebleStaveVoices.concat(b.bassStaveVoices), b.minTotalWidth + (widthRest !== 0 ? widthRestArray[index] : 0));
-  //
-  //     // Render voices
-  //     b.trebleStaveVoices.forEach(function (v) { v.draw(this.context, trebleStave); }.bind(this));
-  //     b.bassStaveVoices.forEach(function (v) { v.draw(this.context, bassStave); }.bind(this));
-  //
-  //   });
-  // }
+    drawStaveRow(currentRowMeasures, sectionWidthArray, currentRowIndex, widthRest = 0) {
+
+        this.rowFirstBars.push(currentRowMeasures[0].barId);
+        this.rowLastBars.push(currentRowMeasures[currentRowMeasures.length - 1].barId);
+
+        let barOffset = PADDING_LEFT;
+
+        const widthRestArray = this.calculateMeasureWidthRatio(sectionWidthArray, widthRest, 0);
+
+        currentRowMeasures.forEach((b, index) => {
+
+          const barWidth = b.barWidth + (widthRest !== 0 ? widthRestArray[index] : 0)
+
+          const trebleStave = b.tStave;
+          const bassStave = b.bStave;
+
+          trebleStave.setX(barOffset);
+          bassStave.setX(barOffset);
+          trebleStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES);
+          bassStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
+
+          trebleStave.setWidth(barWidth);
+          bassStave.setWidth(barWidth);
+
+          barOffset += barWidth;
+
+          if (b.text) {
+            // trebleStave.setText(b.text[0], VF.Modifier.Position.ABOVE, { shift_y: 0, justification: VF.TextNote.Justification.LEFT });
+            trebleStave.setSection(b.text[0], 0);
+          }
+
+          const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
+          const lineRight = new StaveConnector(trebleStave, bassStave).setType(b.isLastBar ? 6 : 0);
+
+          trebleStave.setContext(this.context).draw();
+          bassStave.setContext(this.context).draw();
+
+          lineLeft.setContext(this.context).draw();
+          lineRight.setContext(this.context).draw();
+
+          b.formatter.format(b.trebleStaveVoices.concat(b.bassStaveVoices), b.minTotalWidth + (widthRest !== 0 ? widthRestArray[index] : 0));
+
+          // Render voices
+          b.trebleStaveVoices.forEach(function (v) { v.draw(this.context, trebleStave); }.bind(this));
+          b.bassStaveVoices.forEach(function (v) { v.draw(this.context, bassStave); }.bind(this));
+
+    });
+  }
 }
