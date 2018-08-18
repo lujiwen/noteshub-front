@@ -76,7 +76,7 @@ func GetSheet(c *gin.Context) {
 	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
 		log.Info("get sheet by id : %s", &sheetId)
 		//sheet := Sheet{sheetId, "./location", "1", time.Now(), time.Now()}
-		c.JSON(http.StatusOK, models.ParseMxml("models/musicxml/sample-chord.xml"))
+		c.JSON(http.StatusOK, models.ParseMxml("resources/lovesong.musicxml"))
 	} else {
 		c.AbortWithStatus(http.StatusNotFound)
 	}
