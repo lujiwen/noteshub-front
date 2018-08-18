@@ -17,7 +17,7 @@ func main() {
 	router := gin.Default()
 
 	// connect to db
-	initializeDB()
+	//initializeDB()
 
 	// Serve frontend static files
 
