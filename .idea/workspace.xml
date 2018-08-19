@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" afterPath="$PROJECT_DIR$/models/mxml_parser.go" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
-      <change beforePath="$PROJECT_DIR$/server/server.go" afterPath="$PROJECT_DIR$/server/server.go" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -56,8 +54,8 @@
       <file leaf-file-name="Notes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="244">
-              <caret line="126" column="51" lean-forward="false" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+            <state relative-caret-position="250">
+              <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -118,10 +116,11 @@
       <file leaf-file-name="SheetDrawer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="575">
-              <caret line="221" column="25" lean-forward="false" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="25" />
+            <state relative-caret-position="17">
+              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#3451#6150#0" expanded="false" />
                 <element signature="e#3630#4527#0" expanded="false" />
               </folding>
             </state>
@@ -140,7 +139,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>vf</find>
       <find>id</find>
       <find>p</find>
       <find>StaveConnector</find>
@@ -170,6 +168,7 @@
       <find>note_struct</find>
       <find>Octave</find>
       <find>addTickables</find>
+      <find>buildVoice</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -248,8 +247,8 @@
         <option value="$PROJECT_DIR$/server/server.go" />
         <option value="$PROJECT_DIR$/noteshub/src/services/Transposer.js" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
         <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
       </list>
     </option>
   </component>
@@ -716,14 +715,7 @@
       <workItem from="1532852591723" duration="6197000" />
       <workItem from="1532865062863" duration="30333000" />
       <workItem from="1533805748125" duration="33751000" />
-      <workItem from="1534561895906" duration="12355000" />
-    </task>
-    <task id="LOCAL-00015" summary="finish to parse music xml file into a struct">
-      <created>1532358086895</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1532358086895</updated>
+      <workItem from="1534561895906" duration="14829000" />
     </task>
     <task id="LOCAL-00016" summary="finish to parse music xml file into a struct">
       <created>1532358213135</created>
@@ -1061,7 +1053,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534607728580</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="parse void note succeed">
+      <created>1534651170359</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1534651170359</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1097,7 +1096,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="160290000" />
+    <option name="totallyTimeSpent" value="162764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1169,7 +1168,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add css of current note" />
     <MESSAGE value="add all blues makers" />
     <MESSAGE value="remove intro and endings" />
     <MESSAGE value="remove blue border of notes" />
@@ -1194,7 +1192,8 @@
     <MESSAGE value="convert json fields of sheet to lower case" />
     <MESSAGE value="convert json fields of sheet to lower case in parser in front end" />
     <MESSAGE value="change the way to draw a stave" />
-    <option name="LAST_COMMIT_MESSAGE" value="change the way to draw a stave" />
+    <MESSAGE value="parse void note succeed" />
+    <option name="LAST_COMMIT_MESSAGE" value="parse void note succeed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1226,7 +1225,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/noteshub/src/components/Notes.js</url>
-          <line>194</line>
+          <line>209</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
@@ -1364,14 +1363,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/formatter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="134" column="13" lean-forward="false" selection-start-line="134" selection-start-column="13" selection-end-line="134" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1600,17 +1591,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="221" column="25" lean-forward="false" selection-start-line="221" selection-start-column="13" selection-end-line="221" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#3630#4527#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/server.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1627,10 +1607,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/formatter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="657" column="2" lean-forward="false" selection-start-line="657" selection-start-column="2" selection-end-line="657" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#3451#6150#0" expanded="false" />
+            <element signature="e#3630#4527#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="126" column="51" lean-forward="false" selection-start-line="126" selection-start-column="51" selection-end-line="126" selection-end-column="51" />
+        <state relative-caret-position="250">
+          <caret line="161" column="40" lean-forward="true" selection-start-line="161" selection-start-column="40" selection-end-line="161" selection-end-column="40" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

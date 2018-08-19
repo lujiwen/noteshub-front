@@ -96,6 +96,8 @@ export default class Notes extends Component {
       return staveNote;
     }.bind(this));
 
+
+
     //
     // if (measure.beams) {
     //   measure.beams.forEach(beam => {
@@ -120,6 +122,11 @@ export default class Notes extends Component {
 
 
   componentDidMount() {
+
+
+      const svgContainer = document.createElement('div');
+      const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
+      const ctx = renderer.getContext();
 
       const sheet = this.props.sheet;
       console.log(sheet)
@@ -148,8 +155,19 @@ export default class Notes extends Component {
         part.measure.forEach((measure, measureId) => {
             let isFirstMeasure = measureId === 0
             let isLastMeasure = measureId === (measureCount - 1)
-            let voices = this.buildNotesVoice(measure, partId, measureId)
+            let voices = [this.buildNotesVoice(measure, partId, measureId)]
+            const formatter = new Formatter();
+            formatter.joinVoices(voices)
 
+            const stave = new Stave(0,0)
+            stave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+            stave.setNoteStartX(startX)
+            stave.setX(0)
+            stave.setY(0)
+            stave.setWidth(400)
+            formatter.format(voices,0)
+            stave.setContext(ctx).draw()
+            voices.forEach(function (v) { v.draw(ctx, stave); }.bind(this));
         })
       })
 
@@ -164,9 +182,7 @@ export default class Notes extends Component {
       //   duration: duration.toString(),
       // })];
 
-      const svgContainer = document.createElement('div');
-      const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
-      const ctx = renderer.getContext();
+
 
       ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
@@ -177,20 +193,19 @@ export default class Notes extends Component {
       let firstRow = true;
 
       const sectionsLength = 10;
-
-      trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
-      bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
+      //
+      // trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
+      // bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
 
       var startX = this.unifyNotesStartX(trebleStave, bassStave);
 
       // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
 
-
-      const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
-      const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
-
-      lineLeft.setContext(ctx).draw();
-      lineRight.setContext(ctx).draw();
+      // const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
+      // const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
+      //
+      // lineLeft.setContext(ctx).draw();
+      // lineRight.setContext(ctx).draw();
 
       // const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
       const svg = svgContainer.childNodes[0];
