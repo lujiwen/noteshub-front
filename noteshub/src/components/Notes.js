@@ -7,7 +7,11 @@ const {
     Stave,
     StaveNote,
     Renderer,
-    StaveConnector
+    StaveConnector,
+    Voice,
+    RESOLUTION,
+    Tuplet,
+    Beam
 } = Vex.Flow;
 
 const SCHEME_WIDTH = 350;
@@ -50,8 +54,72 @@ export default class Notes extends Component {
         </div>;
     }
 
+  buildNotesVoice(measure, partId, measureId) {
 
-    componentDidMount() {
+    const vexVoice = new Voice({
+      num_beats: measure.attributes.time.beats,
+      beat_value: measure.attributes.time.beatType,
+      resolution: RESOLUTION
+    });
+
+    const vexNotes = measure.note.filter(note => note.pitch.step !== "").map(function (note, noteId) {
+      let keys = [note.pitch.step + "/" + note.pitch.octave]
+      let duration = note.duration.toString()
+      // let type = 'r'
+
+      // const { keys, dur: duration, grace, ...options } = note;
+
+      // const noteKeysAccidentals = [];
+      //
+      // const noteTies = [];
+      //
+      // let graceNotes = [];
+
+      // const transposedKeys = keys.map(function ({ ties, ...key }, keyIndex) {
+      //
+      //   const { trStep, trAccidental, trOctave, trPitch: pitch } = this.transposer.transpose(key, duration);
+      //
+      //   noteKeysAccidentals[keyIndex] = trAccidental;
+      //
+      //   if (ties) {
+      //     noteTies[keyIndex] = { pitch, ties };
+      //   }
+      //
+      //   return `${trStep}${trAccidental || ''}/${trOctave}`
+      //
+      // }.bind(this))
+
+      const staveNote = new StaveNote({ keys: keys, duration});
+
+      staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
+
+      return staveNote;
+    }.bind(this));
+
+    //
+    // if (measure.beams) {
+    //   measure.beams.forEach(beam => {
+    //     const { from, to } = beam;
+    //     this.beams.push(new Beam(vexNotes.slice(from, to)));
+    //   })
+    // } else {
+    //   const autoBeams = Beam.generateBeams(vexNotes);
+    //   this.beams.push(...autoBeams);
+    // }
+
+    // if (measure.tuplets) {
+    //   voice.tuplets.forEach(tuplet => {
+    //     const { from, to, ...options } = tuplet;
+    //     this.tuplets.push(new Tuplet(vexNotes.slice(from, to), options));
+    //   })
+    // }
+
+    vexVoice.addTickables(vexNotes);
+    return vexVoice
+  }
+
+
+  componentDidMount() {
 
       const sheet = this.props.sheet;
       console.log(sheet)
@@ -65,18 +133,30 @@ export default class Notes extends Component {
 
       let measureCount = sheet.part[0].measure.length
       console.log("total measures number: " + measureCount)
-      // sheet.part.forEach(part => {
-      //   part.measure.forEach(measure => {
-      //     for(let i in measure.note) {
-      //       let note = measure.note[i];
-      //       let pitch = note.pitch;
-      //       if(pitch.step != "" && pitch.step != null){
-      //         key.push(pitch.Step + "/"+pitch.octave);
-      //         duration = note.duration
-      //       }
-      //     }
-      //   });
-      // });
+
+      // for(let i in measure.note) {
+      //   let note = measure.note[i];
+      //   let pitch = note.pitch;
+      //   if(pitch.step != "" && pitch.step != null){
+      //     key.push(pitch.Step + "/"+pitch.octave);
+      //     duration = note.duration
+      //   }
+      // }
+      //
+      //
+      sheet.part.forEach( (part, partId) => {
+        part.measure.forEach((measure, measureId) => {
+            let isFirstMeasure = measureId === 0
+            let isLastMeasure = measureId === (measureCount - 1)
+            let voices = this.buildNotesVoice(measure, partId, measureId)
+
+        })
+      })
+
+
+
+
+
       //
       //
       // let chord = [new StaveNote({

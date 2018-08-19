@@ -65,7 +65,7 @@ type Key struct {
 // Time represents a time signature change
 type Time struct {
     Beats    int `xml:"beats" json:"beats"`
-    BeatType int `xml:"beat-type" json:"beat-type"`
+    BeatType int `xml:"beat-type" json:"beatType"`
 }
 
 // Note represents a note in a measure
@@ -83,7 +83,7 @@ type Note struct {
 type Pitch struct {
     Accidental int8   `xml:"alter" json:"accidental"`
     Step       string `xml:"step" json:"step"`
-    Octave     int    `xml:"octave json:"octave"`
+    Octave     int8   `xml:"octave" json:"octave"`
 }
 
 // Tie represents whether or not a note is tied.
