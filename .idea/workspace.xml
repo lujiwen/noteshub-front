@@ -4,7 +4,6 @@
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/services/Player.js" afterPath="$PROJECT_DIR$/noteshub/src/services/Player.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -55,10 +54,12 @@
       <file leaf-file-name="Notes.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+            <state relative-caret-position="257">
+              <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#1100#1755#0" expanded="false" />
+                <element signature="e#7342#7690#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -67,7 +68,7 @@
       <file leaf-file-name="voice.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/voice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
+            <state relative-caret-position="1265">
               <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
@@ -77,8 +78,8 @@
       <file leaf-file-name="server.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="78" column="79" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="79" />
+            <state relative-caret-position="301">
+              <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -97,8 +98,8 @@
       <file leaf-file-name="lovesong.musicxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/lovesong.musicxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="222" column="13" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="13" />
+            <state relative-caret-position="449">
+              <caret line="82" column="26" lean-forward="true" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -114,26 +115,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SheetDrawer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1235">
+              <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#3451#6150#0" expanded="false" />
+                <element signature="e#3630#4527#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tables.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/tables.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="449">
               <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SheetDrawer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-                <element signature="e#3451#6150#0" expanded="false" />
-                <element signature="e#3630#4527#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -178,9 +179,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lineLeft</find>
-      <find>componentWillMount</find>
-      <find>SheetDrawer</find>
       <find>currentRowBars</find>
       <find>StaveNote</find>
       <find>drawGrandStaveRow</find>
@@ -208,6 +206,9 @@
       <find>denominator</find>
       <find>vexNotes</find>
       <find>&lt;type&gt;</find>
+      <find>righ</find>
+      <find>drawG</find>
+      <find>currentWidth</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -547,7 +548,7 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="SearchEverywhereHistoryKey" value="sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;notes&#9;null&#9;null&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
+    <property name="SearchEverywhereHistoryKey" value="s&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;notes&#9;null&#9;null&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
     <property name="GO_FMT" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="DefaultGoTemplateProperty" value="Go File" />
@@ -754,14 +755,7 @@
       <workItem from="1532852591723" duration="6197000" />
       <workItem from="1532865062863" duration="30333000" />
       <workItem from="1533805748125" duration="33751000" />
-      <workItem from="1534561895906" duration="19255000" />
-    </task>
-    <task id="LOCAL-00017" summary="added tie to note">
-      <created>1532358804964</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1532358804964</updated>
+      <workItem from="1534561895906" duration="22616000" />
     </task>
     <task id="LOCAL-00018" summary="encapsulate component finished">
       <created>1532361558802</created>
@@ -1099,7 +1093,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534656307342</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="the duration in vex should obtain from type in mxml">
+      <created>1534865813233</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1534865813233</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1135,7 +1136,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="167190000" />
+    <option name="totallyTimeSpent" value="170551000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1207,7 +1208,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="remove intro and endings" />
     <MESSAGE value="remove blue border of notes" />
     <MESSAGE value="added test for mxml parser" />
     <MESSAGE value="add AIP get sheet by ID" />
@@ -1232,7 +1232,8 @@
     <MESSAGE value="change the way to draw a stave" />
     <MESSAGE value="parse void note succeed" />
     <MESSAGE value="draw notes on stave succeed!" />
-    <option name="LAST_COMMIT_MESSAGE" value="draw notes on stave succeed!" />
+    <MESSAGE value="the duration in vex should obtain from type in mxml" />
+    <option name="LAST_COMMIT_MESSAGE" value="the duration in vex should obtain from type in mxml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1264,7 +1265,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/noteshub/src/components/Notes.js</url>
-          <line>210</line>
+          <line>207</line>
           <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
@@ -1567,14 +1568,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/tables.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="449">
-          <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/releases/vexflow-debug.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="116">
@@ -1617,18 +1610,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="108" column="0" lean-forward="true" selection-start-line="108" selection-start-column="0" selection-end-line="108" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-            <element signature="e#3451#6150#0" expanded="false" />
-            <element signature="e#3630#4527#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1643,14 +1624,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="78" column="79" lean-forward="false" selection-start-line="78" selection-start-column="58" selection-end-line="78" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.musicxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -1659,28 +1632,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/lovesong.musicxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="222" column="13" lean-forward="false" selection-start-line="222" selection-start-column="9" selection-end-line="222" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/voice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
+        <state relative-caret-position="1265">
           <caret line="187" column="0" lean-forward="true" selection-start-line="187" selection-start-column="0" selection-end-line="187" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/lovesong.musicxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="82" column="26" lean-forward="true" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="301">
+          <caret line="71" column="0" lean-forward="true" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/tables.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="449">
+          <caret line="451" column="0" lean-forward="false" selection-start-line="451" selection-start-column="0" selection-end-line="451" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1235">
+          <caret line="234" column="0" lean-forward="false" selection-start-line="234" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#3451#6150#0" expanded="false" />
+            <element signature="e#3630#4527#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="61" column="28" lean-forward="true" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+        <state relative-caret-position="257">
+          <caret line="105" column="28" lean-forward="true" selection-start-line="105" selection-start-column="28" selection-end-line="105" selection-end-column="28" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#1100#1755#0" expanded="false" />
+            <element signature="e#7342#7690#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -66,29 +66,6 @@ export default class Notes extends Component {
       let keys = [note.pitch.step + "/" + note.pitch.octave]
       // let duration = note.duration.toString()
       let duration = "2"
-      // let type = 'r'
-
-      // const { keys, dur: duration, grace, ...options } = note;
-
-      // const noteKeysAccidentals = [];
-      //
-      // const noteTies = [];
-      //
-      // let graceNotes = [];
-
-      // const transposedKeys = keys.map(function ({ ties, ...key }, keyIndex) {
-      //
-      //   const { trStep, trAccidental, trOctave, trPitch: pitch } = this.transposer.transpose(key, duration);
-      //
-      //   noteKeysAccidentals[keyIndex] = trAccidental;
-      //
-      //   if (ties) {
-      //     noteTies[keyIndex] = { pitch, ties };
-      //   }
-      //
-      //   return `${trStep}${trAccidental || ''}/${trOctave}`
-      //
-      // }.bind(this))
 
       const staveNote = new StaveNote({ keys: keys, duration});
 
@@ -97,33 +74,12 @@ export default class Notes extends Component {
       return staveNote;
     }.bind(this));
 
-
-
-    //
-    // if (measure.beams) {
-    //   measure.beams.forEach(beam => {
-    //     const { from, to } = beam;
-    //     this.beams.push(new Beam(vexNotes.slice(from, to)));
-    //   })
-    // } else {
-    //   const autoBeams = Beam.generateBeams(vexNotes);
-    //   this.beams.push(...autoBeams);
-    // }
-
-    // if (measure.tuplets) {
-    //   voice.tuplets.forEach(tuplet => {
-    //     const { from, to, ...options } = tuplet;
-    //     this.tuplets.push(new Tuplet(vexNotes.slice(from, to), options));
-    //   })
-    // }
-
     vexVoice.addTickables(vexNotes);
     return vexVoice
   }
 
 
   componentDidMount() {
-
 
       const svgContainer = document.createElement('div');
       const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
@@ -138,21 +94,18 @@ export default class Notes extends Component {
       var duration
       let partCount = sheet.part.length
       console.log("total part number: " + partCount)
+      let currentWidth = 0;
 
       let measureCount = sheet.part[0].measure.length
       console.log("total measures number: " + measureCount)
+      let firstRow = true;
 
-      // for(let i in measure.note) {
-      //   let note = measure.note[i];
-      //   let pitch = note.pitch;
-      //   if(pitch.step != "" && pitch.step != null){
-      //     key.push(pitch.Step + "/"+pitch.octave);
-      //     duration = note.duration
-      //   }
-      // }
-      //
-      //
-      sheet.part.forEach( (part, partId) => {
+      let rowsCounter = 0;
+      // let currentWidth = 0;
+      let currentRowMeasures = [];
+      const widthArray = [];
+
+    sheet.part.forEach( (part, partId) => {
         part.measure.forEach((measure, measureId) => {
             let isFirstMeasure = measureId === 0
             let isLastMeasure = measureId === (measureCount - 1)
@@ -161,44 +114,88 @@ export default class Notes extends Component {
             formatter.joinVoices(voices)
 
             const stave = new Stave(0,0)
-            stave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+            var startX = this.unifyNotesStartX(stave, stave);
+
             stave.setNoteStartX(startX)
             stave.setX(0)
             stave.setY(0)
+            let minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(voices), BAR_MIN_WIDTH) * COEFFICIENT);
+
+          const measureWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
+
+
+          if (currentWidth + measureWidth < this.sheetWidth) {
+            currentWidth += measureWidth;
+
+            currentRowMeasures.push({
+              measure,
+              measureWidth: measureWidth,
+              minTotalWidth,
+              stave,
+              formatter,
+              voices,
+              isLastMeasure,
+              measureId: `${partId}-${measureId}`
+            })
+
+            widthArray.push(measureWidth)
+            } else {
+              // new stave row
+              // draw current row and begin new row
+              const widthRest = this.sheetWidth - currentWidth;
+              // this.drawStaveRow(currentRowMeasures, widthArray, rowsCounter, widthRest);
+              //newRow = true;
+
+              stave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+
+              const startX = Math.max(stave.getNoteStartX(), stave.getNoteStartX());
+              stave.setNoteStartX(startX);
+              // bStave.setNoteStartX(startX);
+
+              const measureWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
+
+              rowsCounter++;
+              currentWidth = measureWidth;
+              currentRowMeasures.length = 0;
+              widthArray.length = 0;
+              widthArray.push(measureWidth);
+              currentRowMeasures.push({
+                measure,
+                measureWidth: measureWidth,
+                minTotalWidth,
+                stave,
+                formatter,
+                voices,
+                isLastMeasure: isLastMeasure,
+                barId: `${partId}-${measureId}`
+              });
+
+            }
+
+            // Add a clef and time signature.
+            if (firstRow) {
+              stave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+              firstRow = false;
+            }
+
+
             stave.setWidth(400)
             formatter.format(voices,0)
+
             stave.setContext(ctx).draw()
             voices.forEach(function (v) { v.draw(ctx, stave); }.bind(this));
         })
       })
 
-
-
-
-
-      //
-      //
-      // let chord = [new StaveNote({
-      //   keys: key,
-      //   duration: duration.toString(),
-      // })];
-
-
-
       ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-      let rowsCounter = 0;
-      let currentWidth = 0;
-      const currentRowBars = [];
-      const widthArray = [];
-      let firstRow = true;
+
 
       const sectionsLength = 10;
       //
       // trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
       // bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
 
-      var startX = this.unifyNotesStartX(trebleStave, bassStave);
 
       // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
 
@@ -230,7 +227,7 @@ export default class Notes extends Component {
       this.refs.outer.appendChild(svgContainer);
     }
 
-    unifyNotesStartX(trebleStave, bassStave) {
+      unifyNotesStartX(trebleStave, bassStave) {
       const startX = Math.max(trebleStave.getNoteStartX(), bassStave.getNoteStartX());
       trebleStave.setNoteStartX(startX);
       bassStave.setNoteStartX(startX);
