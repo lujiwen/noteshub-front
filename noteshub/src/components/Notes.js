@@ -64,7 +64,8 @@ export default class Notes extends Component {
 
     const vexNotes = measure.note.filter(note => note.pitch.step !== "").map(function (note, noteId) {
       let keys = [note.pitch.step + "/" + note.pitch.octave]
-      let duration = note.duration.toString()
+      // let duration = note.duration.toString()
+      let duration = "2"
       // let type = 'r'
 
       // const { keys, dur: duration, grace, ...options } = note;

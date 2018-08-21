@@ -21,9 +21,9 @@ class Player {
              Google Chrome or Mozilla Firefox`);
       return callback();
     }
-    const ac = new AudioContext();
+    const audioContext = new AudioContext();
 
-    SoundFont.instrument(ac, 'piano', {
+    SoundFont.instrument(audioContext, 'piano', {
       nameToUrl: localUrl,
       gain: 3,
       release: 1
