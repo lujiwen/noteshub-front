@@ -12,7 +12,7 @@ func TestParseMxml(t *testing.T) {
 
 func TestUpdateMxml(t *testing.T)  {
 	note := Note{}
-	note.Type = "eight"
+	note.Type = "eighth"
 	notes := []Note {note}
 	measure := Measure{}
 	measure.Notes = notes
@@ -36,7 +36,7 @@ func TestUpdateMxml(t *testing.T)  {
 
 func TestTranslateNoteType(t *testing.T) {
 	note := Note{}
-	note.Type = "eight"
+	note.Type = "eighth"
 	note.TranslateNoteType()
 
 	if note.Type != "8" {

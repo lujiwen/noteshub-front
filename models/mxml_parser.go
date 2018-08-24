@@ -112,15 +112,19 @@ func (note *Note)TranslateNoteType() {
     switch note.Type {
     case "half":
         noteType = "2"
+        break
     case "quarter":
         noteType = "4"
-    case "eight":
+	    break
+    case "eighth":
         noteType = "8"
+	    break
     default:
-        noteType = "unknown type"
+        noteType = "unknown type: " + note.Type
+	    break
     }
     note.Type = noteType
-    print("note type:", noteType)
+    println("note type:", noteType)
 }
 
 

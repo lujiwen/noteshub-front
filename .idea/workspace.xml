@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="finish">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/cmd/web.go" afterPath="$PROJECT_DIR$/cmd/web.go" />
       <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" afterPath="$PROJECT_DIR$/models/mxml_parser.go" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
-      <change beforePath="$PROJECT_DIR$/server/server.go" afterPath="$PROJECT_DIR$/server/server.go" />
+      <change beforePath="$PROJECT_DIR$/models/mxml_parser_test.go" afterPath="$PROJECT_DIR$/models/mxml_parser_test.go" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -77,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mxml_parser_test.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="mxml_parser_test.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state relative-caret-position="391">
+              <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
               <folding>
                 <element signature="e#16#44#0" expanded="true" />
               </folding>
@@ -109,11 +107,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mxml_parser.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mxml_parser.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="126" column="10" lean-forward="false" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+            <state relative-caret-position="162">
+              <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -269,8 +267,8 @@
         <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
         <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
-        <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
+        <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
       </list>
     </option>
   </component>
@@ -571,7 +569,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Test.TestUpdateMxml in mxml_parser_test.go">
+  <component name="RunManager" selected="Go Build.go build server.go">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -704,9 +702,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Go Test.TestUpdateMxml in mxml_parser_test.go" />
-        <item index="1" class="java.lang.String" itemvalue="Go Test.TestTranslateNoteType in mxml_parser_test.go" />
-        <item index="2" class="java.lang.String" itemvalue="Go Build.go build server.go" />
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build server.go" />
+        <item index="1" class="java.lang.String" itemvalue="Go Test.TestUpdateMxml in mxml_parser_test.go" />
+        <item index="2" class="java.lang.String" itemvalue="Go Test.TestTranslateNoteType in mxml_parser_test.go" />
         <item index="3" class="java.lang.String" itemvalue="Go Build.go build Json_parser.go" />
         <item index="4" class="java.lang.String" itemvalue="Go Build.go build xml_parser.go" />
       </list>
@@ -735,14 +733,7 @@
       <workItem from="1532852591723" duration="6197000" />
       <workItem from="1532865062863" duration="30333000" />
       <workItem from="1533805748125" duration="33751000" />
-      <workItem from="1534561895906" duration="32297000" />
-    </task>
-    <task id="LOCAL-00020" summary="config create react app with react-app-rewired">
-      <created>1532617549254</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1532617549254</updated>
+      <workItem from="1534561895906" duration="32532000" />
     </task>
     <task id="LOCAL-00021" summary="import style css file automatically with babel-plugin-import">
       <created>1532617834062</created>
@@ -1080,7 +1071,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535126300514</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="finish TranslateNoteType and UpdateMxml, and change function name ParseMxml to ParseMxmlFromString">
+      <created>1535126420653</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1535126420653</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1116,7 +1114,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="180232000" />
+    <option name="totallyTimeSpent" value="180467000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1129,8 +1127,8 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13905683" sideWeight="0.3576538" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13376252" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23458283" sideWeight="0.6530758" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29383314" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23458283" sideWeight="0.6530758" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29383314" sideWeight="0.4914163" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1680774" sideWeight="0.6423462" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1188,7 +1186,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="add AIP get sheet by ID" />
     <MESSAGE value="auth example index" />
     <MESSAGE value="add auth example network interface" />
     <MESSAGE value="added token" />
@@ -1213,7 +1210,8 @@
     <MESSAGE value="the duration in vex should obtain from type in mxml" />
     <MESSAGE value="ready to draw sheet row by row" />
     <MESSAGE value="added unit test to test function UpdateMxml and TranslateNoteType" />
-    <option name="LAST_COMMIT_MESSAGE" value="added unit test to test function UpdateMxml and TranslateNoteType" />
+    <MESSAGE value="finish TranslateNoteType and UpdateMxml, and change function name ParseMxml to ParseMxmlFromString" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish TranslateNoteType and UpdateMxml, and change function name ParseMxml to ParseMxmlFromString" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1662,21 +1660,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#44#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="162">
+          <caret line="116" column="22" lean-forward="true" selection-start-line="116" selection-start-column="22" selection-end-line="116" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="126" column="10" lean-forward="false" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="391">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="e#16#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
