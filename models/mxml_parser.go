@@ -93,7 +93,7 @@ type Tie struct {
 
 
 //path start from the root directory of project
-func ParseMxml(path string) MXLDoc {
+func ParseMxmlFromString(path string) MXLDoc {
     file, err := os.Open(path) // For read access.
     if err != nil {
         fmt.Printf("error: %v", err)
@@ -106,9 +106,43 @@ func ParseMxml(path string) MXLDoc {
     return ParseMxmlFromDataByte(data)
 }
 
+func (note *Note)TranslateNoteType() {
+    noteType := ""
+
+    switch note.Type {
+    case "half":
+        noteType = "2"
+    case "quarter":
+        noteType = "4"
+    case "eight":
+        noteType = "8"
+    default:
+        noteType = "unknown type"
+    }
+    note.Type = noteType
+    print("note type:", noteType)
+}
+
+
+// hint on loop : https://stackoverflow.com/questions/15945030/change-values-while-iterating-in-golang
+func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
+    newSheet := sheet
+    for _, p := range newSheet.Parts {
+        for _, m := range p.Measures {
+            for noteIndex := range m.Notes {
+                m.Notes[noteIndex].TranslateNoteType()
+            }
+        }
+    }
+    return newSheet
+}
+
 func ParseMxmlFromDataByte(data []byte) MXLDoc {
     v := MXLDoc{}
     err := xml.Unmarshal(data, &v)
+
+    v.UpdateMxml()
+
     if err != nil {
         fmt.Printf("error: %v", err)
     }

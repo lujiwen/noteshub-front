@@ -105,7 +105,7 @@ export default class Notes extends Component {
       let currentRowMeasures = [];
       const widthArray = [];
 
-    sheet.part.forEach( (part, partId) => {
+      sheet.part.forEach( (part, partId) => {
         part.measure.forEach((measure, measureId) => {
             let isFirstMeasure = measureId === 0
             let isLastMeasure = measureId === (measureCount - 1)

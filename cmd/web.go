@@ -51,7 +51,7 @@ func runWeb(c *cli.Context) {
 //	log.Info("get sheet")
 //	if sheetId, err := strconv.Atoi(c.Param("jokeID")); err == nil {
 //		log.Info("sheetID: %s", sheetId )
-//		c.JSON(http.StatusOK, models.ParseMxml("models/musicxml/sample-chord.xml"))
+//		c.JSON(http.StatusOK, models.ParseMxmlFromString("models/musicxml/sample-chord.xml"))
 //	}
 //}
 
