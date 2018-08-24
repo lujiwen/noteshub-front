@@ -124,7 +124,6 @@ func (note *Note)TranslateNoteType() {
 	    break
     }
     note.Type = noteType
-    println("note type:", noteType)
 }
 
 
