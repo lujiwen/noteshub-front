@@ -168,6 +168,7 @@ export default class Notes extends Component {
         formatter.format(voices,0)
         stave.setContext(ctx).draw()
         voices.forEach(function (v) { v.draw(ctx, stave); }.bind(this));
+
       })
     })
 
