@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="draw multiple measure in multiple parts succeed">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="change row succeed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sample-chord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample-chord.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -79,17 +78,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="3" />
-          <entry key="js" value="1452" />
+          <entry key="js" value="1529" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="479" />
+          <entry key="txt" value="518" />
           <entry key="xml" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="3" />
-          <entry key="JavaScript" value="1452" />
-          <entry key="PLAIN_TEXT" value="496" />
+          <entry key="JavaScript" value="1529" />
+          <entry key="PLAIN_TEXT" value="535" />
           <entry key="XML" value="17" />
         </counts>
       </usages-collector>
@@ -100,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
+            <state relative-caret-position="150">
+              <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#1067#2898#0" />
@@ -126,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="37" column="55" lean-forward="true" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
+            <state relative-caret-position="171">
+              <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
               <folding>
                 <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
               </folding>
@@ -200,7 +199,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>seta</find>
       <find>xml:(.*&quot;)</find>
       <find>Measures</find>
       <find>meaures</find>
@@ -230,6 +228,7 @@
       <find>formatter.joinVoices</find>
       <find>formatter.format</find>
       <find>const</find>
+      <find>300</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -241,6 +240,7 @@
       <replace>measures</replace>
       <replace>parts</replace>
       <replace>part</replace>
+      <replace>measureWidth</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/noteshub</dir>
@@ -293,7 +293,6 @@
         <option value="$PROJECT_DIR$/tests/xml_parser.go" />
         <option value="$PROJECT_DIR$/tests/Json_test.go" />
         <option value="$PROJECT_DIR$/Json_test.go" />
-        <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/resources/sample-chrod.xml" />
         <option value="$PROJECT_DIR$/noteshub/src/services/Transposer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
@@ -304,6 +303,7 @@
         <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
         <option value="$PROJECT_DIR$/server/server.go" />
         <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
+        <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
       </list>
     </option>
@@ -330,8 +330,9 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="y" value="22" />
     <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="height" value="824" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -464,7 +465,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535384037965" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535385894596" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -627,14 +628,7 @@
       <workItem from="1535252458572" duration="283000" />
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
-      <workItem from="1535375052514" duration="8652000" />
-    </task>
-    <task id="LOCAL-00034" summary="add images">
-      <created>1533630203323</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1533630203323</updated>
+      <workItem from="1535375052514" duration="10483000" />
     </task>
     <task id="LOCAL-00035" summary="add css of current note">
       <created>1533646573769</created>
@@ -972,7 +966,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535383345413</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="change row succeed">
+      <created>1535384084146</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1535384084146</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1008,14 +1009,14 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="199162000" />
+    <option name="totallyTimeSpent" value="200993000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2274678" />
-      <window_info active="true" id="Structure" order="1" visible="true" weight="0.22961374" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2274678" />
+      <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -1028,9 +1029,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" visible="true" weight="0.119277105" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" weight="0.119277105" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3576538" side_tool="true" weight="0.13905683" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" weight="0.23012048" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" visible="true" weight="0.23012048" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -1123,7 +1124,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="parse chords from server sheet succeed" />
     <MESSAGE value="add Access-Control-Allow-Origin to header" />
     <MESSAGE value="added function drawGrandStaveRow to draw a row of empty stave" />
     <MESSAGE value="returned a more real world stave sheet" />
@@ -1148,7 +1148,8 @@
     <MESSAGE value="extract draw measure" />
     <MESSAGE value="move draw measure inside the outer loop statement" />
     <MESSAGE value="draw multiple measure in multiple parts succeed" />
-    <option name="LAST_COMMIT_MESSAGE" value="draw multiple measure in multiple parts succeed" />
+    <MESSAGE value="change row succeed" />
+    <option name="LAST_COMMIT_MESSAGE" value="change row succeed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1504,16 +1505,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="37" column="55" lean-forward="true" selection-start-line="37" selection-start-column="55" selection-end-line="37" selection-end-column="55" />
-          <folding>
-            <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -1525,10 +1516,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="91" column="26" selection-start-line="91" selection-start-column="26" selection-end-line="91" selection-end-column="26" />
+          <folding>
+            <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="170" column="46" selection-start-line="170" selection-start-column="46" selection-end-line="170" selection-end-column="46" />
+        <state relative-caret-position="150">
+          <caret line="150" column="29" selection-start-line="150" selection-start-column="29" selection-end-line="150" selection-end-column="29" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#1067#2898#0" />

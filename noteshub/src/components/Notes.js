@@ -148,8 +148,8 @@ export default class Notes extends Component {
           bassVoice = this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)
         }
       }
-
-      if (currentStaveWidth + 300 > this.sheetWidth) {
+      let measureWidth = 300
+      if (currentStaveWidth + measureWidth > this.sheetWidth) {
         this.drawStaveRow(currentRow, rowCounter)
         currentStaveWidth = 0
         currentRow = []
@@ -158,11 +158,11 @@ export default class Notes extends Component {
         // add current measure
         startX = 0
         currentRow.push({startX, ctx, trebleVoice, bassVoice})
-        currentStaveWidth += 300
+        currentStaveWidth += measureWidth
         startX += currentStaveWidth
 
       } else {
-        currentStaveWidth += 300
+        currentStaveWidth += measureWidth
         currentRow.push({startX, ctx, trebleVoice, bassVoice})
         startX += currentStaveWidth
       }
