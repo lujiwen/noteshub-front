@@ -162,21 +162,30 @@ export default class Notes extends Component {
     lineRight.setContext(ctx).draw()
     const formatter = new Formatter();
 
+    let trebleVoice, bassVoice
+
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
-        if (partId == 0) {
-          let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-          formatter.joinVoices(voices)
-          formatter.format(voices,0)
-          voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+        if (partId === 0) {
+          trebleVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          formatter.joinVoices(trebleVoice)
+          formatter.format(trebleVoice,0)
         } else {
-          let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-          formatter.joinVoices(voices)
-          formatter.format(voices,0)
-          voices.forEach(function (v) { v.draw(ctx, bassStave); }.bind(this));
+          bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          formatter.joinVoices(bassVoice)
+          formatter.format(bassVoice,0)
         }
       }
     }
+
+    formatter.format(trebleVoice.concat(bassVoice), 0);
+
+    trebleVoice.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+    bassVoice.forEach(function (v) { v.draw(ctx, bassStave); }.bind(this));
+
+
+    // formatter.format(trebleVoice).joinVoices()
+
 
     // sheet.part.forEach( (part, partId) => {
     //   part.measure.forEach((measure, measureId) => {
