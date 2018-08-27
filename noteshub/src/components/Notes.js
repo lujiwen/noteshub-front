@@ -35,7 +35,6 @@ export default class Notes extends Component {
     this.width = window.innerWidth;
     this.svgWidth = Math.max(this.width , SHEET_MIN_WIDTH) / this.scale;
     this.sheetWidth = this.svgWidth - PADDING_LEFT * 2;
-
     this.beams = [];
     this.tuplets = [];
 
@@ -117,12 +116,12 @@ export default class Notes extends Component {
     // }
 
     vexVoice.addTickables(vexNotes);
-    return vexVoice
+    return [vexVoice]
   }
 
 
-  drawSingleMeasureStaveWithVoice() {
-
+  drawStaveRow(rowOfMeasures) {
+    rowOfMeasures.forEach(measure => this.drawMeasure(measure))
   }
 
 
@@ -132,32 +131,36 @@ export default class Notes extends Component {
     const ctx = renderer.getContext();
 
     const sheet = this.props.sheet;
-    console.log(sheet)
 
-    // const trebleStave = new Stave(0, 0, 800);  // x, y, width
-    // const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
-    let key = []
-    var duration
-    var startX = 0
+    let startX = 0
     let partCount = sheet.part.length
-    console.log("total part number: " + partCount)
 
     let measureCount = sheet.part[0].measure.length
-    console.log("total measures number: " + measureCount)
-
     let trebleVoice, bassVoice
-
+    let currentRow = []
+    let currentStaveWidth = 0
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
         if (partId === 0) {
-          trebleVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          trebleVoice = this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)
         } else {
-          bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          bassVoice = this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)
         }
       }
-      this.drawMeasure(startX, ctx, trebleVoice, bassVoice)
-    }
 
+      if (currentStaveWidth + 300 > this.sheetWidth) {
+        this.drawStaveRow(currentRow)
+        currentStaveWidth = 0 ;
+        currentRow = []
+      } else {
+        currentStaveWidth += 300
+        currentRow.push({startX, ctx, trebleVoice, bassVoice})
+        startX += currentStaveWidth
+      }
+    }
+    if (currentRow.length > 0) {
+      this.drawStaveRow(currentRow)
+    }
 
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
     const svg = svgContainer.childNodes[0];
@@ -181,27 +184,19 @@ export default class Notes extends Component {
     this.refs.outer.appendChild(svgContainer);
   }
 
-  drawMeasure(startX, ctx, trebleVoice, bassVoice) {
+  drawMeasure(measure) {
+    let {startX , ctx, trebleVoice, bassVoice, rowCounter=0} = measure
     let barOffset = PADDING_LEFT;
     let barWidth = 300
-    const trebleStave = new Stave(0, 0)
-    const bassStave = new Stave(0, 0)
-    trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
-    bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
-    trebleStave.setNoteStartX(startX)
-    bassStave.setNoteStartX(startX)
-    trebleStave.setX(barOffset);
-    bassStave.setX(barOffset);
-    trebleStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES);
-    bassStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-    trebleStave.setWidth(barWidth);
-    bassStave.setWidth(barWidth);
-    trebleStave.setContext(ctx).draw()
-    bassStave.setContext(ctx).draw()
-    this.connectStave(ctx, trebleStave, bassStave)
+    let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, barWidth, ctx);
 
+    this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave);
+  }
+
+  drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave) {
     const formatter = new Formatter();
 
+    // draw notes
     formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
     formatter.format(trebleVoice.concat(bassVoice), 0);
     trebleVoice.forEach(function (v) {
@@ -210,6 +205,29 @@ export default class Notes extends Component {
     bassVoice.forEach(function (v) {
       v.draw(ctx, bassStave);
     });
+  }
+
+  drawMeasureStave(startX, barOffset, rowCounter, barWidth, ctx) {
+    let trebleStave = new Stave(0, 0)
+    let bassStave = new Stave(0, 0)
+
+    if (startX === 0) {
+      trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+      bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+    }
+
+    trebleStave.setNoteStartX(startX)
+    bassStave.setNoteStartX(startX)
+    trebleStave.setX(startX + barOffset);
+    bassStave.setX(startX + barOffset);
+    trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
+    bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
+    trebleStave.setWidth(barWidth);
+    bassStave.setWidth(barWidth);
+    trebleStave.setContext(ctx).draw()
+    bassStave.setContext(ctx).draw()
+    this.connectStave(ctx, trebleStave, bassStave)
+    return {trebleStave, bassStave};
   }
 
   connectStave(context, trebleStave, bassStave) {
@@ -238,55 +256,5 @@ export default class Notes extends Component {
     });
 
     return valueDistribution;
-  }
-
-  // draw a single row of stave with full parts(tacks)
-  drawStaveRow(currentRowMeasures, sectionWidthArray, currentRowIndex, widthRest = 0) {
-
-    this.rowFirstBars.push(currentRowMeasures[0].barId);
-    this.rowLastBars.push(currentRowMeasures[currentRowMeasures.length - 1].barId);
-
-    let barOffset = PADDING_LEFT;
-
-    const widthRestArray = this.calculateMeasureWidthRatio(sectionWidthArray, widthRest, 0);
-
-    currentRowMeasures.forEach((b, index) => {
-
-      const barWidth = b.barWidth + (widthRest !== 0 ? widthRestArray[index] : 0)
-
-      const trebleStave = b.tStave;
-      const bassStave = b.bStave;
-
-      trebleStave.setX(barOffset);
-      bassStave.setX(barOffset);
-      trebleStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES);
-      bassStave.setY(PADDING_TOP + currentRowIndex * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-
-      trebleStave.setWidth(barWidth);
-      bassStave.setWidth(barWidth);
-
-      barOffset += barWidth;
-
-      if (b.text) {
-        // trebleStave.setText(b.text[0], VF.Modifier.Position.ABOVE, { shift_y: 0, justification: VF.TextNote.Justification.LEFT });
-        trebleStave.setSection(b.text[0], 0);
-      }
-
-      const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
-      const lineRight = new StaveConnector(trebleStave, bassStave).setType(b.isLastBar ? 6 : 0);
-
-      trebleStave.setContext(this.context).draw();
-      bassStave.setContext(this.context).draw();
-
-      lineLeft.setContext(this.context).draw();
-      lineRight.setContext(this.context).draw();
-
-      b.formatter.format(b.trebleStaveVoices.concat(b.bassStaveVoices), b.minTotalWidth + (widthRest !== 0 ? widthRestArray[index] : 0));
-
-      // Render voices
-      b.trebleStaveVoices.forEach(function (v) { v.draw(this.context, trebleStave); }.bind(this));
-      b.bassStaveVoices.forEach(function (v) { v.draw(this.context, bassStave); }.bind(this));
-
-    });
   }
 }
