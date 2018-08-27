@@ -120,8 +120,8 @@ export default class Notes extends Component {
   }
 
 
-  drawStaveRow(rowOfMeasures) {
-    rowOfMeasures.forEach(measure => this.drawMeasure(measure))
+  drawStaveRow(rowOfMeasures, rowCounter = 0) {
+    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter))
   }
 
 
@@ -139,6 +139,7 @@ export default class Notes extends Component {
     let trebleVoice, bassVoice
     let currentRow = []
     let currentStaveWidth = 0
+    let rowCounter = 0
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
         if (partId === 0) {
@@ -149,9 +150,17 @@ export default class Notes extends Component {
       }
 
       if (currentStaveWidth + 300 > this.sheetWidth) {
-        this.drawStaveRow(currentRow)
-        currentStaveWidth = 0 ;
+        this.drawStaveRow(currentRow, rowCounter)
+        currentStaveWidth = 0
         currentRow = []
+        rowCounter ++
+
+        // add current measure
+        startX = 0
+        currentRow.push({startX, ctx, trebleVoice, bassVoice})
+        currentStaveWidth += 300
+        startX += currentStaveWidth
+
       } else {
         currentStaveWidth += 300
         currentRow.push({startX, ctx, trebleVoice, bassVoice})
@@ -159,7 +168,7 @@ export default class Notes extends Component {
       }
     }
     if (currentRow.length > 0) {
-      this.drawStaveRow(currentRow)
+      this.drawStaveRow(currentRow, rowCounter)
     }
 
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
@@ -184,8 +193,8 @@ export default class Notes extends Component {
     this.refs.outer.appendChild(svgContainer);
   }
 
-  drawMeasure(measure) {
-    let {startX , ctx, trebleVoice, bassVoice, rowCounter=0} = measure
+  drawMeasure(measure, rowCounter) {
+    let {startX , ctx, trebleVoice, bassVoice} = measure
     let barOffset = PADDING_LEFT;
     let barWidth = 300
     let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, barWidth, ctx);
