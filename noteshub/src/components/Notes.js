@@ -121,6 +121,8 @@ export default class Notes extends Component {
   }
 
 
+
+
   componentDidMount() {
     const svgContainer = document.createElement('div');
     const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
@@ -128,7 +130,7 @@ export default class Notes extends Component {
 
     const sheet = this.props.sheet;
     console.log(sheet)
-    //
+
     // const trebleStave = new Stave(0, 0, 800);  // x, y, width
     // const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
     let key = []
@@ -168,18 +170,14 @@ export default class Notes extends Component {
       for (let partId=0;partId < partCount; partId++) {
         if (partId === 0) {
           trebleVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-          formatter.joinVoices(trebleVoice)
-          formatter.format(trebleVoice,0)
         } else {
           bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-          formatter.joinVoices(bassVoice)
-          formatter.format(bassVoice,0)
         }
       }
     }
 
+    formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
     formatter.format(trebleVoice.concat(bassVoice), 0);
-
     trebleVoice.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
     bassVoice.forEach(function (v) { v.draw(ctx, bassStave); }.bind(this));
 
