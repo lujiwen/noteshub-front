@@ -140,23 +140,41 @@ export default class Notes extends Component {
     let measureCount = sheet.part[0].measure.length
     console.log("total measures number: " + measureCount)
 
-
+    let barOffset = PADDING_LEFT;
+    let barWidth = 300
     const trebleStave = new Stave(0,0)
+    const bassStave = new Stave(0,0)
     trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+    bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
     trebleStave.setNoteStartX(startX)
-    trebleStave.setX(0)
-    trebleStave.setY(0)
-    trebleStave.setWidth(400)
+    bassStave.setNoteStartX(startX)
+    trebleStave.setX(barOffset);
+    bassStave.setX(barOffset);
+    trebleStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES);
+    bassStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
+    trebleStave.setWidth(barWidth);
+    bassStave.setWidth(barWidth);
     trebleStave.setContext(ctx).draw()
+    bassStave.setContext(ctx).draw()
+    const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
+    const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
+    lineLeft.setContext(ctx).draw()
+    lineRight.setContext(ctx).draw()
     const formatter = new Formatter();
-
 
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
-        let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-        formatter.joinVoices(voices)
-        formatter.format(voices,0)
-        voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+        if (partId == 0) {
+          let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          formatter.joinVoices(voices)
+          formatter.format(voices,0)
+          voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+        } else {
+          let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+          formatter.joinVoices(voices)
+          formatter.format(voices,0)
+          voices.forEach(function (v) { v.draw(ctx, bassStave); }.bind(this));
+        }
       }
     }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="multiple measure cause no response problem">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="iterating on measures and parse multiple parts at the same time">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sample-chord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample-chord.xml" afterDir="false" />
@@ -79,29 +79,29 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="3" />
-          <entry key="js" value="252" />
+          <entry key="js" value="370" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="108" />
-          <entry key="xml" value="11" />
+          <entry key="txt" value="193" />
+          <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="3" />
-          <entry key="JavaScript" value="252" />
-          <entry key="PLAIN_TEXT" value="125" />
-          <entry key="XML" value="11" />
+          <entry key="JavaScript" value="370" />
+          <entry key="PLAIN_TEXT" value="210" />
+          <entry key="XML" value="13" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
+            <state relative-caret-position="50">
+              <caret line="150" column="7" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="7" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#1067#2898#0" />
@@ -110,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="241" column="31" lean-forward="true" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="31" />
+            <state relative-caret-position="581">
+              <caret line="254" column="13" selection-start-line="254" selection-start-column="13" selection-end-line="254" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -122,10 +122,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="703">
-              <caret line="269" column="16" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
+            <state relative-caret-position="306">
+              <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="39" />
               <folding>
-                <element signature="n#!!block;n#drawGrandStaveRow#0;n#SheetDrawer#0" />
                 <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
               </folding>
             </state>
@@ -309,8 +308,8 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
         <option value="$PROJECT_DIR$/server/server.go" />
-        <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
+        <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
       </list>
     </option>
   </component>
@@ -612,14 +611,7 @@
       <workItem from="1535252458572" duration="283000" />
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
-      <workItem from="1535375052514" duration="1061000" />
-    </task>
-    <task id="LOCAL-00026" summary="sheet get by id succeed">
-      <created>1532856791229</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1532856791229</updated>
+      <workItem from="1535375052514" duration="2316000" />
     </task>
     <task id="LOCAL-00027" summary="upload file to server succeed">
       <created>1532861051524</created>
@@ -957,7 +949,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535254421195</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="iterating on measures and parse multiple parts at the same time">
+      <created>1535376180160</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1535376180161</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -993,7 +992,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191571000" />
+    <option name="totallyTimeSpent" value="192826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1108,7 +1107,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="upgrade react route to version 4" />
     <MESSAGE value="move stave from package vex to component, so that extension of stave can be renamed from jsx to js" />
     <MESSAGE value="rename vex.jsx to notes.js" />
     <MESSAGE value="pass sheet data struct as props and convert it" />
@@ -1133,7 +1131,8 @@
     <MESSAGE value="draw notes on stave" />
     <MESSAGE value="draw notes on stave by type written in mxml" />
     <MESSAGE value="multiple measure cause no response problem" />
-    <option name="LAST_COMMIT_MESSAGE" value="multiple measure cause no response problem" />
+    <MESSAGE value="iterating on measures and parse multiple parts at the same time" />
+    <option name="LAST_COMMIT_MESSAGE" value="iterating on measures and parse multiple parts at the same time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1489,19 +1488,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="241" column="31" lean-forward="true" selection-start-line="241" selection-start-column="31" selection-end-line="241" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="703">
-          <caret line="269" column="16" selection-start-line="269" selection-start-column="16" selection-end-line="269" selection-end-column="16" />
+        <state relative-caret-position="306">
+          <caret line="96" column="39" lean-forward="true" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="39" />
           <folding>
-            <element signature="n#!!block;n#drawGrandStaveRow#0;n#SheetDrawer#0" />
             <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
           </folding>
         </state>
@@ -1509,12 +1500,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="158" column="8" selection-start-line="158" selection-start-column="8" selection-end-line="158" selection-end-column="8" />
+        <state relative-caret-position="50">
+          <caret line="150" column="7" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#1067#2898#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="581">
+          <caret line="254" column="13" selection-start-line="254" selection-start-column="13" selection-end-line="254" selection-end-column="13" />
         </state>
       </provider>
     </entry>
