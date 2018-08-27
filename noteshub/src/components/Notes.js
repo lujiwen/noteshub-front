@@ -121,6 +121,9 @@ export default class Notes extends Component {
   }
 
 
+  drawSingleMeasureStaveWithVoice() {
+
+  }
 
 
   componentDidMount() {
@@ -142,6 +145,20 @@ export default class Notes extends Component {
     let measureCount = sheet.part[0].measure.length
     console.log("total measures number: " + measureCount)
 
+
+
+    let trebleVoice, bassVoice
+
+    for (let measureId=0; measureId < measureCount; measureId++) {
+      for (let partId=0;partId < partCount; partId++) {
+        if (partId === 0) {
+          trebleVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+        } else {
+          bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
+        }
+      }
+    }
+
     let barOffset = PADDING_LEFT;
     let barWidth = 300
     const trebleStave = new Stave(0,0)
@@ -158,81 +175,18 @@ export default class Notes extends Component {
     bassStave.setWidth(barWidth);
     trebleStave.setContext(ctx).draw()
     bassStave.setContext(ctx).draw()
-    const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
-    const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
-    lineLeft.setContext(ctx).draw()
-    lineRight.setContext(ctx).draw()
+    this.connectStave(ctx, trebleStave, bassStave)
+
     const formatter = new Formatter();
-
-    let trebleVoice, bassVoice
-
-    for (let measureId=0; measureId < measureCount; measureId++) {
-      for (let partId=0;partId < partCount; partId++) {
-        if (partId === 0) {
-          trebleVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-        } else {
-          bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
-        }
-      }
-    }
 
     formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
     formatter.format(trebleVoice.concat(bassVoice), 0);
-    trebleVoice.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
-    bassVoice.forEach(function (v) { v.draw(ctx, bassStave); }.bind(this));
-
-
-    // formatter.format(trebleVoice).joinVoices()
-
-
-    // sheet.part.forEach( (part, partId) => {
-    //   part.measure.forEach((measure, measureId) => {
-    //     let isFirstMeasure = measureId === 0
-    //     let isLastMeasure = measureId === (measureCount - 1)
-    //     let voices = [this.buildNotesVoice(measure, partId, measureId)]
-    //     formatter.joinVoices(voices)
-    //     formatter.format(voices,0)
-    //     voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
-    //   })
-    // })
-
-
-
-
-
-    //
-    //
-    // let chord = [new StaveNote({
-    //   keys: key,
-    //   duration: duration.toString(),
-    // })];
-
-
+    trebleVoice.forEach(function (v) { v.draw(ctx, trebleStave); });
+    bassVoice.forEach(function (v) { v.draw(ctx, bassStave); });
 
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
 
-    let rowsCounter = 0;
-    let currentWidth = 0;
-    const currentRowBars = [];
-    const widthArray = [];
-    let firstRow = true;
 
-    const sectionsLength = 10;
-    //
-    // trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
-    // bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
-
-    // var startX = this.unifyNotesStartX(trebleStave, bassStave);
-
-    // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
-
-    // const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
-    // const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
-    //
-    // lineLeft.setContext(ctx).draw();
-    // lineRight.setContext(ctx).draw();
-
-    // const bb = Formatter.FormatAndDraw(ctx, trebleStave, chord);
     const svg = svgContainer.childNodes[0];
     const padding = 10;
     const half = padding / 2;
@@ -252,6 +206,13 @@ export default class Notes extends Component {
 
     // noinspection JSUnresolvedVariable
     this.refs.outer.appendChild(svgContainer);
+  }
+
+  connectStave(context, trebleStave, bassStave) {
+    const lineLeft = new StaveConnector(trebleStave, bassStave).setType(1);
+    const lineRight = new StaveConnector(trebleStave, bassStave).setType(0);
+    lineLeft.setContext(context).draw()
+    lineRight.setContext(context).draw()
   }
 
   unifyNotesStartX(trebleStave, bassStave) {

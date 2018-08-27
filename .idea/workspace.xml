@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="iterating on measures and parse multiple parts at the same time successfully">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="clean voice formatting logic">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
     </list>
@@ -62,7 +62,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="go" value="3" />
-          <entry key="js" value="3" />
+          <entry key="js" value="5" />
           <entry key="musicxml" value="3" />
           <entry key="xml" value="1" />
         </counts>
@@ -70,7 +70,7 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Go" value="1" />
-          <entry key="JavaScript" value="3" />
+          <entry key="JavaScript" value="5" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="XML" value="1" />
         </counts>
@@ -78,17 +78,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="3" />
-          <entry key="js" value="432" />
+          <entry key="js" value="654" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="207" />
+          <entry key="txt" value="318" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="3" />
-          <entry key="JavaScript" value="432" />
-          <entry key="PLAIN_TEXT" value="224" />
+          <entry key="JavaScript" value="654" />
+          <entry key="PLAIN_TEXT" value="335" />
           <entry key="XML" value="13" />
         </counts>
       </usages-collector>
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="179" column="4" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="4" />
+            <state relative-caret-position="139">
+              <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#1067#2898#0" />
@@ -121,8 +121,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="99" column="137" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="137" />
+            <state relative-caret-position="-253">
+              <caret line="68" column="41" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
               <folding>
                 <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
               </folding>
@@ -152,15 +152,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/smartystreets/assertions/equality.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -204,8 +195,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>FormatAndDraw</find>
-      <find>tuplets</find>
       <find>notes</find>
       <find>seta</find>
       <find>xml:(.*&quot;)</find>
@@ -234,6 +223,8 @@
       <find>assert</find>
       <find>&quot;2&quot;</find>
       <find>bass</find>
+      <find>formatter.joinVoices</find>
+      <find>formatter.format</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -381,6 +372,27 @@
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -610,21 +622,7 @@
       <workItem from="1535252458572" duration="283000" />
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
-      <workItem from="1535375052514" duration="2865000" />
-    </task>
-    <task id="LOCAL-00028" summary="update api version">
-      <created>1532864872811</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1532864872811</updated>
-    </task>
-    <task id="LOCAL-00029" summary="finish the upload mxml file to stave">
-      <created>1532879488389</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1532879488389</updated>
+      <workItem from="1535375052514" duration="4668000" />
     </task>
     <task id="LOCAL-00030" summary="I like to talk to mysql db">
       <created>1533052449488</created>
@@ -955,7 +953,21 @@
       <option name="project" value="LOCAL" />
       <updated>1535377511821</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="format bass and treble voice into the correct rhythm">
+      <created>1535378008199</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1535378008199</updated>
+    </task>
+    <task id="LOCAL-00078" summary="clean voice formatting logic">
+      <created>1535378460325</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1535378460325</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -991,13 +1003,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="193375000" />
+    <option name="totallyTimeSpent" value="195178000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13090129" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13090129" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1011,7 +1023,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" visible="true" weight="0.16746987" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" visible="true" weight="0.119277105" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3576538" side_tool="true" weight="0.13905683" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" weight="0.23012048" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
@@ -1106,8 +1118,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="rename vex.jsx to notes.js" />
-    <MESSAGE value="pass sheet data struct as props and convert it" />
     <MESSAGE value="added stave connector line：&#10;      SINGLE_RIGHT: 0,&#10;      SINGLE_LEFT: 1,&#10;      SINGLE: 1,&#10;      DOUBLE: 2,&#10;      BRACE: 3,&#10;      BRACKET: 4,&#10;      BOLD_DOUBLE_LEFT: 5,&#10;      BOLD_DOUBLE_RIGHT: 6,&#10;      THIN_DOUBLE: 7,&#10;      NONE: 8," />
     <MESSAGE value="initialize chord from sheet" />
     <MESSAGE value="output parts and measures count" />
@@ -1131,7 +1141,9 @@
     <MESSAGE value="multiple measure cause no response problem" />
     <MESSAGE value="iterating on measures and parse multiple parts at the same time" />
     <MESSAGE value="iterating on measures and parse multiple parts at the same time successfully" />
-    <option name="LAST_COMMIT_MESSAGE" value="iterating on measures and parse multiple parts at the same time successfully" />
+    <MESSAGE value="format bass and treble voice into the correct rhythm" />
+    <MESSAGE value="clean voice formatting logic" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean voice formatting logic" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1154,13 +1166,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vextab/node_modules/vexflow/src/stave.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="386" column="15" selection-start-line="386" selection-start-column="11" selection-end-line="386" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vextab/node_modules/vexflow/releases/vexflow-legacy-debug.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="258">
@@ -1396,13 +1401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/repo/commit.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
@@ -1487,6 +1485,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/stave.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-467">
+          <caret line="23" column="15" lean-forward="true" selection-start-line="23" selection-start-column="15" selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="78" column="21" lean-forward="true" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
@@ -1496,8 +1508,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="99" column="137" lean-forward="true" selection-start-line="99" selection-start-column="6" selection-end-line="99" selection-end-column="137" />
+        <state relative-caret-position="-253">
+          <caret line="68" column="41" lean-forward="true" selection-start-line="68" selection-start-column="41" selection-end-line="68" selection-end-column="41" />
           <folding>
             <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
           </folding>
@@ -1506,8 +1518,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="179" column="4" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="4" />
+        <state relative-caret-position="139">
+          <caret line="177" column="27" selection-start-line="177" selection-start-column="27" selection-end-line="177" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#1067#2898#0" />
