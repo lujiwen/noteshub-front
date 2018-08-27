@@ -122,55 +122,54 @@ export default class Notes extends Component {
 
 
   componentDidMount() {
-
-
     const svgContainer = document.createElement('div');
     const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
     const ctx = renderer.getContext();
 
     const sheet = this.props.sheet;
     console.log(sheet)
-
-    const trebleStave = new Stave(0, 0, 800);  // x, y, width
-    const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
+    //
+    // const trebleStave = new Stave(0, 0, 800);  // x, y, width
+    // const bassStave = new Stave(0, SPACE_BETWEEN_STAVES, 800);  // x, y, width
     let key = []
     var duration
+    var startX = 0
     let partCount = sheet.part.length
     console.log("total part number: " + partCount)
 
     let measureCount = sheet.part[0].measure.length
     console.log("total measures number: " + measureCount)
 
-    // for(let i in measure.note) {
-    //   let note = measure.note[i];
-    //   let pitch = note.pitch;
-    //   if(pitch.step != "" && pitch.step != null){
-    //     key.push(pitch.Step + "/"+pitch.octave);
-    //     duration = note.duration
-    //   }
-    // }
-    //
-    //
-    sheet.part.forEach( (part, partId) => {
-      part.measure.forEach((measure, measureId) => {
-        let isFirstMeasure = measureId === 0
-        let isLastMeasure = measureId === (measureCount - 1)
-        let voices = [this.buildNotesVoice(measure, partId, measureId)]
-        const formatter = new Formatter();
+
+    const trebleStave = new Stave(0,0)
+    trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+    trebleStave.setNoteStartX(startX)
+    trebleStave.setX(0)
+    trebleStave.setY(0)
+    trebleStave.setWidth(400)
+    trebleStave.setContext(ctx).draw()
+    const formatter = new Formatter();
+
+
+    for (let measureId=0; measureId < measureCount; measureId++) {
+      for (let partId=0;partId < partCount; partId++) {
+        let voices = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
         formatter.joinVoices(voices)
-
-        const stave = new Stave(0,0)
-        stave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
-        stave.setNoteStartX(startX)
-        stave.setX(0)
-        stave.setY(0)
-        stave.setWidth(400)
         formatter.format(voices,0)
-        stave.setContext(ctx).draw()
-        voices.forEach(function (v) { v.draw(ctx, stave); }.bind(this));
+        voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+      }
+    }
 
-      })
-    })
+    // sheet.part.forEach( (part, partId) => {
+    //   part.measure.forEach((measure, measureId) => {
+    //     let isFirstMeasure = measureId === 0
+    //     let isLastMeasure = measureId === (measureCount - 1)
+    //     let voices = [this.buildNotesVoice(measure, partId, measureId)]
+    //     formatter.joinVoices(voices)
+    //     formatter.format(voices,0)
+    //     voices.forEach(function (v) { v.draw(ctx, trebleStave); }.bind(this));
+    //   })
+    // })
 
 
 
@@ -198,7 +197,7 @@ export default class Notes extends Component {
     // trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
     // bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature).setContext(ctx).draw();
 
-    var startX = this.unifyNotesStartX(trebleStave, bassStave);
+    // var startX = this.unifyNotesStartX(trebleStave, bassStave);
 
     // var barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
 
