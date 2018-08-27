@@ -158,35 +158,9 @@ export default class Notes extends Component {
         }
       }
     }
-
-    let barOffset = PADDING_LEFT;
-    let barWidth = 300
-    const trebleStave = new Stave(0,0)
-    const bassStave = new Stave(0,0)
-    trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
-    bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
-    trebleStave.setNoteStartX(startX)
-    bassStave.setNoteStartX(startX)
-    trebleStave.setX(barOffset);
-    bassStave.setX(barOffset);
-    trebleStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES);
-    bassStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-    trebleStave.setWidth(barWidth);
-    bassStave.setWidth(barWidth);
-    trebleStave.setContext(ctx).draw()
-    bassStave.setContext(ctx).draw()
-    this.connectStave(ctx, trebleStave, bassStave)
-
-    const formatter = new Formatter();
-
-    formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
-    formatter.format(trebleVoice.concat(bassVoice), 0);
-    trebleVoice.forEach(function (v) { v.draw(ctx, trebleStave); });
-    bassVoice.forEach(function (v) { v.draw(ctx, bassStave); });
+    this.drawMeasure(startX, ctx, trebleVoice, bassVoice)
 
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
-
-
     const svg = svgContainer.childNodes[0];
     const padding = 10;
     const half = padding / 2;
@@ -206,6 +180,37 @@ export default class Notes extends Component {
 
     // noinspection JSUnresolvedVariable
     this.refs.outer.appendChild(svgContainer);
+  }
+
+  drawMeasure(startX, ctx, trebleVoice, bassVoice) {
+    let barOffset = PADDING_LEFT;
+    let barWidth = 300
+    const trebleStave = new Stave(0, 0)
+    const bassStave = new Stave(0, 0)
+    trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+    bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+    trebleStave.setNoteStartX(startX)
+    bassStave.setNoteStartX(startX)
+    trebleStave.setX(barOffset);
+    bassStave.setX(barOffset);
+    trebleStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES);
+    bassStave.setY(PADDING_TOP + 0 * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
+    trebleStave.setWidth(barWidth);
+    bassStave.setWidth(barWidth);
+    trebleStave.setContext(ctx).draw()
+    bassStave.setContext(ctx).draw()
+    this.connectStave(ctx, trebleStave, bassStave)
+
+    const formatter = new Formatter();
+
+    formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
+    formatter.format(trebleVoice.concat(bassVoice), 0);
+    trebleVoice.forEach(function (v) {
+      v.draw(ctx, trebleStave);
+    });
+    bassVoice.forEach(function (v) {
+      v.draw(ctx, bassStave);
+    });
   }
 
   connectStave(context, trebleStave, bassStave) {
