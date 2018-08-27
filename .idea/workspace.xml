@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="wrapper connect stave function">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="extract draw measure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
     </list>
@@ -78,17 +78,17 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="3" />
-          <entry key="js" value="669" />
+          <entry key="js" value="674" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="350" />
+          <entry key="txt" value="370" />
           <entry key="xml" value="13" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="3" />
-          <entry key="JavaScript" value="669" />
-          <entry key="PLAIN_TEXT" value="367" />
+          <entry key="JavaScript" value="674" />
+          <entry key="PLAIN_TEXT" value="387" />
           <entry key="XML" value="13" />
         </counts>
       </usages-collector>
@@ -99,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+            <state relative-caret-position="356">
+              <caret line="157" column="59" selection-start-line="157" selection-start-column="59" selection-end-line="157" selection-end-column="59" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#1067#2898#0" />
@@ -459,7 +459,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535379907828" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535379978869" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -622,14 +622,7 @@
       <workItem from="1535252458572" duration="283000" />
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
-      <workItem from="1535375052514" duration="4829000" />
-    </task>
-    <task id="LOCAL-00031" summary="add sheet from blues piano">
-      <created>1533623109292</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1533623109292</updated>
+      <workItem from="1535375052514" duration="4900000" />
     </task>
     <task id="LOCAL-00032" summary="add sheet from blues piano">
       <created>1533623231039</created>
@@ -967,7 +960,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535379768480</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="extract draw measure">
+      <created>1535379941619</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1535379941619</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1003,7 +1003,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="195339000" />
+    <option name="totallyTimeSpent" value="195410000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1118,7 +1118,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="initialize chord from sheet" />
     <MESSAGE value="output parts and measures count" />
     <MESSAGE value="output parts and measures count, let is a better var with more strict scope" />
     <MESSAGE value="parse chords from server sheet succeed" />
@@ -1143,7 +1142,8 @@
     <MESSAGE value="format bass and treble voice into the correct rhythm" />
     <MESSAGE value="clean voice formatting logic" />
     <MESSAGE value="wrapper connect stave function" />
-    <option name="LAST_COMMIT_MESSAGE" value="wrapper connect stave function" />
+    <MESSAGE value="extract draw measure" />
+    <option name="LAST_COMMIT_MESSAGE" value="extract draw measure" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1518,8 +1518,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="160" column="57" selection-start-line="160" selection-start-column="57" selection-end-line="160" selection-end-column="57" />
+        <state relative-caret-position="356">
+          <caret line="157" column="59" selection-start-line="157" selection-start-column="59" selection-end-line="157" selection-end-column="59" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#1067#2898#0" />

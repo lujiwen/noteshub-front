@@ -145,8 +145,6 @@ export default class Notes extends Component {
     let measureCount = sheet.part[0].measure.length
     console.log("total measures number: " + measureCount)
 
-
-
     let trebleVoice, bassVoice
 
     for (let measureId=0; measureId < measureCount; measureId++) {
@@ -157,8 +155,9 @@ export default class Notes extends Component {
           bassVoice = [this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)]
         }
       }
+      this.drawMeasure(startX, ctx, trebleVoice, bassVoice)
     }
-    this.drawMeasure(startX, ctx, trebleVoice, bassVoice)
+
 
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
     const svg = svgContainer.childNodes[0];
