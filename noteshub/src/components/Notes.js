@@ -1,5 +1,6 @@
 import Vex from 'vexflow';
 import React, {Component} from 'react';
+import SoundFont from "soundfont-player";
 
 const {
   Accidental,
@@ -130,12 +131,12 @@ export default class Notes extends Component {
     const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
     const ctx = renderer.getContext();
 
-    const sheet = this.props.sheet;
+    this.sheet = this.props.sheet;
 
     let startX = 0
-    let partCount = sheet.part.length
+    let partCount = this.sheet.part.length
 
-    let measureCount = sheet.part[0].measure.length
+    let measureCount = this.sheet.part[0].measure.length
     let trebleVoice, bassVoice
     let currentRow = []
     let currentStaveWidth = 0
@@ -143,9 +144,9 @@ export default class Notes extends Component {
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
         if (partId === 0) {
-          trebleVoice = this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)
+          trebleVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
         } else {
-          bassVoice = this.buildNotesVoice(sheet.part[partId].measure[measureId], partId, measureId)
+          bassVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
         }
       }
       let measureWidth = 300
@@ -167,6 +168,7 @@ export default class Notes extends Component {
         startX += currentStaveWidth
       }
     }
+
     if (currentRow.length > 0) {
       this.drawStaveRow(currentRow, rowCounter)
     }
@@ -184,7 +186,7 @@ export default class Notes extends Component {
     svg.style.position = "absolute";
     svg.style.overflow = "visible";
     // svgContainer.style.height = Math.max(100, bb.h + padding) + "px";
-    svgContainer.style.width = 100 + "px";
+    svgContainer.style.width = 900 + "px";
     svgContainer.style.height = 1000 + "px"
     svgContainer.style.position = "relative";
     svgContainer.style.display = "inlineBlock";
@@ -192,6 +194,54 @@ export default class Notes extends Component {
     // noinspection JSUnresolvedVariable
     this.refs.outer.appendChild(svgContainer);
   }
+
+  playSheet() {
+    this.tempo = 80
+    this.denominatorTime = 60 / this.tempo;
+    this.nBeats = 4;
+
+    const AudioContext = window.AudioContext || window.webkitAudioContext || false;
+    if (!AudioContext) {
+      alert(`Sorry, but the Web Audio API is not supported by your browser.
+             Please, consider upgrading to the latest version or downloading 
+             Google Chrome or Mozilla Firefox`);
+    }
+    const audioContext = new AudioContext();
+
+    function localUrl(name) {
+      return 'instruments/' + name + '.js'
+    }
+
+    SoundFont.instrument(audioContext, 'piano', {
+      nameToUrl: localUrl,
+      gain: 3,
+      release: 1
+    }).then((instrument) => {
+      this.instrument = instrument;
+
+      this.calculateNotesTimeAndPlay(this.instrument)
+
+    }).catch(function (err) {
+      console.log('err to load sheet', err)
+    })
+  }
+
+  calculateNotesTimeAndPlay(instrument) {
+    // instrument.play('C4', 0, 1)
+    // instrument.play('D4',2, 1)
+    let currentTime = 0
+    let measureCount = this.sheet.part[0].measure.length
+    let partCount = this.sheet.part.length
+    for (let measureId=0; measureId < measureCount; measureId++) {
+      for (let partId=0;partId < 1; partId++) {
+        let note = ['C4', 'D4']
+        instrument.play(note, measureId, this.denominatorTime)
+      }
+    }
+
+  }
+
+
 
   drawMeasure(measure, rowCounter) {
     let {startX , ctx, trebleVoice, bassVoice} = measure
