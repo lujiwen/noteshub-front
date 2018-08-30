@@ -19,7 +19,7 @@ const SCHEME_WIDTH = 350;
 
 const SPACE_BETWEEN_STAVES = 120;
 const SPACE_BETWEEN_GRAND_STAVES = 260;
-const BAR_MIN_WIDTH = 100;
+const MEASURE_MIN_WIDTH = 100;
 const PADDING_TOP = 50;
 const PADDING_LEFT = 50;
 const COEFFICIENT = 1;
@@ -122,9 +122,7 @@ export default class Notes extends Component {
 
 
   drawStaveRow(rowOfMeasures, rowCounter = 0) {
-    console.log("drawStaveRow: " + rowOfMeasures)
-
-    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter))
+    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width))
   }
 
 
@@ -143,6 +141,7 @@ export default class Notes extends Component {
     let currentRow = []
     let currentStaveWidth = 0
     let rowCounter = 0
+
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < partCount; partId++) {
         if (partId === 0) {
@@ -151,22 +150,36 @@ export default class Notes extends Component {
           bassVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
         }
       }
-      let measureWidth = 300
+
+      const formatter = new Formatter();
+      formatter.joinVoices(trebleVoice).joinVoices(bassVoice);
+      const allVoicesTogether = trebleVoice.concat(bassVoice);
+
+      const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), MEASURE_MIN_WIDTH));
+      let measureWidth
+      if (startX === 0) {
+        measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE + 40
+      } else {
+        measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE
+      }
+
+      console.log("measureWidth: " + measureWidth)
+
       if (currentStaveWidth + measureWidth > this.sheetWidth) {
-        console.log("current width will exceed the right limit ")
+        console.log("current width will exceed the right boundary ")
         this.drawStaveRow(currentRow, rowCounter)
 
         currentRow = []
         rowCounter ++
         startX = 0
         currentStaveWidth = 0
-        currentRow.push({startX, ctx, trebleVoice, bassVoice})
 
+        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 40})
 
       } else {
-        console.log("continue to add one more measure")
+        console.log("add one more measure")
         currentStaveWidth += measureWidth
-        currentRow.push({startX, ctx, trebleVoice, bassVoice})
+        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth})
         startX = currentStaveWidth
       }
     }
@@ -245,11 +258,10 @@ export default class Notes extends Component {
 
 
 
-  drawMeasure(measure, rowCounter) {
+  drawMeasure(measure, rowCounter, measureWidth) {
     let {startX , ctx, trebleVoice, bassVoice} = measure
     let barOffset = PADDING_LEFT;
-    let barWidth = 300
-    let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, barWidth, ctx);
+    let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
 
     this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave);
   }
@@ -268,7 +280,7 @@ export default class Notes extends Component {
     });
   }
 
-  drawMeasureStave(startX, barOffset, rowCounter, barWidth, ctx) {
+  drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx) {
     let trebleStave = new Stave(0, 0)
     let bassStave = new Stave(0, 0)
 
@@ -279,12 +291,14 @@ export default class Notes extends Component {
 
     trebleStave.setNoteStartX(startX)
     bassStave.setNoteStartX(startX)
-    trebleStave.setX(startX + barOffset);
-    bassStave.setX(startX + barOffset);
+
+    trebleStave.setX(startX);
+    bassStave.setX(startX);
+
     trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
     bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-    trebleStave.setWidth(barWidth);
-    bassStave.setWidth(barWidth);
+    trebleStave.setWidth(measureWidth)
+    bassStave.setWidth(measureWidth)
     trebleStave.setContext(ctx).draw()
     bassStave.setContext(ctx).draw()
     this.connectStave(ctx, trebleStave, bassStave)

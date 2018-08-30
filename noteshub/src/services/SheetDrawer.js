@@ -264,7 +264,7 @@ class SheetDrawer {
 
           const allVoicesTogether = trebleStaveVoices.concat(bassStaveVoices);
 
-          const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), BAR_MIN_WIDTH) * COEFFICIENT);
+          const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), BAR_MIN_WIDTH));
 
           // добавим нотные станы, пока с 0 координатами
           const tStave = new VF.Stave(0, 0);
@@ -281,7 +281,7 @@ class SheetDrawer {
           tStave.setNoteStartX(startX);
           bStave.setNoteStartX(startX);
 
-          const barWidth = minTotalWidth + (startX - 0) + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
+          const barWidth = minTotalWidth + startX + FIRST_NOTE_SPACE + LAST_NOTE_SPACE;
 
           if (currentWidth + barWidth < this.sheetWidth) {
             currentWidth += barWidth;
