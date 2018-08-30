@@ -122,6 +122,8 @@ export default class Notes extends Component {
 
 
   drawStaveRow(rowOfMeasures, rowCounter = 0) {
+    console.log("drawStaveRow: " + rowOfMeasures)
+
     rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter))
   }
 
@@ -130,7 +132,7 @@ export default class Notes extends Component {
     const svgContainer = document.createElement('div');
     const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
     const ctx = renderer.getContext();
-
+    console.log("sheet width :" + this.sheetWidth)
     this.sheet = this.props.sheet;
 
     let startX = 0
@@ -151,21 +153,21 @@ export default class Notes extends Component {
       }
       let measureWidth = 300
       if (currentStaveWidth + measureWidth > this.sheetWidth) {
+        console.log("current width will exceed the right limit ")
         this.drawStaveRow(currentRow, rowCounter)
-        currentStaveWidth = 0
+
         currentRow = []
         rowCounter ++
-
-        // add current measure
         startX = 0
+        currentStaveWidth = 0
         currentRow.push({startX, ctx, trebleVoice, bassVoice})
-        currentStaveWidth += measureWidth
-        startX += currentStaveWidth
+
 
       } else {
+        console.log("continue to add one more measure")
         currentStaveWidth += measureWidth
         currentRow.push({startX, ctx, trebleVoice, bassVoice})
-        startX += currentStaveWidth
+        startX = currentStaveWidth
       }
     }
 
