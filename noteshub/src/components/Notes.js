@@ -65,51 +65,18 @@ export default class Notes extends Component {
     const vexNotes = measure.note.filter(note => note.pitch.step !== "").map(function (note, noteId) {
       let keys = [note.pitch.step + "/" + note.pitch.octave]
       let duration = note.type
-      // let type = 'r'
-
-      // const { keys, dur: duration, grace, ...options } = note;
-
-      // const noteKeysAccidentals = [];
-      //
-      // const noteTies = [];
-      //
-      // let graceNotes = [];
-
-      // const transposedKeys = keys.map(function ({ ties, ...key }, keyIndex) {
-      //
-      //   const { trStep, trAccidental, trOctave, trPitch: pitch } = this.transposer.transpose(key, duration);
-      //
-      //   noteKeysAccidentals[keyIndex] = trAccidental;
-      //
-      //   if (ties) {
-      //     noteTies[keyIndex] = { pitch, ties };
-      //   }
-      //
-      //   return `${trStep}${trAccidental || ''}/${trOctave}`
-      //
-      // }.bind(this))
 
       const staveNote = new StaveNote({ keys: keys, duration});
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
 
-      if
 
       return staveNote;
     }.bind(this));
 
 
-
-    //
-    // if (measure.beams) {
-    //   measure.beams.forEach(beam => {
-    //     const { from, to } = beam;
-    //     this.beams.push(new Beam(vexNotes.slice(from, to)));
-    //   })
-    // } else {
-    //   const autoBeams = Beam.generateBeams(vexNotes);
-    //   this.beams.push(...autoBeams);
-    // }
+    const autoBeams = Beam.generateBeams(vexNotes);
+    this.beams.push(...autoBeams);
 
     // if (measure.tuplets) {
     //   voice.tuplets.forEach(tuplet => {
@@ -190,6 +157,9 @@ export default class Notes extends Component {
       this.drawStaveRow(currentRow, rowCounter)
     }
 
+    // draw beams
+    this.beams.forEach(b  => b.setContext(ctx).draw())
+
     ctx.setFont("Arial", 10, "").setBackgroundFillStyle("#eed");
     const svg = svgContainer.childNodes[0];
     const padding = 10;
@@ -262,6 +232,8 @@ export default class Notes extends Component {
     let {startX , ctx, trebleVoice, bassVoice} = measure
     let barOffset = PADDING_LEFT;
     let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
+
+
 
     this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave);
   }
