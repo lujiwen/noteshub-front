@@ -70,7 +70,6 @@ export default class Notes extends Component {
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
 
-
       return staveNote;
     }.bind(this));
 
@@ -127,7 +126,7 @@ export default class Notes extends Component {
       const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), MEASURE_MIN_WIDTH));
       let measureWidth
       if (startX === 0) {
-        measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE + 40
+        measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE + 50
       } else {
         measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE
       }
@@ -143,7 +142,7 @@ export default class Notes extends Component {
         startX = 0
         currentStaveWidth = 0
 
-        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 40})
+        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50})
 
       } else {
         console.log("add one more measure")
