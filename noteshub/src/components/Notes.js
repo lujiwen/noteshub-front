@@ -12,6 +12,7 @@ const {
   Voice,
   RESOLUTION,
   Tuplet,
+  StaveTie,
   Beam
 } = Vex.Flow;
 
@@ -45,6 +46,8 @@ export default class Notes extends Component {
     this.rowFirstBars = [];
     this.rowLastBars = [];
 
+    this.tieStart
+    this.stopStart
 
     this.signature = 'C';
   }
@@ -71,6 +74,22 @@ export default class Notes extends Component {
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
       if (note.dot != null) {
         staveNote.addDotToAll()
+      }
+
+      if (note.tie.type === "start") {
+        console.log("tie start !")
+        this.tieStart = staveNote
+
+      } else if (note.tie.type === "stop") {
+        console.log("tie stop")
+        this.tieStop = staveNote
+        this.ties.push(new StaveTie({
+          first_note: this.tieStart,
+          last_note: this.tieStop,
+          first_indices: [0],
+          last_indices: [0]
+        }))
+
       }
 
       return staveNote;
@@ -158,6 +177,9 @@ export default class Notes extends Component {
     if (currentRow.length > 0) {
       this.drawStaveRow(currentRow, rowCounter)
     }
+
+    //draw tie
+    this.ties.forEach(tie => tie.setContext(ctx).draw())
 
     // draw beams
     this.beams.forEach(b  => b.setContext(ctx).draw())
