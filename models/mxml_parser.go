@@ -78,6 +78,7 @@ type Note struct {
     Chord    xml.Name `xml:"chord" json:"chord"`
     Tie      Tie      `xml:"tie" json:"tie"`
     Beam     string   `xml:"beam" json:"beam"`
+    Dot      *struct{}`xml:"dot" json:"dot"`
 }
 
 // Pitch represents the pitch of a note

@@ -69,6 +69,9 @@ export default class Notes extends Component {
       const staveNote = new StaveNote({ keys: keys, duration});
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
+      if (note.dot != null) {
+        staveNote.addDotToAll()
+      }
 
       return staveNote;
     }.bind(this));
