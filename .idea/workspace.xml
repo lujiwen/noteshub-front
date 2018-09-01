@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="fix startX bug">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added 40 to the first measure of the row because of the signature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mxml_parser.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -53,18 +53,20 @@
     <session id="-1398184048">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.16" value="1" />
           <entry key="project.open.time.17" value="2" />
-          <entry key="project.opened" value="5" />
+          <entry key="project.open.time.18" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="coffee" value="3" />
-          <entry key="go" value="3" />
-          <entry key="js" value="19" />
+          <entry key="go" value="4" />
+          <entry key="js" value="20" />
+          <entry key="json" value="1" />
           <entry key="musicxml" value="3" />
           <entry key="xml" value="1" />
         </counts>
@@ -72,26 +74,27 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CoffeeScript" value="3" />
-          <entry key="Go" value="1" />
-          <entry key="JavaScript" value="19" />
+          <entry key="Go" value="2" />
+          <entry key="JSON" value="1" />
+          <entry key="JavaScript" value="20" />
           <entry key="PLAIN_TEXT" value="5" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="3" />
-          <entry key="js" value="2451" />
+          <entry key="go" value="36" />
+          <entry key="js" value="2473" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="592" />
+          <entry key="txt" value="682" />
           <entry key="xml" value="52" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="3" />
-          <entry key="JavaScript" value="2451" />
-          <entry key="PLAIN_TEXT" value="609" />
+          <entry key="Go" value="36" />
+          <entry key="JavaScript" value="2473" />
+          <entry key="PLAIN_TEXT" value="699" />
           <entry key="XML" value="52" />
         </counts>
       </usages-collector>
@@ -99,11 +102,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="176" column="82" selection-start-line="176" selection-start-column="82" selection-end-line="176" selection-end-column="82" />
+            <state relative-caret-position="549">
+              <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -123,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/Player.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-64">
-              <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+            <state relative-caret-position="882">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
               <folding>
                 <element signature="e#2443#3076#0" />
                 <element signature="e#4152#4697#0" />
@@ -136,8 +139,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/store/configureStore.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+            <state relative-caret-position="360">
+              <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -145,10 +148,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1153">
-              <caret line="2239" column="14" lean-forward="true" selection-start-line="2239" selection-start-column="14" selection-end-line="2239" selection-end-column="14" />
+            <state relative-caret-position="215">
+              <caret line="125" column="28" lean-forward="true" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
               <folding>
-                <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
@@ -168,7 +170,6 @@
                 <element signature="n#measure#0;n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#1;n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
-                <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#3;n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#4;n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#6;n#part#1;n#score-partwise#0;n#!!top" />
@@ -186,13 +187,22 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="344">
+              <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="278" lean-forward="true" selection-start-line="278" selection-end-line="278" />
+            <state relative-caret-position="128">
+              <caret line="117" column="18" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="18" />
               <folding>
-                <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
+                <element signature="e#3451#6150#0" />
               </folding>
             </state>
           </provider>
@@ -219,9 +229,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>table</find>
-      <find>note_struct</find>
-      <find>addTickables</find>
       <find>buildVoice</find>
       <find>Octave</find>
       <find>denominator</find>
@@ -249,6 +256,9 @@
       <find>startX</find>
       <find>&quot;tre</find>
       <find>40</find>
+      <find>beams</find>
+      <find>beam</find>
+      <find>this.beams</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -316,7 +326,6 @@
         <option value="$PROJECT_DIR$/resources/sample-chrod.xml" />
         <option value="$PROJECT_DIR$/noteshub/src/services/Transposer.js" />
         <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
-        <option value="$PROJECT_DIR$/models/mxml_parser.go" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Vex/index.jsx" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
@@ -325,6 +334,7 @@
         <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
         <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
+        <option value="$PROJECT_DIR$/models/mxml_parser.go" />
       </list>
     </option>
   </component>
@@ -363,7 +373,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -372,6 +381,17 @@
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="mxml_parser.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -398,6 +418,21 @@
               <item name="node_modules" type="462c0819:PsiDirectoryNode" />
               <item name="sample-player" type="462c0819:PsiDirectoryNode" />
               <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -435,16 +470,17 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="note&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;not&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;notes&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;shee&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;s&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
+    <property name="SearchEverywhereHistoryKey" value="parser&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;note&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;not&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;notes&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;shee&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;s&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535646337773" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535766942424" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -607,14 +643,8 @@
       <workItem from="1535252458572" duration="283000" />
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
-      <workItem from="1535375052514" duration="24618000" />
-    </task>
-    <task id="LOCAL-00042" summary="add AIP get sheet by ID">
-      <created>1533713555045</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1533713555045</updated>
+      <workItem from="1535375052514" duration="25320000" />
+      <workItem from="1535767145930" duration="1220000" />
     </task>
     <task id="LOCAL-00043" summary="auth example index">
       <created>1533726422714</created>
@@ -952,7 +982,14 @@
       <option name="project" value="LOCAL" />
       <updated>1535642354876</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="added 40 to the first measure of the row because of the signature">
+      <created>1535646376280</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1535646376280</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -988,13 +1025,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="215128000" />
+    <option name="totallyTimeSpent" value="217050000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20028612" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20314735" />
       <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1008,9 +1045,9 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" weight="0.119277105" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" visible="true" weight="0.119277105" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3576538" side_tool="true" weight="0.13905683" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" visible="true" weight="0.17710844" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" weight="0.17710844" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -1103,7 +1140,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="convert json fields of sheet to lower case" />
     <MESSAGE value="convert json fields of sheet to lower case in parser in front end" />
     <MESSAGE value="change the way to draw a stave" />
     <MESSAGE value="parse void note succeed" />
@@ -1128,7 +1164,8 @@
     <MESSAGE value="set measure width to 300" />
     <MESSAGE value="added function to play sheet" />
     <MESSAGE value="fix startX bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix startX bug" />
+    <MESSAGE value="added 40 to the first measure of the row because of the signature" />
+    <option name="LAST_COMMIT_MESSAGE" value="added 40 to the first measure of the row because of the signature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1151,13 +1188,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vextab/node_modules/vexflow/src/formatter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="662" lean-forward="true" selection-start-line="662" selection-end-line="662" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/Json_test.go" />
     <entry file="file://$PROJECT_DIR$/tests/xml_parser.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -1233,13 +1263,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12">
           <caret line="657" column="2" selection-start-line="657" selection-start-column="2" selection-end-line="657" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="229" column="31" lean-forward="true" selection-start-line="229" selection-start-column="31" selection-end-line="229" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -1326,20 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1980">
-          <caret line="115" column="17" selection-start-line="115" selection-start-column="10" selection-end-line="115" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/releases/vexflow-debug.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17154">
-          <caret line="953" column="2" selection-start-line="953" selection-start-column="2" selection-end-line="953" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/lovesong.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
@@ -1410,13 +1419,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/piano.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="4" column="2092" selection-start-line="4" selection-start-column="2092" selection-end-line="4" selection-end-column="2092" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/piano.js" />
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/soundfont-player/lib/legacy.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1125">
@@ -1445,55 +1448,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1153">
-          <caret line="2239" column="14" lean-forward="true" selection-start-line="2239" selection-start-column="14" selection-end-line="2239" selection-end-column="14" />
-          <folding>
-            <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#5;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#print#0;n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#8;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#9;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#11;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#12;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#13;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#15;n#part#0;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#0;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#1;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#3;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#4;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#6;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#7;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#8;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#9;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#10;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#11;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#12;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#13;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#14;n#part#1;n#score-partwise#0;n#!!top" />
-            <element signature="n#measure#15;n#part#1;n#score-partwise#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/store/configureStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="22" column="1" lean-forward="true" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/sample-player/lib/index.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1516,8 +1470,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/services/Player.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="51" column="8" lean-forward="true" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
+        <state relative-caret-position="882">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
           <folding>
             <element signature="e#2443#3076#0" />
             <element signature="e#4152#4697#0" />
@@ -1525,23 +1479,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/store/configureStore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/releases/vexflow-debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17154">
+          <caret line="953" column="2" selection-start-line="953" selection-start-column="2" selection-end-line="953" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/beam.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="132" column="29" lean-forward="true" selection-start-line="132" selection-start-column="29" selection-end-line="132" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="311" column="21" lean-forward="true" selection-start-line="311" selection-start-column="21" selection-end-line="311" selection-end-column="21" />
+          <folding>
+            <element signature="e#6026#8546#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="278" lean-forward="true" selection-start-line="278" selection-end-line="278" />
+        <state relative-caret-position="128">
+          <caret line="117" column="18" selection-start-line="117" selection-start-column="10" selection-end-line="117" selection-end-column="18" />
           <folding>
-            <element signature="n#!!block;n#buildVoice#0;n#SheetDrawer#0" />
+            <element signature="e#3451#6150#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="176" column="82" selection-start-line="176" selection-start-column="82" selection-end-line="176" selection-end-column="82" />
+        <state relative-caret-position="549">
+          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="125" column="28" lean-forward="true" selection-start-line="125" selection-start-column="28" selection-end-line="125" selection-end-column="28" />
+          <folding>
+            <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#5;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#print#0;n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#8;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#9;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#11;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#12;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#13;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#15;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#0;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#1;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#3;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#6;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#7;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#8;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#9;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#10;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#11;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#12;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#13;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#14;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#15;n#part#1;n#score-partwise#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="79" column="44" selection-start-line="79" selection-start-column="44" selection-end-line="79" selection-end-column="44" />
         </state>
       </provider>
     </entry>

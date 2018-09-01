@@ -93,6 +93,8 @@ export default class Notes extends Component {
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
 
+      if
+
       return staveNote;
     }.bind(this));
 
@@ -202,7 +204,7 @@ export default class Notes extends Component {
     svg.style.overflow = "visible";
     // svgContainer.style.height = Math.max(100, bb.h + padding) + "px";
     svgContainer.style.width = 900 + "px";
-    svgContainer.style.height = 1000 + "px"
+    svgContainer.style.height = 2000 + "px"
     svgContainer.style.position = "relative";
     svgContainer.style.display = "inlineBlock";
 
@@ -255,8 +257,6 @@ export default class Notes extends Component {
     }
 
   }
-
-
 
   drawMeasure(measure, rowCounter, measureWidth) {
     let {startX , ctx, trebleVoice, bassVoice} = measure

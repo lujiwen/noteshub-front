@@ -77,6 +77,7 @@ type Note struct {
     Rest     xml.Name `xml:"rest" json:"rest"`
     Chord    xml.Name `xml:"chord" json:"chord"`
     Tie      Tie      `xml:"tie" json:"tie"`
+    Beam     string   `xml:"beam" json:"beam"`
 }
 
 // Pitch represents the pitch of a note
