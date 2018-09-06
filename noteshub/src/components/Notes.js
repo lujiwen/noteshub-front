@@ -65,16 +65,32 @@ export default class Notes extends Component {
       resolution: RESOLUTION
     });
 
-    const vexNotes = measure.note.filter(note => note.pitch.step !== "").map(function (note, noteId) {
-      let keys = [note.pitch.step + "/" + note.pitch.octave]
+    const vexNotes = measure.note.map(function (note, noteId) {
+      let keys = ""
       let duration = note.type
 
+      if (note.grace.Local === "grace") {
+        return
+      }
+
+      if (note.chord.Local === "chord") {
+        keys = note.keys
+      } else {
+        keys = [note.pitch.step + "/" + note.pitch.octave]
+      }
+
+      if (note.rest.Local === "rest") {
+        duration = "qr"
+        keys = ["B/4"]  // temporary solution: in the middle of treble
+      }
       const staveNote = new StaveNote({ keys: keys, duration});
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
-      if (note.dot != null) {
+      if (note.dot.Local == "dot") {
         staveNote.addDotToAll()
       }
+
+
 
       if (note.tie.type === "start") {
         console.log("tie start !")

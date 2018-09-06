@@ -1,8 +1,9 @@
 package models
 
 import (
-	"testing"
+	"encoding/xml"
 	"fmt"
+	"testing"
 )
 
 
@@ -42,4 +43,103 @@ func TestTranslateNoteType(t *testing.T) {
 	if note.Type != "8" {
 		t.Error("note translating worng, actually it is:", note.Type)
 	}
+}
+
+func TestMeasure_ParseMeasure(t *testing.T) {
+	var att Attributes
+	measure := Measure{3, att,[]Note{
+		Note {
+			Pitch{
+				Accidental: 0,
+				Step:       "2",
+				Octave:     "C",
+			},
+			0,
+			0,
+			"",
+			xml.Name{},
+			xml.Name{
+				Space: "",
+				Local: "",
+			},
+			Tie{},
+			"",
+			xml.Name{},
+			xml.Name{},
+			nil,
+		},
+		Note {
+			Pitch{
+				Accidental: 0,
+				Step:       "2",
+				Octave:     "C",
+			},
+			0,
+			0,
+			"",
+			xml.Name{},
+			xml.Name{
+				Space: "",
+				Local: "",
+			},
+			Tie{},
+			"",
+			xml.Name{},
+			xml.Name{},
+			nil,
+		},
+		Note {
+			Pitch{
+				Accidental: 0,
+				Step:       "2",
+				Octave:     "C",
+			},
+			0,
+			0,
+			"",
+			xml.Name{},
+			xml.Name{
+				Space: "",
+				Local: "chord",
+			},
+			Tie{},
+			"",
+			xml.Name{},
+			xml.Name{},
+			nil,
+		},
+		Note {
+			Pitch{
+				Accidental: 0,
+				Step:       "2",
+				Octave:     "C",
+			},
+			0,
+			0,
+			"",
+			xml.Name{},
+			xml.Name{
+				Space: "",
+				Local: "",
+			},
+			Tie{},
+			"",
+			xml.Name{},
+			xml.Name{},
+			nil,
+		},
+	}}
+	measure.ParseMeasure()
+	if len(measure.Notes) == 3 {
+		println(measure.Notes)
+	} else {
+		t.Error("measure parsing wrong, actually it is:", len(measure.Notes))
+
+	}
+}
+
+func TestInterface(t *testing.T) {
+	x := "1"
+	y := "2"
+	print(x+"/"+y)
 }

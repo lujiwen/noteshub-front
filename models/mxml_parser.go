@@ -78,14 +78,16 @@ type Note struct {
     Chord    xml.Name `xml:"chord" json:"chord"`
     Tie      Tie      `xml:"tie" json:"tie"`
     Beam     string   `xml:"beam" json:"beam"`
-    Dot      *struct{}`xml:"dot" json:"dot"`
+    Dot      xml.Name `xml:"dot" json:"dot"`
+    Grace    xml.Name `xml:"grace" json:"grace"`
+    Keys     []string `json:"keys"`
 }
 
 // Pitch represents the pitch of a note
 type Pitch struct {
     Accidental int8   `xml:"alter" json:"accidental"`
     Step       string `xml:"step" json:"step"`
-    Octave     int8   `xml:"octave" json:"octave"`
+    Octave     string   `xml:"octave" json:"octave"`
 }
 
 // Tie represents whether or not a note is tied.
@@ -133,14 +135,62 @@ func (note *Note)TranslateNoteType() {
 func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
     newSheet := sheet
     for _, p := range newSheet.Parts {
-        for _, m := range p.Measures {
-            for noteIndex := range m.Notes {
-                m.Notes[noteIndex].TranslateNoteType()
+        for measureIdx := range p.Measures {
+            p.Measures[measureIdx].ParseMeasure()
+
+            for noteIndex := range p.Measures[measureIdx].Notes {
+	            p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
             }
         }
     }
     return newSheet
 }
+
+
+func (measure *Measure) ParseMeasure()  {
+	var notes []Note
+
+  var keys []string
+  chordStart := -1
+  chordEnd   := -1
+
+  notesSize := len(measure.Notes)
+  for i, note := range measure.Notes {
+	  if note.Chord.Local != "chord" && i+1 < notesSize  && measure.Notes[i+1].Chord.Local != "chord" {
+	  	// normal note
+	  	notes = append(notes, note)
+	  	// in the middle of chord notes
+	  	} else if i+1 < notesSize && measure.Notes[i+1].Chord.Local == "chord" && chordStart == -1  {
+	  		// the start of chord
+	      chordStart = i
+      } else if i+1 < notesSize && measure.Notes[i+1].Chord.Local == "" && chordStart >= 0 {
+      	// the end of chord , but not the end of measure
+          chordEnd = i
+      } else if i+1 == notesSize && measure.Notes[i].Chord.Local == "chord" && chordStart >= 0 {
+      	// the end of measure, the end of chord as well
+	      chordEnd = i
+      } else if note.Chord.Local != "chord" && i+1 == notesSize{
+      	// normal note at
+		  notes = append(notes, note)
+	  }
+
+      if chordEnd != -1 && chordStart != -1 && chordStart < chordEnd {
+          for j := chordStart; j <= chordEnd; j++ {
+              keys = append(keys, string(measure.Notes[j].Pitch.Step) +"/" + measure.Notes[j].Pitch.Octave )
+          }
+	      measure.Notes[chordStart].Keys = keys
+	      measure.Notes[chordStart].Chord.Local = "chord"
+
+	      notes = append(notes, measure.Notes[chordStart])
+	      chordStart = -1
+          chordEnd   = -1
+          keys = []string{}
+      }
+  }
+  measure.Notes = notes
+}
+
+
 
 func ParseMxmlFromDataByte(data []byte) MXLDoc {
     v := MXLDoc{}
