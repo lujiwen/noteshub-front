@@ -146,6 +146,16 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
     return newSheet
 }
 
+func (note *Note) AddAccidental() {
+	accidental := ""
+
+	if note.Pitch.Accidental == 1 {
+		accidental = "#"
+	} else if note.Pitch.Accidental == -1 {
+		accidental = "n"
+	}
+	note.Pitch.Step += accidental
+}
 
 func (measure *Measure) ParseMeasure()  {
 	var notes []Note
@@ -156,6 +166,7 @@ func (measure *Measure) ParseMeasure()  {
 
   notesSize := len(measure.Notes)
   for i, note := range measure.Notes {
+	  measure.Notes[i].AddAccidental()
 	  if note.Chord.Local != "chord" && i+1 < notesSize  && measure.Notes[i+1].Chord.Local != "chord" {
 	  	// normal note
 	  	notes = append(notes, note)

@@ -91,6 +91,7 @@
         <pitch>
           <step>G</step>
           <octave>4</octave>
+          <alter>-1</alter>
         </pitch>
         <duration>1</duration>
         <voice>1</voice>
@@ -122,7 +123,6 @@
       <note default-x="130.71" default-y="-15.00">
         <pitch>
           <step>C</step>
-          <alter>1</alter>
           <octave>5</octave>
         </pitch>
         <duration>1</duration>

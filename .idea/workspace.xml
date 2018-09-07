@@ -3,6 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added suport to chord and rest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mxml_parser.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/mxml_parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mxml_parser_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sample-chord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample-chord.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -63,8 +67,8 @@
         <counts>
           <entry key="coffee" value="3" />
           <entry key="go" value="19" />
-          <entry key="js" value="31" />
-          <entry key="json" value="3" />
+          <entry key="js" value="37" />
+          <entry key="json" value="4" />
           <entry key="mscx" value="2" />
           <entry key="mscz" value="2" />
           <entry key="musicxml" value="5" />
@@ -75,27 +79,27 @@
         <counts>
           <entry key="CoffeeScript" value="3" />
           <entry key="Go" value="17" />
-          <entry key="JSON" value="3" />
-          <entry key="JavaScript" value="31" />
+          <entry key="JSON" value="4" />
+          <entry key="JavaScript" value="37" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="1935" />
-          <entry key="js" value="4075" />
+          <entry key="go" value="2295" />
+          <entry key="js" value="4361" />
           <entry key="musicxml" value="17" />
           <entry key="txt" value="897" />
-          <entry key="xml" value="85" />
+          <entry key="xml" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="1935" />
-          <entry key="JavaScript" value="4075" />
+          <entry key="Go" value="2295" />
+          <entry key="JavaScript" value="4361" />
           <entry key="PLAIN_TEXT" value="914" />
-          <entry key="XML" value="85" />
+          <entry key="XML" value="98" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
@@ -115,8 +119,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+            <state relative-caret-position="304">
+              <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -127,22 +131,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-127">
-              <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+            <state relative-caret-position="120">
+              <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
               <folding>
                 <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#score-part#0;n#part-list#0;n#score-partwise#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/stavenote.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="657" lean-forward="true" selection-start-line="657" selection-end-line="657" />
             </state>
           </provider>
         </entry>
@@ -159,8 +154,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="166" column="4" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="4" />
+            <state relative-caret-position="277">
+              <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
               <folding>
                 <element signature="e#16#80#0" expanded="true" />
               </folding>
@@ -169,31 +164,31 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/runtime/panic.go">
+        <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="587" selection-start-line="587" selection-end-line="587" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/encoding/xml/xml.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="43" column="16" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file:///usr/local/go/src/encoding/xml/read.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-553">
-              <caret line="302" column="18" selection-start-line="302" selection-start-column="18" selection-end-line="302" selection-end-column="18" />
+            <state relative-caret-position="207">
+              <caret line="10512" column="34" lean-forward="true" selection-start-line="10512" selection-start-column="34" selection-end-line="10512" selection-end-column="35" />
               <folding>
-                <element signature="e#173#254#0" expanded="true" />
+                <element signature="e#6026#8546#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="152" column="88" lean-forward="true" selection-start-line="152" selection-start-column="88" selection-end-line="152" selection-end-column="88" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/services/Transposer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="77" column="16" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -201,8 +196,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="131" column="19" selection-start-line="131" selection-start-column="19" selection-end-line="131" selection-end-column="19" />
+            <state relative-caret-position="392">
+              <caret line="154" column="10" lean-forward="true" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -219,12 +214,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>beam</find>
-      <find>beam.</find>
-      <find>this.beams.</find>
-      <find>draw</find>
-      <find>40</find>
-      <find>dots</find>
       <find>&lt;dot/&gt;</find>
       <find>self</find>
       <find>mars</find>
@@ -240,7 +229,6 @@
       <find>this.ties</find>
       <find>up</find>
       <find>staveTie</find>
-      <find>grace</find>
       <find>Space</find>
       <find>int8</find>
       <find>Note</find>
@@ -249,6 +237,13 @@
       <find>note</find>
       <find>rest</find>
       <find>ParseMeasure</find>
+      <find>grace</find>
+      <find>accidental</find>
+      <find>b</find>
+      <find>modi</find>
+      <find>noteKeysAccidentals</find>
+      <find>accidenta</find>
+      <find>alter</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -321,9 +316,9 @@
         <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
         <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/resources/Tie.xml" />
-        <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
         <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
+        <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
       </list>
     </option>
@@ -438,6 +433,15 @@
               <item name="vexflow" type="462c0819:PsiDirectoryNode" />
               <item name="releases" type="462c0819:PsiDirectoryNode" />
               <item name="vexflow-debug.js" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow" type="462c0819:PsiDirectoryNode" />
+              <item name="releases" type="462c0819:PsiDirectoryNode" />
+              <item name="vexflow-legacy-debug.js" type="620a8d5e:NestingTreeNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -590,11 +594,11 @@
   <component name="PropertiesComponent">
     <property name="DefaultGoTemplateProperty" value="Go File" />
     <property name="GO_FMT" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser_test.go&#10;parse&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;pre&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;tie&#9;null&#9;null&#10;parser&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;note&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;not&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;notes&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;shee&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;s&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
+    <property name="SearchEverywhereHistoryKey" value="note&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;pres&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;sheet&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;parse&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;pre&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;tie&#9;null&#9;null&#10;parser&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;preset&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/presets.json&#10;not&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;server&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/server/server.go&#10;plugins&#9;ACTION&#9;WelcomeScreen.Plugins&#10;notes&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;shee&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;s&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sample-chord.musicxml&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources/sample-chord.musicxml&#10;par&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/mxml_parser.go&#10;res&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/resources&#10;sa&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;staveno&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/node_modules/vexflow/src/stavenote.js&#10;ser&#9;null&#9;null&#10;she&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sh&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;no&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Notes.js&#10;inde&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/index.js&#10;test.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/App.test.js&#10;test&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/models_test.go&#10;draw&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;sta&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/components/Vex/Stave.jsx&#10;configureStore&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/store/configureStore.js&#10;sample-chord&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/models/musicxml/sample-chord.xml&#10;header&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/containers/Header.js&#10;SheetDrawer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/SheetDrawer.js&#10;Player.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/Player.js&#10;intro.js&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/actions/intro.js&#10;Transposer&#9;FILE&#9;file:///Users/lujiwen/go/src/mo/noteshub/src/services/tests/Transposer.test.js&#10;keymap&#9;ACTION&#9;ChangeKeymap" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536253441384" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536329411006" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -635,7 +639,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build server.go">
+  <component name="RunManager" selected="Go Test.TestNote_AddAccidental in mo/models">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -681,14 +685,16 @@
       <pattern value="^TestMeasure_ParseMeasure$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestTranslateNoteType in mxml_parser_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration name="TestNote_AddAccidental in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="mo" />
       <working_directory value="$PROJECT_DIR$/models" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="mo/models" />
-      <pattern value="^TestTranslateNoteType$" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^TestNote_AddAccidental$" />
       <method v="2" />
     </configuration>
     <configuration name="TestUpdateMxml in mxml_parser_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
@@ -726,14 +732,15 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build server.go" />
-      <item itemvalue="Go Test.TestTranslateNoteType in mxml_parser_test.go" />
       <item itemvalue="Go Test.TestUpdateMxml in mxml_parser_test.go" />
       <item itemvalue="Go Test.TestMeasure_ParseMeasure in mo/models" />
       <item itemvalue="Go Test.TestInterface in mo/models" />
+      <item itemvalue="Go Test.TestNote_AddAccidental in mo/models" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build server.go" />
+        <item itemvalue="Go Test.TestNote_AddAccidental in mo/models" />
         <item itemvalue="Go Test.TestMeasure_ParseMeasure in mo/models" />
         <item itemvalue="Go Test.TestInterface in mo/models" />
       </list>
@@ -766,14 +773,7 @@
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
-      <workItem from="1535767145930" duration="33248000" />
-    </task>
-    <task id="LOCAL-00053" summary="output parts and measures count">
-      <created>1534172827065</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1534172827065</updated>
+      <workItem from="1535767145930" duration="38656000" />
     </task>
     <task id="LOCAL-00054" summary="output parts and measures count, let is a better var with more strict scope">
       <created>1534173025352</created>
@@ -1111,43 +1111,50 @@
       <option name="project" value="LOCAL" />
       <updated>1536253399483</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="added suport to chord and rest">
+      <created>1536253453697</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1536253453697</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 00h 59m 40s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 01h 00m 06s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 01h 01m 04s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 01h 03m 55s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 01h 06m 33s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 01h 07m 45s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.06 at 23h 57m 14s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.07 at 00h 00m 13s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.07 at 00h 00m 46s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.07 at 00h 01m 25s.xml">
       <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 25m 20s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 11s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 17s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 43s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 27m 29s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 35m 31s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 36m 06s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 36m 15s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 22h 06m 32s.xml">
+      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="249078000" />
+    <option name="totallyTimeSpent" value="254486000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1162,13 +1169,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32889965" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6530758" weight="0.27108434" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.648784" visible="true" weight="0.26385543" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6502146" weight="0.27108434" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.6409156" visible="true" weight="0.2614458" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" weight="0.25783134" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3576538" side_tool="true" weight="0.13905683" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3590844" side_tool="true" visible="true" weight="0.2614458" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" weight="0.15060242" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
@@ -1311,6 +1318,12 @@
           <properties />
           <option name="timeStamp" value="64" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
+          <url>file://$PROJECT_DIR$/models/mxml_parser_test.go</url>
+          <line>190</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -1319,16 +1332,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/models/repo.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/git_diff_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Vex/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1420,13 +1423,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1125">
           <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/Transposer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -1561,13 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/stavetie.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -1575,25 +1564,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="10459" column="28" selection-start-line="10459" selection-start-column="23" selection-end-line="10459" selection-end-column="28" />
-          <folding>
-            <element signature="e#6026#8546#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/modifier-example.mscz">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-482">
-          <caret line="127" column="17" lean-forward="true" selection-start-line="127" selection-start-column="17" selection-end-line="127" selection-end-column="17" />
-        </state>
-      </provider>
     </entry>
     <entry file="file:///usr/local/go/src/strconv/itoa.go">
       <provider selected="true" editor-type-id="text-editor">
@@ -1654,17 +1626,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="10512" column="34" lean-forward="true" selection-start-line="10512" selection-start-column="34" selection-end-line="10512" selection-end-column="35" />
+          <folding>
+            <element signature="e#6026#8546#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/releases/vexflow-legacy-debug.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="268">
+          <caret line="8034" column="41" lean-forward="true" selection-start-line="8034" selection-start-column="41" selection-end-line="8034" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="152" column="88" lean-forward="true" selection-start-line="152" selection-start-column="88" selection-end-line="152" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/Transposer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="77" column="16" selection-start-line="77" selection-start-column="11" selection-end-line="77" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="82" column="26" selection-start-line="82" selection-start-column="26" selection-end-line="82" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
+          <folding>
+            <element signature="e#16#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="131" column="19" selection-start-line="131" selection-start-column="19" selection-end-line="131" selection-end-column="19" />
+        <state relative-caret-position="392">
+          <caret line="154" column="10" lean-forward="true" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/vexflow/src/accidental.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="263">
+          <caret line="65" lean-forward="true" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-127">
-          <caret line="84" column="23" lean-forward="true" selection-start-line="84" selection-start-column="23" selection-end-line="84" selection-end-column="23" />
+        <state relative-caret-position="120">
+          <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
           <folding>
             <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
             <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
@@ -1673,20 +1700,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="166" column="4" selection-start-line="166" selection-start-column="4" selection-end-line="166" selection-end-column="4" />
-          <folding>
-            <element signature="e#16#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="83" column="53" selection-start-line="83" selection-start-column="53" selection-end-line="83" selection-end-column="53" />
+        <state relative-caret-position="304">
+          <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

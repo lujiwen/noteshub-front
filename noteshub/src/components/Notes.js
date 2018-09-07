@@ -66,12 +66,13 @@ export default class Notes extends Component {
     });
 
     const vexNotes = measure.note.map(function (note, noteId) {
-      let keys = ""
+      let keys = []
       let duration = note.type
 
-      if (note.grace.Local === "grace") {
-        return
-      }
+      // if (note.grace.Local === "grace") {
+      //   return
+      // }
+
 
       if (note.chord.Local === "chord") {
         keys = note.keys
@@ -83,14 +84,22 @@ export default class Notes extends Component {
         duration = "qr"
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
-      const staveNote = new StaveNote({ keys: keys, duration});
+      const staveNote = new StaveNote({keys: keys, duration});
+
+
+      for (let i = 0; i < keys.length; i++) {
+        let key = keys[i]
+        if (key.includes("#")) {
+          staveNote.addAccidental(i, new Accidental("#"))
+        } else if (key.includes("n")) {
+          staveNote.addAccidental(i, new Accidental("n"))
+        }
+      }
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
       if (note.dot.Local == "dot") {
         staveNote.addDotToAll()
       }
-
-
 
       if (note.tie.type === "start") {
         console.log("tie start !")

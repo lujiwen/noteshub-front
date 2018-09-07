@@ -138,8 +138,58 @@ func TestMeasure_ParseMeasure(t *testing.T) {
 	}
 }
 
-func TestInterface(t *testing.T) {
-	x := "1"
-	y := "2"
-	print(x+"/"+y)
+func TestNote_AddAccidental(t *testing.T) {
+	note1 := Note{
+		Pitch{
+			Accidental: 1,
+			Step:       "C",
+			Octave:     "2",
+		},
+		0,
+		0,
+		"",
+		xml.Name{},
+		xml.Name{
+			Space: "",
+			Local: "",
+		},
+		Tie{},
+		"",
+		xml.Name{},
+		xml.Name{},
+		nil,
+	}
+
+	note1.AddAccidental()
+
+	if note1.Pitch.Step != "C#" {
+		t.Error("accidental parsing wrong !")
+	}
+
+	note2 := Note{
+		Pitch{
+			Accidental: -1,
+			Step:       "C",
+			Octave:     "2",
+		},
+		0,
+		0,
+		"",
+		xml.Name{},
+		xml.Name{
+			Space: "",
+			Local: "",
+		},
+		Tie{},
+		"",
+		xml.Name{},
+		xml.Name{},
+		nil,
+	}
+
+	note2.AddAccidental()
+
+	if note2.Pitch.Step != "Cn" {
+		t.Error("accidental parsing wrong !")
+	}
 }
