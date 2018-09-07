@@ -166,6 +166,11 @@ func (measure *Measure) ParseMeasure()  {
 
   notesSize := len(measure.Notes)
   for i, note := range measure.Notes {
+
+	  if note.Grace.Local == "grace" { // not support grace note
+		  continue
+	  }
+
 	  measure.Notes[i].AddAccidental()
 	  if note.Chord.Local != "chord" && i+1 < notesSize  && measure.Notes[i+1].Chord.Local != "chord" {
 	  	// normal note
