@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added suport to chord and rest">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added suport to accidental">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/mxml_parser.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mxml_parser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/mxml_parser_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/mxml_parser_test.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sample-chord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample-chord.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -90,16 +88,16 @@
           <entry key="go" value="2295" />
           <entry key="js" value="4361" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="897" />
-          <entry key="xml" value="98" />
+          <entry key="txt" value="912" />
+          <entry key="xml" value="99" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="2295" />
           <entry key="JavaScript" value="4361" />
-          <entry key="PLAIN_TEXT" value="914" />
-          <entry key="XML" value="98" />
+          <entry key="PLAIN_TEXT" value="929" />
+          <entry key="XML" value="99" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
@@ -116,11 +114,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
+            <state relative-caret-position="430">
+              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -131,8 +129,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
+            <state relative-caret-position="221">
+              <caret line="136" column="28" lean-forward="true" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
               <folding>
                 <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
@@ -151,11 +149,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
+            <state relative-caret-position="143">
+              <caret line="171" column="46" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
               <folding>
                 <element signature="e#16#80#0" expanded="true" />
               </folding>
@@ -235,15 +233,15 @@
       <find>xml.Name</find>
       <find>chor</find>
       <find>note</find>
-      <find>rest</find>
       <find>ParseMeasure</find>
       <find>grace</find>
       <find>accidental</find>
       <find>b</find>
       <find>modi</find>
       <find>noteKeysAccidentals</find>
-      <find>accidenta</find>
+      <find>rest</find>
       <find>alter</find>
+      <find>accidenta</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -316,10 +314,10 @@
         <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
         <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/resources/Tie.xml" />
-        <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
-        <option value="$PROJECT_DIR$/models/mxml_parser.go" />
         <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
+        <option value="$PROJECT_DIR$/resources/sample-chord.xml" />
+        <option value="$PROJECT_DIR$/models/mxml_parser.go" />
       </list>
     </option>
   </component>
@@ -598,7 +596,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536329411006" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536329732184" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -773,14 +771,7 @@
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
-      <workItem from="1535767145930" duration="38656000" />
-    </task>
-    <task id="LOCAL-00054" summary="output parts and measures count, let is a better var with more strict scope">
-      <created>1534173025352</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1534173025352</updated>
+      <workItem from="1535767145930" duration="38951000" />
     </task>
     <task id="LOCAL-00055" summary="parse chords from server sheet succeed">
       <created>1534263264316</created>
@@ -1118,7 +1109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536253453697</updated>
     </task>
-    <option name="localTasksCounter" value="103" />
+    <task id="LOCAL-00103" summary="added suport to accidental">
+      <created>1536329445131</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1536329445131</updated>
+    </task>
+    <option name="localTasksCounter" value="104" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1154,7 +1152,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="254486000" />
+    <option name="totallyTimeSpent" value="254781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1269,7 +1267,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="finish TranslateNoteType and UpdateMxml, and change function name ParseMxml to ParseMxmlFromString" />
     <MESSAGE value="change eight to eighth, respect to xml" />
     <MESSAGE value="draw notes on stave" />
     <MESSAGE value="draw notes on stave by type written in mxml" />
@@ -1294,7 +1291,8 @@
     <MESSAGE value="added support to dot" />
     <MESSAGE value="added suport to tie" />
     <MESSAGE value="added suport to chord and rest" />
-    <option name="LAST_COMMIT_MESSAGE" value="added suport to chord and rest" />
+    <MESSAGE value="added suport to accidental" />
+    <option name="LAST_COMMIT_MESSAGE" value="added suport to accidental" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1320,7 +1318,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/models/mxml_parser_test.go</url>
-          <line>190</line>
+          <line>189</line>
           <properties />
           <option name="timeStamp" value="72" />
         </line-breakpoint>
@@ -1619,13 +1617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/modifier-example.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="116" column="14" lean-forward="true" selection-start-line="116" selection-start-column="14" selection-end-line="116" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/presets.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1664,16 +1655,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="154" column="23" selection-start-line="154" selection-start-column="23" selection-end-line="154" selection-end-column="23" />
-          <folding>
-            <element signature="e#16#80#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="392">
@@ -1688,10 +1669,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/modifier-example.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="116" column="14" lean-forward="true" selection-start-line="116" selection-start-column="14" selection-end-line="116" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="85" column="31" lean-forward="true" selection-start-line="85" selection-start-column="31" selection-end-line="85" selection-end-column="31" />
+        <state relative-caret-position="221">
+          <caret line="136" column="28" lean-forward="true" selection-start-line="136" selection-start-column="28" selection-end-line="136" selection-end-column="28" />
           <folding>
             <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
             <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
@@ -1702,10 +1690,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="90" column="12" selection-start-line="90" selection-start-column="12" selection-end-line="90" selection-end-column="12" />
+        <state relative-caret-position="430">
+          <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="171" column="46" selection-start-line="171" selection-start-column="46" selection-end-line="171" selection-end-column="46" />
+          <folding>
+            <element signature="e#16#80#0" expanded="true" />
           </folding>
         </state>
       </provider>

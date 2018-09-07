@@ -169,7 +169,7 @@ func (measure *Measure) ParseMeasure()  {
 	  measure.Notes[i].AddAccidental()
 	  if note.Chord.Local != "chord" && i+1 < notesSize  && measure.Notes[i+1].Chord.Local != "chord" {
 	  	// normal note
-	  	notes = append(notes, note)
+		  notes = append(notes, measure.Notes[i])
 	  	// in the middle of chord notes
 	  	} else if i+1 < notesSize && measure.Notes[i+1].Chord.Local == "chord" && chordStart == -1  {
 	  		// the start of chord
@@ -182,7 +182,7 @@ func (measure *Measure) ParseMeasure()  {
 	      chordEnd = i
       } else if note.Chord.Local != "chord" && i+1 == notesSize{
       	// normal note at
-		  notes = append(notes, note)
+		  notes = append(notes, measure.Notes[i])
 	  }
 
       if chordEnd != -1 && chordStart != -1 && chordStart < chordEnd {
