@@ -20,7 +20,7 @@ const SCHEME_WIDTH = 350;
 
 const SPACE_BETWEEN_STAVES = 120;
 const SPACE_BETWEEN_GRAND_STAVES = 260;
-const MEASURE_MIN_WIDTH = 100;
+const MEASURE_MIN_WIDTH = 200;
 const PADDING_TOP = 50;
 const PADDING_LEFT = 50;
 const COEFFICIENT = 1;
@@ -57,15 +57,8 @@ export default class Notes extends Component {
     </div>;
   }
 
-  buildNotesVoice(measure, partId, measureId) {
-
-    const vexVoice = new Voice({
-      num_beats: measure.attributes.time.beats,
-      beat_value: measure.attributes.time.beatType,
-      resolution: RESOLUTION
-    });
-
-    const vexNotes = measure.note.map(function (note, noteId) {
+  buildVexNotes(measure, partId, measureId) {
+    return measure.note.map(function (note, noteId) {
       let keys = []
       let duration = note.type
 
@@ -97,7 +90,7 @@ export default class Notes extends Component {
       }
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
-      if (note.dot.Local == "dot") {
+      if (note.dot.Local === "dot") {
         staveNote.addDotToAll()
       }
 
@@ -114,30 +107,33 @@ export default class Notes extends Component {
           first_indices: [0],
           last_indices: [0]
         }))
-
       }
 
       return staveNote;
     }.bind(this));
+  }
 
+
+  buildNotesVoice(measure, partId, measureId) {
+
+    const vexVoice = new Voice({
+      num_beats: measure.attributes.time.beats,
+      beat_value: measure.attributes.time.beatType,
+      resolution: RESOLUTION
+    });
+
+
+    const vexNotes = this.buildVexNotes(measure, partId, measureId)
 
     const autoBeams = Beam.generateBeams(vexNotes);
     this.beams.push(...autoBeams);
-
-    // if (measure.tuplets) {
-    //   voice.tuplets.forEach(tuplet => {
-    //     const { from, to, ...options } = tuplet;
-    //     this.tuplets.push(new Tuplet(vexNotes.slice(from, to), options));
-    //   })
-    // }
-
     vexVoice.addTickables(vexNotes);
     return [vexVoice]
   }
 
 
   drawStaveRow(rowOfMeasures, rowCounter = 0) {
-    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width))
+    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width, measure, measure.formatter))
   }
 
 
@@ -189,12 +185,12 @@ export default class Notes extends Component {
         startX = 0
         currentStaveWidth = 0
 
-        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50})
+        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50, formatter: formatter})
 
       } else {
         console.log("add one more measure")
         currentStaveWidth += measureWidth
-        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth})
+        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth, formatter: formatter})
         startX = currentStaveWidth
       }
     }
@@ -278,21 +274,17 @@ export default class Notes extends Component {
   }
 
   drawMeasure(measure, rowCounter, measureWidth) {
-    let {startX , ctx, trebleVoice, bassVoice} = measure
+    let {startX, ctx, trebleVoice, bassVoice, formatter} = measure
     let barOffset = PADDING_LEFT;
     let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
 
-
-
-    this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave);
+    this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter);
   }
 
-  drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave) {
-    const formatter = new Formatter();
-
+  drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter) {
     // draw notes
     formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
-    formatter.format(trebleVoice.concat(bassVoice), 0);
+    formatter.format(trebleVoice.concat(bassVoice), MEASURE_MIN_WIDTH);
     trebleVoice.forEach(function (v) {
       v.draw(ctx, trebleStave);
     });
