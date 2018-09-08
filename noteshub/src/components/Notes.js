@@ -67,13 +67,13 @@ export default class Notes extends Component {
       // }
 
 
-      if (note.chord.Local === "chord") {
+      if (this.isChord(note)) {
         keys = note.keys
       } else {
         keys = [note.pitch.step + "/" + note.pitch.octave]
       }
 
-      if (note.rest.Local === "rest") {
+      if (this.isRest(note)) {
         duration = "qr"
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
@@ -90,15 +90,15 @@ export default class Notes extends Component {
       }
 
       staveNote.setAttribute('id', `${partId}-${measureId}-${noteId}`);
-      if (note.dot.Local === "dot") {
+      if (this.isDot(note)) {
         staveNote.addDotToAll()
       }
 
-      if (note.tie.type === "start") {
+      if (this.isTieStartNote(note)) {
         console.log("tie start !")
         this.tieStart = staveNote
 
-      } else if (note.tie.type === "stop") {
+      } else if (this.isTieEndNote(note)) {
         console.log("tie stop")
         this.tieStop = staveNote
         this.ties.push(new StaveTie({
@@ -113,6 +113,26 @@ export default class Notes extends Component {
     }.bind(this));
   }
 
+
+  isTieEndNote(note) {
+    return note.tie.type === "stop";
+  }
+
+  isTieStartNote(note) {
+    return note.tie.type === "start";
+  }
+
+  isDot(note) {
+    return note.dot.Local === "dot";
+  }
+
+  isRest(note) {
+    return note.rest.Local === "rest";
+  }
+
+  isChord(note) {
+    return note.chord.Local === "chord";
+  }
 
   buildNotesVoice(measure, partId, measureId) {
 

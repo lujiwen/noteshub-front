@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="filter grace note">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="format measures">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Notes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sample-chord.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sample-chord.xml" afterDir="false" />
@@ -86,18 +86,18 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="go" value="2365" />
-          <entry key="js" value="4530" />
+          <entry key="js" value="4576" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="959" />
-          <entry key="xml" value="99" />
+          <entry key="txt" value="979" />
+          <entry key="xml" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Go" value="2365" />
-          <entry key="JavaScript" value="4530" />
-          <entry key="PLAIN_TEXT" value="976" />
-          <entry key="XML" value="99" />
+          <entry key="JavaScript" value="4576" />
+          <entry key="PLAIN_TEXT" value="996" />
+          <entry key="XML" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
@@ -117,11 +117,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="286" column="52" selection-start-line="286" selection-start-column="52" selection-end-line="286" selection-end-column="52" />
+            <state relative-caret-position="342">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#1146#2661#0" />
               </folding>
             </state>
           </provider>
@@ -130,12 +129,48 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="420" column="16" lean-forward="true" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="16" />
+            <state relative-caret-position="636">
+              <caret line="2434" column="14" selection-start-line="2434" selection-start-column="14" selection-end-line="2434" selection-end-column="14" />
               <folding>
                 <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#score-part#0;n#part-list#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#notations#0;n#note#1;n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#5;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#notations#0;n#note#1;n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#8;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#9;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#notations#0;n#note#1;n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#11;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#12;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#13;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#notations#0;n#note#1;n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#15;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#1;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#3;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#4;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#5;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#6;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#7;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#8;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#9;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#10;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#11;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#12;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#13;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#14;n#part#1;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#15;n#part#1;n#score-partwise#0;n#!!top" />
               </folding>
             </state>
           </provider>
@@ -144,8 +179,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/sample.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="118" column="34" lean-forward="true" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
+            <state relative-caret-position="539">
+              <caret line="563" column="16" lean-forward="true" selection-start-line="101" selection-start-column="3" selection-end-line="563" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -153,10 +188,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/lovesong.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="316" column="25" lean-forward="true" selection-start-line="316" selection-start-column="25" selection-end-line="316" selection-end-column="25" />
+            <state relative-caret-position="40">
+              <caret line="101" selection-start-line="101" selection-end-line="214" />
               <folding>
                 <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
+                <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
                 <element signature="n#part#1;n#score-partwise#0;n#!!top" />
                 <element signature="n#part#2;n#score-partwise#0;n#!!top" />
@@ -229,7 +268,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>dot</find>
       <find>tuple</find>
       <find>part</find>
       <find>meas</find>
@@ -259,6 +297,7 @@
       <find>draw</find>
       <find>format</find>
       <find>drawGr</find>
+      <find>this.min</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -613,7 +652,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536335237854" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536417085396" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -788,14 +827,7 @@
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
-      <workItem from="1535767145930" duration="42611000" />
-    </task>
-    <task id="LOCAL-00057" summary="add Access-Control-Allow-Origin to header">
-      <created>1534346197239</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1534346197240</updated>
+      <workItem from="1535767145930" duration="44253000" />
     </task>
     <task id="LOCAL-00058" summary="added function drawGrandStaveRow to draw a row of empty stave">
       <created>1534555983698</created>
@@ -1133,7 +1165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536330193856</updated>
     </task>
-    <option name="localTasksCounter" value="106" />
+    <task id="LOCAL-00106" summary="format measures">
+      <created>1536335258370</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1536335258371</updated>
+    </task>
+    <option name="localTasksCounter" value="107" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1169,13 +1208,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="258441000" />
+    <option name="totallyTimeSpent" value="260083000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12589413" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12589413" />
       <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1185,13 +1224,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32889965" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.6502146" weight="0.27108434" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6409156" visible="true" weight="0.10120482" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6409156" weight="0.10120482" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6423462" weight="0.25783134" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.3590844" side_tool="true" visible="true" weight="0.10120482" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.4914163" weight="0.15060242" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.509299" side_tool="true" visible="true" weight="0.15060242" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.490701" visible="true" weight="0.15060242" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -1284,7 +1323,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="draw notes on stave by type written in mxml" />
     <MESSAGE value="multiple measure cause no response problem" />
     <MESSAGE value="iterating on measures and parse multiple parts at the same time" />
     <MESSAGE value="iterating on measures and parse multiple parts at the same time successfully" />
@@ -1309,7 +1347,8 @@
     <MESSAGE value="added suport to accidental" />
     <MESSAGE value="fix bug of accidental adding" />
     <MESSAGE value="filter grace note" />
-    <option name="LAST_COMMIT_MESSAGE" value="filter grace note" />
+    <MESSAGE value="format measures" />
+    <option name="LAST_COMMIT_MESSAGE" value="format measures" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1675,19 +1714,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/sample.xml">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="118" column="34" lean-forward="true" selection-start-line="118" selection-start-column="34" selection-end-line="118" selection-end-column="34" />
+        <state relative-caret-position="403">
+          <caret line="99" column="51" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/lovesong.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="316" column="25" lean-forward="true" selection-start-line="316" selection-start-column="25" selection-end-line="316" selection-end-column="25" />
+        <state relative-caret-position="40">
+          <caret line="101" selection-start-line="101" selection-end-line="214" />
           <folding>
             <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
             <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
             <element signature="n#part#1;n#score-partwise#0;n#!!top" />
             <element signature="n#part#2;n#score-partwise#0;n#!!top" />
@@ -1696,32 +1739,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/sample.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="539">
+          <caret line="563" column="16" lean-forward="true" selection-start-line="101" selection-start-column="3" selection-end-line="563" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/sample-chord.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="420" column="16" lean-forward="true" selection-start-line="420" selection-start-column="16" selection-end-line="420" selection-end-column="16" />
+        <state relative-caret-position="636">
+          <caret line="2434" column="14" selection-start-line="2434" selection-start-column="14" selection-end-line="2434" selection-end-column="14" />
           <folding>
             <element signature="n#defaults#0;n#score-partwise#0;n#!!top" />
             <element signature="n#scaling#0;n#defaults#0;n#score-partwise#0;n#!!top" />
             <element signature="n#score-part#0;n#part-list#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#0;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#1;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#notations#0;n#note#1;n#measure#2;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#3;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#5;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#notations#0;n#note#1;n#measure#6;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#7;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#8;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#9;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#notations#0;n#note#1;n#measure#10;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#11;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#12;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#13;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#notations#0;n#note#1;n#measure#14;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#15;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#0;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#1;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#2;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#3;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#4;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#5;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#6;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#7;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#8;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#9;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#10;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#11;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#12;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#13;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#14;n#part#1;n#score-partwise#0;n#!!top" />
+            <element signature="n#measure#15;n#part#1;n#score-partwise#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="99" column="51" selection-start-line="99" selection-start-column="45" selection-end-line="99" selection-end-column="51" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Notes.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="286" column="52" selection-start-line="286" selection-start-column="52" selection-end-line="286" selection-end-column="52" />
+        <state relative-caret-position="342">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#1146#2661#0" />
           </folding>
         </state>
       </provider>
