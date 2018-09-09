@@ -14,6 +14,7 @@ import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { ApolloProvider } from 'react-apollo';
 import sheetReducer from "./reducers";
 import authReducer from "./reducers";
+import userReducer from "./reducers/userReducer";
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -40,7 +41,8 @@ const store = createStore(
       apollo: client.reducer(),
       form: formReducer,
       auth: authReducer,
-      sheet: sheetReducer
+      sheet: sheetReducer,
+      login: userReducer
     }),
     {}, // initial state
     compose(
@@ -56,10 +58,10 @@ if (token) {
 }
 
 ReactDOM.render(
-    <ApolloProvider store={store} client={client}>
-      {/*<Router history={browserHistory} >*/}
+    <ApolloProvider client={client}>
+      <Provider store={store}>
         <App />
-      {/*</Router>*/}
+      </Provider>
     </ApolloProvider>
     , document.getElementById('root'));
 registerServiceWorker();

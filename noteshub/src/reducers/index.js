@@ -4,15 +4,18 @@ import intro from './intro'
 import ending from './ending'
 import sections from './sections'
 import sheet from './sheet'
+import userReducer from './userReducer'
+
 import { combineReducers } from 'redux'
 
 const sheetReducer = combineReducers({
-    player,
-    settings,
-    intro,
-    ending,
-    sections,
-    sheet
+    // player,
+    // settings,
+    // intro,
+    // ending,
+    // sections,
+    // sheet,
+    userReducer
 })
 
 export default sheetReducer

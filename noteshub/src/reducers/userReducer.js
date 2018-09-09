@@ -1,12 +1,11 @@
-import { combineReducers } from 'redux';
 import { initialState } from './../store/UserStore';
 
-const userRedu = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch(action.type) {
-    case 'REGISTERREDU':
+    case 'REGISTER_REDUCER':
       return Object.assign({}, state, action.data);
     break;
-    case 'CLEARREDU':
+    case 'CLEAR_REDUCER':
       return Object.assign({}, state, initialState);
     default:
       return state;
@@ -16,4 +15,4 @@ const userRedu = (state = initialState, action) => {
   userRedu
 });
 export default reducers;*/
-export default userRedu;
+export default userReducer;
