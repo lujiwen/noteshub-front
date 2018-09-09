@@ -1,10 +1,7 @@
- import React,{ Component } from 'react';
-import { connect } from 'react-redux';
-import { withRouter } from "react-router-dom";
-import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
-import { login, clear } from './../../actions/UserAction';
-import { tips } from './../../util.js'; 
-import * as styles from './UserLogin.css';
+import React, {Component} from 'react';
+import {Button, Checkbox, Form, Icon, Input} from 'antd';
+import {clear, login} from './../../actions/UserAction';
+// import { tips } from './../../util.js';
 const FormItem = Form.Item;
 class UserLogin extends Component {
   constructor(props) {
@@ -18,7 +15,7 @@ class UserLogin extends Component {
     datas.dispatch = dispatch;
     datas.clear = clear;
     datas.history = history;
-    tips.alertMessage.call(datas);
+    // tips.alertMessage.call(datas);
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -63,7 +60,8 @@ class UserLogin extends Component {
   }
 }
 const WrappedNormalLoginForm = Form.create()(UserLogin);
-function mapStateToProps(state,oWnprops) {
-  return state;
-}
-export default connect(mapStateToProps)(withRouter(WrappedNormalLoginForm));
+// function mapStateToProps(state,oWnprops) {
+//   return state;
+// }
+// export default connect(mapStateToProps)(withRouter(WrappedNormalLoginForm));
+export default WrappedNormalLoginForm

@@ -1,16 +1,10 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './App.css';
 
-
-import LayoutFooter from "./components/Layout/LayoutFooter";
-import Stave from "./components/Stave";
-
 import Vex from 'vexflow';
-import {Upload, Icon, message } from 'antd';
-import SheetContainer from "./containers/SheetContainer";
-import Header from "./containers/Header";
-import Scheme from "./containers/Scheme";
-import HomePageContainer from "./containers/HomePageContainer";
+import {message, Upload} from 'antd';
+import WrappedNormalLoginForm from "./components/User/UserLogin"
+
 const {Accidental, StaveNote} = Vex.Flow;
 
 
@@ -19,18 +13,6 @@ class App extends Component {
 
 
   render() {
-      let chord1 = [new StaveNote({
-          keys: ["c/0", "e/4", "g#/8"],
-          duration: "w",
-      }).addAccidental(0, new Accidental("bb")).addAccidental(2, new Accidental("#"))];
-
-      let chord2 = [new StaveNote({
-          keys: ["d/4", "f#/4", "a#/4"],
-          duration: "1",
-      }).addAccidental(1, new Accidental("#")).addAccidental(2, new Accidental("#"))];
-
-      // staveNote.setAttribute('id', `${sInd}-${pInd}-${bInd}-${symbol}-${vInd}-${nInd}`);
-      // set id and add style class to it
 
       this.state = {
           top: 10,
@@ -58,7 +40,8 @@ class App extends Component {
 
       return (
               <div >
-                  <Stave chord={[chord1,chord2]}/>
+                {/*<Stave/>*/}
+                <WrappedNormalLoginForm/>
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}
