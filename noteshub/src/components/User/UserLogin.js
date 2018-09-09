@@ -1,7 +1,10 @@
-import React, {Component} from 'react';
-import {Button, Checkbox, Form, Icon, Input} from 'antd';
-import {clear, login} from './../../actions/UserAction';
-// import { tips } from './../../util.js';
+import React,{ Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from "react-router-dom";
+import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
+import { login, clear } from './../../actions/UserAction';
+import * as styles from './UserLogin.css';
+
 const FormItem = Form.Item;
 class UserLogin extends Component {
   constructor(props) {

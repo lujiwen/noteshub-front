@@ -1,8 +1,7 @@
 .login-form {
-  margin: auto; /*auto to centralize a component*/
+  margin: auto;
+  max-width: 400px;
   width: 50%;
-  alignment: center;
-  padding: auto;
 }
 
 .login-form-forgot {
