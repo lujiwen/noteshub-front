@@ -3,7 +3,7 @@ import './App.css';
 
 import Vex from 'vexflow';
 import {message, Upload} from 'antd';
-import UserLogin from "./components/User/UserLogin"
+import WrappedNormalLoginForm from "./components/User/UserLogin"
 
 const {Accidental, StaveNote} = Vex.Flow;
 
@@ -41,7 +41,7 @@ class App extends Component {
       return (
               <div >
                 {/*<Stave/>*/}
-                <UserLogin/>
+                <WrappedNormalLoginForm/>
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}

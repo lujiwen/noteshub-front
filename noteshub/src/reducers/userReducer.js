@@ -9,7 +9,8 @@ const userReducer = (state = initialState, action) => {
       return Object.assign({}, state, initialState);
       break
     case 'LOGIN':
-      console.log("in Login reducer!")
+      console.log(action.values.userName + "is logging !")
+      // password ,remember, userName
       return Object.assign({}, state, action.data)
       break
     default:
