@@ -20,7 +20,7 @@ const updatePassword = (dispatch, values) => {
 
 const login = (dispatch, values) => {
   dispatch({
-    type:'LOGIN_SAGA',
+    type:'LOGIN',
     values
   });
 }

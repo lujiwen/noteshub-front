@@ -4,14 +4,15 @@ import createLogger from 'redux-logger';
 import reducer from '../reducers'
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-composeWithDevTools(
-    applyMiddleware(...middleware)
-)
 
 
 const loggerMiddleware = createLogger({collapsed:true});
 
 const middleware = [ loggerMiddleware];
+
+composeWithDevTools(
+    applyMiddleware(...middleware)
+)
 
 const store = (window.devToolsExtension
     ? window.devToolsExtension()(createStore)

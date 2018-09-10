@@ -7,7 +7,13 @@ const userReducer = (state = initialState, action) => {
     break;
     case 'CLEAR_REDUCER':
       return Object.assign({}, state, initialState);
+      break
+    case 'LOGIN':
+      console.log("in Login reducer!")
+      return Object.assign({}, state, action.data)
+      break
     default:
+      console.log(action.type)
       return state;
   }
 }

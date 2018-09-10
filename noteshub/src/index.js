@@ -38,18 +38,17 @@ const client = new ApolloClient({
 
 const store = createStore(
     combineReducers({
-      apollo: client.reducer(),
-      form: formReducer,
-      auth: authReducer,
-      sheet: sheetReducer,
-      login: userReducer
+      // apollo: client.reducer(),
+      // form: formReducer,
+      // auth: authReducer,
+      user: userReducer
     }),
     {}, // initial state
-    compose(
-        applyMiddleware(client.middleware(),playerMiddleware),
-        // If you are using the devToolsExtension, you can add it here also
-        window.devToolsExtension ? window.devToolsExtension() : f => f,
-    )
+    // compose(
+    //     applyMiddleware(client.middleware(),playerMiddleware),
+    //     // If you are using the devToolsExtension, you can add it here also
+    //     window.devToolsExtension ? window.devToolsExtension() : f => f,
+    // )
 );
 
 if (token) {

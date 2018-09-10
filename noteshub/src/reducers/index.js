@@ -9,13 +9,12 @@ import userReducer from './userReducer'
 import { combineReducers } from 'redux'
 
 const sheetReducer = combineReducers({
-    // player,
-    // settings,
-    // intro,
-    // ending,
-    // sections,
-    // sheet,
-    userReducer
+    player,
+    settings,
+    intro,
+    ending,
+    sections,
+    sheet,
 })
 
 export default sheetReducer
