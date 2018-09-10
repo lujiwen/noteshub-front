@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, {playerMiddleware} from './store/configureStore'
 import { Router} from 'react-router';
-import { BrowserRouter, Link, Route } from 'react-router-dom';
+import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import {AUTH_SIGNIN} from "./actions/UserAction";
 import { reducer as formReducer } from 'redux-form';
@@ -17,6 +17,7 @@ import authReducer from "./reducers";
 import userReducer from "./reducers/userReducer";
 import UserRegister from "./components/User/UserRegister";
 import UserLogin from "./components/User/UserLogin";
+import Error from "./components/Error"
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -62,11 +63,12 @@ ReactDOM.render(
     <ApolloProvider client={client}>
       <Provider store={store}>
         <BrowserRouter>
-          <div>
+          <Switch>
             <Route path="/" component={App} exact/>
             <Route path="/login" component={UserLogin}/>
             <Route path="/register" component={UserRegister}/>
-          </div>
+            <Route component={Error}/>
+          </Switch>
         </BrowserRouter>
       </Provider>
     </ApolloProvider>
