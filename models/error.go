@@ -515,7 +515,7 @@ func IsErrLoginSourceAlreadyExist(err error) bool {
 }
 
 func (err ErrLoginSourceAlreadyExist) Error() string {
-	return fmt.Sprintf("login source already exists [name: %s]", err.Name)
+	return fmt.Sprintf("toLogin source already exists [name: %s]", err.Name)
 }
 
 type ErrLoginSourceInUse struct {
@@ -528,7 +528,7 @@ func IsErrLoginSourceInUse(err error) bool {
 }
 
 func (err ErrLoginSourceInUse) Error() string {
-	return fmt.Sprintf("login source is still used by some users [id: %d]", err.ID)
+	return fmt.Sprintf("toLogin source is still used by some users [id: %d]", err.ID)
 }
 
 // ___________

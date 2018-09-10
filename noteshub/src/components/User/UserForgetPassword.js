@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Input, Button, message } from 'antd';
 import { updatePassword, clear } from './../../actions/UserAction';
-import { tips } from './../../util.js'; 
+// import { tips } from './../../util.js';
 import * as styles from './UserForgetPassword.css';
 const FormItem = Form.Item;
 class UserForgetPassword extends React.Component {
@@ -17,7 +17,7 @@ class UserForgetPassword extends React.Component {
     datas.dispatch = dispatch;
     datas.clear = clear;
     datas.history = history;
-    tips.alertMessage.call(datas);
+    // tips.alertMessage.call(datas);
   }
   handleSubmit = (e) => {
     e.preventDefault();
@@ -99,8 +99,8 @@ class UserForgetPassword extends React.Component {
   }
 }
 
-const WrappedRegistrationForm = Form.create()(UserForgetPassword);
+const WrappedRForgetPswForm = Form.create()(UserForgetPassword);
 function mapStateToProps(state,oWnprops) {
   return state;
 }
-export default connect(mapStateToProps)(WrappedRegistrationForm);
+export default connect(mapStateToProps)(WrappedRForgetPswForm);

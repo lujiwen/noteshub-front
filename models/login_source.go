@@ -172,5 +172,5 @@ func SMTPAuth(a smtp.Auth, cfg *SMTPConfig) error {
 	return errors.New("Unsupported SMTP authentication method")
 }
 
-// LoginViaSMTP queries if login/password is valid against the SMTP,
+// LoginViaSMTP queries if toLogin/password is valid against the SMTP,
 // and create a local user if success when enabled.

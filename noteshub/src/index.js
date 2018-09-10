@@ -15,6 +15,8 @@ import { ApolloProvider } from 'react-apollo';
 import sheetReducer from "./reducers";
 import authReducer from "./reducers";
 import userReducer from "./reducers/userReducer";
+import UserRegister from "./components/User/UserRegister";
+import UserLogin from "./components/User/UserLogin";
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -59,7 +61,13 @@ if (token) {
 ReactDOM.render(
     <ApolloProvider client={client}>
       <Provider store={store}>
-        <App />
+        <BrowserRouter>
+          <div>
+            <Route path="/" component={App} exact/>
+            <Route path="/login" component={UserLogin}/>
+            <Route path="/register" component={UserRegister}/>
+          </div>
+        </BrowserRouter>
       </Provider>
     </ApolloProvider>
     , document.getElementById('root'));

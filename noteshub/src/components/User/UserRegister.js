@@ -2,7 +2,6 @@ import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Input, Button, message } from 'antd';
 import { register, clear } from './../../actions/UserAction';
-import { tips } from './../../util.js'; 
 import * as styles from './UserRegister.css';
 const FormItem = Form.Item;
 class UserRegister extends React.Component {
@@ -17,7 +16,7 @@ class UserRegister extends React.Component {
     datas.dispatch = dispatch;
     datas.clear = clear;
     datas.history = history;
-    tips.alertMessage.call(datas);
+    // tips.alertMessage.call(datas);
   }
   handleSubmit = (e) => {
     e.preventDefault();
