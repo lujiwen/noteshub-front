@@ -18,6 +18,8 @@ import userReducer from "./reducers/userReducer";
 import UserRegister from "./components/User/UserRegister";
 import UserLogin from "./components/User/UserLogin";
 import Error from "./components/Error"
+import Navigation from "./components/Navigation"
+
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -63,12 +65,15 @@ ReactDOM.render(
     <ApolloProvider client={client}>
       <Provider store={store}>
         <BrowserRouter>
-          <Switch>
-            <Route path="/" component={App} exact/>
-            <Route path="/login" component={UserLogin}/>
-            <Route path="/register" component={UserRegister}/>
-            <Route component={Error}/>
-          </Switch>
+          <div>
+            {/*<Navigation/>*/}
+            <Switch>
+              <Route path="/" component={App} exact/>
+              <Route path="/login" component={UserLogin}/>
+              <Route path="/register" component={UserRegister}/>
+              <Route component={Error}/>
+            </Switch>
+          </div>
         </BrowserRouter>
       </Provider>
     </ApolloProvider>
