@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added error component to router, it should be in uppercase when importing switch and react">
-      <change afterPath="$PROJECT_DIR$/noteshub/src/components/Navigation.js" afterDir="false" />
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added navigators which might be used in future">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/index.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -97,9 +97,9 @@
         <counts>
           <entry key="css" value="136" />
           <entry key="go" value="2365" />
-          <entry key="js" value="5890" />
+          <entry key="js" value="5901" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="1291" />
+          <entry key="txt" value="1346" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
@@ -107,8 +107,8 @@
         <counts>
           <entry key="CSS" value="136" />
           <entry key="Go" value="2365" />
-          <entry key="JavaScript" value="5890" />
-          <entry key="PLAIN_TEXT" value="1308" />
+          <entry key="JavaScript" value="5901" />
+          <entry key="PLAIN_TEXT" value="1363" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -140,11 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+            <state relative-caret-position="276">
+              <caret line="56" column="2" lean-forward="true" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -197,11 +197,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
+            <state relative-caret-position="386">
+              <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -345,10 +345,10 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/User/UserForgetPassword.js" />
         <option value="$PROJECT_DIR$/noteshub/src/App.js" />
         <option value="$PROJECT_DIR$/routes/repo/issue.go" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Error.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Navigation.js" />
         <option value="$PROJECT_DIR$/noteshub/src/index.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js" />
       </list>
     </option>
   </component>
@@ -583,6 +583,14 @@
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="User" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="containers" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -751,7 +759,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536593949557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536671110740" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -929,14 +937,7 @@
       <workItem from="1535252902052" duration="3895000" />
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
-      <workItem from="1535767145930" duration="67158000" />
-    </task>
-    <task id="LOCAL-00067" summary="ready to draw sheet row by row">
-      <created>1534869315237</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1534869315237</updated>
+      <workItem from="1535767145930" duration="67909000" />
     </task>
     <task id="LOCAL-00068" summary="added unit test to test function UpdateMxml and TranslateNoteType">
       <created>1535126300514</created>
@@ -1274,7 +1275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1536593448095</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="added navigators which might be used in future">
+      <created>1536593985059</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1536593985059</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1310,7 +1318,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282988000" />
+    <option name="totallyTimeSpent" value="283739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="22" width="1440" height="878" extended-state="6" />
@@ -1425,7 +1433,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="move draw measure inside the outer loop statement" />
     <MESSAGE value="draw multiple measure in multiple parts succeed" />
     <MESSAGE value="change row succeed" />
     <MESSAGE value="set measure width to 300" />
@@ -1450,7 +1457,8 @@
     <MESSAGE value="added logic to userLogin and wrapper it into  WrappedNormalLoginForm" />
     <MESSAGE value="added react router" />
     <MESSAGE value="added error component to router, it should be in uppercase when importing switch and react" />
-    <option name="LAST_COMMIT_MESSAGE" value="added error component to router, it should be in uppercase when importing switch and react" />
+    <MESSAGE value="added navigators which might be used in future" />
+    <option name="LAST_COMMIT_MESSAGE" value="added navigators which might be used in future" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1841,13 +1849,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/userReducer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="37" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/User/UserForgetPassword.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1885,16 +1886,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="44" column="12" lean-forward="true" selection-start-line="44" selection-start-column="12" selection-end-line="44" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Error.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -1921,10 +1912,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="69" column="20" lean-forward="true" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        <state relative-caret-position="276">
+          <caret line="56" column="2" lean-forward="true" selection-start-line="56" selection-start-column="2" selection-end-line="56" selection-end-column="2" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/userReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="37" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/User/UserLogin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

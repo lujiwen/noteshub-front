@@ -32,9 +32,6 @@ class UserLogin extends Component {
     });
   };
 
-  toRegister= (e) => {
-    console.log("going to register")
-  }
 
   render() {
     const { forgetPassword, form } = this.props;
@@ -67,7 +64,7 @@ class UserLogin extends Component {
           )}
           <a className="login-form-forgot" >忘记密码</a>
           <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
-          或者 <a href="#" onClick={this.toRegister()}>立即注册!</a>
+          或者 <a href="register">立即注册!</a>
         </FormItem>
       </Form>
     );

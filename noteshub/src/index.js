@@ -56,10 +56,10 @@ const store = createStore(
     // )
 );
 
-if (token) {
-  // We need to update application state if the token exists
-  store.dispatch({ type: AUTH_SIGNIN });
-}
+// if (token) {
+//   // We need to update application state if the token exists
+//   store.dispatch({ type: AUTH_SIGNIN });
+// }
 
 ReactDOM.render(
     <ApolloProvider client={client}>
