@@ -1,4 +1,5 @@
 export const initialState = {
-  code: 0,
+  isLogin: false,
+  isLoginPending: false,
   message: '',  
 }

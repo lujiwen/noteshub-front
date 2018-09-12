@@ -15,6 +15,8 @@ class UserLogin extends Component {
   componentWillReceiveProps(nextProps) {
     const { userRedu } = nextProps;
     const { dispatch, history } = this.props;
+
+    console.log("componentWillReceiveProps: " + this.props.login)
     let datas = {};
     datas.userRedu = userRedu;
     datas.dispatch = dispatch;
@@ -22,6 +24,7 @@ class UserLogin extends Component {
     datas.history = history;
     // tips.alertMessage.call(datas);
   }
+
   toLogin = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
@@ -36,38 +39,43 @@ class UserLogin extends Component {
   render() {
     const { forgetPassword, form } = this.props;
     const { getFieldDecorator } = form;
+    let state = this.props
+    switch (state.isLogin) {
+      case true:
+        return <UserRegister/>
+      case false:
+      default:
+      return (
+          <Form onSubmit={this.toLogin} className="login-form">
+            <FormItem>
+              {getFieldDecorator('userName', {
+                rules: [{ required: true, message: '请输入用户名!' }],
+              })(
+                  <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('password', {
+                rules: [{ required: true, message: '请输入密码!' }],
+              })(
+                  <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('remember', {
+                valuePropName: 'checked',
+                initialValue: true,
+              })(
+                  <Checkbox className="rememberMe">记住我</Checkbox>
+              )}
+              <a className="login-form-forgot" >忘记密码</a>
+              <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
+              或者 <a href="register">立即注册!</a>
+            </FormItem>
+          </Form>
+      )
+    }
 
-
-
-    return (
-      <Form onSubmit={this.toLogin} className="login-form">
-        <FormItem>
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: '请输入用户名!' }],
-          })(
-              <Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="用户名" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: '请输入密码!' }],
-          })(
-              <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="密码" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('remember', {
-            valuePropName: 'checked',
-            initialValue: true,
-          })(
-              <Checkbox className="rememberMe">记住我</Checkbox>
-          )}
-          <a className="login-form-forgot" >忘记密码</a>
-          <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
-          或者 <a href="register">立即注册!</a>
-        </FormItem>
-      </Form>
-    );
   }
 }
 
@@ -81,6 +89,13 @@ const WrappedNormalLoginForm = Form.create()(UserLogin);
 // 使用ownProps作为第二个参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染
 // connect方法可以省略mapStateToProps参数，那样的话，UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新
 function mapStateToProps(state, oWnprops) {
+  switch (state.login) {
+    case "LOGIN_SUCCEED":
+      break
+    case "LOGIN_FAILED":
+      break
+  }
+  console.log("state:" + state + " , props:" + oWnprops)
   return state;
 }
 

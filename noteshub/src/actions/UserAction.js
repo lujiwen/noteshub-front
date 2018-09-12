@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 const register = (dispatch, values) => {
   dispatch({
     type:'REGISTER_SAGA',
@@ -19,10 +21,31 @@ const updatePassword = (dispatch, values) => {
 }
 
 const login = (dispatch, values) => {
-  dispatch({
-    type:'LOGIN',
-    values
-  });
+  let data = JSON.stringify({
+    username: values.userName,
+    password: values.password
+  })
+
+  axios.post("http://127.0.0.1:8080/v1/login", data, {
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
+  .then(function (response) {
+      console.log("success:" + response)
+      dispatch({
+        type:'LOGIN_SUCCEED',
+        payload: response.data
+      });
+  })
+  .catch((err) => {
+    console.log("failed :" + err)
+    dispatch({
+      type:'LOGIN_FAILED',
+      payload: err
+    });
+  })
+
 }
 
 

@@ -19,11 +19,16 @@ import UserRegister from "./components/User/UserRegister";
 import UserLogin from "./components/User/UserLogin";
 import Error from "./components/Error"
 import Navigation from "./components/Navigation"
+import logger from "redux-logger"
+import thunk from "redux-thunk"
+import promise from "redux-promise-middleware"
 
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
 const token = localStorage.getItem('token');
+
+const middleware = applyMiddleware(thunk, logger)
 
 networkInterface.use([{
   applyMiddleware(req, next) {
@@ -40,21 +45,24 @@ networkInterface.use([{
 const client = new ApolloClient({
   networkInterface
 });
+//
+// const store = createStore(
+//     combineReducers({
+//       // apollo: client.reducer(),
+//       // form: formReducer,
+//       // auth: authReducer,
+//       user: userReducer
+//     }),
+//     {}, // initial state
+//     middleware
+//     // compose(
+//     //     applyMiddleware(client.middleware(),playerMiddleware),
+//     //     // If you are using the devToolsExtension, you can add it here also
+//     //     window.devToolsExtension ? window.devToolsExtension() : f => f,
+//     // )
+// );
 
-const store = createStore(
-    combineReducers({
-      // apollo: client.reducer(),
-      // form: formReducer,
-      // auth: authReducer,
-      user: userReducer
-    }),
-    {}, // initial state
-    // compose(
-    //     applyMiddleware(client.middleware(),playerMiddleware),
-    //     // If you are using the devToolsExtension, you can add it here also
-    //     window.devToolsExtension ? window.devToolsExtension() : f => f,
-    // )
-);
+const store = createStore(userReducer, middleware)
 
 // if (token) {
 //   // We need to update application state if the token exists
