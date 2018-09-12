@@ -3,8 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/gin-contrib/cors"
-
-	//"github.com/gin-gonic/contrib/cors"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	log "gopkg.in/clog.v1"
@@ -109,19 +107,32 @@ type Sheet struct {
 	CreateTime       time.Time `json:"createTime" binding:"required"`
 	LastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
 }
-
+type Login struct {
+	UserName     string `form:"username" json:"username" binding:"required"`
+	Password string `form:"password" json:"password" binding:"required"`
+}
 
 func login(c *gin.Context) {
+	print(c.Request.Body)
 	session := sessions.Default(c)
+	var from Login
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 
-	if strings.Trim(username, " ") == "" || strings.Trim(password, " ") == "" {
+	if  err := c.ShouldBindJSON(&from); err == nil {
+		username = from.UserName
+		password = from.Password
+	} else {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
+		return
+	}
+
+	if strings.Trim(from.UserName, " ") == "" || strings.Trim(from.Password, " ") == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
 		return
 	}
-	if username == "hello" && password == "itsme" {
-		session.Set("user", username) //In real world usage you'd set this to the users ID
+	if username == "ljw" && password == "ljw" {
+		session.Set("username", username) //In real world usage you'd set this to the users ID
 		err := session.Save()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate session token"})
