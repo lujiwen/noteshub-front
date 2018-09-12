@@ -2,6 +2,9 @@ package main
 
 import (
 	"fmt"
+	"github.com/gin-contrib/cors"
+
+	//"github.com/gin-gonic/contrib/cors"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	log "gopkg.in/clog.v1"
@@ -21,8 +24,16 @@ func main() {
 	store := sessions.NewCookieStore([]byte("secret"))
 	router.Use(sessions.Sessions("mysession", store))
 
+	config := cors.DefaultConfig()
+	config.AllowOrigins = []string{"http://localhost:3000"}
+
+	router.Use(cors.New(config))
+
+	// same as
+	//router.Use(cors.Default())
 
 	// connect to db
+
 	//initializeDB()
 
 	// Serve frontend static files
