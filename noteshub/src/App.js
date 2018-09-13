@@ -6,6 +6,7 @@ import {message, Upload} from 'antd';
 import WrappedNormalLoginForm from "./components/User/UserLogin"
 import WrappedRegistrationForm from "./components/User/UserRegister"
 import WrappedRForgetPswForm from "./components/User/UserForgetPassword"
+import Navigation from "./components/Navigation";
 const {Accidental, StaveNote} = Vex.Flow;
 
 

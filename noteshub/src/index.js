@@ -16,7 +16,7 @@ import sheetReducer from "./reducers";
 import authReducer from "./reducers";
 import userReducer from "./reducers/userReducer";
 import UserRegister from "./components/User/UserRegister";
-import UserLogin from "./components/User/UserLogin";
+import WrappedNormalLoginForm from "./components/User/UserLogin";
 import Error from "./components/Error"
 import Navigation from "./components/Navigation"
 import logger from "redux-logger"
@@ -74,10 +74,10 @@ ReactDOM.render(
       <Provider store={store}>
         <BrowserRouter>
           <div>
-            {/*<Navigation/>*/}
+            <Navigation/>
             <Switch>
               <Route path="/" component={App} exact/>
-              <Route path="/login" component={UserLogin}/>
+              <Route path="/login" component={WrappedNormalLoginForm}/>
               <Route path="/register" component={UserRegister}/>
               <Route component={Error}/>
             </Switch>
