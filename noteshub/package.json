@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "antd": "3.4.0",
+    "antd": "^3.9.2",
     "apollo-boost": "^0.1.12",
     "apollo-client": "0.5.18",
     "axios": "^0.18.0",

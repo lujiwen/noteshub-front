@@ -22,6 +22,7 @@ import Navigation from "./components/Navigation"
 import logger from "redux-logger"
 import thunk from "redux-thunk"
 import promise from "redux-promise-middleware"
+import LeftDrawer from "./components/LeftDrawer";
 
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
@@ -75,6 +76,7 @@ ReactDOM.render(
         <BrowserRouter>
           <div>
             <Navigation/>
+            <LeftDrawer/>
             <Switch>
               <Route path="/" component={App} exact/>
               <Route path="/login" component={WrappedNormalLoginForm}/>
