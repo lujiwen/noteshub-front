@@ -12,8 +12,6 @@ import {AUTH_SIGNIN} from "./actions/UserAction";
 import { reducer as formReducer } from 'redux-form';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { ApolloProvider } from 'react-apollo';
-import sheetReducer from "./reducers";
-import authReducer from "./reducers";
 import userReducer from "./reducers/userReducer";
 import UserRegister from "./components/User/UserRegister";
 import WrappedNormalLoginForm from "./components/User/UserLogin";
@@ -23,6 +21,8 @@ import logger from "redux-logger"
 import thunk from "redux-thunk"
 import promise from "redux-promise-middleware"
 import LeftDrawer from "./components/LeftDrawer";
+import navigationReducer from "./reducers/navigationReducer";
+import rootReducer from "./reducers";
 
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
@@ -62,8 +62,7 @@ const client = new ApolloClient({
 //     //     window.devToolsExtension ? window.devToolsExtension() : f => f,
 //     // )
 // );
-
-const store = createStore(userReducer, middleware)
+const store = createStore(rootReducer, middleware)
 
 // if (token) {
 //   // We need to update application state if the token exists

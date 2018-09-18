@@ -1,51 +1,32 @@
 import React, { Component} from "react"
-import {  Drawer, Button } from 'antd';
+import { Drawer, Button } from 'antd';
+import { connect } from 'react-redux';
+import {toggleLeftDrawer} from "../actions/NavigationAction";
+
+const LeftDrawer = ({visible, onClose}) => (
+    <div>
+      <Drawer
+          title="Basic Drawer"
+          placement="left"
+          closable={true}
+          onClose={onClose}
+          visible={visible}
+      >
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
+    </div>
+)
 
 
-class LeftDrawer extends Component {
-  state = { visible: false, placement: 'left' };
 
-
-  showDrawer = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-
-  onClose = () => {
-    this.setState({
-      visible: false,
-    });
-  };
-
-  onChange = (e) => {
-    this.setState({
-      placement: e.target.value,
-    });
-  }
-
-  render() {
-    return (
-        <div>
-           <Button type="primary" onClick={this.showDrawer}>
-           Open
-           </Button>
-          <Drawer
-              title="Basic Drawer"
-              placement={this.state.placement}
-              closable={false}
-              onClose={this.onClose}
-              visible={this.state.visible}
-          >
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-            <p>Some contents...</p>
-          </Drawer>
-        </div>
-    );
-  }
-
+function mapStateToProps(state) {
+  return {visible: state.navigationReducer.visible};
 }
 
-export default LeftDrawer
+const mapDispatchToProps = dispatch => ({
+  onClose: () => dispatch(toggleLeftDrawer)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(LeftDrawer)

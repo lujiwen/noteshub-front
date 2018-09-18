@@ -16,7 +16,6 @@ class UserLogin extends Component {
     const { userRedu } = nextProps;
     const { dispatch, history } = this.props;
 
-    console.log("componentWillReceiveProps: " + this.props.login)
     let datas = {};
     datas.userRedu = userRedu;
     datas.dispatch = dispatch;
@@ -39,7 +38,7 @@ class UserLogin extends Component {
   render() {
     const { forgetPassword, form } = this.props;
     const { getFieldDecorator } = form;
-    let state = this.props
+    let state = this.props.userReducer
     switch (state.isLogin) {
       case true:
         return <UserRegister/>

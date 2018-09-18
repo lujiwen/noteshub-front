@@ -1,20 +1,25 @@
-import React from "react"
-import { NavLink } from 'react-router-dom'
+import React from 'react'
+import { connect } from 'react-redux'
 import { Menu, Icon } from 'antd';
+import {toggleLeftDrawer} from "../actions/NavigationAction";
+
 const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 
-const Navigation = () => {
-  this.state = {
-    current: 'mail',
+const Navigation = ({ dispatch }) => {
+
+
+  this.toggleDraw = function (e) {
+    console.log("navigation toggleDraw :" + e)
+    dispatch(toggleLeftDrawer)
   }
 
   return (
     <div>
       <Menu
-          onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
+          onClick = {this.toggleDraw}
+          // selectedKeys={[this.state.current]}
           mode="horizontal"
       >
         <Menu.Item key="mail">
@@ -38,7 +43,8 @@ const Navigation = () => {
         </Menu.Item>
       </Menu>
     </div>
-  );
+  )
 }
 
-export default Navigation
+
+export default connect()(Navigation)

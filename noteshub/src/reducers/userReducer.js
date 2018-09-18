@@ -24,12 +24,8 @@ const userReducer = (state = initialState, action) => {
       return {isLogin: true, isLoginPending: false, message: action.payload}
       break
     default:
-      console.log(action.type)
       return state;
   }
 }
-/*const reducers = combineReducers({
-  userRedu
-});
-export default reducers;*/
+
 export default userReducer;
