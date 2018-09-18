@@ -9,7 +9,6 @@ const MenuItemGroup = Menu.ItemGroup;
 
 const Navigation = ({ dispatch }) => {
 
-
   this.toggleDraw = function (e) {
     console.log("navigation toggleDraw :" + e)
     dispatch(toggleLeftDrawer)
@@ -18,11 +17,10 @@ const Navigation = ({ dispatch }) => {
   return (
     <div>
       <Menu
-          onClick = {this.toggleDraw}
           // selectedKeys={[this.state.current]}
           mode="horizontal"
       >
-        <Menu.Item key="mail">
+        <Menu.Item key="mail" onClick = {this.toggleDraw}>
           <Icon type="mail" />Navigation One
         </Menu.Item>
         <Menu.Item key="app" disabled>
