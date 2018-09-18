@@ -8,6 +8,7 @@ import WrappedRegistrationForm from "./components/User/UserRegister"
 import WrappedRForgetPswForm from "./components/User/UserForgetPassword"
 import Navigation from "./components/Navigation";
 import LeftDrawer from "./components/LeftDrawer";
+import Stave from "./components/Stave";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
@@ -42,8 +43,8 @@ class App extends Component {
 
       return (
               <div>
-                {/*<Stave/>*/}
-                <WrappedNormalLoginForm/>
+                <Stave/>
+                {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
                       {/*<p className="ant-upload-drag-icon">*/}
