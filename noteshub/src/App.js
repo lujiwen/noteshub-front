@@ -9,6 +9,7 @@ import WrappedRForgetPswForm from "./components/User/UserForgetPassword"
 import Navigation from "./components/Navigation";
 import LeftDrawer from "./components/LeftDrawer";
 import Stave from "./components/Stave";
+import PersonalPage from "./components/PersonalPage";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
@@ -43,7 +44,8 @@ class App extends Component {
 
       return (
               <div>
-                <Stave/>
+                <PersonalPage/>
+                {/*<Stave/>*/}
                 {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}

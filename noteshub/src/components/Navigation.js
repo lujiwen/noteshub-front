@@ -4,6 +4,7 @@ import { Menu, Icon } from 'antd';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 import { Avatar } from 'antd';
 import { Input } from 'antd';
+import {login} from "../actions/UserAction";
 
 const Search = Input.Search;
 
@@ -18,14 +19,17 @@ const Navigation = ({ dispatch }) => {
     dispatch(toggleLeftDrawer)
   }
 
+  this.toLogin = function (e) {
+    dispatch(login)
+  }
   return (
     <div>
       <Menu
           // selectedKeys={[this.state.current]}
           mode="horizontal"
       >
-        <Menu.Item key="mail" onClick = {this.toggleDraw}>
-          <Icon type="mail" />墨韵
+        <Menu.Item key="bars" onClick = {this.toggleDraw}>
+          <Icon type="bars" />墨韵
         </Menu.Item>
 
         <Menu.Item key="search">
@@ -52,7 +56,7 @@ const Navigation = ({ dispatch }) => {
           <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
         </Menu.Item>
         <Menu.Item key="login" align="right">
-          <Avatar shape="square" icon="user"></Avatar>
+          <Avatar shape="square" icon="user" onClick = {this.toLogin}></Avatar>
         </Menu.Item>
       </Menu>
     </div>
