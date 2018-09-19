@@ -2,9 +2,12 @@ import React from 'react'
 import { Row, Col } from 'antd';
 import { Avatar } from 'antd';
 import { Layout, Menu, Breadcrumb, Button, Icon, Timeline, Divider, Anchor} from 'antd';
+import PersonalTab from "./PersonalTab";
+import { connect } from 'react-redux';
+import {toggleLeftDrawer} from "../actions/NavigationAction";
 
 
-const PersonalPage =  ({choosedNavigator}) => {
+const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
   return (
       <div>
         <Row type="flex" justify="center">
@@ -24,26 +27,18 @@ const PersonalPage =  ({choosedNavigator}) => {
             <Layout>
               <Anchor>
                 <Menu
-                  // onClick={this.handleClick}
-                  selectedKeys={[2]}
+                  onClick={personalTabSelect}
+                  // selectedKeys={[2]}
                   mode="horizontal">
-                  <Menu.Item>个人主页</Menu.Item>
-                  <Menu.Item>我的曲谱</Menu.Item>
-                  <Menu.Item>我喜欢</Menu.Item>
-                  <Menu.Item>我关注的人</Menu.Item>
-                  <Menu.Item>关注我的人</Menu.Item>
+                  <Menu.Item key="overview">个人主页</Menu.Item>
+                  <Menu.Item key="my_sheet">我的曲谱</Menu.Item>
+                  <Menu.Item key="my_favourite">我喜欢</Menu.Item>
+                  <Menu.Item key="following">我关注的人</Menu.Item>
+                  <Menu.Item key="followed">关注我的人</Menu.Item>
                 </Menu>
               </Anchor>
 
-              <div>
-
-                <Timeline>
-                  <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
-                  <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-                  <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-                  <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-                </Timeline>
-              </div>
+              <PersonalTab chooseTabNumber={chooseTabNumber}/>
             </Layout>
           </Col>
         </Row>
@@ -51,6 +46,20 @@ const PersonalPage =  ({choosedNavigator}) => {
   )
 }
 
+function mapStateToProps(state) {
+  return {chooseTabNumber: state.personalPageReducer.chooseTabNumber};
+}
+
+const mapDispatchToProps = dispatch => ({
+  personalTabSelect: (e) => {
+    console.log(e)
+    let {key} = e
+    dispatch({
+      type: key.toUpperCase()
+    })
+  }
+})
 
 
-export default PersonalPage
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalPage)
