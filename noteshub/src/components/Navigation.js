@@ -34,9 +34,9 @@ const Navigation = ({ dispatch }) => {
           />
         </Menu.Item>
         <Menu.Item key="app">
-          <Icon type="appstore" />Navigation Two
+          <Icon type="file-search" />探索
         </Menu.Item>
-        <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />Navigation Three - Submenu</span>}>
+        <SubMenu title={<span className="submenu-title-wrapper"><Icon type="shopping" />市场</span>}>
           <MenuItemGroup title="Item 1">
             <Menu.Item key="setting:1">Option 1</Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>
