@@ -1,9 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Menu, Icon } from 'antd';
+import {connect} from 'react-redux'
+import {Avatar, Icon, Input, Menu} from 'antd';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
-import { Avatar } from 'antd';
-import { Input } from 'antd';
 import {login} from "../actions/UserAction";
 
 const Search = Input.Search;
@@ -24,12 +22,9 @@ const Navigation = ({ dispatch }) => {
   }
   return (
     <div>
-      <Menu
-          // selectedKeys={[this.state.current]}
-          mode="horizontal"
-      >
+      <Menu mode="horizontal">
         <Menu.Item key="bars" onClick = {this.toggleDraw}>
-          <Icon type="bars" />墨韵
+          <Icon type="bars" />芸芸
         </Menu.Item>
 
         <Menu.Item key="search">
@@ -55,8 +50,10 @@ const Navigation = ({ dispatch }) => {
         <Menu.Item key="alipay">
           <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
         </Menu.Item>
-        <Menu.Item key="login" align="right">
-          <Avatar shape="square" icon="user" onClick = {this.toLogin}></Avatar>
+        <Menu.Item key="login" style={{"float": "right", "text-align":"center"}}>
+          <div style={{"float": "right", "text-align":"center"}}>
+            <Avatar shape="square" icon="user" onClick = {this.toLogin}></Avatar>
+          </div>
         </Menu.Item>
       </Menu>
     </div>

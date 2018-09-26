@@ -15,24 +15,22 @@ const PersonalTab = ({chooseTabNumber}) => {
       )
     case "1":
       return (
-          <div>
+          <div >
             <Card
                 title="消愁"
                 extra={<a href="#"><Icon type="arrow-right" theme="outlined" /></a>}
-                style={{ width: 300 }}
+                style={{ width: "90%", margin: 10 }}
             >
               <p>毛不易</p>
               <p>钢琴</p>
-              <p></p>
             </Card>
             <Card
                 title="七粒下锅"
                 extra={<a href="#"><Icon type="arrow-right" theme="outlined" /></a>}
-                style={{ width: 300 }}
+                style={{ width: "90%" , margin: 10}}
             >
               <p>毛不易</p>
               <p>钢琴</p>
-              <p></p>
             </Card>
           </div>
       )

@@ -1,34 +1,31 @@
 import React from 'react'
-import { Row, Col } from 'antd';
-import { Avatar } from 'antd';
-import { Layout, Menu, Breadcrumb, Button, Icon, Timeline, Divider, Anchor} from 'antd';
+import {Anchor, Avatar, Button, Divider, Icon, Layout, Menu} from 'antd';
 import PersonalTab from "./PersonalTab";
-import { connect } from 'react-redux';
-import {toggleLeftDrawer} from "../actions/NavigationAction";
+import {connect} from 'react-redux';
 
 
 const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
   return (
-      <div>
-        <Row type="flex" justify="center">
-          <Col offset={0.5} span={5} >
+      <div style={{padding: "10px"}}>
+          <div style={{float:"left", width:"20%"}}>
             <Layout>
-              <Avatar padding={10} size={270} shape="square" icon="user" />
-              <text>名字</text>
-              <text>写个签名吧</text>
+              <div style={{"text-align": "center"}}>
+                <Avatar size={270} shape="square" icon="user" />
+              </div>
+              <text style={{"text-align": "center"}}>名字</text>
+              <text style={{"text-align": "center"}}>写个签名吧</text>
               <Button type="default"><Icon type="edit" theme="outlined" />编辑资料</Button>
               <Divider />
-              <div><Icon type="environment" theme="outlined" />中国·上海</div>
+              <div style={{"text-align": "center"}}>
+                <Icon style={{"text-align": "center"}} type="environment" theme="outlined" />中国·上海
+              </div>
             </Layout>
-          </Col>
-          {/*gap between left and right*/}
-          <Col span={1}/>
-          <Col span={15}>
+          </div>
+          <div style={{float:"left", width:"65%", margin:"10px"}}>
             <Layout>
               <Anchor>
                 <Menu
                   onClick={personalTabSelect}
-                  // selectedKeys={[2]}
                   mode="horizontal">
                   <Menu.Item key="overview">个人主页</Menu.Item>
                   <Menu.Item key="my_sheet">我的曲谱</Menu.Item>
@@ -38,10 +35,9 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
                 </Menu>
               </Anchor>
 
-              <PersonalTab chooseTabNumber={chooseTabNumber}/>
+              <PersonalTab style={{"margin": "10px"}} chooseTabNumber={chooseTabNumber}/>
             </Layout>
-          </Col>
-        </Row>
+          </div>
       </div>
   )
 }
@@ -52,7 +48,6 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => ({
   personalTabSelect: (e) => {
-    console.log(e)
     let {key} = e
     dispatch({
       type: key.toUpperCase()
