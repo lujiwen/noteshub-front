@@ -13,7 +13,6 @@ const MenuItemGroup = Menu.ItemGroup;
 const Navigation = ({ dispatch }) => {
 
   this.toggleDraw = function (e) {
-    console.log("navigation toggleDraw :" + e)
     dispatch(toggleLeftDrawer)
   }
 
@@ -34,7 +33,7 @@ const Navigation = ({ dispatch }) => {
               style={{ width: 200 }}
           />
         </Menu.Item>
-        <Menu.Item key="app" disabled>
+        <Menu.Item key="app">
           <Icon type="appstore" />Navigation Two
         </Menu.Item>
         <SubMenu title={<span className="submenu-title-wrapper"><Icon type="setting" />Navigation Three - Submenu</span>}>
@@ -47,8 +46,8 @@ const Navigation = ({ dispatch }) => {
             <Menu.Item key="setting:4">Option 4</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
-        <Menu.Item key="alipay">
-          <a href="https://ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
+        <Menu.Item key="notification">
+          <Icon type="notification" />消息
         </Menu.Item>
         <Menu.Item key="login" style={{"float": "right", "text-align":"center"}}>
           <div style={{"float": "right", "text-align":"center"}}>

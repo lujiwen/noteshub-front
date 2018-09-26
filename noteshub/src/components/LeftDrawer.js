@@ -1,6 +1,6 @@
-import React, { Component} from "react"
-import { Drawer, Button, Menu, Icon } from 'antd';
-import { connect } from 'react-redux';
+import React from "react"
+import {Drawer, Icon, Menu} from 'antd';
+import {connect} from 'react-redux';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 
 const LeftDrawer = ({visible, onClose}) => (

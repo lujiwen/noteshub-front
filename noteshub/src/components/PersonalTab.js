@@ -1,5 +1,6 @@
 import React from 'react'
 import {Timeline, Card, Icon, Upload} from "antd";
+import SheetIntroCard from "./SheetIntroCard";
 
 const PersonalTab = ({chooseTabNumber}) => {
 
@@ -20,25 +21,11 @@ const PersonalTab = ({chooseTabNumber}) => {
       return (
           <div>
             <div>
-              <Card
-                  title="消愁"
-                  extra={<a href="#"><Icon type="arrow-right" theme="outlined" /></a>}
-                  style={{ width: "90%", margin: 10 }}
-              >
-                <p>毛不易</p>
-                <p>钢琴</p>
-              </Card>
-              <Card
-                  title="七粒下锅"
-                  extra={<a href="#"><Icon type="arrow-right" theme="outlined" /></a>}
-                  style={{ width: "90%" , margin: 10}}
-              >
-                <p>毛不易</p>
-                <p>钢琴</p>
-              </Card>
+              <SheetIntroCard/>
+              <SheetIntroCard/>
             </div>
 
-            <div>
+              <div>
               <Dragger>
                 <p className="ant-upload-drag-icon">
                   <Icon type="inbox" />
