@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="update left draw">
-      <change afterPath="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" afterDir="false" />
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="encapsulate SheetIntroCard">
+      <change afterPath="$PROJECT_DIR$/noteshub/public/guitar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noteshub/public/piano.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noteshub/src/components/SheetTypeIcon.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noteshub/src/components/guitar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noteshub/src/components/piano.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noteshub/src/components/ukulele.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/LeftDrawer.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/LeftDrawer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/Navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/Navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -73,14 +76,15 @@
           <entry key="go" value="38" />
           <entry key="html" value="2" />
           <entry key="ico" value="4" />
-          <entry key="js" value="138" />
+          <entry key="js" value="139" />
           <entry key="json" value="6" />
           <entry key="jsx" value="2" />
           <entry key="mscx" value="2" />
           <entry key="mscz" value="2" />
           <entry key="musicxml" value="5" />
+          <entry key="rnc" value="1" />
           <entry key="s" value="1" />
-          <entry key="svg" value="1" />
+          <entry key="svg" value="15" />
           <entry key="ts" value="22" />
           <entry key="xml" value="4" />
         </counts>
@@ -94,9 +98,10 @@
           <entry key="Image" value="4" />
           <entry key="JSON" value="6" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="138" />
+          <entry key="JavaScript" value="139" />
           <entry key="PLAIN_TEXT" value="11" />
-          <entry key="SVG" value="1" />
+          <entry key="RNG Compact" value="1" />
+          <entry key="SVG" value="15" />
           <entry key="TypeScript" value="22" />
           <entry key="XML" value="4" />
           <entry key="x86 Plan9 Assembly" value="1" />
@@ -106,9 +111,9 @@
         <counts>
           <entry key="css" value="136" />
           <entry key="go" value="2667" />
-          <entry key="js" value="11479" />
+          <entry key="js" value="11901" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="2046" />
+          <entry key="txt" value="2065" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
@@ -116,8 +121,8 @@
         <counts>
           <entry key="CSS" value="136" />
           <entry key="Go" value="2667" />
-          <entry key="JavaScript" value="11479" />
-          <entry key="PLAIN_TEXT" value="2063" />
+          <entry key="JavaScript" value="11901" />
+          <entry key="PLAIN_TEXT" value="2082" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -154,52 +159,41 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/navigationReducer.js">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+            <state relative-caret-position="67">
+              <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding>
-                <element signature="e#0#39#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/PersonalPageReducer.js">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetTypeIcon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="19" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="19" />
+            <state relative-caret-position="54">
+              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/ukulele.svg">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/guitar.svg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="175">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+            <state relative-caret-position="270">
+              <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -208,38 +202,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/App.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" selection-start-line="4" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/components/LeftDrawer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="11" column="27" lean-forward="true" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/piano.svg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/NoMatch.js">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/node_modules/antd/lib/menu/index.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="21" column="16" lean-forward="true" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-            </state>
-          </provider>
         </entry>
       </file>
     </leaf>
@@ -310,7 +279,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/noteshub/src/containers/DashboardPageContainer.js" />
         <option value="$PROJECT_DIR$/noteshub/package.json" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Vex/Stave.js" />
         <option value="$PROJECT_DIR$/noteshub/src/containers/Sheet.js" />
@@ -359,8 +327,9 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/LeftDrawer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Navigation.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/SheetTypeIcon.js" />
       </list>
     </option>
   </component>
@@ -416,62 +385,13 @@
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="antd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="antd" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="antd" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="avatar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="antd" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
-              <item name="antd" type="462c0819:PsiDirectoryNode" />
-              <item name="lib" type="462c0819:PsiDirectoryNode" />
-              <item name="menu" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="actions" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -479,13 +399,6 @@
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
-              <item name="mo" type="462c0819:PsiDirectoryNode" />
-              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="reducers" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -503,7 +416,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537974977737" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537977370157" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -520,19 +433,19 @@
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/noteshub/build" />
-      <recent name="$PROJECT_DIR$/noteshub/public" />
-      <recent name="$PROJECT_DIR$/noteshub/src/reducers" />
-      <recent name="$PROJECT_DIR$/noteshub/src/actions" />
-      <recent name="$PROJECT_DIR$/noteshub/src/components" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/tests" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/noteshub/src/components" />
       <recent name="$PROJECT_DIR$/noteshub/src" />
       <recent name="$PROJECT_DIR$/models" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/noteshub/public" />
+      <recent name="$PROJECT_DIR$/noteshub/src/components" />
+      <recent name="$PROJECT_DIR$/noteshub/build" />
+      <recent name="$PROJECT_DIR$/noteshub/src/reducers" />
+      <recent name="$PROJECT_DIR$/noteshub/src/actions" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -682,14 +595,7 @@
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
       <workItem from="1535767145930" duration="84194000" />
-      <workItem from="1537972676330" duration="2274000" />
-    </task>
-    <task id="LOCAL-00086" summary="added function to play sheet">
-      <created>1535469319090</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1535469319090</updated>
+      <workItem from="1537972676330" duration="4650000" />
     </task>
     <task id="LOCAL-00087" summary="added function to play sheet">
       <created>1535639760825</created>
@@ -1027,7 +933,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537973949018</updated>
     </task>
-    <option name="localTasksCounter" value="135" />
+    <task id="LOCAL-00135" summary="encapsulate SheetIntroCard">
+      <created>1537975033097</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1537975033097</updated>
+    </task>
+    <option name="localTasksCounter" value="136" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1063,7 +976,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340443000" />
+    <option name="totallyTimeSpent" value="342819000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1178,7 +1091,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added login component" />
     <MESSAGE value="added login action to component" />
     <MESSAGE value="added login reducer" />
     <MESSAGE value="added logic to userLogin and wrapper it into  WrappedNormalLoginForm" />
@@ -1203,7 +1115,8 @@
     <MESSAGE value="rename website" />
     <MESSAGE value="added uploading file to my sheets tab" />
     <MESSAGE value="update left draw" />
-    <option name="LAST_COMMIT_MESSAGE" value="update left draw" />
+    <MESSAGE value="encapsulate SheetIntroCard" />
+    <option name="LAST_COMMIT_MESSAGE" value="encapsulate SheetIntroCard" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1247,51 +1160,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/noteshub/src/store/UserStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="24" selection-start-line="2" selection-start-column="24" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="128" lean-forward="true" selection-start-line="128" selection-end-line="128" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/HomeRedu.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/HomePage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/containers/DashboardPageContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="16" column="55" lean-forward="true" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/DashboardPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-398">
-          <caret line="2" column="15" selection-start-line="2" selection-start-column="15" selection-end-line="2" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/store/SettingStore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="2" lean-forward="true" selection-start-line="11" selection-start-column="2" selection-end-line="11" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Intro.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1567,20 +1435,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="29" selection-start-line="19" selection-start-column="29" selection-end-line="19" selection-end-column="29" />
+        <state relative-caret-position="67">
+          <caret line="19" column="13" lean-forward="true" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/mml3/mathml3-content.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="166">
+          <caret line="97" column="58" lean-forward="true" selection-start-line="97" selection-start-column="58" selection-end-line="97" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/piano.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/ukulele.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/public/piano.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/public/guitar.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/guitar.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetTypeIcon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
