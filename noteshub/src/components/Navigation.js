@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Avatar, Icon, Input, Menu} from 'antd';
+import {Avatar, Divider, Dropdown, Icon, Input, Layout, Menu} from 'antd';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 import {login} from "../actions/UserAction";
 
@@ -19,6 +19,7 @@ const Navigation = ({ dispatch }) => {
   this.toLogin = function (e) {
     dispatch(login)
   }
+
   return (
     <div>
       <Menu mode="horizontal">
@@ -49,11 +50,11 @@ const Navigation = ({ dispatch }) => {
         <Menu.Item key="notification">
           <Icon type="notification" />消息
         </Menu.Item>
-        <Menu.Item key="login" style={{"float": "right", "text-align":"center"}}>
-          <div style={{"float": "right", "text-align":"center"}}>
-            <Avatar shape="square" icon="user" onClick = {this.toLogin}></Avatar>
-          </div>
-        </Menu.Item>
+
+        <SubMenu title={<Avatar shape="circle" src={"./avatar.svg"} onClick = {this.toLogin}></Avatar>} style={{"float": "right"}}>
+          <Menu.Item key="help">帮助</Menu.Item>
+          <Menu.Item key="signOut">登出</Menu.Item>
+        </SubMenu>
       </Menu>
     </div>
   )

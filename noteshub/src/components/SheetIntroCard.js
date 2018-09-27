@@ -8,7 +8,7 @@ const SheetIntroCard = () => {
           title="消愁"
           extra={<div>
             <Icon style={{"margin-right": 20}} type="cloud-download" theme="outlined" />
-            <Icon style={{"margin-right": 20}} type="delete" theme="outlined" />
+            <Icon type="delete" theme="outlined" />
             </div>}
           style={{ "margin": 10 }}
       >
