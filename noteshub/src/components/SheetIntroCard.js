@@ -9,8 +9,8 @@ const SheetIntroCard = () => {
           extra={<div>
             <Icon style={{"margin-right": 20}} type="cloud-download" theme="outlined" />
             <Icon style={{"margin-right": 20}} type="delete" theme="outlined" />
-            <Icon type="arrow-right" theme="outlined" /></div>}
-          style={{ width: "90%", margin: 10 }}
+            </div>}
+          style={{ "margin": 10 }}
       >
         <p>
           <SheetTypeIcon instrument={"guitar"}/>
