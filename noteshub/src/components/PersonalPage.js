@@ -8,7 +8,7 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
   return (
       <div style={{padding: "10px"}}>
           <div style={{float:"left", width:"20%"}}>
-            <Layout>
+            <Layout style={{background:"#fff"}}>
               <div style={{"text-align": "center"}}>
                 <Avatar size={270} shape="square" icon="user" />
               </div>

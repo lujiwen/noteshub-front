@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="update SheetIntroCard margin">
-      <change afterPath="$PROJECT_DIR$/noteshub/src/components/Timeline.js" afterDir="false" />
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="add timeline to wrap antd timeline">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -71,7 +70,7 @@
           <entry key="go" value="38" />
           <entry key="html" value="2" />
           <entry key="ico" value="4" />
-          <entry key="js" value="140" />
+          <entry key="js" value="141" />
           <entry key="json" value="6" />
           <entry key="jsx" value="2" />
           <entry key="mscx" value="2" />
@@ -93,7 +92,7 @@
           <entry key="Image" value="4" />
           <entry key="JSON" value="6" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="140" />
+          <entry key="JavaScript" value="141" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="RNG Compact" value="1" />
           <entry key="SVG" value="15" />
@@ -106,9 +105,9 @@
         <counts>
           <entry key="css" value="136" />
           <entry key="go" value="2667" />
-          <entry key="js" value="12086" />
+          <entry key="js" value="12116" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="2105" />
+          <entry key="txt" value="2155" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
@@ -116,8 +115,8 @@
         <counts>
           <entry key="CSS" value="136" />
           <entry key="Go" value="2667" />
-          <entry key="JavaScript" value="12086" />
-          <entry key="PLAIN_TEXT" value="2122" />
+          <entry key="JavaScript" value="12116" />
+          <entry key="PLAIN_TEXT" value="2172" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -153,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Timeline.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+            <state relative-caret-position="36">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -168,8 +167,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+            <state relative-caret-position="270">
+              <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -315,13 +326,13 @@
         <option value="$PROJECT_DIR$/noteshub/src/App.js" />
         <option value="$PROJECT_DIR$/noteshub/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/noteshub/src/reducers/PersonalPageReducer.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/LeftDrawer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/SheetTypeIcon.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Navigation.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Timeline.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" />
       </list>
     </option>
   </component>
@@ -408,7 +419,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538055021299" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538055192199" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -587,14 +598,7 @@
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
       <workItem from="1535767145930" duration="84194000" />
-      <workItem from="1537972676330" duration="6244000" />
-    </task>
-    <task id="LOCAL-00090" summary="fix startX bug">
-      <created>1535642354876</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1535642354876</updated>
+      <workItem from="1537972676330" duration="6394000" />
     </task>
     <task id="LOCAL-00091" summary="added 40 to the first measure of the row because of the signature">
       <created>1535646376280</created>
@@ -932,7 +936,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538054611805</updated>
     </task>
-    <option name="localTasksCounter" value="139" />
+    <task id="LOCAL-00139" summary="add timeline to wrap antd timeline">
+      <created>1538055060454</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1538055060454</updated>
+    </task>
+    <option name="localTasksCounter" value="140" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -968,13 +979,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="344413000" />
+    <option name="totallyTimeSpent" value="344563000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07367668" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24678111" />
       <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1083,7 +1094,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added react router" />
     <MESSAGE value="added error component to router, it should be in uppercase when importing switch and react" />
     <MESSAGE value="added navigators which might be used in future" />
     <MESSAGE value="added register navigation to uselogin &lt;a&gt;" />
@@ -1108,7 +1118,8 @@
     <MESSAGE value="add SheetTypeIcon" />
     <MESSAGE value="aupdate navigation" />
     <MESSAGE value="update SheetIntroCard margin" />
-    <option name="LAST_COMMIT_MESSAGE" value="update SheetIntroCard margin" />
+    <MESSAGE value="add timeline to wrap antd timeline" />
+    <option name="LAST_COMMIT_MESSAGE" value="add timeline to wrap antd timeline" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1353,16 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/navigationReducer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -1463,20 +1464,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Timeline.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
+        <state relative-caret-position="36">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Timeline.js">
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="40" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+        <state relative-caret-position="270">
+          <caret line="15" column="13" lean-forward="true" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
