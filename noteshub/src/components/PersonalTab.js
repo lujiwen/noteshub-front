@@ -11,17 +11,13 @@ const PersonalTab = ({chooseTabNumber}) => {
   switch (chooseTabNumber.toString()) {
     case "0":
       return (
-          <TimeLine/>
-      )
-    case "1":
-      return (
           <div>
             <div>
               <SheetIntroCard/>
               <SheetIntroCard/>
             </div>
 
-              <div>
+            <div>
               <Dragger>
                 <p className="ant-upload-drag-icon">
                   <Icon type="inbox" />
@@ -31,7 +27,10 @@ const PersonalTab = ({chooseTabNumber}) => {
               </Dragger>
             </div>
           </div>
-
+      )
+    case "1":
+      return (
+          <TimeLine/>
       )
     case "2":
       return (

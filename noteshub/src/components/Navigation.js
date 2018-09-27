@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Avatar, Divider, Dropdown, Icon, Input, Layout, Menu} from 'antd';
+import {Avatar, Icon, Input, Menu} from 'antd';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 import {login} from "../actions/UserAction";
 

@@ -1,5 +1,5 @@
 
-const personalPageReducer = (state = {chooseTabNumber: 1}, action) => {
+const personalPageReducer = (state = {chooseTabNumber: 0}, action) => {
   switch(action.type) {
     case "OVERVIEW":
       return {chooseTabNumber: 0}

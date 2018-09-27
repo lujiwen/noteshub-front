@@ -6,8 +6,8 @@ import {connect} from 'react-redux';
 
 const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
   return (
-      <div style={{padding: "10px"}}>
-          <div style={{float:"left", width:"20%"}}>
+      <div style={{padding: "20px"}}>
+          <div style={{float:"left", width:"20%", margin:20}}>
             <Layout style={{background:"#fff"}}>
               <div style={{"text-align": "center"}}>
                 <Avatar size={270} shape="square" icon="user" />
@@ -21,7 +21,7 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
               </div>
             </Layout>
           </div>
-          <div style={{float:"left", width:"65%", margin:"10px"}}>
+          <div style={{float:"left", width:"70%", margin:20}}>
             <Layout>
               <Anchor>
                 <Menu
