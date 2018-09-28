@@ -21,7 +21,7 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
               </div>
             </Layout>
           </div>
-          <div style={{float:"left", width:"70%", margin:20}}>
+          <div style={{float:"left", width:"50%", margin:20}}>
             <Layout>
               <Anchor>
                 <Menu

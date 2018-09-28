@@ -13,8 +13,8 @@ const PersonalTab = ({chooseTabNumber}) => {
       return (
           <div>
             <div>
-              <SheetIntroCard/>
-              <SheetIntroCard/>
+              <SheetIntroCard style={{width: "30%"}}/>
+              <SheetIntroCard style={{width: "30%"}}/>
             </div>
 
             <div>
