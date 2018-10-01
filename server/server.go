@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"mo/models"
+	"time"
 )
 
 
@@ -15,10 +16,16 @@ func main() {
 	store := sessions.NewCookieStore([]byte("secret"))
 	router.Use(sessions.Sessions("mysession", store))
 
-	config := cors.DefaultConfig()
-	config.AllowOrigins = []string{"http://localhost:3000"}
-
-	router.Use(cors.New(config))
+	// solve 403 forbid post request problem
+	config := cors.New(cors.Config{
+		AllowOriginFunc:  func(origin string) bool { return true },
+		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "PATCH"},
+		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+		AllowOrigins: []string{"http://localhost:3000"} ,
+	})
+	router.Use(config)
 
 	// same as
 	//router.Use(cors.Default())
@@ -33,6 +40,7 @@ func main() {
 	healthCheckApi := router.Group("")
 	{
 		healthCheckApi.GET("/ping", models.PingService)
+		healthCheckApi.POST("/pong", models.TestPostFunction)
 	}
 
 	sheetApi := router.Group("")
