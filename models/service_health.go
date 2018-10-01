@@ -10,3 +10,9 @@ func PingService(c *gin.Context) {
 		"message": "pong",
 	})
 }
+
+func TestPostFunction(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"message": "pong",
+	})
+}

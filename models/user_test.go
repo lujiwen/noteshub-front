@@ -1,12 +1,11 @@
 package models
 
 import (
-	"github.com/go-xorm/xorm"
 	"testing"
 )
 
 func TestRegister(t *testing.T) {
-	x, _ = xorm.NewEngine("mysql", "root:ljwGogs0@/test")
+	x, _ = GetConnection()
 
 	index, e := x.InsertOne(User{Name: "ljw"})
 	if e != nil {
@@ -19,7 +18,7 @@ func TestRegister(t *testing.T) {
 
 func TestCreateTable(t *testing.T) {
 
-	if err := x.CreateTables(User{}) ; err != nil {
+	if err := x.CreateTables() ; err != nil {
 		t.Error("insert user failed", err)
 	} else {
 		t.Log("create table user succeed ! ")
@@ -39,7 +38,7 @@ func TestInitializeDB(t *testing.T) {
 type Person struct {
 }
 func TestDropAllTables(t *testing.T)  {
-	x, _ = xorm.NewEngine("mysql", "root:ljwGogs0@/test")
+	x, _ = GetConnection()
 
 	if err := x.DropTables(
 		Access{},
@@ -60,3 +59,23 @@ func TestDropAllTables(t *testing.T)  {
 	}
 }
 
+func TestDropSingleTable(t *testing.T) {
+	x, _ = GetConnection()
+	if err := x.DropTables(User{}) ; err != nil {
+		t.Error("drop table failed :", err)
+	} else {
+		t.Log("drop table success!")
+	}
+
+}
+
+
+func TestConnectionToDatabase(t *testing.T) {
+	x, _ = GetConnection()
+	if err := x.Ping() ; err != nil {
+		t.Error("ping database failed :", err)
+	} else {
+		t.Log("ping database success!")
+	}
+
+}

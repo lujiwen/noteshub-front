@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="added test to do some experimental operation on database">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front-end/src/actions/UserAction.js" beforeDir="false" afterPath="$PROJECT_DIR$/front-end/src/actions/UserAction.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/service_health.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/service_health.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
@@ -86,7 +85,7 @@
           <entry key="s" value="1" />
           <entry key="svg" value="25" />
           <entry key="ts" value="25" />
-          <entry key="user" value="4" />
+          <entry key="user" value="5" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
@@ -94,7 +93,7 @@
         <counts>
           <entry key="CSS" value="5" />
           <entry key="CoffeeScript" value="3" />
-          <entry key="Database Element" value="4" />
+          <entry key="Database Element" value="5" />
           <entry key="Go" value="65" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="4" />
@@ -118,7 +117,7 @@
           <entry key="json" value="1" />
           <entry key="md" value="219" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="2890" />
+          <entry key="txt" value="2919" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
@@ -129,7 +128,7 @@
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="14258" />
           <entry key="Markdown" value="219" />
-          <entry key="PLAIN_TEXT" value="2907" />
+          <entry key="PLAIN_TEXT" value="2936" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -156,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-54">
-              <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            <state relative-caret-position="-629">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding>
                 <element signature="e#14#223#0" expanded="true" />
               </folding>
@@ -168,8 +167,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/front-end/src/actions/UserAction.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state relative-caret-position="167">
+              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -177,8 +176,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="79" />
+            <state relative-caret-position="67">
+              <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://7791ee9c-58a8-4b08-918c-5a130e16cdb4/schema/test/table/user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -206,15 +214,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="162">
               <caret line="496" selection-start-line="496" selection-end-line="496" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../github.com/gin-gonic/gin/binding/binding.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="47" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -259,7 +258,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>i</find>
       <find>WrappedRegistrationForm</find>
       <find>login</find>
       <find>upload</find>
@@ -289,6 +287,7 @@
       <find>appen</find>
       <find>xorm.NewEngine(&quot;mysql&quot;, &quot;root:ljwGogs0@/test&quot;)</find>
       <find>GetConnection</find>
+      <find>phone</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -790,7 +789,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538403395258" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538403414710" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="editorconfig.notification" value="null" />
@@ -973,14 +972,7 @@
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
       <workItem from="1535767145930" duration="84194000" />
-      <workItem from="1537972676330" duration="42505000" />
-    </task>
-    <task id="LOCAL-00114" summary="added react router">
-      <created>1536592917673</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1536592917673</updated>
+      <workItem from="1537972676330" duration="42799000" />
     </task>
     <task id="LOCAL-00115" summary="added error component to router, it should be in uppercase when importing switch and react">
       <created>1536593448094</created>
@@ -1318,7 +1310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538400733399</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="change api to the newest one">
+      <created>1538403438723</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1538403438723</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1354,13 +1353,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="380674000" />
+    <option name="totallyTimeSpent" value="380968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.060085837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1037196" />
       <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -1371,7 +1370,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49499285" weight="0.32771084" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64449215" weight="0.26024097" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.6330472" visible="true" weight="0.3566265" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6330472" visible="true" weight="0.3566265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1387,7 +1386,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.14520743" />
+      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.26609442" />
       <window_info anchor="right" id="SciView" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.13376252" />
@@ -1470,7 +1469,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="added uploading file to my sheets tab" />
     <MESSAGE value="update left draw" />
     <MESSAGE value="encapsulate SheetIntroCard" />
     <MESSAGE value="add SheetTypeIcon" />
@@ -1495,7 +1493,8 @@
     <MESSAGE value="refactor server api by splitting them into user, file, health" />
     <MESSAGE value="added test to do some experimental operation on database" />
     <MESSAGE value="solve 403 problem when sending post request" />
-    <option name="LAST_COMMIT_MESSAGE" value="solve 403 problem when sending post request" />
+    <MESSAGE value="change api to the newest one" />
+    <option name="LAST_COMMIT_MESSAGE" value="change api to the newest one" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1528,9 +1527,9 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/models/user.go</url>
-          <line>162</line>
+          <line>164</line>
           <properties />
-          <option name="timeStamp" value="104" />
+          <option name="timeStamp" value="109" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -1794,13 +1793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://7791ee9c-58a8-4b08-918c-5a130e16cdb4/schema/test/table/user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/sheet_file.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1886,23 +1878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/server.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-54">
-          <caret line="23" column="31" lean-forward="true" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
-          <folding>
-            <element signature="e#14#223#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/actions/UserAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../github.com/gin-gonic/gin/binding/default_validator.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1931,10 +1906,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/src/actions/UserAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7791ee9c-58a8-4b08-918c-5a130e16cdb4/schema/test/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/server.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+          <folding>
+            <element signature="e#14#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/user.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="163" column="79" selection-start-line="163" selection-start-column="79" selection-end-line="163" selection-end-column="79" />
+        <state relative-caret-position="67">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
         </state>
       </provider>
     </entry>

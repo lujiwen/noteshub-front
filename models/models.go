@@ -52,66 +52,25 @@ var (
 )
 
 func init() {
+	x, _ = GetConnection()
+	tables = append(tables,
+		new(User),
+	)
 
-	x, _ = xorm.NewEngine("mysql", "root:ljwGogs0@/test")
-	//tables = append(tables,
-	//	new(User),
-	//	//new(PublicKey),
-	//	//new(AccessToken),
-	//	//new(TwoFactor),
-	//	//new(TwoFactorRecoveryCode),
-	//	//new(Repository),
-	//	//new(DeployKey),
-	//	//new(Collaboration),
-	//	//new(Access),
-	//	//new(Upload),
-	//	//new(Watch),
-	//	//new(Star),
-	//	//new(Follow),
-	//	//new(Action),
-	//	//		new(Issue),
-	//	//new(PullRequest),
-	//	//new(Comment),
-	//	//new(Attachment),
-	//	//new(IssueUser),
-	//	//		new(Label),
-	//	//new(IssueLabel),
-	//	//new(Milestone),
-	//	//		new(Mirror),
-	//	//new(Release),
-	//	//new(LoginSource),
-	//	//new(Webhook),
-	//	//new(HookTask),
-	//	//		new(ProtectBranch),
-	//	//new(ProtectBranchWhitelist),
-	//	//new(Team),
-	//	//new(OrgUser),
-	//	//new(TeamUser),
-	//	//new(TeamRepo),
-	//	//new(Notice),
-	//	//new(EmailAddress),
-	//	//new(SheetFile),
-	//)
-	//
-	//gonicNames := []string{"SSL"}
-	//for _, name := range gonicNames {
-	//	core.LintGonicMapper[name] = true
-	//}
+	gonicNames := []string{"SSL"}
+	for _, name := range gonicNames {
+		core.LintGonicMapper[name] = true
+	}
 }
+
+func GetConnection() (*xorm.Engine, error) {
+	return xorm.NewEngine("mysql", "root:ljwGogs0@/test")
+}
+
 
 func LoadConfigs() {
 	sec := setting.Cfg.Section("database")
-	//DbCfg.Type = sec.Key("DB_TYPE").String()
-	//switch DbCfg.Type {
-	//case "sqlite3":
-	//	setting.UseSQLite3 = true
-	//case "mysql":
-	//	setting.UseMySQL = true
-	//case "postgres":
-	//	setting.UsePostgreSQL = true
-	//case "mssql":
-	//	setting.UseMSSQL = true
-	//}
+
 	setting.UseMySQL = true
 	DbCfg.Host = sec.Key("HOST").String()
 	DbCfg.Name = sec.Key("NAME").String()

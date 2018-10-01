@@ -23,19 +23,20 @@ type User struct {
 	Name      string `xorm:"UNIQUE NOT NULL"`
 	FullName  string
 	// Email is the primary email address (to be used for communication)
-	Email       string `xorm:"NOT NULL"`
-	Passwd      string `xorm:"NOT NULL"`
+	PhoneNumber       string `xorm:"NOT NULL" form:"phoneNumber" json:"phoneNumber" binding:"required"`
+	Email             string
+	Password      string `xorm:"NOT NULL" form:"password" json:"password" binding:"required"`
 	LoginType   LoginType
-	LoginSource int64 `xorm:"NOT NULL DEFAULT 0"`
-	LoginName   string
-	Type        UserType
-	OwnedOrgs   []*User       `xorm:"-" json:"-"`
-	Orgs        []*User       `xorm:"-" json:"-"`
-	Repos       []*Repository `xorm:"-" json:"-"`
+	//LoginSource int64 `xorm:"NOT NULL DEFAULT 0"`
+	//LoginName   string
+	//Type        UserType
+	//OwnedOrgs   []*User       `xorm:"-" json:"-"`
+	//Orgs        []*User       `xorm:"-" json:"-"`
+	//Repos       []*Repository `xorm:"-" json:"-"`
 	Location    string
-	Website     string
-	Rands       string `xorm:"VARCHAR(10)"`
-	Salt        string `xorm:"VARCHAR(10)"`
+	//Website     string
+	//Rands       string `xorm:"VARCHAR(10)"`
+	//Salt        string `xorm:"VARCHAR(10)"`
 
 	Created     time.Time `xorm:"-" json:"-"`
 	CreatedUnix int64
@@ -45,25 +46,25 @@ type User struct {
 	// Remember visibility choice for convenience, true for private
 	LastRepoVisibility bool
 	// Maximum repository creation limit, -1 means use gloabl default
-	MaxRepoCreation int `xorm:"NOT NULL DEFAULT -1"`
+	//MaxRepoCreation int `xorm:"NOT NULL DEFAULT -1"`
 
 	// Permissions
 	IsActive         bool // Activate primary email
 	IsAdmin          bool
-	AllowGitHook     bool
-	AllowImportLocal bool // Allow migrate repository by local path
+	//AllowGitHook     bool
+	//AllowImportLocal bool // Allow migrate repository by local path
 	ProhibitLogin    bool
 
 	// Avatar
-	Avatar          string `xorm:"VARCHAR(2048) NOT NULL"`
-	AvatarEmail     string `xorm:"NOT NULL"`
-	UseCustomAvatar bool
+	Avatar          string `xorm:"VARCHAR(2048)`
+	//AvatarEmail     string `xorm:"NOT NULL"`
+	//UseCustomAvatar bool
 
 	// Counters
 	NumFollowers int
-	NumFollowing int `xorm:"NOT NULL DEFAULT 0"`
+	NumFollowing int `xorm:"DEFAULT 0"`
 	NumStars     int
-	NumRepos     int
+	NumSheets    int
 
 	// For organization
 	Description string
@@ -109,14 +110,6 @@ func (err UserNotKeyOwner) Error() string {
 	return fmt.Sprintf("user is not the owner of public key [key_id: %d]", err.KeyID)
 }
 
-
-// ___________    .__  .__
-// \_   _____/___ |  | |  |   ______  _  __
-//  |    __)/  _ \|  | |  |  /  _ \ \/ \/ /
-//  |     \(  <_> )  |_|  |_(  <_> )     /
-//  \___  / \____/|____/____/\____/ \/\_/
-//      \/
-
 // Follow represents relations of user and his/her followers.
 type Follow struct {
 	ID       int64
@@ -130,12 +123,12 @@ type LoginFrom struct {
 }
 
 func Login(c *gin.Context) {
-	print(c.Request.Body)
 	session := sessions.Default(c)
-	var from LoginFrom
 	username := c.PostForm("username")
 	password := c.PostForm("password")
 
+	//  parse parameter in this way can work in the case that header take 'Content-Type': 'application/json'
+	var from LoginFrom
 	if  err := c.ShouldBindJSON(&from); err == nil {
 		username = from.UserName
 		password = from.Password
@@ -144,7 +137,7 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	if strings.Trim(from.UserName, " ") == "" || strings.Trim(from.Password, " ") == "" {
+	if strings.Trim(username, " ") == "" || strings.Trim(password, " ") == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
 		return
 	}
@@ -161,6 +154,24 @@ func Login(c *gin.Context) {
 	}
 }
 
+
+func Register(c *gin.Context) {
+	var user User
+
+	// c.postForm can only work in the case that postman header is null
+	// but request from front always take  " 'Content-Type': 'application/json' "
+	if  err := c.ShouldBindJSON(&user); err == nil {
+		newUser := User{ PhoneNumber: user.PhoneNumber, Password: user.Password}
+		x.InsertOne(newUser)
+		c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + newUser.PhoneNumber })
+
+	} else {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
+		return
+	}
+}
+
+
 func Logout(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get("user")
@@ -171,10 +182,4 @@ func Logout(c *gin.Context) {
 		session.Save()
 		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
 	}
-}
-
-
-func Register(c *gin.Context) {
-	newUser := User{ Name:"ljw"}
-	x.InsertOne(newUser)
 }
