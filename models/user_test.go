@@ -83,6 +83,19 @@ func TestGetTable(t *testing.T)  {
 	x.Table(User{})
 }
 
+func TestIsUserValidated(t *testing.T) {
+	x, _ = GetConnection()
+	if isUserValidated("13548188553", "123") {
+		t.Log("135481885 pass ")
+	} else {
+		t.Error("13548188553 does not pass")
+	}
+
+	if isUserValidated("13548188553", "321") {
+		t.Error("135481885 with password 123 should not pass ")
+	}
+}
+
 func TestIsRecordExist(t *testing.T) {
 	x, _ = GetConnection()
 	user := &User{}
@@ -92,7 +105,6 @@ func TestIsRecordExist(t *testing.T) {
 		t.Log("13548188553 exists")
 	} else {
 		t.Error("13548188553 not  exists")
-
 	}
 
 }

@@ -23,7 +23,7 @@ type User struct {
 	Name      string `xorm:"UNIQUE NOT NULL"`
 	FullName  string
 	// Email is the primary email address (to be used for communication)
-	PhoneNumber       string `xorm:"NOT NULL" form:"phoneNumber" json:"phoneNumber" binding:"required"`
+	PhoneNumber       string `xorm:"UNIQUE NOT NULL" form:"phoneNumber" json:"phoneNumber" binding:"required"`
 	Email             string
 	Password      string `xorm:"NOT NULL" form:"password" json:"password" binding:"required"`
 	LoginType   LoginType
@@ -124,25 +124,25 @@ type LoginFrom struct {
 
 func Login(c *gin.Context) {
 	session := sessions.Default(c)
-	username := c.PostForm("username")
-	password := c.PostForm("password")
+	phone := ""
+	password := ""
 
 	//  parse parameter in this way can work in the case that header take 'Content-Type': 'application/json'
-	var from LoginFrom
-	if  err := c.ShouldBindJSON(&from); err == nil {
-		username = from.UserName
-		password = from.Password
+	var user User
+	if  err := c.ShouldBindJSON(&user); err == nil {
+		phone = strings.Trim(user.PhoneNumber, " ")
+		password = strings.Trim(user.Password, " ")
 	} else {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
 		return
 	}
 
-	if strings.Trim(username, " ") == "" || strings.Trim(password, " ") == "" {
+	if phone == "" ||  password == "" {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
 		return
 	}
-	if username == "ljw" && password == "ljw" {
-		session.Set("username", username) //In real world usage you'd set this to the users ID
+	if isUserValidated(phone, password) {
+		session.Set("phone", phone) //In real world usage you'd set this to the users ID
 		err := session.Save()
 		if err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate session token"})
@@ -156,6 +156,11 @@ func Login(c *gin.Context) {
 
 func isUserExist(phoneNumber string) bool {
     exist, _ := x.Exist(&User{PhoneNumber: phoneNumber})
+	return exist
+}
+
+func isUserValidated(phone string, password string) bool{
+	exist, _ := x.Where("phone_number=? and password=?", phone, password).Get(new(User))
 	return exist
 }
 
