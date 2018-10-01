@@ -154,6 +154,10 @@ func Login(c *gin.Context) {
 	}
 }
 
+func isUserExist(phoneNumber string) bool {
+    exist, _ := x.Exist(&User{PhoneNumber: phoneNumber})
+	return exist
+}
 
 func Register(c *gin.Context) {
 	var user User
@@ -161,10 +165,20 @@ func Register(c *gin.Context) {
 	// c.postForm can only work in the case that postman header is null
 	// but request from front always take  " 'Content-Type': 'application/json' "
 	if  err := c.ShouldBindJSON(&user); err == nil {
-		newUser := User{ PhoneNumber: user.PhoneNumber, Password: user.Password}
-		x.InsertOne(newUser)
-		c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + newUser.PhoneNumber })
+		phone := user.PhoneNumber
+		password := user.Password
+		if isUserExist(phone) {
+			c.JSON(http.StatusBadRequest, gin.H{"message": "the user already exists."})
+			return
+		}
 
+		newUser := User{ Name:"用户" + phone ,  PhoneNumber: phone, Password: password}
+		if userId, err := x.InsertOne(newUser);  err != nil {
+			c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + string(userId)})
+		} else {
+			c.JSON(http.StatusInternalServerError, gin.H{"message": "用户注册失败 " + err.Error() })
+		}
+		return
 	} else {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
 		return

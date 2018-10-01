@@ -18,8 +18,8 @@ func TestRegister(t *testing.T) {
 
 func TestCreateTable(t *testing.T) {
 
-	if err := x.CreateTables() ; err != nil {
-		t.Error("insert user failed", err)
+	if err := x.CreateTables(User{}) ; err != nil {
+		t.Error("create table user failed", err)
 	} else {
 		t.Log("create table user succeed ! ")
 
@@ -76,6 +76,23 @@ func TestConnectionToDatabase(t *testing.T) {
 		t.Error("ping database failed :", err)
 	} else {
 		t.Log("ping database success!")
+	}
+}
+
+func TestGetTable(t *testing.T)  {
+	x.Table(User{})
+}
+
+func TestIsRecordExist(t *testing.T) {
+	x, _ = GetConnection()
+	user := &User{}
+	//if exist, _ := x.Exist(&User{PhoneNumber: string(13548188553)}); exist {
+	//.Where("name=?", "用户13548188553")
+	if exist, _ := x.Where("name=?", "ljw").Get(user); exist {
+		t.Log("13548188553 exists")
+	} else {
+		t.Error("13548188553 not  exists")
+
 	}
 
 }
