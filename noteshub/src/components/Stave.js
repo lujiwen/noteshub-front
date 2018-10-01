@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Notes from './Notes';
 import SheetDrawer from "../services/SheetDrawer";
-import {generateId} from "../helpers";
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import axios from 'axios'
