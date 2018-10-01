@@ -10,6 +10,7 @@
     "font-awesome": "^4.7.0",
     "graphql": "^0.13.2",
     "graphql-tag": "^1.1.2",
+    "history": "^4.7.2",
     "mocha": "^5.2.0",
     "prop-types": "^15.6.2",
     "rc-slider": "^8.6.1",

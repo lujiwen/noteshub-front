@@ -4,13 +4,16 @@ import PersonalTab from "./PersonalTab";
 import {connect} from 'react-redux';
 import Profile from "./Profile";
 import Stave from "./Stave";
+import {Redirect} from "react-router";
 
 
 const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile}) => {
   if (startEdit) {
+
     return (
-       <Profile/>
-    )
+       /*<Redirect to={"/profile"} push={"/"} ></Redirect>*/
+         <Profile/>
+     )
   } else if (viewSheet) {
     return <Stave/>
   } else {

@@ -5,7 +5,7 @@ import App from './App';
 import { Provider } from 'react-redux'
 import registerServiceWorker from './registerServiceWorker';
 import configureStore, {playerMiddleware} from './store/configureStore'
-import { Router} from 'react-router';
+import { Router, browserHistory} from 'react-router';
 import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import {AUTH_SIGNIN} from "./actions/UserAction";
@@ -24,7 +24,7 @@ import LeftDrawer from "./components/LeftDrawer";
 import navigationReducer from "./reducers/navigationReducer";
 import rootReducer from "./reducers";
 import Profile from "./components/Profile";
-
+import history from "./reducers/history"
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -47,6 +47,8 @@ networkInterface.use([{
 const client = new ApolloClient({
   networkInterface
 });
+
+
 //
 // const store = createStore(
 //     combineReducers({
@@ -77,6 +79,8 @@ ReactDOM.render(
           <div>
             <Navigation/>
             <LeftDrawer/>
+            <Router history={history}/>
+            {/*<Switch> is unique in that it renders a route exclusively*/}
             <Switch>
               <Route path="/" component={App} exact/>
               <Route path="/login" component={WrappedNormalLoginForm}/>
@@ -84,6 +88,7 @@ ReactDOM.render(
               <Route path="/profile" component={Profile}/>
               <Route component={Error}/>
             </Switch>
+
           </div>
         </BrowserRouter>
       </Provider>
