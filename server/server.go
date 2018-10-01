@@ -4,7 +4,6 @@ import (
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	log "gopkg.in/clog.v1"
 	"mo/models"
 )
 
@@ -25,8 +24,7 @@ func main() {
 	//router.Use(cors.Default())
 
 	// connect to db
-
-	//initializeDB()
+	//models.InitializeDB()
 
 	// Serve frontend static files
 
@@ -41,6 +39,7 @@ func main() {
 	{
 		sheetApi.GET("/sheet/:sheetId", models.GetSheet)
 		sheetApi.POST("/upload", models.Upload)
+		sheetApi.POST("/logout", models.Logout)
 	}
 
 
@@ -52,11 +51,5 @@ func main() {
 
 	// Start and run the server
 	router.Run(":8080")
-}
-
-func initializeDB() {
-	if err := models.NewEngine(); err != nil {
-		log.Fatal(2, "Fail to initialize ORM engine: %v", err)
-	}
 }
 

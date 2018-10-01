@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="splitting user api from server">
-      <change afterPath="$PROJECT_DIR$/models/music_sheet.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/service_health.go" afterDir="false" />
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="refactor server api by splitting them into user, file, health">
+      <change afterPath="$PROJECT_DIR$/models/database.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/user_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/config-overrides.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/presets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/models.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/music_sheet.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/music_sheet.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/models/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/server.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.go" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -45,13 +45,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="test: schema" type="c314c289:MysqlImplModel$Schema" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="test@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="test: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="sheet_file: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
@@ -72,7 +65,7 @@
         <counts>
           <entry key="coffee" value="3" />
           <entry key="css" value="5" />
-          <entry key="go" value="49" />
+          <entry key="go" value="55" />
           <entry key="html" value="2" />
           <entry key="ico" value="4" />
           <entry key="js" value="191" />
@@ -84,8 +77,9 @@
           <entry key="musicxml" value="5" />
           <entry key="rnc" value="1" />
           <entry key="s" value="1" />
-          <entry key="svg" value="24" />
+          <entry key="svg" value="25" />
           <entry key="ts" value="25" />
+          <entry key="user" value="2" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
@@ -93,7 +87,8 @@
         <counts>
           <entry key="CSS" value="5" />
           <entry key="CoffeeScript" value="3" />
-          <entry key="Go" value="47" />
+          <entry key="Database Element" value="2" />
+          <entry key="Go" value="53" />
           <entry key="HTML" value="2" />
           <entry key="Image" value="4" />
           <entry key="JSON" value="7" />
@@ -102,7 +97,7 @@
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="RNG Compact" value="1" />
-          <entry key="SVG" value="24" />
+          <entry key="SVG" value="25" />
           <entry key="TypeScript" value="25" />
           <entry key="XML" value="4" />
           <entry key="x86 Plan9 Assembly" value="1" />
@@ -111,23 +106,23 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="136" />
-          <entry key="go" value="2922" />
+          <entry key="go" value="3731" />
           <entry key="js" value="14255" />
           <entry key="json" value="1" />
           <entry key="md" value="219" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="2697" />
+          <entry key="txt" value="2772" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="136" />
-          <entry key="Go" value="2922" />
+          <entry key="Go" value="3731" />
           <entry key="JSON" value="1" />
           <entry key="JavaScript" value="14255" />
           <entry key="Markdown" value="219" />
-          <entry key="PLAIN_TEXT" value="2714" />
+          <entry key="PLAIN_TEXT" value="2789" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -151,11 +146,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="-84">
+              <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
               <folding>
                 <element signature="e#14#223#0" expanded="true" />
               </folding>
@@ -164,8 +159,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/models_test.go">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/models/models.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="117">
+              <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+              <folding>
+                <element signature="e#178#549#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -186,26 +188,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/mxml_parser.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1656">
-              <caret line="97" lean-forward="true" selection-start-line="97" selection-end-line="97" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/user_mail.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-32" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/user.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
+            <state relative-caret-position="-1440">
+              <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
               <folding>
                 <element signature="e#178#203#0" expanded="true" />
               </folding>
@@ -213,11 +199,44 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/models/user_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="163">
+              <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+              <folding>
+                <element signature="e#16#64#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/database.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="33" column="65" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/music_sheet.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-394">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
+            <state relative-caret-position="290">
+              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+              <folding>
+                <element signature="e#16#127#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -235,9 +254,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>local</find>
-      <find>create（</find>
-      <find>mountNode</find>
       <find>tips</find>
       <find>signIn</find>
       <find>forgetPassword</find>
@@ -265,6 +281,9 @@
       <find>generateId</find>
       <find>sess</find>
       <find>getS</find>
+      <find>init</find>
+      <find>x</find>
+      <find>Person</find>
     </findStrings>
     <replaceStrings>
       <replace>\snew</replace>
@@ -290,9 +309,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/sample-chord.musicxml" />
-        <option value="$PROJECT_DIR$/noteshub/src/services/Player.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/services/SheetDrawer.js" />
         <option value="$PROJECT_DIR$/resources/Tie.xml" />
         <option value="$PROJECT_DIR$/models/mxml_parser_test.go" />
         <option value="$PROJECT_DIR$/models/mxml_parser.go" />
@@ -337,10 +353,13 @@
         <option value="$PROJECT_DIR$/noteshub/src/App.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/server/user.go" />
-        <option value="$PROJECT_DIR$/models/user.go" />
-        <option value="$PROJECT_DIR$/models/music_sheet.go" />
         <option value="$PROJECT_DIR$/models/service_health.go" />
+        <option value="$PROJECT_DIR$/models/music_sheet.go" />
         <option value="$PROJECT_DIR$/server/server.go" />
+        <option value="$PROJECT_DIR$/models/user.go" />
+        <option value="$PROJECT_DIR$/models/models.go" />
+        <option value="$PROJECT_DIR$/models/database.go" />
+        <option value="$PROJECT_DIR$/models/user_test.go" />
       </list>
     </option>
   </component>
@@ -366,10 +385,8 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
-    <option name="x" value="2" />
-    <option name="y" value="55" />
     <option name="width" value="1440" />
-    <option name="height" value="824" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -390,13 +407,36 @@
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="front-end" type="462c0819:PsiDirectoryNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="music_sheet.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+              <item name="models.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="user.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="user_test.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
             </path>
             <path>
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
@@ -408,6 +448,118 @@
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
               <item name="server.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="go-xorm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="go-xorm" type="462c0819:PsiDirectoryNode" />
+              <item name="xorm" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="go-xorm" type="462c0819:PsiDirectoryNode" />
+              <item name="xorm" type="462c0819:PsiDirectoryNode" />
+              <item name="engine.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="gopkg.in" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="gopkg.in" type="462c0819:PsiDirectoryNode" />
+              <item name="ini.v1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="GOPATH &lt;mo&gt;" type="20ee2d1f:SyntheticLibraryElementNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="github.com" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="gogs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="gopkg.in" type="462c0819:PsiDirectoryNode" />
+              <item name="ini.v1" type="462c0819:PsiDirectoryNode" />
+              <item name="file.go" type="e9541c9c:GoTreeStructureProvider$GoFileNode" />
             </path>
           </expand>
           <select />
@@ -425,8 +577,9 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538384190015" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538395172579" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
     <property name="go.vendoring.notification.had.been.shown" value="true" />
@@ -469,7 +622,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Go Build.go build server.go">
+  <component name="RunManager" selected="Go Test.TestDropAllTables in mo/models">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -491,7 +644,7 @@
       <directory value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestInterface in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestDropAllTables in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="mo" />
       <working_directory value="$PROJECT_DIR$/models" />
       <go_parameters value="-i" />
@@ -500,10 +653,10 @@
       <package value="mo/models" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^TestInterface$" />
+      <pattern value="^TestDropAllTables$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestMeasure_ParseMeasure in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+    <configuration name="TestInitializeDB in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="mo" />
       <working_directory value="$PROJECT_DIR$/models" />
       <go_parameters value="-i" />
@@ -512,7 +665,7 @@
       <package value="mo/models" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
-      <pattern value="^TestMeasure_ParseMeasure$" />
+      <pattern value="^TestInitializeDB$" />
       <method v="2" />
     </configuration>
     <configuration name="TestNote_AddAccidental in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
@@ -527,14 +680,16 @@
       <pattern value="^TestNote_AddAccidental$" />
       <method v="2" />
     </configuration>
-    <configuration name="TestUpdateMxml in mxml_parser_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true">
+    <configuration name="TestRegister in mo/models" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
       <module name="mo" />
       <working_directory value="$PROJECT_DIR$/models" />
       <go_parameters value="-i" />
       <framework value="gotest" />
       <kind value="PACKAGE" />
       <package value="mo/models" />
-      <pattern value="^TestUpdateMxml$" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <pattern value="^TestRegister$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -562,17 +717,18 @@
     </configuration>
     <list>
       <item itemvalue="Go Build.go build server.go" />
-      <item itemvalue="Go Test.TestUpdateMxml in mxml_parser_test.go" />
-      <item itemvalue="Go Test.TestMeasure_ParseMeasure in mo/models" />
-      <item itemvalue="Go Test.TestInterface in mo/models" />
       <item itemvalue="Go Test.TestNote_AddAccidental in mo/models" />
+      <item itemvalue="Go Test.TestRegister in mo/models" />
+      <item itemvalue="Go Test.TestInitializeDB in mo/models" />
+      <item itemvalue="Go Test.TestDropAllTables in mo/models" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Go Test.TestDropAllTables in mo/models" />
+        <item itemvalue="Go Test.TestInitializeDB in mo/models" />
+        <item itemvalue="Go Test.TestRegister in mo/models" />
         <item itemvalue="Go Build.go build server.go" />
         <item itemvalue="Go Test.TestNote_AddAccidental in mo/models" />
-        <item itemvalue="Go Test.TestMeasure_ParseMeasure in mo/models" />
-        <item itemvalue="Go Test.TestInterface in mo/models" />
       </list>
     </recent_temporary>
   </component>
@@ -604,14 +760,7 @@
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
       <workItem from="1535767145930" duration="84194000" />
-      <workItem from="1537972676330" duration="31054000" />
-    </task>
-    <task id="LOCAL-00111" summary="added login action to component">
-      <created>1536506276855</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1536506276855</updated>
+      <workItem from="1537972676330" duration="35807000" />
     </task>
     <task id="LOCAL-00112" summary="added login reducer">
       <created>1536585327935</created>
@@ -949,64 +1098,72 @@
       <option name="project" value="LOCAL" />
       <updated>1538383711737</updated>
     </task>
-    <option name="localTasksCounter" value="160" />
+    <task id="LOCAL-00160" summary="refactor server api by splitting them into user, file, health">
+      <created>1538384308285</created>
+      <option name="number" value="00160" />
+      <option name="presentableId" value="LOCAL-00160" />
+      <option name="project" value="LOCAL" />
+      <updated>1538384308285</updated>
+    </task>
+    <option name="localTasksCounter" value="161" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="TestMeasure_ParseMeasure_in_mo_models - 2018.09.07 at 00h 01m 25s.xml">
-      <configuration name="TestMeasure_ParseMeasure in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestRegister_in_mo_models - 2018.10.01 at 17h 50m 16s.xml">
+      <configuration name="TestRegister in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 25m 20s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestRegister_in_mo_models - 2018.10.01 at 17h 50m 30s.xml">
+      <configuration name="TestRegister in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 11s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInitializeDB_in_mo_models - 2018.10.01 at 19h 41m 17s.xml">
+      <configuration name="TestInitializeDB in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 17s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInitializeDB_in_mo_models - 2018.10.01 at 19h 44m 36s.xml">
+      <configuration name="TestInitializeDB in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 26m 43s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInitializeDB_in_mo_models - 2018.10.01 at 19h 47m 06s.xml">
+      <configuration name="TestInitializeDB in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 27m 29s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestInitializeDB_in_mo_models - 2018.10.01 at 19h 47m 31s.xml">
+      <configuration name="TestInitializeDB in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 35m 31s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDropAllTables_in_mo_models - 2018.10.01 at 19h 51m 49s.xml">
+      <configuration name="TestDropAllTables in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 36m 06s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDropAllTables_in_mo_models - 2018.10.01 at 19h 55m 23s.xml">
+      <configuration name="TestDropAllTables in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 21h 36m 15s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDropAllTables_in_mo_models - 2018.10.01 at 19h 57m 28s.xml">
+      <configuration name="TestDropAllTables in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
-    <history-entry file="TestNote_AddAccidental_in_mo_models - 2018.09.07 at 22h 06m 32s.xml">
-      <configuration name="TestNote_AddAccidental in mo/models" configurationId="GoTestRunConfiguration" />
+    <history-entry file="TestDropAllTables_in_mo_models - 2018.10.01 at 19h 58m 34s.xml">
+      <configuration name="TestDropAllTables in mo/models" configurationId="GoTestRunConfiguration" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369223000" />
+    <option name="totallyTimeSpent" value="373976000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23748212" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20457797" />
       <window_info id="Structure" order="1" weight="0.22961374" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" sideWeight="0.4985694" weight="0.32891566" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49499285" weight="0.32771084" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.64663804" visible="true" weight="0.20361446" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6380544" weight="0.15994437" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64520746" visible="true" weight="0.26024097" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6351931" weight="0.3566265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.63662374" weight="0.23975904" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.35336193" side_tool="true" visible="true" weight="0.20361446" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.6359084" weight="0.23975904" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.35479257" side_tool="true" visible="true" weight="0.26024097" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48426324" weight="0.31445783" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
@@ -1017,7 +1174,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Palette&#9;" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.15808298" />
+      <window_info active="true" anchor="right" id="Database" order="6" visible="true" weight="0.17811158" />
       <window_info anchor="right" id="SciView" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Maven Projects" order="9" weight="0.13376252" />
@@ -1100,7 +1257,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="enrich component on personal page" />
     <MESSAGE value="added personal page reducer" />
     <MESSAGE value="rename website" />
     <MESSAGE value="added uploading file to my sheets tab" />
@@ -1125,7 +1281,8 @@
     <MESSAGE value="slimming front end" />
     <MESSAGE value="rename front module name to &quot;front-end&quot;" />
     <MESSAGE value="splitting user api from server" />
-    <option name="LAST_COMMIT_MESSAGE" value="splitting user api from server" />
+    <MESSAGE value="refactor server api by splitting them into user, file, health" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor server api by splitting them into user, file, health" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1164,76 +1321,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/front-end/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="13" column="28" lean-forward="true" selection-start-line="13" selection-start-column="28" selection-end-line="13" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/components/PersonalPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-694">
-          <caret line="15" column="6" lean-forward="true" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/PersonalRedu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/HomeRedu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/ending.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/DetailRedu.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/sections.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/front-end/src/reducers/history.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="31" lean-forward="true" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/front-end/src/reducers/settings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -1531,23 +1618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="177" lean-forward="true" selection-start-line="177" selection-end-line="177" />
-          <folding>
-            <element signature="e#178#203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/music_sheet.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-394">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/models_test.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1564,12 +1634,90 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/music_sheet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="e#16#127#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/gogs/gogs/vendor/gopkg.in/ini.v1/file.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/go-xorm/xorm/engine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="1373" column="34" lean-forward="true" selection-start-line="1373" selection-start-column="34" selection-end-line="1373" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/server.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="34" column="36" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+        <state relative-caret-position="-84">
+          <caret line="28" column="34" lean-forward="true" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
           <folding>
             <element signature="e#14#223#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/mxml_parser_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="33" column="65" lean-forward="true" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://7791ee9c-58a8-4b08-918c-5a130e16cdb4/schema/test/table/user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/front-end/public/guitar.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/database.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/models.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="92" column="25" lean-forward="true" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+          <folding>
+            <element signature="e#178#549#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1440">
+          <caret line="22" column="45" lean-forward="true" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="e#178#203#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/user_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="50" column="21" lean-forward="true" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+          <folding>
+            <element signature="e#16#64#0" expanded="true" />
           </folding>
         </state>
       </provider>

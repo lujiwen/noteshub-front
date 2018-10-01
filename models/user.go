@@ -6,11 +6,11 @@ package models
 
 import (
 	"fmt"
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strings"
 	"time"
-	"github.com/gin-gonic/contrib/sessions"
 )
 
 type EmptyName struct{}
@@ -19,7 +19,7 @@ type UserType int
 // User represents the object of individual and member of organization.
 type User struct {
 	ID        int64
-	LowerName string `xorm:"UNIQUE NOT NULL"`
+	//LowerName string `xorm:"UNIQUE NOT NULL"`
 	Name      string `xorm:"UNIQUE NOT NULL"`
 	FullName  string
 	// Email is the primary email address (to be used for communication)
@@ -161,7 +161,7 @@ func Login(c *gin.Context) {
 	}
 }
 
-func logout(c *gin.Context) {
+func Logout(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get("user")
 	if user == nil {
@@ -175,5 +175,6 @@ func logout(c *gin.Context) {
 
 
 func Register(c *gin.Context) {
-
+	newUser := User{ Name:"ljw"}
+	x.InsertOne(newUser)
 }

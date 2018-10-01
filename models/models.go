@@ -7,16 +7,16 @@ package models
 import (
 	"database/sql"
 	"fmt"
-	"os"
-	"path"
-	"strings"
-
 	_ "github.com/denisenkom/go-mssqldb"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/core"
 	"github.com/go-xorm/xorm"
 	"github.com/json-iterator/go"
 	_ "github.com/lib/pq"
+	log "gopkg.in/clog.v1"
+	"os"
+	"path"
+	"strings"
 	//log "gopkg.in/clog.v1"
 
 	//"github.com/gogs/gogs/models/migrations"
@@ -52,49 +52,51 @@ var (
 )
 
 func init() {
-	tables = append(tables,
-		new(User),
-		//new(PublicKey),
-		new(AccessToken),
-		//new(TwoFactor),
-		//new(TwoFactorRecoveryCode),
-		new(Repository),
-		//new(DeployKey),
-		//new(Collaboration),
-		new(Access),
-		//new(Upload),
-		new(Watch),
-		new(Star),
-		new(Follow),
-		//new(Action),
-		//		new(Issue),
-		//new(PullRequest),
-		//new(Comment),
-		//new(Attachment),
-		//new(IssueUser),
-		//		new(Label),
-		//new(IssueLabel),
-		//new(Milestone),
-		//		new(Mirror),
-		//new(Release),
-		new(LoginSource),
-		//new(Webhook),
-		//new(HookTask),
-		//		new(ProtectBranch),
-		//new(ProtectBranchWhitelist),
-		new(Team),
-		//new(OrgUser),
-		//new(TeamUser),
-		//new(TeamRepo),
-		//new(Notice),
-		new(EmailAddress),
-		new(SheetFile),
-	)
 
-	gonicNames := []string{"SSL"}
-	for _, name := range gonicNames {
-		core.LintGonicMapper[name] = true
-	}
+	x, _ = xorm.NewEngine("mysql", "root:ljwGogs0@/test")
+	//tables = append(tables,
+	//	new(User),
+	//	//new(PublicKey),
+	//	//new(AccessToken),
+	//	//new(TwoFactor),
+	//	//new(TwoFactorRecoveryCode),
+	//	//new(Repository),
+	//	//new(DeployKey),
+	//	//new(Collaboration),
+	//	//new(Access),
+	//	//new(Upload),
+	//	//new(Watch),
+	//	//new(Star),
+	//	//new(Follow),
+	//	//new(Action),
+	//	//		new(Issue),
+	//	//new(PullRequest),
+	//	//new(Comment),
+	//	//new(Attachment),
+	//	//new(IssueUser),
+	//	//		new(Label),
+	//	//new(IssueLabel),
+	//	//new(Milestone),
+	//	//		new(Mirror),
+	//	//new(Release),
+	//	//new(LoginSource),
+	//	//new(Webhook),
+	//	//new(HookTask),
+	//	//		new(ProtectBranch),
+	//	//new(ProtectBranchWhitelist),
+	//	//new(Team),
+	//	//new(OrgUser),
+	//	//new(TeamUser),
+	//	//new(TeamRepo),
+	//	//new(Notice),
+	//	//new(EmailAddress),
+	//	//new(SheetFile),
+	//)
+	//
+	//gonicNames := []string{"SSL"}
+	//for _, name := range gonicNames {
+	//	core.LintGonicMapper[name] = true
+	//}
 }
 
 func LoadConfigs() {
@@ -253,4 +255,12 @@ func DumpDatabase(dirPath string) (err error) {
 		f.Close()
 	}
 	return nil
+}
+
+func InitializeDB() (err error){
+	if err := NewEngine(); err != nil {
+		log.Fatal(2, "Fail to initialize ORM engine: %v", err)
+
+	}
+	return err
 }

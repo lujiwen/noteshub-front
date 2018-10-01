@@ -49,7 +49,7 @@ func GetSheet(c *gin.Context) {
 	}
 }
 
-// every field name should start with letter in upper case
+// every field name should start with letter in upper case, otherwise it is not visible for class outside
 type MusicSheet struct {
 	SheetId          int `json:"sheetId" binding:"required"`
 	Location         string `json:"location" binding:"required"`
