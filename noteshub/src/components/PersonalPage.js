@@ -3,13 +3,16 @@ import {Anchor, Avatar, Button, Divider, Icon, Layout, Menu} from 'antd';
 import PersonalTab from "./PersonalTab";
 import {connect} from 'react-redux';
 import Profile from "./Profile";
+import Stave from "./Stave";
 
 
-const PersonalPage = ({chooseTabNumber, startEdit, personalTabSelect, editProfile}) => {
+const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile}) => {
   if (startEdit) {
     return (
        <Profile/>
     )
+  } else if (viewSheet) {
+    return <Stave/>
   } else {
     return (
         <div style={{padding: "20px"}}>
@@ -53,7 +56,8 @@ function mapStateToProps(state) {
   return {
     chooseTabNumber: state.personalPageReducer.chooseTabNumber,
     startEdit: state.profileReducer.start_edit,
-    endEdit: state.profileReducer.end_edit
+    endEdit: state.profileReducer.end_edit,
+    viewSheet: state.sheetReducer.viewSheet
   };
 }
 

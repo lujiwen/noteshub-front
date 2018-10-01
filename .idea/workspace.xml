@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="changed layout color of personal tab">
+    <list default="true" id="87fc95e6-d578-4d7a-a336-72980fbabfe0" name="Default" comment="changed layout color of personal tab and margin of sheet card">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noteshub/src/reducers/sheet.js" beforeDir="false" afterPath="$PROJECT_DIR$/noteshub/src/reducers/sheetReducer.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.idea/shelf/" />
@@ -72,7 +73,7 @@
           <entry key="go" value="38" />
           <entry key="html" value="2" />
           <entry key="ico" value="4" />
-          <entry key="js" value="154" />
+          <entry key="js" value="157" />
           <entry key="json" value="6" />
           <entry key="jsx" value="2" />
           <entry key="mscx" value="2" />
@@ -81,7 +82,7 @@
           <entry key="rnc" value="1" />
           <entry key="s" value="1" />
           <entry key="svg" value="20" />
-          <entry key="ts" value="24" />
+          <entry key="ts" value="25" />
           <entry key="xml" value="4" />
         </counts>
       </usages-collector>
@@ -94,11 +95,11 @@
           <entry key="Image" value="4" />
           <entry key="JSON" value="6" />
           <entry key="JSX Harmony" value="2" />
-          <entry key="JavaScript" value="154" />
+          <entry key="JavaScript" value="157" />
           <entry key="PLAIN_TEXT" value="11" />
           <entry key="RNG Compact" value="1" />
           <entry key="SVG" value="20" />
-          <entry key="TypeScript" value="24" />
+          <entry key="TypeScript" value="25" />
           <entry key="XML" value="4" />
           <entry key="x86 Plan9 Assembly" value="1" />
         </counts>
@@ -107,9 +108,9 @@
         <counts>
           <entry key="css" value="136" />
           <entry key="go" value="2667" />
-          <entry key="js" value="13777" />
+          <entry key="js" value="14111" />
           <entry key="musicxml" value="17" />
-          <entry key="txt" value="2443" />
+          <entry key="txt" value="2470" />
           <entry key="xml" value="117" />
         </counts>
       </usages-collector>
@@ -117,8 +118,8 @@
         <counts>
           <entry key="CSS" value="136" />
           <entry key="Go" value="2667" />
-          <entry key="JavaScript" value="13777" />
-          <entry key="PLAIN_TEXT" value="2460" />
+          <entry key="JavaScript" value="14111" />
+          <entry key="PLAIN_TEXT" value="2487" />
           <entry key="XML" value="117" />
         </counts>
       </usages-collector>
@@ -142,11 +143,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="453">
-              <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
+            <state relative-caret-position="246">
+              <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -154,14 +155,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+            <state relative-caret-position="444">
+              <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/sheetReducer.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="540">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -169,29 +179,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/noteshub/src/components/Profile.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
+            <state relative-caret-position="520">
               <caret line="126" column="34" lean-forward="true" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/node_modules/antd/lib/button/button.d.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="6" column="55" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/ProfileReducer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -318,8 +310,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/noteshub/src/sheet.json" />
-        <option value="$PROJECT_DIR$/models/models_test.go" />
         <option value="$PROJECT_DIR$/models/musicxml/sample-chord.xml" />
         <option value="$PROJECT_DIR$/tests/xml_parser.go" />
         <option value="$PROJECT_DIR$/tests/Json_test.go" />
@@ -360,15 +350,17 @@
         <option value="$PROJECT_DIR$/noteshub/src/components/PersonalInfoEditor.js" />
         <option value="$PROJECT_DIR$/noteshub/src/index.js" />
         <option value="$PROJECT_DIR$/noteshub/src/reducers/PersonalPageReducer.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/reducers/index.js" />
         <option value="$PROJECT_DIR$/noteshub/src/reducers/ProfileReducer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Profile.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Stave.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/Notes.js" />
         <option value="$PROJECT_DIR$/noteshub/src/App.js" />
-        <option value="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/PersonalTab.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/reducers/sheet.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/reducers/index.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/reducers/sheetReducer.js" />
         <option value="$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js" />
+        <option value="$PROJECT_DIR$/noteshub/src/components/PersonalPage.js" />
       </list>
     </option>
   </component>
@@ -393,7 +385,7 @@
       <path value="$PROJECT_DIR$/noteshub/src/components/Vex/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6" fullScreen="true">
+  <component name="ProjectFrameBounds" fullScreen="true">
     <option name="x" value="2" />
     <option name="y" value="55" />
     <option name="width" value="1440" />
@@ -454,6 +446,15 @@
               <item name="mo" type="b2602c69:ProjectViewProjectNode" />
               <item name="mo" type="462c0819:PsiDirectoryNode" />
               <item name="noteshub" type="462c0819:PsiDirectoryNode" />
+              <item name="node_modules" type="462c0819:PsiDirectoryNode" />
+              <item name="antd" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+              <item name="card" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="mo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="mo" type="462c0819:PsiDirectoryNode" />
+              <item name="noteshub" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -486,7 +487,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/.gitignore" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538368375356" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538372927723" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="editorconfig.notification" value="null" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
@@ -665,14 +666,7 @@
       <workItem from="1535374830917" duration="66000" />
       <workItem from="1535375052514" duration="25320000" />
       <workItem from="1535767145930" duration="84194000" />
-      <workItem from="1537972676330" duration="22016000" />
-    </task>
-    <task id="LOCAL-00101" summary="added suport to chord and rest">
-      <created>1536253399483</created>
-      <option name="number" value="00101" />
-      <option name="presentableId" value="LOCAL-00101" />
-      <option name="project" value="LOCAL" />
-      <updated>1536253399483</updated>
+      <workItem from="1537972676330" duration="24164000" />
     </task>
     <task id="LOCAL-00102" summary="added suport to chord and rest">
       <created>1536253453697</created>
@@ -1010,7 +1004,14 @@
       <option name="project" value="LOCAL" />
       <updated>1538368214493</updated>
     </task>
-    <option name="localTasksCounter" value="150" />
+    <task id="LOCAL-00150" summary="changed layout color of personal tab and margin of sheet card">
+      <created>1538368395757</created>
+      <option name="number" value="00150" />
+      <option name="presentableId" value="LOCAL-00150" />
+      <option name="project" value="LOCAL" />
+      <updated>1538368395757</updated>
+    </task>
+    <option name="localTasksCounter" value="151" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1046,10 +1047,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="360185000" />
+    <option name="totallyTimeSpent" value="362333000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21030043" />
@@ -1061,13 +1062,13 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49785408" weight="0.32775453" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64806867" visible="true" weight="0.26987952" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64806867" visible="true" weight="0.104819275" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.6380544" weight="0.15994437" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.63733906" weight="0.23975904" />
-      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.35193133" side_tool="true" visible="true" weight="0.26987952" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.35193133" side_tool="true" visible="true" weight="0.104819275" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.48497853" weight="0.31445783" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.19835842" />
       <window_info anchor="bottom" id="TypeScript" order="11" sideWeight="0.49713877" weight="0.32889965" />
@@ -1161,7 +1162,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="left drawer" />
     <MESSAGE value="show left drawer on every page" />
     <MESSAGE value="left drawer can be toggled" />
     <MESSAGE value="only first navigation menu can pop up left drawer" />
@@ -1186,7 +1186,8 @@
     <MESSAGE value="added avatar editor to profile editing page" />
     <MESSAGE value="added stave info" />
     <MESSAGE value="changed layout color of personal tab" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed layout color of personal tab" />
+    <MESSAGE value="changed layout color of personal tab and margin of sheet card" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed layout color of personal tab and margin of sheet card" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1230,12 +1231,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/noteshub/src/actions/actions.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/actions/player.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/User/Avatar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1455,16 +1450,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="12" column="2" lean-forward="true" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/Timeline.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1493,16 +1478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
           <caret line="6" column="55" selection-start-line="6" selection-start-column="49" selection-end-line="6" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Profile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="126" column="34" lean-forward="true" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1540,16 +1515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="43" column="23" selection-start-line="43" selection-start-column="23" selection-end-line="43" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalTab.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
@@ -1560,10 +1525,54 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/node_modules/antd/lib/card/index.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/Profile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="126" column="34" lean-forward="true" selection-start-line="126" selection-start-column="34" selection-end-line="126" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/reducers/sheetReducer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/noteshub/src/components/SheetIntroCard.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="38" lean-forward="true" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
+        <state relative-caret-position="444">
+          <caret line="49" column="31" selection-start-line="49" selection-start-column="31" selection-end-line="49" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/noteshub/src/components/PersonalPage.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="58" column="43" selection-start-line="58" selection-start-column="43" selection-end-line="58" selection-end-column="43" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>

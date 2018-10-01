@@ -1,8 +1,10 @@
 const initialState = {
+  viewSheet:false,
+  sheetId : 0,
   isOutdated:false
 }
 
-export default function sheet(state = initialState, action) {
+export default function sheetReducer(state = initialState, action) {
   switch (action.type) {
     case 'UPDATE_SHEET':
       return {isOutdated : false }
@@ -25,7 +27,9 @@ export default function sheet(state = initialState, action) {
     case 'CLONE_SECTION':
       return {isOutdated : true }
     case 'MOVE_SECTION':
-      return {isOutdated : true }      
+      return {isOutdated : true }
+    case 'VIEW_SHEET':
+      return { viewSheet: true , sheetInfo: {} , sheetId : action.sheetId}
     default:
       return state
   }

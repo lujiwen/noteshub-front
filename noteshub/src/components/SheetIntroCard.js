@@ -1,8 +1,9 @@
 import React from 'react'
 import {Card, Icon} from "antd";
 import SheetTypeIcon from "./SheetTypeIcon";
+import connect from "react-redux/es/connect/connect";
 
-const SheetIntroCard = () => {
+const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 
   const IconText = ({ type, text }) => (
       <span style={{ marginRight: 8 }}>
@@ -20,16 +21,37 @@ const SheetIntroCard = () => {
             </div>}
           style={{ "margin-bottom": 10, "margin-top": 10 }}
       >
-        <p>
-          <SheetTypeIcon instrument={"guitar"}/>
-        </p>
-        <p>毛不易</p>
-        <p>钢琴</p>
-        <p>
-          <IconText type="star-o" text="156" />  <IconText type="like-o" text="156" />  <IconText type="message" text="2" />
-        </p>
+        <div onClick={viewSheet}>
+          <p>
+            <SheetTypeIcon instrument={"guitar"}/>
+          </p>
+          <p>毛不易</p>
+          <p>
+            <IconText type="star-o" text="156" />  <IconText type="like-o" text="156" />  <IconText type="message" text="2" />
+          </p>
+        </div>
+
       </Card>
   )
 }
 
-export default SheetIntroCard
+
+function mapStateToProps(state) {
+  return {
+    sheetInfo: state.sheetReducer.sheetInfo,
+    // startEdit: state.profileReducer.start_edit,
+    // endEdit: state.profileReducer.end_edit
+  };
+}
+
+const mapDispatchToProps = dispatch => ({
+  viewSheet: (e) => {
+    console.log("viewSheet" + e)
+    dispatch({type: "VIEW_SHEET", sheetId: 0 })
+  }
+})
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(SheetIntroCard)
+
