@@ -23,6 +23,7 @@ import promise from "redux-promise-middleware"
 import LeftDrawer from "./components/LeftDrawer";
 import navigationReducer from "./reducers/navigationReducer";
 import rootReducer from "./reducers";
+import Profile from "./components/Profile";
 
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
@@ -80,6 +81,7 @@ ReactDOM.render(
               <Route path="/" component={App} exact/>
               <Route path="/login" component={WrappedNormalLoginForm}/>
               <Route path="/register" component={UserRegister}/>
+              <Route path="/profile" component={Profile}/>
               <Route component={Error}/>
             </Switch>
           </div>

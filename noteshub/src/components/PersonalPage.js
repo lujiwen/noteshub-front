@@ -2,11 +2,17 @@ import React from 'react'
 import {Anchor, Avatar, Button, Divider, Icon, Layout, Menu} from 'antd';
 import PersonalTab from "./PersonalTab";
 import {connect} from 'react-redux';
+import Profile from "./Profile";
 
 
-const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
-  return (
-      <div style={{padding: "20px"}}>
+const PersonalPage = ({chooseTabNumber, startEdit, personalTabSelect, editProfile}) => {
+  if (startEdit) {
+    return (
+       <Profile/>
+    )
+  } else {
+    return (
+        <div style={{padding: "20px"}}>
           <div style={{float:"left", width:"20%", margin:20}}>
             <Layout style={{background:"#fff"}}>
               <div style={{"text-align": "center"}}>
@@ -14,7 +20,7 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
               </div>
               <text style={{"text-align": "center"}}>名字</text>
               <text style={{"text-align": "center"}}>写个签名吧</text>
-              <Button type="default"><Icon type="edit" theme="outlined" />编辑资料</Button>
+              <Button type="default" onClick={editProfile}><Icon type="edit" theme="outlined"  />编辑资料</Button>
               <Divider />
               <div style={{"text-align": "center"}}>
                 <Icon style={{"text-align": "center"}} type="environment" theme="outlined" />中国·上海
@@ -25,8 +31,8 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
             <Layout>
               <Anchor>
                 <Menu
-                  onClick={personalTabSelect}
-                  mode="horizontal">
+                    onClick={personalTabSelect}
+                    mode="horizontal">
                   <Menu.Item key="overview">个人主页</Menu.Item>
                   <Menu.Item key="my_sheet">我的曲谱</Menu.Item>
                   <Menu.Item key="my_favourite">我喜欢</Menu.Item>
@@ -38,12 +44,17 @@ const PersonalPage = ({chooseTabNumber, personalTabSelect}) => {
               <PersonalTab style={{"margin": "10px"}} chooseTabNumber={chooseTabNumber}/>
             </Layout>
           </div>
-      </div>
-  )
+        </div>
+    )
+  }
 }
 
 function mapStateToProps(state) {
-  return {chooseTabNumber: state.personalPageReducer.chooseTabNumber};
+  return {
+    chooseTabNumber: state.personalPageReducer.chooseTabNumber,
+    startEdit: state.profileReducer.start_edit,
+    endEdit: state.profileReducer.end_edit
+  };
 }
 
 const mapDispatchToProps = dispatch => ({
@@ -52,6 +63,9 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: key.toUpperCase()
     })
+  },
+  editProfile: () => {
+    dispatch({type: "EDIT_PROFILE"})
   }
 })
 

@@ -10,6 +10,7 @@ import Navigation from "./components/Navigation";
 import LeftDrawer from "./components/LeftDrawer";
 import Stave from "./components/Stave";
 import PersonalPage from "./components/PersonalPage";
+import Profile from "./components/Profile";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
@@ -44,7 +45,8 @@ class App extends Component {
 
       return (
               <div>
-                <PersonalPage/>
+                {/*<PersonalPage/>*/}
+                <Profile/>
                 {/*<Stave/>*/}
                 {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
