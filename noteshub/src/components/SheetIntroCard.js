@@ -18,7 +18,7 @@ const SheetIntroCard = () => {
             <Icon style={{"margin-right": 20}} type="cloud-download" theme="outlined" />
             <Icon type="delete" theme="outlined" />
             </div>}
-          style={{ "margin": 10 }}
+          style={{ "margin-bottom": 10, "margin-top": 10 }}
       >
         <p>
           <SheetTypeIcon instrument={"guitar"}/>

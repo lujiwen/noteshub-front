@@ -28,7 +28,7 @@ const PersonalPage = ({chooseTabNumber, startEdit, personalTabSelect, editProfil
             </Layout>
           </div>
           <div style={{float:"left", width:"50%", margin:20}}>
-            <Layout>
+            <Layout style={{"background-color":"white"}}>
               <Anchor>
                 <Menu
                     onClick={personalTabSelect}
@@ -41,7 +41,7 @@ const PersonalPage = ({chooseTabNumber, startEdit, personalTabSelect, editProfil
                 </Menu>
               </Anchor>
 
-              <PersonalTab style={{"margin": "10px"}} chooseTabNumber={chooseTabNumber}/>
+              <PersonalTab style={{"background-color":"white"}} chooseTabNumber={chooseTabNumber}/>
             </Layout>
           </div>
         </div>

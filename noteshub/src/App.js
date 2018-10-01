@@ -45,9 +45,9 @@ class App extends Component {
 
       return (
               <div>
-                {/*<PersonalPage/>*/}
+                <PersonalPage/>
                 {/*<Profile/>*/}
-                <Stave/>
+                {/*<Stave/>*/}
                 {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}

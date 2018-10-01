@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, Icon, Upload} from "antd";
+import {Icon, Upload} from "antd";
 import SheetIntroCard from "./SheetIntroCard";
 import TimeLine from "./Timeline";
 
@@ -13,7 +13,7 @@ const PersonalTab = ({chooseTabNumber}) => {
       return (
           <div>
             <div>
-              <SheetIntroCard style={{width: "30%"}}/>
+              <SheetIntroCard />
               <SheetIntroCard style={{width: "30%"}}/>
             </div>
 
