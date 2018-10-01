@@ -6,7 +6,11 @@ package models
 
 import (
 	"fmt"
+	"github.com/gin-gonic/gin"
+	"net/http"
+	"strings"
 	"time"
+	"github.com/gin-gonic/contrib/sessions"
 )
 
 type EmptyName struct{}
@@ -118,4 +122,58 @@ type Follow struct {
 	ID       int64
 	UserID   int64 `xorm:"UNIQUE(follow)"`
 	FollowID int64 `xorm:"UNIQUE(follow)"`
+}
+
+type LoginFrom struct {
+	UserName     string `form:"username" json:"username" binding:"required"`
+	Password string `form:"password" json:"password" binding:"required"`
+}
+
+func Login(c *gin.Context) {
+	print(c.Request.Body)
+	session := sessions.Default(c)
+	var from LoginFrom
+	username := c.PostForm("username")
+	password := c.PostForm("password")
+
+	if  err := c.ShouldBindJSON(&from); err == nil {
+		username = from.UserName
+		password = from.Password
+	} else {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
+		return
+	}
+
+	if strings.Trim(from.UserName, " ") == "" || strings.Trim(from.Password, " ") == "" {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
+		return
+	}
+	if username == "ljw" && password == "ljw" {
+		session.Set("username", username) //In real world usage you'd set this to the users ID
+		err := session.Save()
+		if err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate session token"})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"message": "Successfully authenticated user"})
+		}
+	} else {
+		c.JSON(http.StatusUnauthorized, gin.H{"error": "Authentication failed"})
+	}
+}
+
+func logout(c *gin.Context) {
+	session := sessions.Default(c)
+	user := session.Get("user")
+	if user == nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid session token"})
+	} else {
+		session.Delete("user")
+		session.Save()
+		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
+	}
+}
+
+
+func Register(c *gin.Context) {
+
 }

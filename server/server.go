@@ -10,7 +10,6 @@ import (
 	"mo/models"
 	"net/http"
 	"strconv"
-	"strings"
 	"time"
 )
 
@@ -37,6 +36,7 @@ func main() {
 	// Serve frontend static files
 
 	// Setup route group for the API
+
 	api := router.Group("/v1")
 	{
 		api.GET("/ping", func(c *gin.Context) {
@@ -48,7 +48,13 @@ func main() {
 
 		api.POST("/upload", Upload)
 
-		api.POST("/login", login)
+	}
+
+
+	userApi := router.Group("")
+	{
+		userApi.POST("/register" , models.Register)
+		userApi.POST("/login", models.Login)
 	}
 
 	// Start and run the server
@@ -107,51 +113,4 @@ type Sheet struct {
 	CreateTime       time.Time `json:"createTime" binding:"required"`
 	LastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
 }
-type Login struct {
-	UserName     string `form:"username" json:"username" binding:"required"`
-	Password string `form:"password" json:"password" binding:"required"`
-}
 
-func login(c *gin.Context) {
-	print(c.Request.Body)
-	session := sessions.Default(c)
-	var from Login
-	username := c.PostForm("username")
-	password := c.PostForm("password")
-
-	if  err := c.ShouldBindJSON(&from); err == nil {
-		username = from.UserName
-		password = from.Password
-	} else {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "can not parse parameters! "})
-		return
-	}
-
-	if strings.Trim(from.UserName, " ") == "" || strings.Trim(from.Password, " ") == "" {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Parameters can't be empty"})
-		return
-	}
-	if username == "ljw" && password == "ljw" {
-		session.Set("username", username) //In real world usage you'd set this to the users ID
-		err := session.Save()
-		if err != nil {
-			c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to generate session token"})
-		} else {
-			c.JSON(http.StatusOK, gin.H{"message": "Successfully authenticated user"})
-		}
-	} else {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "Authentication failed"})
-	}
-}
-
-func logout(c *gin.Context) {
-	session := sessions.Default(c)
-	user := session.Get("user")
-	if user == nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid session token"})
-	} else {
-		session.Delete("user")
-		session.Save()
-		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
-	}
-}
