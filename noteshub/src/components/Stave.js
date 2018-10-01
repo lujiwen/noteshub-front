@@ -46,10 +46,10 @@ class Stave extends Component {
       if(this.state.sheet != null) {
         return <div style={{"text-align":"center", "margin":"10px"}}>
           <div style={{"font-size": "x-large", "font-family": "serif"}}>普通DISCO</div>
-
           <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0}}>词：随便</p>
           <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0}}>曲：周杰伦</p>
           <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0}}>制谱：鲁继文</p>
+          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0}}>音调：C调</p>
           <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0}}>
             难度：
             <Rate allowHalf defaultValue={2.5} />
