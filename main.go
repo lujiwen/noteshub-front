@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/urfave/cli"
-	"mo/cmd"
+	"noteshub/cmd"
 	"os"
 )
 
