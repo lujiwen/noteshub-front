@@ -64,6 +64,7 @@ func init() {
 }
 
 func GetConnection() (*xorm.Engine, error) {
+	//password: ljwGogs0
 	return xorm.NewEngine("mysql", "root:ljwGogs0@/test")
 }
 

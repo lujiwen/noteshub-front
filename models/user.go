@@ -38,9 +38,9 @@ type User struct {
 	//Rands       string `xorm:"VARCHAR(10)"`
 	//Salt        string `xorm:"VARCHAR(10)"`
 
-	Created     time.Time `xorm:"-" json:"-"`
+	Created     time.Time `xorm:"created_time" json:"createdTime"`
 	CreatedUnix int64
-	Updated     time.Time `xorm:"-" json:"-"`
+	Updated     time.Time `xorm:"updated_time" json:"updatedTime"`
 	UpdatedUnix int64
 
 	// Remember visibility choice for convenience, true for private
@@ -122,7 +122,7 @@ type LoginFrom struct {
 	Password string `form:"password" json:"password" binding:"required"`
 }
 
-func Login(c *gin.Context) {
+func (User)Login(c *gin.Context) {
 	session := sessions.Default(c)
 	phone := ""
 	password := ""
@@ -160,11 +160,11 @@ func isUserExist(phoneNumber string) bool {
 }
 
 func isUserValidated(phone string, password string) bool{
-	exist, _ := x.Where("phone_number=? and password=?", phone, password).Get(new(User))
+	exist, _ := x.Where("phone_number=? and password=?", phone, password).Get(User{})
 	return exist
 }
 
-func Register(c *gin.Context) {
+func (User)Register(c *gin.Context) {
 	var user User
 
 	// c.postForm can only work in the case that postman header is null
@@ -177,7 +177,7 @@ func Register(c *gin.Context) {
 			return
 		}
 
-		newUser := User{ Name:"用户" + phone ,  PhoneNumber: phone, Password: password}
+		newUser := User{ Name:"用户" + phone , PhoneNumber: phone, Password: password, Created: time.Now(), Updated:time.Now()}
 		if userId, err := x.InsertOne(newUser);  err != nil {
 			c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + string(userId)})
 		} else {
@@ -202,3 +202,5 @@ func Logout(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
 	}
 }
+
+

@@ -54,8 +54,9 @@ func main() {
 
 	userApi := router.Group("")
 	{
-		userApi.POST("/register" , models.Register)
-		userApi.POST("/login", models.Login)
+		user := models.User{}
+		userApi.POST("/register" , user.Register)
+		userApi.POST("/login", user.Login)
 	}
 
 	// Start and run the server

@@ -2,12 +2,15 @@ package models
 
 import (
 	"testing"
+	"time"
 )
 
 func TestRegister(t *testing.T) {
 	x, _ = GetConnection()
 
-	index, e := x.InsertOne(User{Name: "ljw"})
+	phone := "13548188553"
+	password := "123"
+	index, e := x.InsertOne(User{ Name:"用户" + phone , PhoneNumber: phone, Password: password, Created: time.Now(), Updated:time.Now()})
 	if e != nil {
 		t.Error("insert user failed", e)
 	} else {
@@ -106,5 +109,4 @@ func TestIsRecordExist(t *testing.T) {
 	} else {
 		t.Error("13548188553 not  exists")
 	}
-
 }
