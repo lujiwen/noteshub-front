@@ -38,8 +38,6 @@ func TestInitializeDB(t *testing.T) {
 	}
 }
 
-type Person struct {
-}
 func TestDropAllTables(t *testing.T)  {
 	x, _ = GetConnection()
 
@@ -49,7 +47,6 @@ func TestDropAllTables(t *testing.T)  {
 		EmailAddress{},
 		Follow{},
 		LoginSource{},
-		Person{},
 		Repository{},
 		SheetFile{},
 		Star{},

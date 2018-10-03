@@ -46,9 +46,9 @@ func main() {
 
 	sheetApi := router.Group("")
 	{
-		sheetApi.GET("/sheet/:sheetId", models.GetSheet)
-		sheetApi.POST("/upload", models.Upload)
-		sheetApi.POST("/logout", models.Logout)
+		sheet := models.MusicSheet{}
+		sheetApi.GET("/sheet/:sheetId", sheet.GetSheet)
+		sheetApi.POST("/upload", sheet.Upload)
 	}
 
 
