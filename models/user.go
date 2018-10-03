@@ -117,10 +117,6 @@ type Follow struct {
 	FollowID int64 `xorm:"UNIQUE(follow)"`
 }
 
-type LoginFrom struct {
-	UserName     string `form:"username" json:"username" binding:"required"`
-	Password string `form:"password" json:"password" binding:"required"`
-}
 
 func (User)Login(c *gin.Context) {
 	session := sessions.Default(c)
@@ -191,7 +187,7 @@ func (User)Register(c *gin.Context) {
 }
 
 
-func Logout(c *gin.Context) {
+func (User)Logout(c *gin.Context) {
 	session := sessions.Default(c)
 	user := session.Get("user")
 	if user == nil {
