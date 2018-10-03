@@ -16,3 +16,4 @@
 .idea/
 mo.iml
 .gitignore
+front-end/node_modules
