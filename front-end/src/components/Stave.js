@@ -15,7 +15,7 @@ class Stave extends Component {
   }
 
   componentWillMount() {
-    axios.get("http://127.0.0.1:8080/v1/sheet/1")
+    axios.get("http://127.0.0.1:8080/sheet/1")
         .then(response => {
           this.setState({sheet: response.data});
         })

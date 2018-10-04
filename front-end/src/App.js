@@ -48,8 +48,8 @@ class App extends Component {
               <div>
                 {/*<UploadMusicSheet/>*/}
                 {/*<Profile/>*/}
-                {/*<Stave/>*/}
-                <PersonalPage/>
+                <Stave/>
+                {/*<PersonalPage/>*/}
                 {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}
