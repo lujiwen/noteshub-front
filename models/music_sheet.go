@@ -41,6 +41,13 @@ type MusicSheet struct {
 	LastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
 	SheetType        SheetType `json:"sheetType" binding:"required"`
 	Filename         string  `xorm:"UNIQUE NOT NULL" json:"filename" binding:"required"`
+	Liked            int      `json:"liked"`
+	ThumbUp          int      `json:"thumbUp"`
+	ThumbDown        int      `json:"thumbDown"`
+	Lyricist         string `json:"lyricist"`  // 作词人
+	Composer         string `json:"composer"`  // 作曲人
+	Arranger         string `json:"arranger"`  // 编曲人
+	Scorer           string `json:"scorer"`    // 记谱人
 }
 
 
@@ -81,8 +88,6 @@ func (MusicSheet)Upload(c *gin.Context) {
 		c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved into a specific directory '%s' ! " + err.Error(), file.Filename, destinationDir))
 		return
 	}
-
-
 }
 
 func (MusicSheet)GetSheet(c *gin.Context) {
