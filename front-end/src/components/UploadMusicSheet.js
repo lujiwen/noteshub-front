@@ -96,7 +96,6 @@ const UploadMusicSheetForm = ({form}) => {
             )}
           </FormItem>
 
-
           <FormItem
               {...formItemLayout}
               label="曲谱类型"
@@ -104,6 +103,9 @@ const UploadMusicSheetForm = ({form}) => {
             {getFieldDecorator('sheetType', {
               message: "请选择上传的曲谱类型",
               initialValue: ["五线谱"],
+              rules : [{
+                required: true, message: '请选择曲谱类型',
+              }]
             })(
                 <Select>
                   <Option value="stave">五线谱</Option>
