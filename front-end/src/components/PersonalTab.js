@@ -2,10 +2,10 @@ import React from 'react'
 import {Icon, Upload} from "antd";
 import SheetIntroCard from "./SheetIntroCard";
 import TimeLine from "./Timeline";
+import Button from "antd/es/button/button";
 
 const PersonalTab = ({chooseTabNumber}) => {
 
-  const Dragger = Upload.Dragger;
 
   console.log(chooseTabNumber.toString())
   switch (chooseTabNumber.toString()) {
@@ -15,16 +15,9 @@ const PersonalTab = ({chooseTabNumber}) => {
             <div>
               <SheetIntroCard />
               <SheetIntroCard style={{width: "30%"}}/>
-            </div>
-
-            <div>
-              <Dragger>
-                <p className="ant-upload-drag-icon">
-                  <Icon type="inbox" />
-                </p>
-                <p className="ant-upload-text">点击或者将谱子拖拽到这里上传</p>
-                <p className="ant-upload-hint">目前支持的谱子格式只有musicXml，如果你没有这样格式的曲谱，请耐心等着...</p>
-              </Dragger>
+              <Button type="dashed" style={{ width: '60%' }}>
+                <Icon type="plus" /> 上传曲谱
+              </Button>
             </div>
           </div>
       )
