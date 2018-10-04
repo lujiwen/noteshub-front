@@ -196,7 +196,7 @@ export default class Notes extends Component {
 
       console.log("measureWidth: " + measureWidth)
 
-      if (currentStaveWidth + measureWidth > this.sheetWidth) {
+      if (currentStaveWidth + measureWidth > this.sheetWidth) {  // measures which have already been pushed to currentRow can be a complete row of stave
         console.log("current width will exceed the right boundary ")
         this.drawStaveRow(currentRow, rowCounter)
 
@@ -206,6 +206,8 @@ export default class Notes extends Component {
         currentStaveWidth = 0
 
         currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50, formatter: formatter})
+        startX = measureWidth + 50
+        currentStaveWidth = startX
 
       } else {
         console.log("add one more measure")
@@ -317,7 +319,7 @@ export default class Notes extends Component {
     let trebleStave = new Stave(0, 0)
     let bassStave = new Stave(0, 0)
 
-    if (startX === 0) {
+    if (startX === 0 && rowCounter === 0) {
       trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
       bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
     }
