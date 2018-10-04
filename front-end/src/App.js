@@ -46,9 +46,10 @@ class App extends Component {
 
       return (
               <div>
-                <UploadMusicSheet/>
+                {/*<UploadMusicSheet/>*/}
                 {/*<Profile/>*/}
                 {/*<Stave/>*/}
+                <PersonalPage/>
                 {/*<WrappedNormalLoginForm/>*/}
                   {/*<LayoutFooter/>*/}
                   {/*<Dragger {...props}>*/}

@@ -1,7 +1,8 @@
 const initialState = {
   viewSheet:false,
   sheetId : 0,
-  isOutdated:false
+  isOutdated:false,
+  uploadSheet: false
 }
 
 export default function sheetReducer(state = initialState, action) {
@@ -30,6 +31,8 @@ export default function sheetReducer(state = initialState, action) {
       return {isOutdated : true }
     case 'VIEW_SHEET':
       return { viewSheet: true , sheetInfo: {} , sheetId : action.sheetId}
+    case 'UPLOAD_SHEET':
+      return {uploadSheet: true}
     default:
       return state
   }
