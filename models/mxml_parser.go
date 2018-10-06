@@ -47,7 +47,7 @@ type Attributes struct {
     Key       Key  `xml:"key" json:"key"`
     Time      Time `xml:"time" json:"time"`
     Divisions int  `xml:"divisions" json:"divisions"`
-    Clef      Clef `xml:"clef" json:"clef"`
+    Clef      []Clef `xml:"clef" json:"clef"`
 }
 
 // Clef represents a clef change

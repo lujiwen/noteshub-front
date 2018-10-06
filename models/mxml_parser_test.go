@@ -14,7 +14,7 @@ func TestParseMxml(t *testing.T) {
 func TestParseBass(t *testing.T) {
 	mxml:= ParseMxmlFromString("../resources/bass-example.xml")
 	attributes := mxml.Parts[0].Measures[0].Atters
-	if attributes.Clef.Sign == "F" && attributes.Clef.Line == 4 {
+	if attributes.Clef[0].Sign == "F" && attributes.Clef[0].Line == 4 {
 		t.Log("only bass staff!")
 	} else {
 		t.Error("not a bass staff")
@@ -24,14 +24,24 @@ func TestParseBass(t *testing.T) {
 func TestParseTreble(t *testing.T) {
 	mxml:= ParseMxmlFromString("../resources/treble-example.musicxml")
 	attributes := mxml.Parts[0].Measures[0].Atters
-	if attributes.Clef.Sign == "G" && attributes.Clef.Line == 2 {
+	if attributes.Clef[0].Sign == "G" && attributes.Clef[0].Line == 2 {
 		t.Log("only treble staff!")
 	} else {
 		t.Error("not a treble staff")
 	}
 }
 
+func TestParseGrand(t *testing.T) {
+	mxml:= ParseMxmlFromString("../resources/grand-example.xml")
+	clefs := mxml.Parts[0].Measures[0].Atters.Clef
 
+	if len(clefs) == 2 && clefs[0].Sign == "G" && clefs[0].Line == 2 && clefs[1].Sign == "F" && clefs[1].Line == 4 {
+		t.Log("this a grand sheet " , clefs)
+	} else {
+		t.Error("this is not grand sheet!")
+	}
+
+}
 
 func TestUpdateMxml(t *testing.T)  {
 	note := Note{}
