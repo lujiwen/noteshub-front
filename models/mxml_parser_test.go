@@ -21,6 +21,18 @@ func TestParseBass(t *testing.T) {
 	}
 }
 
+func TestParseTreble(t *testing.T) {
+	mxml:= ParseMxmlFromString("../resources/treble-example.musicxml")
+	attributes := mxml.Parts[0].Measures[0].Atters
+	if attributes.Clef.Sign == "G" && attributes.Clef.Line == 2 {
+		t.Log("only treble staff!")
+	} else {
+		t.Error("not a treble staff")
+	}
+}
+
+
+
 func TestUpdateMxml(t *testing.T)  {
 	note := Note{}
 	note.Type = "eighth"
