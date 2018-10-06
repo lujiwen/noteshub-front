@@ -38,6 +38,20 @@ const UploadMusicSheetForm = ({form}) => {
       <Form className="login-form" >
           <FormItem
               {...formItemLayout}
+              label="歌曲"
+          >
+            {getFieldDecorator('composer', {
+              rules: [{
+                type: 'string', message: '不是合法的输入',
+              }, {
+                required: true, message: '请输入歌曲名',
+              }],
+            })(
+                <Input />
+            )}
+          </FormItem>
+          <FormItem
+              {...formItemLayout}
               label="作曲"
           >
             {getFieldDecorator('composer', {

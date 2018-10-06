@@ -44,6 +44,7 @@ type MusicSheet struct {
 	Liked            int      `json:"liked"`
 	ThumbUp          int      `json:"thumbUp"`
 	ThumbDown        int      `json:"thumbDown"`
+	Title            string   `json:"title"`   // 歌曲名
 	Lyricist         string `json:"lyricist"`  // 作词人
 	Composer         string `json:"composer"`  // 作曲人
 	Arranger         string `json:"arranger"`  // 编曲人

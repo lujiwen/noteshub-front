@@ -11,6 +11,16 @@ func TestParseMxml(t *testing.T) {
 	fmt.Print(ParseMxmlFromString("./musicxml/sample-chord.xml"))
 }
 
+func TestParseBass(t *testing.T) {
+	mxml:= ParseMxmlFromString("../resources/bass-example.xml")
+	attributes := mxml.Parts[0].Measures[0].Atters
+	if attributes.Clef.Sign == "F" && attributes.Clef.Line == 4 {
+		t.Log("only bass staff!")
+	} else {
+		t.Error("not a bass staff")
+	}
+}
+
 func TestUpdateMxml(t *testing.T)  {
 	note := Note{}
 	note.Type = "eighth"
