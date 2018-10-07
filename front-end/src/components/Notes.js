@@ -29,6 +29,15 @@ const SHEET_MIN_WIDTH = 600;
 const FIRST_NOTE_SPACE = 10;
 const LAST_NOTE_SPACE = 10;
 
+const StaveType = {
+  GRAND: "grand",
+  PIANO: "piano",
+  TREBLE: "treble",
+  BASS: "bass",
+  CHORAL: "choral",
+}
+
+
 export default class Notes extends Component {
 
   constructor() {
@@ -50,6 +59,7 @@ export default class Notes extends Component {
     this.stopStart
 
     this.signature = 'C';
+    this.staveType = 'choral'
   }
 
   render() {
@@ -77,7 +87,7 @@ export default class Notes extends Component {
         duration = "qr"
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
-      const staveNote = new StaveNote({keys: keys, duration});
+      const staveNote = new StaveNote({keys: keys, duration: duration, clef: "bass"});
 
 
       for (let i = 0; i < keys.length; i++) {
@@ -156,37 +166,41 @@ export default class Notes extends Component {
     rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width, measure, measure.formatter))
   }
 
+  getStaveType = (sheet) => {
+    switch (sheet.type) {
+      case 1:
+        return StaveType.GRAND
+      case 2:
+        return StaveType.PIANO
+      case 3:
+        return StaveType.TreeNode
+      case 4:
+        return StaveType.BASS
+      case 5:
+        return StaveType.CHORAL
+      default:
+        return StaveType.GRAND
+    }
+  }
 
-  componentDidMount() {
-    const svgContainer = document.createElement('div');
-    const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
-    const ctx = renderer.getContext();
-    console.log("sheet width :" + this.sheetWidth)
-    this.sheet = this.props.sheet;
+  drawBassStave(sheet, ctx) {
+    let bassVoice
 
     let startX = 0
     let partCount = this.sheet.part.length
 
     let measureCount = this.sheet.part[0].measure.length
-    let trebleVoice, bassVoice
     let currentRow = []
     let currentStaveWidth = 0
     let rowCounter = 0
 
     for (let measureId=0; measureId < measureCount; measureId++) {
-      for (let partId=0;partId < partCount; partId++) {
-        if (partId === 0) {
-          trebleVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
-        } else {
-          bassVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
-        }
-      }
+      // bassVoice = this.buildNotesVoice(this.sheet.part[0].measure[measureId], 0, measureId)
 
       const formatter = new Formatter();
-      formatter.joinVoices(trebleVoice).joinVoices(bassVoice);
-      const allVoicesTogether = trebleVoice.concat(bassVoice);
 
-      const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), MEASURE_MIN_WIDTH));
+      // const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(bassVoice), MEASURE_MIN_WIDTH));
+      const minTotalWidth = MEASURE_MIN_WIDTH
       let measureWidth
       if (startX === 0) {
         measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE + 50
@@ -198,21 +212,21 @@ export default class Notes extends Component {
 
       if (currentStaveWidth + measureWidth > this.sheetWidth) {  // measures which have already been pushed to currentRow can be a complete row of stave
         console.log("current width will exceed the right boundary ")
-        this.drawStaveRow(currentRow, rowCounter)
+       this.drawStaveRow(currentRow, rowCounter)
 
         currentRow = []
         rowCounter ++
         startX = 0
         currentStaveWidth = 0
 
-        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50, formatter: formatter})
+        currentRow.push({startX, ctx, trebleVoice: {}, bassVoice: bassVoice, width: measureWidth + 50, formatter: formatter})
         startX = measureWidth + 50
         currentStaveWidth = startX
 
       } else {
         console.log("add one more measure")
         currentStaveWidth += measureWidth
-        currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth, formatter: formatter})
+        currentRow.push({startX, ctx, trebleVoice: {}, bassVoice: bassVoice, width: measureWidth, formatter: formatter})
         startX = currentStaveWidth
       }
     }
@@ -220,6 +234,79 @@ export default class Notes extends Component {
     if (currentRow.length > 0) {
       this.drawStaveRow(currentRow, rowCounter)
     }
+  }
+
+  componentDidMount() {
+    const svgContainer = document.createElement('div');
+    const renderer = new Renderer(svgContainer, Renderer.Backends.SVG);
+    const ctx = renderer.getContext();
+    console.log("sheet width :" + this.sheetWidth)
+    this.sheet = this.props.sheet;
+    this.staveType = this.getStaveType(this.sheet)
+    console.log("stave type :" + this.staveType)
+
+    let startX = 0
+    let partCount = this.sheet.part.length
+
+    let measureCount = this.sheet.part[0].measure.length
+    let trebleVoice, bassVoice
+    let currentRow = []
+    let currentStaveWidth = 0
+    let rowCounter = 0
+
+    if (this.staveType === StaveType.BASS) {
+      console.log("this is a bass stave")
+      // only bass staff
+      this.drawBassStave(this.sheet, ctx)
+    }
+
+    // for (let measureId=0; measureId < measureCount; measureId++) {
+    //   for (let partId=0;partId < partCount; partId++) {
+    //     if (partId === 0) {
+    //       trebleVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
+    //     } else {
+    //       bassVoice = this.buildNotesVoice(this.sheet.part[partId].measure[measureId], partId, measureId)
+    //     }
+    //   }
+    //
+    //   const formatter = new Formatter();
+    //   formatter.joinVoices(trebleVoice).joinVoices(bassVoice);
+    //   const allVoicesTogether = trebleVoice.concat(bassVoice);
+    //
+    //   const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(allVoicesTogether), MEASURE_MIN_WIDTH));
+    //   let measureWidth
+    //   if (startX === 0) {
+    //     measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE + 50
+    //   } else {
+    //     measureWidth = minTotalWidth + FIRST_NOTE_SPACE + LAST_NOTE_SPACE
+    //   }
+    //
+    //   console.log("measureWidth: " + measureWidth)
+    //
+    //   if (currentStaveWidth + measureWidth > this.sheetWidth) {  // measures which have already been pushed to currentRow can be a complete row of stave
+    //     console.log("current width will exceed the right boundary ")
+    //    // this.drawStaveRow(currentRow, rowCounter)
+    //
+    //     currentRow = []
+    //     rowCounter ++
+    //     startX = 0
+    //     currentStaveWidth = 0
+    //
+    //     currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth + 50, formatter: formatter})
+    //     startX = measureWidth + 50
+    //     currentStaveWidth = startX
+    //
+    //   } else {
+    //     console.log("add one more measure")
+    //     currentStaveWidth += measureWidth
+    //     currentRow.push({startX, ctx, trebleVoice, bassVoice, width: measureWidth, formatter: formatter})
+    //     startX = currentStaveWidth
+    //   }
+    // }
+    //
+    // if (currentRow.length > 0) {
+    //   //this.drawStaveRow(currentRow, rowCounter)
+    // }
 
     //draw tie
     this.ties.forEach(tie => tie.setContext(ctx).draw())
@@ -292,7 +379,6 @@ export default class Notes extends Component {
         instrument.play(note, measureId, this.denominatorTime)
       }
     }
-
   }
 
   drawMeasure(measure, rowCounter, measureWidth) {
@@ -300,7 +386,7 @@ export default class Notes extends Component {
     let barOffset = PADDING_LEFT;
     let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
 
-    this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter);
+    // this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter);
   }
 
   drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter) {
@@ -319,25 +405,54 @@ export default class Notes extends Component {
     let trebleStave = new Stave(0, 0)
     let bassStave = new Stave(0, 0)
 
-    if (startX === 0 && rowCounter === 0) {
-      trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
-      bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+    if(this.staveType == StaveType.BASS) {
+      if (startX === 0 && rowCounter === 0) {
+        bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+      }
+
+      bassStave.setNoteStartX(startX)
+
+      bassStave.setX(startX);
+
+      bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_STAVES );
+      bassStave.setWidth(measureWidth)
+      bassStave.setContext(ctx).draw()
+      // this.connectStave(ctx, trebleStave, bassStave)
+      return bassStave;
     }
-
-    trebleStave.setNoteStartX(startX)
-    bassStave.setNoteStartX(startX)
-
-    trebleStave.setX(startX);
-    bassStave.setX(startX);
-
-    trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
-    bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-    trebleStave.setWidth(measureWidth)
-    bassStave.setWidth(measureWidth)
-    trebleStave.setContext(ctx).draw()
-    bassStave.setContext(ctx).draw()
-    this.connectStave(ctx, trebleStave, bassStave)
-    return {trebleStave, bassStave};
+    // } else if (this.staveType instanceof StaveType.TREBLE) {
+    //   if (startX === 0 && rowCounter === 0) {
+    //     trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+    //   }
+    //
+    //   trebleStave.setNoteStartX(startX)
+    //   trebleStave.setX(startX);
+    //   trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
+    //   trebleStave.setWidth(measureWidth)
+    //   trebleStave.setContext(ctx).draw()
+    //   // this.connectStave(ctx, trebleStave, bassStave)
+    //   return bassStave;
+    // } else {
+    //   if (startX === 0 && rowCounter === 0) {
+    //     trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
+    //     bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+    //   }
+    //
+    //   trebleStave.setNoteStartX(startX)
+    //   bassStave.setNoteStartX(startX)
+    //
+    //   trebleStave.setX(startX);
+    //   bassStave.setX(startX);
+    //
+    //   trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
+    //   bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
+    //   trebleStave.setWidth(measureWidth)
+    //   bassStave.setWidth(measureWidth)
+    //   trebleStave.setContext(ctx).draw()
+    //   bassStave.setContext(ctx).draw()
+    //   this.connectStave(ctx, trebleStave, bassStave)
+    //   return {trebleStave, bassStave};
+    // }
   }
 
   connectStave(context, trebleStave, bassStave) {

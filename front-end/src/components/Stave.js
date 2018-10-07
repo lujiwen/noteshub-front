@@ -43,6 +43,8 @@ class Stave extends Component {
 
     render() {
       if(this.state.sheet != null) {
+        console.log(this.state.sheet)
+
         return <div style={{"text-align":"center", "margin":"10px"}}>
           <div style={{"font-size": "x-large", "font-family": "serif"}}>普通DISCO</div>
           <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>词：随便</p>

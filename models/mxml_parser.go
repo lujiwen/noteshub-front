@@ -10,7 +10,7 @@ import (
 type StaveType int
 const (
 	_ StaveType  = iota
-	GRAND
+	GRAND // start from 1
 	PIANO
 	TREBLE
 	BASS
