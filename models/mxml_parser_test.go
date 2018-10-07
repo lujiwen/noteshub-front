@@ -43,6 +43,69 @@ func TestParseGrand(t *testing.T) {
 
 }
 
+func TestParsePiano(t *testing.T) {
+		mxml:= ParseMxmlFromString("../resources/piano.xml")
+		clefs := mxml.Parts[0].Measures[0].Atters.Clef
+
+		if len(clefs) == 2 && clefs[0].Sign == "G" && clefs[0].Line == 2 && clefs[1].Sign == "F" && clefs[1].Line == 4 {
+			t.Log("this a piano sheet " , clefs)
+		} else {
+			t.Error("this is not piano sheet!")
+		}
+}
+
+
+func TestUpdatePianoStave(t *testing.T) {
+	trebleNote := Note{Staff:1}
+	bassNote   := Note{Staff:2}
+	notes := []Note {trebleNote, bassNote}
+	measure := Measure{
+		0,
+		Attributes{
+			Key: Key{
+				Fifths: 0,
+				Mode:   "",
+			},
+			Time: Time{
+				Beats:    0,
+				BeatType: 0,
+			},
+			Divisions: 0,
+			Clef:      nil,
+		},
+		notes,
+	}
+	measures := []Measure {measure}
+	part := Part{Measures : measures}
+	parts := []Part{part}
+	doc := MXLDoc{
+		Score: xml.Name{
+			Space: "",
+			Local: "",
+		},
+		Identification: Identification{
+			Composer: "",
+			Encoding: Encoding{
+				Software: "",
+				Date:     "",
+			},
+			Rights: "",
+			Source: "",
+			Title:  "",
+		},
+		Parts: parts,
+		Type:  PIANO,
+	}
+	Parts := doc.UpdateMxml().Parts
+	if len(Parts) == 2 &&
+		len(Parts[0].Measures[0].Notes) == 1 &&
+		len(Parts[1].Measures[0].Notes) == 1 {
+		t.Log("update Piano succeed! ")
+	} else {
+		t.Error("update piano failed !")
+	}
+}
+
 func TestUpdateMxml(t *testing.T)  {
 	note := Note{}
 	note.Type = "eighth"
@@ -81,84 +144,48 @@ func TestMeasure_ParseMeasure(t *testing.T) {
 	var att Attributes
 	measure := Measure{3, att,[]Note{
 		Note {
-			Pitch{
+			Pitch: Pitch{
 				Accidental: 0,
 				Step:       "2",
 				Octave:     "C",
 			},
-			0,
-			0,
-			"",
-			xml.Name{},
-			xml.Name{
+			Chord: xml.Name{
 				Space: "",
 				Local: "",
 			},
-			Tie{},
-			"",
-			xml.Name{},
-			xml.Name{},
-			nil,
 		},
 		Note {
-			Pitch{
+			Pitch: Pitch{
 				Accidental: 0,
 				Step:       "2",
 				Octave:     "C",
 			},
-			0,
-			0,
-			"",
-			xml.Name{},
-			xml.Name{
+			Chord: xml.Name{
 				Space: "",
 				Local: "",
 			},
-			Tie{},
-			"",
-			xml.Name{},
-			xml.Name{},
-			nil,
 		},
 		Note {
-			Pitch{
+			Pitch: Pitch{
 				Accidental: 0,
 				Step:       "2",
 				Octave:     "C",
 			},
-			0,
-			0,
-			"",
-			xml.Name{},
-			xml.Name{
+			Chord: xml.Name{
 				Space: "",
 				Local: "chord",
 			},
-			Tie{},
-			"",
-			xml.Name{},
-			xml.Name{},
-			nil,
 		},
 		Note {
-			Pitch{
+			Pitch: Pitch{
 				Accidental: 0,
 				Step:       "2",
 				Octave:     "C",
 			},
-			0,
-			0,
-			"",
-			xml.Name{},
-			xml.Name{
+			Chord: xml.Name{
 				Space: "",
 				Local: "",
 			},
-			Tie{},
-			"",
-			xml.Name{},
-			xml.Name{},
-			nil,
 		},
 	}}
 	measure.ParseMeasure()
@@ -172,24 +199,15 @@ func TestMeasure_ParseMeasure(t *testing.T) {
 
 func TestNote_AddAccidental(t *testing.T) {
 	note1 := Note{
-		Pitch{
+		Pitch: Pitch{
 			Accidental: 1,
 			Step:       "C",
 			Octave:     "2",
 		},
-		0,
-		0,
-		"",
-		xml.Name{},
-		xml.Name{
+		Chord: xml.Name{
 			Space: "",
 			Local: "",
 		},
-		Tie{},
-		"",
-		xml.Name{},
-		xml.Name{},
-		nil,
 	}
 
 	note1.AddAccidental()
@@ -199,24 +217,15 @@ func TestNote_AddAccidental(t *testing.T) {
 	}
 
 	note2 := Note{
-		Pitch{
+		Pitch: Pitch{
 			Accidental: -1,
 			Step:       "C",
 			Octave:     "2",
 		},
-		0,
-		0,
-		"",
-		xml.Name{},
-		xml.Name{
+		Chord: xml.Name{
 			Space: "",
 			Local: "",
 		},
-		Tie{},
-		"",
-		xml.Name{},
-		xml.Name{},
-		nil,
 	}
 
 	note2.AddAccidental()

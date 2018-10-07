@@ -7,11 +7,22 @@ import (
     "os"
 )
 
+type StaveType int
+const (
+	_ StaveType  = iota
+	GRAND
+	PIANO
+	TREBLE
+	BASS
+	CHORAL
+)
+
 // MXLDoc holds all data for a music xml file
 type MXLDoc struct {
     Score          xml.Name `xml:"score-partwise" json:"score-partwise"`
     Identification `xml:"identification" json:"identification"`
     Parts          []Part `xml:"part" json:"part"`
+    Type           StaveType `json:"type"`  // grand treble piano
 }
 
 // Identification holds all of the ident information for a music xml file
@@ -81,6 +92,7 @@ type Note struct {
     Dot      xml.Name `xml:"dot" json:"dot"`
     Grace    xml.Name `xml:"grace" json:"grace"`
     Keys     []string `json:"keys"`
+	Staff    int      `xml:"staff" json:"staff"`
 }
 
 // Pitch represents the pitch of a note
@@ -134,17 +146,72 @@ func (note *Note)TranslateNoteType() {
 // hint on loop : https://stackoverflow.com/questions/15945030/change-values-while-iterating-in-golang
 func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
     newSheet := sheet
-    for _, p := range newSheet.Parts {
-        for measureIdx := range p.Measures {
-            p.Measures[measureIdx].ParseMeasure()
+	newSheet.Type = sheet.TypeOfStave()
 
-            for noteIndex := range p.Measures[measureIdx].Notes {
-	            p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
-            }
-        }
-    }
+	if newSheet.Type == PIANO || newSheet.Type == GRAND {  // only has one part, but has both treble and bass
+		p := newSheet.Parts[0]
+		trebleStaff := Part{}
+		bassStaff := Part{}
+		for measureIdx := range p.Measures {
+			trebleMeasure := Measure{}
+			bassMeasure   := Measure{}
+			for noteIndex := range p.Measures[measureIdx].Notes {
+				p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
+				noteStaffID := p.Measures[measureIdx].Notes[noteIndex].Staff
+				if noteStaffID == 1 {
+					trebleMeasure.Notes = append(trebleMeasure.Notes, p.Measures[measureIdx].Notes[noteIndex])
+				} else if noteStaffID == 2 {
+					bassMeasure.Notes = append(bassMeasure.Notes, p.Measures[measureIdx].Notes[noteIndex])
+				}
+			}
+
+			trebleStaff.Measures = append(trebleStaff.Measures, trebleMeasure)
+			bassStaff.Measures = append(bassStaff.Measures, bassMeasure)
+		}
+		newSheet.Parts = []Part{trebleStaff, bassStaff}
+		return newSheet
+	} else if newSheet.Type == CHORAL {
+		for _, p := range newSheet.Parts {
+			for measureIdx := range p.Measures {
+				p.Measures[measureIdx].ParseMeasure()
+
+				for noteIndex := range p.Measures[measureIdx].Notes {
+					p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
+				}
+			}
+		}
+	}
+
     return newSheet
 }
+
+func (sheet *MXLDoc)TypeOfStave() StaveType  {
+	if len(sheet.Parts) == 1 {
+		attributes := sheet.Parts[0].Measures[0].Atters
+		clefs := attributes.Clef
+		if len(clefs) == 1 {
+			return attributes.TypeOfMeasure()
+		} else if len(clefs) == 2 {
+			if clefs[0].Sign == "G" && clefs[0].Line == 2 && clefs[1].Sign == "F" && clefs[1].Line == 4 {
+				return GRAND
+			}
+		}
+	} else {
+		return GRAND
+	}
+	return PIANO
+}
+
+
+func (attributes Attributes)TypeOfMeasure() StaveType {
+	if attributes.Clef[0].Sign == "F" && attributes.Clef[0].Line == 4 {
+		return BASS
+	} else if attributes.Clef[0].Sign == "G" && attributes.Clef[0].Line == 2 {
+		return TREBLE
+	}
+	return TREBLE
+}
+
 
 func (note *Note) AddAccidental() {
 	accidental := ""
@@ -210,12 +277,12 @@ func (measure *Measure) ParseMeasure()  {
 
 func ParseMxmlFromDataByte(data []byte) MXLDoc {
     v := MXLDoc{}
-    err := xml.Unmarshal(data, &v)
+	err := xml.Unmarshal(data, &v)
 
-    v.UpdateMxml()
+	v.UpdateMxml()
 
-    if err != nil {
-        fmt.Printf("error: %v", err)
-    }
-    return v
+	if err != nil {
+		fmt.Printf("error: %v", err)
+	}
+	return v
 }
