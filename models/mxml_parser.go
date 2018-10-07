@@ -126,6 +126,9 @@ func (note *Note)TranslateNoteType() {
     noteType := ""
 
     switch note.Type {
+    case "whole":
+	    noteType = "1"
+	    break
     case "half":
         noteType = "2"
         break
@@ -170,6 +173,15 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		}
 		newSheet.Parts = []Part{trebleStaff, bassStaff}
 		return newSheet
+	} else if newSheet.Type == BASS || newSheet.Type == TREBLE {
+		p := newSheet.Parts[0]
+		for measureIdx := range p.Measures {
+			p.Measures[measureIdx].ParseMeasure()
+
+			for noteIndex := range p.Measures[measureIdx].Notes {
+				p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
+			}
+		}
 	} else if newSheet.Type == CHORAL {
 		for _, p := range newSheet.Parts {
 			for measureIdx := range p.Measures {
