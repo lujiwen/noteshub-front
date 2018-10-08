@@ -146,11 +146,14 @@ export default class Notes extends Component {
 
   buildNotesVoice(measure, partId, measureId) {
 
-    const vexVoice = new Voice({
-      num_beats: measure.attributes.time.beats,
-      beat_value: measure.attributes.time.beatType,
+    let vexVoice = new Voice({
+      num_beats: this.beats,
+      beat_value: this.beatType,
       resolution: RESOLUTION
     });
+
+
+    // let vexVoice = new Voice({num_beats: "4", beat_value: "4"});
 
 
     const vexNotes = this.buildVexNotes(measure, partId, measureId)
@@ -158,7 +161,7 @@ export default class Notes extends Component {
     const autoBeams = Beam.generateBeams(vexNotes);
     this.beams.push(...autoBeams);
     vexVoice.addTickables(vexNotes);
-    return [vexVoice]
+    return vexVoice
   }
 
 
@@ -195,11 +198,11 @@ export default class Notes extends Component {
     let rowCounter = 0
 
     for (let measureId=0; measureId < measureCount; measureId++) {
-      // bassVoice = this.buildNotesVoice(this.sheet.part[0].measure[measureId], 0, measureId)
+      bassVoice = this.buildNotesVoice(this.sheet.part[0].measure[measureId], 0, measureId)
 
       const formatter = new Formatter();
 
-      // const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth(bassVoice), MEASURE_MIN_WIDTH));
+      // const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth([bassVoice]), MEASURE_MIN_WIDTH));
       const minTotalWidth = MEASURE_MIN_WIDTH
       let measureWidth
       if (startX === 0) {
@@ -243,7 +246,9 @@ export default class Notes extends Component {
     console.log("sheet width :" + this.sheetWidth)
     this.sheet = this.props.sheet;
     this.staveType = this.getStaveType(this.sheet)
-    console.log("stave type :" + this.staveType)
+    this.beats = this.sheet.part[0].measure[0].attributes.time.beats
+    this.beatType = this.sheet.part[0].measure[0].attributes.time.beatType
+    this.timeSignature = this.beats+ "/" + this.beatType
 
     let startX = 0
     let partCount = this.sheet.part.length
@@ -386,19 +391,16 @@ export default class Notes extends Component {
     let barOffset = PADDING_LEFT;
     let {trebleStave, bassStave} = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
 
-    // this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter);
+    this.drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter);
   }
 
   drawMeasureNotes(trebleVoice, bassVoice, ctx, trebleStave, bassStave, formatter) {
-    // draw notes
-    formatter.joinVoices(trebleVoice).joinVoices(bassVoice)
-    formatter.format(trebleVoice.concat(bassVoice), MEASURE_MIN_WIDTH);
-    trebleVoice.forEach(function (v) {
-      v.draw(ctx, trebleStave);
-    });
-    bassVoice.forEach(function (v) {
-      v.draw(ctx, bassStave);
-    });
+    // Format and justify the notes to 400 pixels.
+    // formatter.joinVoices(bassVoice).format(bassVoice, MEASURE_MIN_WIDTH);
+    formatter.joinVoices([bassVoice]).format([bassVoice], MEASURE_MIN_WIDTH);
+
+    // Render voice
+    bassVoice.draw(ctx, bassStave);
   }
 
   drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx) {
@@ -407,7 +409,7 @@ export default class Notes extends Component {
 
     if(this.staveType == StaveType.BASS) {
       if (startX === 0 && rowCounter === 0) {
-        bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
+        bassStave.addClef("bass").addTimeSignature(this.timeSignature).addKeySignature(this.signature);
       }
 
       bassStave.setNoteStartX(startX)
@@ -418,7 +420,7 @@ export default class Notes extends Component {
       bassStave.setWidth(measureWidth)
       bassStave.setContext(ctx).draw()
       // this.connectStave(ctx, trebleStave, bassStave)
-      return bassStave;
+      return {trebleStave, bassStave};
     }
     // } else if (this.staveType instanceof StaveType.TREBLE) {
     //   if (startX === 0 && rowCounter === 0) {
