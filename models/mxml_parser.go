@@ -236,6 +236,15 @@ func (note *Note) AddAccidental() {
 	note.Pitch.Step += accidental
 }
 
+// need a cycle of fifth to do this
+func (sheet MXLDoc)ParseKey() string {
+	if sheet.Parts[0].Measures[0].Atters.Key.Fifths == 1 {
+		return "G"
+	}
+	return "G"
+}
+
+
 func (measure *Measure) ParseMeasure()  {
 	var notes []Note
 
