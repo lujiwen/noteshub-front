@@ -44,6 +44,7 @@ type Encoding struct {
 type Part struct {
     Id       string    `xml:"id,attr" json:"id,attr"`
     Measures []Measure `xml:"measure" json:"measure"`
+    IsTreble bool      `json:"isTreble"`
 }
 
 // Measure represents a measure in a piece of music
@@ -169,12 +170,15 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 			}
 
 			trebleStaff.Measures = append(trebleStaff.Measures, trebleMeasure)
+			trebleStaff.IsTreble = true
 			bassStaff.Measures = append(bassStaff.Measures, bassMeasure)
+			bassStaff.IsTreble = false
 		}
 		newSheet.Parts = []Part{trebleStaff, bassStaff}
 		return newSheet
 	} else if newSheet.Type == BASS || newSheet.Type == TREBLE {
 		p := newSheet.Parts[0]
+		newSheet.Parts[0].IsTreble = ( newSheet.Type == TREBLE )
 		for measureIdx := range p.Measures {
 			p.Measures[measureIdx].ParseMeasure()
 
@@ -184,6 +188,7 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		}
 	} else if newSheet.Type == CHORAL {
 		for _, p := range newSheet.Parts {
+			p.IsTreble = (p.Measures[0].Atters.TypeOfMeasure() == TREBLE)
 			for measureIdx := range p.Measures {
 				p.Measures[measureIdx].ParseMeasure()
 
