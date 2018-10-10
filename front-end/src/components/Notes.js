@@ -422,25 +422,15 @@ export default class Notes extends Component {
       let stave = measureStave[i]
       voice.draw(ctx, stave);
     }
-
-    // if(this.staveType == StaveType.BASS) {
-    //   formatter.joinVoices(voices).format(voices, MEASURE_MIN_WIDTH);
-    //   voices[0].draw(ctx, bassStave);
-    // } else if(this.staveType == StaveType.TREBLE) {
-    //   formatter.joinVoices([voices]).format([voices], MEASURE_MIN_WIDTH);
-    //   voices[0].draw(ctx, trebleStave);
-    // } else {
-    //   console.log("draw multiple clefs! ")
-    // }
   }
 
   drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx) {
     let staves = []
-    for(let i=0;i<this.sheet.part.length;i++) {
+    for(let partIndex=0; partIndex<this.sheet.part.length; partIndex++) {
       let stave = new Stave(0, 0)
       if (startX === 0 && rowCounter === 0) {
         let clefType
-        if(this.sheet.part[i].isTreble == true) {
+        if(this.sheet.part[partIndex].isTreble == true) {
           clefType = "treble"
         } else {
           clefType = "bass"
@@ -450,71 +440,16 @@ export default class Notes extends Component {
 
         stave.setNoteStartX(startX)
         stave.setX(startX);
-        stave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
+        stave.setY(PADDING_TOP + partIndex * SPACE_BETWEEN_STAVES);
         stave.setWidth(measureWidth)
         stave.setContext(ctx).draw()
 
         staves.push(stave)
       }
-    if (staves.length > 2 ) {
+    if (staves.length >= 2 ) {
       this.connectStave(ctx, staves[0], staves[staves.length-1])
     }
     return staves
-    // let trebleStave = new Stave(0, 0)
-    // let bassStave = new Stave(0, 0)
-    //
-    // if(this.staveType == StaveType.BASS) {
-    //   if (startX === 0 && rowCounter === 0) {
-    //     bassStave.addClef("bass").addTimeSignature(this.timeSignature).addKeySignature(this.signature);
-    //   }
-    //
-    //   bassStave.setNoteStartX(startX)
-    //
-    //   bassStave.setX(startX);
-    //
-    //   bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_STAVES );
-    //   bassStave.setWidth(measureWidth)
-    //   bassStave.setContext(ctx).draw()
-    //   // this.connectStave(ctx, trebleStave, bassStave)
-    //   return {trebleStave, bassStave};
-    // } else if (this.staveType == StaveType.TREBLE) {
-    //   if (startX === 0 && rowCounter === 0) {
-    //     trebleStave.addClef("treble").addTimeSignature(this.timeSignature).addKeySignature(this.signature);
-    //   }
-    //
-    //   trebleStave.setNoteStartX(startX)
-    //
-    //   trebleStave.setX(startX);
-    //
-    //   trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_STAVES );
-    //   trebleStave.setWidth(measureWidth)
-    //   trebleStave.setContext(ctx).draw()
-    //   // this.connectStave(ctx, trebleStave, bassStave)
-    //   return {trebleStave, bassStave};
-    // } else {
-    //
-    // }
-    //
-    // //   if (startX === 0 && rowCounter === 0) {
-    // //     trebleStave.addClef("treble").addTimeSignature("4/4").addKeySignature(this.signature);
-    // //     bassStave.addClef("bass").addTimeSignature("4/4").addKeySignature(this.signature);
-    // //   }
-    // //
-    // //   trebleStave.setNoteStartX(startX)
-    // //   bassStave.setNoteStartX(startX)
-    // //
-    // //   trebleStave.setX(startX);
-    // //   bassStave.setX(startX);
-    // //
-    // //   trebleStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES);
-    // //   bassStave.setY(PADDING_TOP + rowCounter * SPACE_BETWEEN_GRAND_STAVES + SPACE_BETWEEN_STAVES);
-    // //   trebleStave.setWidth(measureWidth)
-    // //   bassStave.setWidth(measureWidth)
-    // //   trebleStave.setContext(ctx).draw()
-    // //   bassStave.setContext(ctx).draw()
-    // //   this.connectStave(ctx, trebleStave, bassStave)
-    // //   return {trebleStave, bassStave};
-    // // }
   }
 
   connectStave(context, trebleStave, bassStave) {

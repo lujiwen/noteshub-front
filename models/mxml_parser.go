@@ -156,9 +156,9 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		p := newSheet.Parts[0]
 		trebleStaff := Part{}
 		bassStaff := Part{}
-		for measureIdx := range p.Measures {
-			trebleMeasure := Measure{}
-			bassMeasure   := Measure{}
+		for measureIdx, measure := range p.Measures {
+			trebleMeasure := Measure{Atters: measure.Atters}
+			bassMeasure   := Measure{Atters: measure.Atters}
 			for noteIndex := range p.Measures[measureIdx].Notes {
 				p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
 				noteStaffID := p.Measures[measureIdx].Notes[noteIndex].Staff
