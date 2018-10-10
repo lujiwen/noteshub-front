@@ -439,8 +439,8 @@ export default class Notes extends Component {
       }
 
         stave.setNoteStartX(startX)
-        stave.setX(startX);
-        stave.setY(PADDING_TOP + partIndex * SPACE_BETWEEN_STAVES);
+        stave.setX(startX + FIRST_NOTE_SPACE);
+        stave.setY(PADDING_TOP + partIndex * SPACE_BETWEEN_STAVES + rowCounter* SPACE_BETWEEN_GRAND_STAVES);
         stave.setWidth(measureWidth)
         stave.setContext(ctx).draw()
 

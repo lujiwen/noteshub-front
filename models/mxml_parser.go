@@ -187,8 +187,8 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 			}
 		}
 	} else if newSheet.Type == CHORAL {
-		for _, p := range newSheet.Parts {
-			p.IsTreble = (p.Measures[0].Atters.TypeOfMeasure() == TREBLE)
+		for partIndex, p := range newSheet.Parts {
+			newSheet.Parts[partIndex].IsTreble = (p.Measures[0].Atters.TypeOfMeasure() == TREBLE)
 			for measureIdx := range p.Measures {
 				p.Measures[measureIdx].ParseMeasure()
 
@@ -214,7 +214,7 @@ func (sheet *MXLDoc)TypeOfStave() StaveType  {
 			}
 		}
 	} else {
-		return GRAND
+		return CHORAL
 	}
 	return PIANO
 }
