@@ -73,6 +73,7 @@ const store = createStore(rootReducer, middleware)
 //   store.dispatch({ type: AUTH_SIGNIN });
 // }
 
+
 ReactDOM.render(
     <ApolloProvider client={client}>
       <Provider store={store}>
@@ -87,7 +88,7 @@ ReactDOM.render(
               <Route path="/login" component={WrappedNormalLoginForm}/>
               <Route path="/register" component={UserRegister}/>
               <Route path="/profile" component={Profile}/>
-              <Route path="/upload" component={UploadMusicSheet}/>
+              <Route path="/upload"  component={UploadMusicSheet}/>
               <Route component={Error}/>
             </Switch>
 
