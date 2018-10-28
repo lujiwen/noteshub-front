@@ -1,7 +1,8 @@
 import React from 'react'
-import {Button, Form, Icon, Input, Select, Upload} from "antd";
+import {Button, Form, Icon, Input, message, Select, Upload} from "antd";
 import connect from "react-redux/es/connect/connect";
-
+// import '../config'
+// import constants  from '../config'
 const Dragger = Upload.Dragger;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -34,6 +35,26 @@ const tailFormItemLayout = {
 
 const UploadMusicSheetForm = ({form}) => {
   const { getFieldDecorator } = form
+
+  const props = {
+    name: 'file',
+    multiple: true,
+    action: '//localhost:9090/transcribe',
+    onChange(info) {
+      const status = info.file.status;
+      if (status !== 'uploading') {
+        console.log(info.file, info.fileList);
+      }
+      if (status === 'done' && info.file.response.includes(".xml")) {
+        message.success(`${info.file.name} 文件上传成功`);
+        console.log(info.file.response)
+      } else if(status === 'done' && ! info.file.response.includes(".xml")) {
+        message.error(`${info.file.name} 文件解析失败`);
+      }else if (status === 'error'  ){
+        message.error(`${info.file.name} 文件上传失败`);
+      }
+    },
+  };
   return (
       <Form className="login-form" >
           <FormItem
@@ -135,12 +156,12 @@ const UploadMusicSheetForm = ({form}) => {
         </FormItem>
 
           <p style={{ "text-align":"center", "margin" : "10px"}}>
-            <Dragger>
+            <Dragger {...props}>
               <p className="ant-upload-drag-icon">
                 <Icon type="inbox" />
               </p>
               <p className="ant-upload-text">点击或者将谱子拖拽到这里上传</p>
-              <p className="ant-upload-hint">目前支持的谱子格式只有musicXml，如果你没有这样格式的曲谱，请耐心等着...</p>
+              <p className="ant-upload-hint">接受曲谱文件的格式为图片或者pdf文件，在上传的同时对曲谱进行扫描，并转换成可直接播放曲谱，请耐心等着...</p>
             </Dragger>
           </p>
         <FormItem>
