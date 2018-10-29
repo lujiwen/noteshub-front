@@ -1,6 +1,9 @@
 import React from 'react'
 import {Button, Form, Icon, Input, message, Select, Upload} from "antd";
 import connect from "react-redux/es/connect/connect";
+import {toggleLeftDrawer} from "../actions/NavigationAction";
+import {redirectToPersonalPage, redirectToUpload} from "../actions/LedtDrawerAction";
+import {startToUploadSheet} from "../actions/SheetActions";
 const Dragger = Upload.Dragger;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -31,9 +34,9 @@ const tailFormItemLayout = {
 };
 
 
-const UploadMusicSheetForm = ({form}) => {
+const UploadMusicSheetForm = ({form, onUpload}) => {
   const { getFieldDecorator } = form
-
+  let sheetsPath = ""
   const props = {
     name: 'file',
     multiple: true,
@@ -45,7 +48,8 @@ const UploadMusicSheetForm = ({form}) => {
       }
       if (status === 'done' && info.file.response.includes(".xml")) {
         message.success(`${info.file.name} 文件上传成功`);
-        console.log(info.file.response)
+        sheetsPath = info.file.response
+        console.log(sheetsPath)
       } else if(status === 'done' && ! info.file.response.includes(".xml")) {
         message.error(`${info.file.name} 文件解析失败`);
       }else if (status === 'error'  ){
@@ -59,12 +63,12 @@ const UploadMusicSheetForm = ({form}) => {
     form.validateFields((err, values) => {
       if (!err) {
         // const { dispatch } = form;
+        values["sheetPath"] = sheetsPath
         console.log(values)
+        onUpload(values)
       }
     });
     console.log("uploadSheetAndInfo...")
-    console.log(e)
-
   }
 
   return (
@@ -193,7 +197,7 @@ const UploadMusicSheetForm = ({form}) => {
         </FormItem>
 
         <FormItem>
-          <Button onClick={uploadSheetAndInfo} type="primary" htmlType="submit" className="login-form-button">上传</Button>
+          <Button type="primary" htmlType="submit" className="login-form-button">上传</Button>
         </FormItem>
       </Form>
   )
@@ -202,8 +206,15 @@ const UploadMusicSheetForm = ({form}) => {
 const UploadMusicSheet = Form.create()(UploadMusicSheetForm);
 
 function mapStateToProps(state,oWnprops) {
-  console.log("UploadMusicSheetForm :" + state)
+  if(state.sheetReducer.uploadSheet && state.sheetReducer.data != null) {
+
+  }
   return state;
 }
 
-export default connect(mapStateToProps)(UploadMusicSheet);
+const mapDispatchToProps = dispatch => ({
+  // onUpload: (values) => dispatch({type: "UPLOAD_SHEET", values: values })
+  onUpload: (values) => startToUploadSheet(dispatch, values)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UploadMusicSheet);
