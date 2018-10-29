@@ -1,8 +1,6 @@
 import React from 'react'
 import {Button, Form, Icon, Input, message, Select, Upload} from "antd";
 import connect from "react-redux/es/connect/connect";
-// import '../config'
-// import constants  from '../config'
 const Dragger = Upload.Dragger;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -55,17 +53,32 @@ const UploadMusicSheetForm = ({form}) => {
       }
     },
   };
+
+  function uploadSheetAndInfo(e) {
+    e.preventDefault();
+    form.validateFields((err, values) => {
+      if (!err) {
+        // const { dispatch } = form;
+        console.log(values)
+      }
+    });
+    console.log("uploadSheetAndInfo...")
+    console.log(e)
+
+  }
+
   return (
-      <Form className="login-form" >
+      <Form onSubmit={uploadSheetAndInfo} className="login-form" >
           <FormItem
               {...formItemLayout}
               label="歌曲"
           >
-            {getFieldDecorator('composer', {
+            {getFieldDecorator('song', {
+
               rules: [{
                 type: 'string', message: '不是合法的输入',
               }, {
-                required: true, message: '请输入歌曲名',
+                required: false, message: '请输入歌曲名',
               }],
             })(
                 <Input />
@@ -79,7 +92,7 @@ const UploadMusicSheetForm = ({form}) => {
               rules: [{
                 type: 'string', message: '不是合法的输入',
               }, {
-                required: true, message: '请输入作曲人',
+                required: false, message: '请输入作曲人',
               }],
             })(
                 <Input />
@@ -109,7 +122,7 @@ const UploadMusicSheetForm = ({form}) => {
               rules: [{
                 type: 'string', message: '不是合法的输入',
               }, {
-                required: true, message: '请输入编曲人',
+                required: false, message: '请输入编曲人',
               }],
             })(
                 <Input />
@@ -124,7 +137,7 @@ const UploadMusicSheetForm = ({form}) => {
               rules: [{
                 type: 'string', message: '不是合法的输入',
               }, {
-                required: true, message: '请输入制谱人',
+                required: false, message: '请输入制谱人',
               }],
             })(
                 <Input />
@@ -152,24 +165,37 @@ const UploadMusicSheetForm = ({form}) => {
             {...formItemLayout}
             label="描述"
         >
-          <TextArea rows={4} />
+          {getFieldDecorator('description')
+            (
+              (
+                  <TextArea rows={4} />
+              )
+            )
+          }
+        </FormItem>
+        <FormItem>
+          {getFieldDecorator('sheets')
+          (
+              (
+                  <p style={{ "text-align":"center", "margin" : "10px"}}>
+                    <Dragger {...props}>
+                      <p className="ant-upload-drag-icon">
+                        <Icon type="inbox" />
+                      </p>
+                      <p className="ant-upload-text">点击或者将谱子拖拽到这里上传</p>
+                      <p className="ant-upload-hint">接受曲谱文件的格式为图片或者pdf文件，在上传的同时对曲谱进行扫描，并转换成可直接播放曲谱，请耐心等着...</p>
+                    </Dragger>
+                  </p>
+              )
+          )
+          }
+
         </FormItem>
 
-          <p style={{ "text-align":"center", "margin" : "10px"}}>
-            <Dragger {...props}>
-              <p className="ant-upload-drag-icon">
-                <Icon type="inbox" />
-              </p>
-              <p className="ant-upload-text">点击或者将谱子拖拽到这里上传</p>
-              <p className="ant-upload-hint">接受曲谱文件的格式为图片或者pdf文件，在上传的同时对曲谱进行扫描，并转换成可直接播放曲谱，请耐心等着...</p>
-            </Dragger>
-          </p>
         <FormItem>
-          <Button type="primary" htmlType="submit" className="login-form-button">上传</Button>
+          <Button onClick={uploadSheetAndInfo} type="primary" htmlType="submit" className="login-form-button">上传</Button>
         </FormItem>
       </Form>
-
-
   )
 }
 
