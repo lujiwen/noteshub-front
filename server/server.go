@@ -49,6 +49,7 @@ func main() {
 		sheet := models.MusicSheet{}
 		sheetApi.GET("/sheet/:sheetId", sheet.GetSheet)
 		sheetApi.POST("/upload", sheet.Upload)
+		sheetApi.POST("/uploadSheetAndInfo", sheet.UploadSheetAndInfo)
 	}
 
 

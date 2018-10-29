@@ -51,7 +51,14 @@ type MusicSheet struct {
 	Scorer           string `json:"scorer"`    // 记谱人
 }
 
+func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
+	var sheet MusicSheet
+	if err := c.ShouldBindJSON(&sheet); err == nil {
+		log.Info("receive")
+	}
+	log.Info("receive out side")
 
+}
 
 func (MusicSheet)Upload(c *gin.Context) {
 	// single file

@@ -1,4 +1,4 @@
-import {AxiosInstance as axios} from "axios";
+import axios from 'axios'
 
 const startToUploadSheet = (dispatch, values) => {
   console.log("start to upload sheets :" + values)
