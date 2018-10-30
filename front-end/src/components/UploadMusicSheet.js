@@ -36,7 +36,7 @@ const tailFormItemLayout = {
 
 const UploadMusicSheetForm = ({form, onUpload}) => {
   const { getFieldDecorator } = form
-  let sheetsPath = ""
+  let transcribedSheetLocation = ""
   const props = {
     name: 'file',
     multiple: true,
@@ -48,8 +48,8 @@ const UploadMusicSheetForm = ({form, onUpload}) => {
       }
       if (status === 'done' && info.file.response.includes(".xml")) {
         message.success(`${info.file.name} 文件上传成功`);
-        sheetsPath = info.file.response
-        console.log(sheetsPath)
+        transcribedSheetLocation = info.file.response
+        console.log(transcribedSheetLocation)
       } else if(status === 'done' && ! info.file.response.includes(".xml")) {
         message.error(`${info.file.name} 文件解析失败`);
       }else if (status === 'error'  ){
@@ -63,7 +63,12 @@ const UploadMusicSheetForm = ({form, onUpload}) => {
     form.validateFields((err, values) => {
       if (!err) {
         // const { dispatch } = form;
-        values["sheetPath"] = sheetsPath
+        if (values["sheetType"] == 'guitar') {
+          values["sheetType"] = 2
+        } else {
+          values["sheetType"] = 1
+        }
+        values["location"] = transcribedSheetLocation
         console.log(values)
         onUpload(values)
       }
@@ -213,7 +218,6 @@ function mapStateToProps(state,oWnprops) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  // onUpload: (values) => dispatch({type: "UPLOAD_SHEET", values: values })
   onUpload: (values) => startToUploadSheet(dispatch, values)
 })
 

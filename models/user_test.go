@@ -49,6 +49,7 @@ func TestDropAllTables(t *testing.T)  {
 		LoginSource{},
 		Repository{},
 		SheetFile{},
+		AccessToken{},
 		Star{},
 		Team{},
 		User{},

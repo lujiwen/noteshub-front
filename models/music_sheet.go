@@ -35,12 +35,12 @@ type SheetFile struct {
 // every field name should start with letter in upper case, otherwise it is not visible for class outside
 type MusicSheet struct {
 	ID               int64  // only set ID with type "int64", then it can be a primary key
-	Location         string `xorm:"UNIQUE NOT NULL" json:"location" binding:"required"`
-	UserId           string `xorm:"UNIQUE NOT NULL" json:"userId" binding:"required"`
-	CreateTime       time.Time `xorm:"UNIQUE NOT NULL" json:"createTime" binding:"required"`
-	LastModifiedTime time.Time `json:"lastModifiedTime" binding:"required"`
+	Location         string `xorm:"UNIQUE NOT NULL" json:"location"  `
+	UserId           string `xorm:"UNIQUE NOT NULL" json:"userId"  `
+	CreateTime       time.Time `xorm:"UNIQUE NOT NULL" json:"createTime"  `
+	LastModifiedTime time.Time `json:"lastModifiedTime"  `
 	SheetType        SheetType `json:"sheetType" binding:"required"`
-	Filename         string  `xorm:"UNIQUE NOT NULL" json:"filename" binding:"required"`
+	Filename         string  `xorm:"UNIQUE NOT NULL" json:"filename"  `
 	Liked            int      `json:"liked"`
 	ThumbUp          int      `json:"thumbUp"`
 	ThumbDown        int      `json:"thumbDown"`
@@ -52,12 +52,21 @@ type MusicSheet struct {
 }
 
 func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
-	var sheet MusicSheet
-	if err := c.ShouldBindJSON(&sheet); err == nil {
+	var sheetFile MusicSheet
+	if err := c.ShouldBindJSON(&sheetFile); err == nil {
 		log.Info("receive")
-	}
-	log.Info("receive out side")
+		//save to db upload
+		destinationDir := "/Users/lujiwen/noteshub/upload_files"
+		sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + sheetFile.Filename, Filename: sheetFile.Filename, CreateTime: time.Now(), UserId: "1" }
+		if  _, err := x.InsertOne(sheetFile); err != nil{
+			c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse! %s", sheetFile.Filename, err.Error()))
 
+		} else {
+			c.JSON(http.StatusOK, fmt.Sprintf("'%s' uploaded successfully!", sheetFile.Filename))
+		}
+	} else {
+		c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse! %s", sheetFile.Filename, err.Error()))
+	}
 }
 
 func (MusicSheet)Upload(c *gin.Context) {
