@@ -139,8 +139,12 @@ func (note *Note)TranslateNoteType() {
     case "eighth":
         noteType = "8"
 	    break
+    case "16th":
+    noteType = "16"
+    break
+
     default:
-        noteType = "unknown type: " + note.Type
+        noteType = note.Type
 	    break
     }
     note.Type = noteType
