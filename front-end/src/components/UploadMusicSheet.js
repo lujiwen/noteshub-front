@@ -38,7 +38,7 @@ const tailFormItemLayout = {
 
 const UploadMusicSheetForm = ({form, onUpload, uploadSucceed}) => {
   if (uploadSucceed) {
-    return <Redirect to='/profile'></Redirect>
+    return <Redirect to='/sheet'/>
   }
 
   const { getFieldDecorator } = form
