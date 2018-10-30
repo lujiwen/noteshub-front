@@ -2,7 +2,8 @@ const initialState = {
   viewSheet:false,
   sheetId : 0,
   isOutdated:false,
-  uploadSheet: false
+  uploadSheet: false,
+  uploadedSucceed: false
 }
 
 export default function sheetReducer(state = initialState, action) {
@@ -34,6 +35,8 @@ export default function sheetReducer(state = initialState, action) {
     case 'UPLOAD_SHEET':
       console.log("start to upload sheet! ")
       return {uploadSheet: true, data: action.values}
+    case 'UPLOAD_SUCCEED':
+      return {uploadSheet: true, uploadedSucceed: true}
     default:
       return state
   }

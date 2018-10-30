@@ -4,6 +4,8 @@ import connect from "react-redux/es/connect/connect";
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 import {redirectToPersonalPage, redirectToUpload} from "../actions/LedtDrawerAction";
 import {startToUploadSheet} from "../actions/SheetActions";
+import {Redirect} from "react-router";
+import Stave from "./Stave";
 const Dragger = Upload.Dragger;
 const FormItem = Form.Item;
 const Option = Select.Option;
@@ -34,7 +36,11 @@ const tailFormItemLayout = {
 };
 
 
-const UploadMusicSheetForm = ({form, onUpload}) => {
+const UploadMusicSheetForm = ({form, onUpload, uploadSucceed}) => {
+  if (uploadSucceed) {
+    return <Redirect to='/profile'></Redirect>
+  }
+
   const { getFieldDecorator } = form
   let transcribedSheetLocation = ""
   const props = {
@@ -63,7 +69,7 @@ const UploadMusicSheetForm = ({form, onUpload}) => {
     form.validateFields((err, values) => {
       if (!err) {
         // const { dispatch } = form;
-        if (values["sheetType"] == 'guitar') {
+        if (values["sheetType"] === 'guitar') {
           values["sheetType"] = 2
         } else {
           values["sheetType"] = 1
@@ -211,9 +217,10 @@ const UploadMusicSheetForm = ({form, onUpload}) => {
 const UploadMusicSheet = Form.create()(UploadMusicSheetForm);
 
 function mapStateToProps(state,oWnprops) {
-  if(state.sheetReducer.uploadSheet && state.sheetReducer.data != null) {
-
-  }
+  // if(state.sheetReducer.uploadSheet && state.sheetReducer.data != null) {
+  //
+  // }
+  state = {uploadSucceed: state.sheetReducer.uploadedSucceed}
   return state;
 }
 

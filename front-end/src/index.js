@@ -26,6 +26,7 @@ import rootReducer from "./reducers";
 import Profile from "./components/Profile";
 import history from "./reducers/history"
 import UploadMusicSheet from "./components/UploadMusicSheet";
+import Stave from "./components/Stave";
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -89,9 +90,9 @@ ReactDOM.render(
               <Route path="/register" component={UserRegister}/>
               <Route path="/profile" component={Profile}/>
               <Route path="/upload"  component={UploadMusicSheet}/>
+              <Route path="/sheet"  component={Stave}/>
               <Route component={Error}/>
             </Switch>
-
           </div>
         </BrowserRouter>
       </Provider>
