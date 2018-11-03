@@ -142,9 +142,9 @@ func (note *Note)TranslateNoteType() {
     case "16th":
     noteType = "16"
     break
-    case "":
-    noteType = "1"
-    break
+    //case "":
+    //noteType = "1"
+    //break
 
     default:
         noteType = note.Type
@@ -153,9 +153,9 @@ func (note *Note)TranslateNoteType() {
     note.Type = noteType
 }
 
-func (measure *Measure)parseBeats() {
-	measure.
-}
+//func (measure *Measure)parseBeats() {
+//	measure.
+//}
 
 // hint on loop : https://stackoverflow.com/questions/15945030/change-values-while-iterating-in-golang
 func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
@@ -170,7 +170,7 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 			trebleMeasure := Measure{Atters: measure.Atters}
 			bassMeasure   := Measure{Atters: measure.Atters}
 			for noteIndex := range p.Measures[measureIdx].Notes {
-				p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
+				//p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
 				noteStaffID := p.Measures[measureIdx].Notes[noteIndex].Staff
 				if noteStaffID == 1 {
 					trebleMeasure.Notes = append(trebleMeasure.Notes, p.Measures[measureIdx].Notes[noteIndex])
@@ -192,9 +192,9 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		for measureIdx := range p.Measures {
 			p.Measures[measureIdx].ParseMeasure()
 
-			for noteIndex := range p.Measures[measureIdx].Notes {
-				p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
-			}
+			//for noteIndex := range p.Measures[measureIdx].Notes {
+			//	p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
+			//}
 		}
 	} else if newSheet.Type == CHORAL {
 		for partIndex, p := range newSheet.Parts {
