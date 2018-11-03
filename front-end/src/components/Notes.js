@@ -85,6 +85,7 @@ export default class Notes extends Component {
       }
 
       if (this.isRest(note)) {
+        duration = duration+"r"
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
 
