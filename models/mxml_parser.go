@@ -5,6 +5,7 @@ import (
     "fmt"
     "io/ioutil"
     "os"
+	"strconv"
 )
 
 type StaveType int
@@ -70,7 +71,7 @@ type Clef struct {
 
 // Key represents a key signature change
 type Key struct {
-    Fifths int    `xml:"fifths" json:"fifths"`
+    Fifths string    `xml:"fifths" json:"fifths"`
     Mode   string `xml:"mode" json:"mode"`
 }
 
@@ -156,6 +157,12 @@ func (note *Note)TranslateNoteType() {
 //func (measure *Measure)parseBeats() {
 //	measure.
 //}
+func (attr Attributes) ParseKey() Attributes  {
+	fifthCycle := [12]string{ "C", "G", "D", "A", "E" ,"B" , "F#", "C#" , "G#" ,"D#", "A#" ,"F"}
+	index, _ := strconv.Atoi(attr.Key.Fifths)
+	attr.Key.Fifths = fifthCycle[(index + 12) % 12]
+	return attr
+}
 
 // hint on loop : https://stackoverflow.com/questions/15945030/change-values-while-iterating-in-golang
 func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
@@ -166,9 +173,10 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		trebleStaff := Part{}
 		bassStaff := Part{}
 		for measureIdx, measure := range p.Measures {
+			attribute := measure.Atters.ParseKey()
 
-			trebleMeasure := Measure{Atters: measure.Atters}
-			bassMeasure   := Measure{Atters: measure.Atters}
+			trebleMeasure := Measure{Atters: attribute}
+			bassMeasure   := Measure{Atters: attribute}
 			for noteIndex := range p.Measures[measureIdx].Notes {
 				//p.Measures[measureIdx].Notes[noteIndex].TranslateNoteType()
 				noteStaffID := p.Measures[measureIdx].Notes[noteIndex].Staff
@@ -252,12 +260,12 @@ func (note *Note) AddAccidental() {
 }
 
 // need a cycle of fifth to do this
-func (sheet MXLDoc)ParseKey() string {
-	if sheet.Parts[0].Measures[0].Atters.Key.Fifths == 1 {
-		return "G"
-	}
-	return "G"
-}
+//func (sheet MXLDoc)ParseKey() string {
+//	if sheet.Parts[0].Measures[0].Atters.Key.Fifths == 1 {
+//		return "G"
+//	}
+//	return "G"
+//}
 
 
 func (measure *Measure) ParseMeasure()  {

@@ -63,7 +63,7 @@ func TestUpdatePianoStave(t *testing.T) {
 		0,
 		Attributes{
 			Key: Key{
-				Fifths: 0,
+				Fifths: "0",
 				Mode:   "",
 			},
 			Time: Time{
@@ -232,5 +232,23 @@ func TestNote_AddAccidental(t *testing.T) {
 
 	if note2.Pitch.Step != "Cn" {
 		t.Error("accidental parsing wrong !")
+	}
+}
+
+func TestAttributes_ParseKey(t *testing.T) {
+	att := Attributes{Key:Key{"1", ""}}
+	attG := att.ParseKey()
+	if attG.Key.Fifths == "G" {
+		t.Log("parsing attribute succeed!")
+	} else {
+		t.Error("parsing attribute error :", att.Key.Fifths)
+	}
+
+	att = Attributes{Key:Key{"-1", ""}}
+	attF := att.ParseKey()
+	if attF.Key.Fifths == "F" {
+		t.Log("parsing attribute succeed!")
+	} else {
+		t.Error("parsing attribute error :", att.Key.Fifths)
 	}
 }
