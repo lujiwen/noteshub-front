@@ -142,6 +142,9 @@ func (note *Note)TranslateNoteType() {
     case "16th":
     noteType = "16"
     break
+    case "":
+    noteType = "1"
+    break
 
     default:
         noteType = note.Type
@@ -150,17 +153,20 @@ func (note *Note)TranslateNoteType() {
     note.Type = noteType
 }
 
+func (measure *Measure)parseBeats() {
+	measure.
+}
 
 // hint on loop : https://stackoverflow.com/questions/15945030/change-values-while-iterating-in-golang
 func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
     newSheet := sheet
 	newSheet.Type = sheet.TypeOfStave()
-
 	if newSheet.Type == PIANO || newSheet.Type == GRAND {  // only has one part, but has both treble and bass
 		p := newSheet.Parts[0]
 		trebleStaff := Part{}
 		bassStaff := Part{}
 		for measureIdx, measure := range p.Measures {
+
 			trebleMeasure := Measure{Atters: measure.Atters}
 			bassMeasure   := Measure{Atters: measure.Atters}
 			for noteIndex := range p.Measures[measureIdx].Notes {

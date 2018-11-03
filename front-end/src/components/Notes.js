@@ -66,16 +66,18 @@ export default class Notes extends Component {
   }
 
   buildVexNotes(measure, partId, measureId, clefType = "treble") {
+    let divisions = measure.attributes.divisions
     return measure.note.map(function (note, noteId) {
       console.log(note)
       let keys = []
-      let duration = note.type
+      let duration = 1 / (note.duration / divisions / this.beatType)
 
       // if (note.grace.Local === "grace") {
       //   return
       // }
-
-
+      // if(note.duration === 24) {
+      //   duration = 1 + ""
+      // }
       if (this.isChord(note)) {
         keys = note.keys
       } else {
@@ -83,12 +85,13 @@ export default class Notes extends Component {
       }
 
       if (this.isRest(note)) {
-        duration = "qr"
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
 
       let staveNote
-      staveNote = new StaveNote({keys: keys, duration: duration, clef: clefType});
+      staveNote = new StaveNote({keys: keys, duration: duration + "", clef: clefType});
+
+      console.log(staveNote)
 
       for (let i = 0; i < keys.length; i++) {
         let key = keys[i]

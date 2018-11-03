@@ -96,85 +96,85 @@
   <!--= = = = = = = = = = = = = = = = = = = = = = = = = = = = =-->
   <part id="P1">
     <!--=======================================================-->
-    <!--<measure number="1" width="299">-->
-      <!--<print>-->
-        <!--<system-layout>-->
-          <!--<system-margins>-->
-            <!--<left-margin>57</left-margin>-->
-            <!--<right-margin>-23</right-margin>-->
-          <!--</system-margins>-->
-          <!--<top-system-distance>131</top-system-distance>-->
-        <!--</system-layout>-->
-        <!--<staff-layout number="2">-->
-          <!--<staff-distance>85</staff-distance>-->
-        <!--</staff-layout>-->
-        <!--<measure-numbering>system</measure-numbering>-->
-      <!--</print>-->
-      <!--<attributes>-->
-        <!--<divisions>12</divisions>-->
-        <!--<key>-->
-          <!--<fifths>-1</fifths>-->
-        <!--</key>-->
-        <!--<time>-->
-          <!--<beats>2</beats>-->
-          <!--<beat-type>4</beat-type>-->
-        <!--</time>-->
-        <!--<staves>2</staves>-->
-        <!--<clef number="1">-->
-          <!--<sign>G</sign>-->
-          <!--<line>2</line>-->
-        <!--</clef>-->
-        <!--<clef number="2">-->
-          <!--<sign>G</sign>-->
-          <!--<line>2</line>-->
-        <!--</clef>-->
-        <!--<staff-details print-object="yes"></staff-details>-->
-      <!--</attributes>-->
-      <!--<direction>-->
-        <!--<direction-type>-->
-          <!--<words></words>-->
-        <!--</direction-type>-->
-        <!--<sound tempo="120"></sound>-->
-      <!--</direction>-->
-      <!--<direction placement="above">-->
-        <!--<direction-type>-->
-          <!--<words default-y="18" relative-x="-133" font-family="serif" font-size="10">Allegretto quasi andantino (L69 env.)</words>-->
-        <!--</direction-type>-->
-        <!--<staff>1</staff>-->
-      <!--</direction>-->
-      <!--<direction placement="below">-->
-        <!--<direction-type>-->
-          <!--<words default-y="-110" relative-x="-115" font-family="serif" font-size="11">6%? corde en Ré</words>-->
-        <!--</direction-type>-->
-        <!--<staff>1</staff>-->
-      <!--</direction>-->
-      <!--<note default-x="179">-->
-        <!--<rest measure="yes"></rest>-->
-        <!--<duration>24</duration>-->
-        <!--<voice>1</voice>-->
-        <!--<staff>1</staff>-->
-      <!--</note>-->
-      <!--<backup>-->
-        <!--<duration>24</duration>-->
-      <!--</backup>-->
-      <!--<direction placement="below">-->
-        <!--<direction-type>-->
-          <!--<dynamics default-y="-111" relative-x="-17">-->
-            <!--<p/>-->
-          <!--</dynamics>-->
-        <!--</direction-type>-->
-        <!--<staff>2</staff>-->
-        <!--<sound dynamics="56"></sound>-->
-      <!--</direction>-->
-      <!--<direction placement="below">-->
-        <!--<direction-type>-->
-          <!--<dynamics default-y="-112" relative-x="0">-->
-            <!--<p/>-->
-          <!--</dynamics>-->
-        <!--</direction-type>-->
-        <!--<staff>2</staff>-->
-        <!--<sound dynamics="56"></sound>-->
-      <!--</direction>-->
+    <measure number="1" width="299">
+      <print>
+        <system-layout>
+          <system-margins>
+            <left-margin>57</left-margin>
+            <right-margin>-23</right-margin>
+          </system-margins>
+          <top-system-distance>131</top-system-distance>
+        </system-layout>
+        <staff-layout number="2">
+          <staff-distance>85</staff-distance>
+        </staff-layout>
+        <measure-numbering>system</measure-numbering>
+      </print>
+      <attributes>
+        <divisions>12</divisions>
+        <key>
+          <fifths>-1</fifths>
+        </key>
+        <time>
+          <beats>2</beats>
+          <beat-type>4</beat-type>
+        </time>
+        <staves>2</staves>
+        <clef number="1">
+          <sign>G</sign>
+          <line>2</line>
+        </clef>
+        <clef number="2">
+          <sign>G</sign>
+          <line>2</line>
+        </clef>
+        <staff-details print-object="yes"></staff-details>
+      </attributes>
+      <direction>
+        <direction-type>
+          <words></words>
+        </direction-type>
+        <sound tempo="120"></sound>
+      </direction>
+      <direction placement="above">
+        <direction-type>
+          <words default-y="18" relative-x="-133" font-family="serif" font-size="10">Allegretto quasi andantino (L69 env.)</words>
+        </direction-type>
+        <staff>1</staff>
+      </direction>
+      <direction placement="below">
+        <direction-type>
+          <words default-y="-110" relative-x="-115" font-family="serif" font-size="11">6%? corde en Ré</words>
+        </direction-type>
+        <staff>1</staff>
+      </direction>
+      <note default-x="179">
+        <rest measure="yes"></rest>
+        <duration>24</duration>
+        <voice>1</voice>
+        <staff>1</staff>
+      </note>
+      <backup>
+        <duration>24</duration>
+      </backup>
+      <direction placement="below">
+        <direction-type>
+          <dynamics default-y="-111" relative-x="-17">
+            <p/>
+          </dynamics>
+        </direction-type>
+        <staff>2</staff>
+        <sound dynamics="56"></sound>
+      </direction>
+      <direction placement="below">
+        <direction-type>
+          <dynamics default-y="-112" relative-x="0">
+            <p/>
+          </dynamics>
+        </direction-type>
+        <staff>2</staff>
+        <sound dynamics="56"></sound>
+      </direction>
       <!--<note default-x="89">-->
         <!--<pitch>-->
           <!--<step>D</step>-->
@@ -240,7 +240,7 @@
         <!--<staff>2</staff>-->
         <!--<beam number="1">end</beam>-->
       <!--</note>-->
-    <!--</measure>-->
+    </measure>
     <!--&lt;!&ndash;=======================================================&ndash;&gt;-->
     <!--<measure number="2" width="239">-->
       <!--<note default-x="123">-->
