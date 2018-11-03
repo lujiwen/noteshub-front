@@ -165,7 +165,7 @@ export default class Notes extends Component {
 
 
   drawStaveRow(rowOfMeasures, rowCounter = 0) {
-    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width))
+    rowOfMeasures.forEach(measure => this.drawMeasure(measure, rowCounter, measure.width, measure.key))
   }
 
   getStaveType = (sheet) => {
@@ -193,8 +193,9 @@ export default class Notes extends Component {
     let rowCounter = 0
 
     for (let measureId=0; measureId < measureCount; measureId++) {
-      let voice = this.buildNotesVoice(this.sheet.part[0].measure[measureId], 0, measureId)
-
+      let measure = this.sheet.part[0].measure[measureId]
+      let voice = this.buildNotesVoice(measure, 0, measureId)
+      let key = measure.attributes.key.fifths
       const formatter = new Formatter();
 
       // const minTotalWidth = Math.ceil(Math.max(formatter.preCalculateMinTotalWidth([bassVoice]), MEASURE_MIN_WIDTH));
@@ -217,14 +218,14 @@ export default class Notes extends Component {
         startX = 0
         currentStaveWidth = 0
 
-        currentRow.push({startX, ctx, trebleVoice: voice, bassVoice: voice, width: measureWidth + 50, formatter: formatter})
+        currentRow.push({startX, ctx, trebleVoice: voice, bassVoice: voice, width: measureWidth + 50, formatter: formatter, key: key})
         startX = measureWidth + 50
         currentStaveWidth = startX
 
       } else {
         console.log("add one more measure")
         currentStaveWidth += measureWidth
-        currentRow.push({startX, ctx, trebleVoice: voice, bassVoice: voice, width: measureWidth, formatter: formatter})
+        currentRow.push({startX, ctx, trebleVoice: voice, bassVoice: voice, width: measureWidth, formatter: formatter, key: key})
         startX = currentStaveWidth
       }
     }
@@ -281,6 +282,8 @@ export default class Notes extends Component {
 
         let voices = []
         voices = this.buildVoices(this.sheet, measureId)
+        let measure = this.sheet.part[0].measure[measureId]
+        let key = measure.attributes.key.fifths
 
         const formatter = new Formatter();
         // voices.forEach( voice =>
@@ -320,14 +323,14 @@ export default class Notes extends Component {
           startX = 0
           currentStaveWidth = 0
 
-          currentRow.push({startX, ctx, voices: voices, width: measureWidth + 50, formatter: formatter})
+          currentRow.push({startX, ctx, voices: voices, width: measureWidth + 50, formatter: formatter, key: key})
           startX = measureWidth + 50
           currentStaveWidth = startX
 
         } else {
           console.log("add one more measure")
           currentStaveWidth += measureWidth
-          currentRow.push({startX, ctx, voices: voices, width: measureWidth, formatter: formatter})
+          currentRow.push({startX, ctx, voices: voices, width: measureWidth, formatter: formatter, key: key})
           startX = currentStaveWidth
         }
       }
@@ -411,10 +414,10 @@ export default class Notes extends Component {
     }
   }
 
-  drawMeasure(measure, rowCounter, measureWidth) {
+  drawMeasure(measure, rowCounter, measureWidth, key) {
     let {startX, ctx, voices, formatter} = measure
     let barOffset = PADDING_LEFT;
-    let measureStave = this.drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx);
+    let measureStave = this.drawMeasureStave(key, startX, barOffset, rowCounter, measureWidth, ctx);
 
     this.drawMeasureNotes(voices, ctx, measureStave, formatter);
   }
@@ -431,7 +434,7 @@ export default class Notes extends Component {
     }
   }
 
-  drawMeasureStave(startX, barOffset, rowCounter, measureWidth, ctx) {
+  drawMeasureStave(keySignature, startX, barOffset, rowCounter, measureWidth, ctx) {
     let staves = []
     for(let partIndex=0; partIndex<this.sheet.part.length; partIndex++) {
       let stave = new Stave(0, 0)
@@ -442,7 +445,7 @@ export default class Notes extends Component {
         } else {
           clefType = "bass"
         }
-        stave.addClef(clefType).addTimeSignature(this.timeSignature).addKeySignature(this.signature);
+        stave.addClef(clefType).addTimeSignature(this.timeSignature).addKeySignature(keySignature);
       }
 
         stave.setNoteStartX(startX)
