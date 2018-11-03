@@ -114,7 +114,7 @@ func (MusicSheet)GetSheet(c *gin.Context) {
 		log.Info("get sheet by id : %s", &sheetId)
 		//sheet := MusicSheet{sheetId, "./location", "1", time.Now(), time.Now()}
 		//c.JSON(http.StatusOK, ParseMxmlFromString("resources/sample-chord.xml"))
-		c.JSON(http.StatusOK, ParseMxmlFromString("resources/temp.xml"))
+		c.JSON(http.StatusOK, ParseMxmlFromString("resources/sample-chord.xml"))
 	} else {
 		c.AbortWithStatus(http.StatusNotFound)
 	}

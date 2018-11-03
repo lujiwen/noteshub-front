@@ -67,6 +67,7 @@ export default class Notes extends Component {
 
   buildVexNotes(measure, partId, measureId, clefType = "treble") {
     return measure.note.map(function (note, noteId) {
+      console.log(note)
       let keys = []
       let duration = note.type
 
@@ -252,6 +253,8 @@ export default class Notes extends Component {
     this.sheet = this.props.sheet;
     this.staveType = this.getStaveType(this.sheet)
     console.log("this sheet type is:" + this.staveType)
+
+    if (this.sheet.part == null ||  this.sheet.part.length == 0) return
     this.beats = this.sheet.part[0].measure[0].attributes.time.beats
     this.beatType = this.sheet.part[0].measure[0].attributes.time.beatType
     this.timeSignature = this.beats+ "/" + this.beatType
@@ -395,7 +398,7 @@ export default class Notes extends Component {
     // instrument.play('D4',2, 1)
     let currentTime = 0
     let measureCount = this.sheet.part[0].measure.length
-    let partCount = this.sheet.part.length
+
     for (let measureId=0; measureId < measureCount; measureId++) {
       for (let partId=0;partId < 1; partId++) {
         let note = ['C4', 'D4']
