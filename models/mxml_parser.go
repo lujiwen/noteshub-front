@@ -172,6 +172,9 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 		p := newSheet.Parts[0]
 		trebleStaff := Part{}
 		bassStaff := Part{}
+		trebleStaff.IsTreble = p.Measures[0].Atters.Clef[0].isTreble()
+		bassStaff.IsTreble = p.Measures[0].Atters.Clef[1].isTreble()
+
 		for measureIdx, measure := range p.Measures {
 			attribute := measure.Atters.ParseKey()
 
@@ -188,9 +191,7 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 			}
 
 			trebleStaff.Measures = append(trebleStaff.Measures, trebleMeasure)
-			trebleStaff.IsTreble = attribute.Clef[0].isTreble()
 			bassStaff.Measures = append(bassStaff.Measures, bassMeasure)
-			bassStaff.IsTreble = attribute.Clef[1].isTreble()
 		}
 		newSheet.Parts = []Part{trebleStaff, bassStaff}
 		return newSheet

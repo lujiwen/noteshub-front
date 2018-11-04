@@ -57,7 +57,7 @@ export default class Notes extends Component {
 
     this.tieStart
     this.stopStart
-
+    this.division = 0
   }
 
   render() {
@@ -66,11 +66,14 @@ export default class Notes extends Component {
   }
 
   buildVexNotes(measure, partId, measureId, clefType = "treble") {
-    let divisions = measure.attributes.divisions
+    if (measure.attributes.divisions != 0 ) {
+      this.divisions = measure.attributes.divisions
+    }
+
     return measure.note.map(function (note, noteId) {
       console.log(note)
       let keys = []
-      let duration = 1 / (note.duration / divisions / this.beatType)
+      let duration = 1 / (note.duration / this.divisions / this.beatType)
 
       // if (note.grace.Local === "grace") {
       //   return
