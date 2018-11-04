@@ -188,9 +188,9 @@ func (sheet *MXLDoc)UpdateMxml() *MXLDoc  {
 			}
 
 			trebleStaff.Measures = append(trebleStaff.Measures, trebleMeasure)
-			trebleStaff.IsTreble = true
+			trebleStaff.IsTreble = attribute.Clef[0].isTreble()
 			bassStaff.Measures = append(bassStaff.Measures, bassMeasure)
-			bassStaff.IsTreble = false
+			bassStaff.IsTreble = attribute.Clef[1].isTreble()
 		}
 		newSheet.Parts = []Part{trebleStaff, bassStaff}
 		return newSheet
@@ -237,6 +237,14 @@ func (sheet *MXLDoc)TypeOfStave() StaveType  {
 	return PIANO
 }
 
+func (clef Clef) isTreble() bool {
+	if clef.Sign == "F" && clef.Line == 4 {
+		return false
+	} else if clef.Sign == "G" && clef.Line == 2 {
+		return true
+	}
+	return true
+}
 
 func (attributes Attributes)TypeOfMeasure() StaveType {
 	if attributes.Clef[0].Sign == "F" && attributes.Clef[0].Line == 4 {
