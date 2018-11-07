@@ -143,9 +143,7 @@ func (note *Note)TranslateNoteType() {
     case "16th":
     noteType = "16"
     break
-    //case "":
-    //noteType = "1"
-    //break
+
 
     default:
         noteType = note.Type
@@ -154,9 +152,6 @@ func (note *Note)TranslateNoteType() {
     note.Type = noteType
 }
 
-//func (measure *Measure)parseBeats() {
-//	measure.
-//}
 func (attr Attributes) ParseKey() Attributes  {
 	fifthCycle := [12]string{ "C", "G", "D", "A", "E" ,"B" , "F#", "C#" , "G#" ,"D#", "A#" ,"F"}
 	index, _ := strconv.Atoi(attr.Key.Fifths)
@@ -279,7 +274,8 @@ func (note *Note) AddAccidental() {
 
 func (measure *Measure) ParseMeasure()  {
 	var notes []Note
-
+	attribute := measure.Atters.ParseKey()
+	measure.Atters = attribute
   var keys []string
   chordStart := -1
   chordEnd   := -1
