@@ -16,9 +16,10 @@ const Navigation = ({ dispatch }) => {
     dispatch(toggleLeftDrawer)
   }
 
-  this.toLogin = function (e) {
-    dispatch(login)
+  this.signOut = function (e) {
+    dispatch({type:"SIGN_OUT"})
   }
+
 
   return (
     <div>
@@ -51,9 +52,9 @@ const Navigation = ({ dispatch }) => {
           <Icon type="notification" />消息
         </Menu.Item>
 
-        <SubMenu title={<Avatar shape="circle" src={"./avatar.svg"} onClick = {this.toLogin}></Avatar>} style={{"float": "right"}}>
+        <SubMenu title={<Avatar shape="circle" src={"./avatar.svg"} ></Avatar>} style={{"float": "right"}}>
           <Menu.Item key="help">帮助</Menu.Item>
-          <Menu.Item key="signOut">登出</Menu.Item>
+          <Menu.Item key="signOut" onClick = {this.signOut}>登出</Menu.Item>
         </SubMenu>
       </Menu>
     </div>
