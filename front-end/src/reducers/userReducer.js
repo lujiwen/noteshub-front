@@ -23,6 +23,10 @@ const userReducer = (state = initialState, action) => {
       console.log("LOGIN_SUCCEED")
       return {isLogin: true, isLoginPending: false, message: action.payload}
       break
+    case 'SIGN_OUT':
+      console.log("SIGN_OUT")
+      return {isLogin: false, isLoginPending: false, message: action.payload}
+      break
     default:
       return state;
   }

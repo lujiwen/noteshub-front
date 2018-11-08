@@ -6,46 +6,30 @@ import { login, clear } from './../../actions/UserAction';
 import * as styles from './UserLogin.css';
 import store from "../../store/store";
 import UserRegister from "./UserRegister";
+import {toggleLeftDrawer} from "../../actions/NavigationAction";
+import {redirectToPersonalPage, redirectToUpload} from "../../actions/LedtDrawerAction";
 
 const FormItem = Form.Item;
-class UserLogin extends Component {
-  constructor(props) {
-    super(props);
-  }
-  componentWillReceiveProps(nextProps) {
-    const { userRedu } = nextProps;
-    const { dispatch, history } = this.props;
+const UserLogin = ({isLogin, form, login}) => {
 
-    let datas = {};
-    datas.userRedu = userRedu;
-    datas.dispatch = dispatch;
-    datas.clear = clear;
-    datas.history = history;
-    // tips.alertMessage.call(datas);
-  }
+  const { getFieldDecorator } = form;
 
-  toLogin = (e) => {
+
+  function toLogin(e) {
     e.preventDefault();
-    this.props.form.validateFields((err, values) => {
+
+    form.validateFields((err, values) => {
       if (!err) {
-        const { dispatch } = this.props;
-        login(dispatch, values);// values contains: password ,remember, userName
+        login(values);// values contains: password ,remember, userName
       }
-    });
-  };
+    })
+  }
 
-
-  render() {
-    const { forgetPassword, form } = this.props;
-    const { getFieldDecorator } = form;
-    let state = this.props.userReducer
-    switch (state.isLogin) {
-      case true:
-        return <UserRegister/>
-      case false:
-      default:
+    if(isLogin) {
+      return <UserRegister/>
+    } else {
       return (
-          <Form onSubmit={this.toLogin} className="login-form">
+          <Form onSubmit={toLogin} className="login-form">
             <FormItem>
               {getFieldDecorator('userName', {
                 rules: [{ required: true, message: '请输入用户名!' }],
@@ -74,9 +58,7 @@ class UserLogin extends Component {
           </Form>
       )
     }
-
   }
-}
 
 const WrappedNormalLoginForm = Form.create()(UserLogin);
 
@@ -87,16 +69,15 @@ const WrappedNormalLoginForm = Form.create()(UserLogin);
 // mapStateToProps的第一个参数总是state对象，还可以使用第二个参数，代表容器组件的props对象
 // 使用ownProps作为第二个参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染
 // connect方法可以省略mapStateToProps参数，那样的话，UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新
-function mapStateToProps(state, oWnprops) {
-  switch (state.login) {
-    case "LOGIN_SUCCEED":
-      break
-    case "LOGIN_FAILED":
-      break
-  }
-  console.log("state:" + state + " , props:" + oWnprops)
-  return state;
+function mapStateToProps(state) {
+  return {isLogin: state.userReducer.isLogin};
 }
+
+const mapDispatchToProps = dispatch => ({
+  toRegister: () => dispatch({type:"TO_REGISTER"}),
+  login: (values) => login(dispatch,values)
+
+})
 
 // mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射
 // 也就是说，它定义了哪些用户的操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象
@@ -105,4 +86,4 @@ function mapStateToProps(state, oWnprops) {
 // function mapDispatchToProps() {
 //
 // }
-export default connect(mapStateToProps)(WrappedNormalLoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedNormalLoginForm);
