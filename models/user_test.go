@@ -108,3 +108,13 @@ func TestIsRecordExist(t *testing.T) {
 		t.Error("13548188553 not  exists")
 	}
 }
+
+func TestIsUserExist(t *testing.T) {
+	x, _ = GetConnection()
+	//user := &User{PhoneNumber: "13548188553" , Password: "123"}
+	if isUserExist("13548188553") {
+		t.Log("pass")
+	} else {
+		t.Error("failed!")
+	}
+}

@@ -27,7 +27,7 @@ const UserLogin = ({isLogin, form, login}) => {
   }
 
     if(isLogin) {
-      return <Redirect to={'/register'}></Redirect>
+      return <Redirect to={'/sheet'}></Redirect>
     } else {
       return (
           <Form onSubmit={toLogin} className="login-form">

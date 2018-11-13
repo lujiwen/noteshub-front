@@ -151,7 +151,7 @@ func (User)Login(c *gin.Context) {
 }
 
 func isUserExist(phoneNumber string) bool {
-    exist, _ := x.Exist(&User{PhoneNumber: phoneNumber})
+    exist, _ := x.Get(&User{PhoneNumber: phoneNumber})
 	return exist
 }
 
