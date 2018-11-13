@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import {Avatar, Icon, Input, Menu} from 'antd';
 import {toggleLeftDrawer} from "../actions/NavigationAction";
 import {login} from "../actions/UserAction";
+import navigationReducer from "../reducers/navigationReducer";
+import {Redirect} from "react-router";
 
 const Search = Input.Search;
 
@@ -10,15 +12,16 @@ const SubMenu = Menu.SubMenu;
 const MenuItemGroup = Menu.ItemGroup;
 
 
-const Navigation = ({ dispatch }) => {
+const Navigation = ({isSignOut, dispatch }) => {
 
   this.toggleDraw = function (e) {
     dispatch(toggleLeftDrawer)
   }
 
-  this.signOut = function (e) {
+  this.signOut = function () {
     dispatch({type:"SIGN_OUT"})
   }
+
 
 
   return (
@@ -60,6 +63,11 @@ const Navigation = ({ dispatch }) => {
     </div>
   )
 }
+function mapStateToProps(state) {
+  return {
+    isSignOut: state.navigationReducer.isSignOut,
+  };
+}
 
 
-export default connect()(Navigation)
+export default connect(mapStateToProps)(Navigation)

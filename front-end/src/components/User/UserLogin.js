@@ -8,6 +8,7 @@ import store from "../../store/store";
 import UserRegister from "./UserRegister";
 import {toggleLeftDrawer} from "../../actions/NavigationAction";
 import {redirectToPersonalPage, redirectToUpload} from "../../actions/LedtDrawerAction";
+import Redirect from "react-router/es/Redirect";
 
 const FormItem = Form.Item;
 const UserLogin = ({isLogin, form, login}) => {
@@ -26,7 +27,7 @@ const UserLogin = ({isLogin, form, login}) => {
   }
 
     if(isLogin) {
-      return <UserRegister/>
+      return <Redirect to={'/register'}></Redirect>
     } else {
       return (
           <Form onSubmit={toLogin} className="login-form">
@@ -70,7 +71,9 @@ const WrappedNormalLoginForm = Form.create()(UserLogin);
 // 使用ownProps作为第二个参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染
 // connect方法可以省略mapStateToProps参数，那样的话，UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新
 function mapStateToProps(state) {
-  return {isLogin: state.userReducer.isLogin};
+  return {
+    isLogin: state.userReducer.isLogin,
+    };
 }
 
 const mapDispatchToProps = dispatch => ({

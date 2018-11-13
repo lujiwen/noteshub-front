@@ -12,63 +12,32 @@ import Stave from "./components/Stave";
 import PersonalPage from "./components/PersonalPage";
 import Profile from "./components/Profile";
 import UploadMusicSheet from "./components/UploadMusicSheet";
+import connect from "react-redux/es/connect/connect";
+import {Redirect} from "react-router";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
 
-class App extends Component {
+const App = ({isSignOut}) =>  {
 
-
-  render() {
-
-      this.state = {
-          top: 10,
-          bottom: 10,
-      }
-      const Dragger = Upload.Dragger;
-
-      const props = {
-          name: 'file',
-          multiple: true,
-          action: '//127.0.0.1:8080/v1/upload/',
-          onChange(info) {
-              const status = info.file.status;
-              if (status !== 'uploading') {
-                  console.log(info.file, info.fileList);
-              }
-              if (status === 'done') {
-                  message.success(`${info.file.name} file uploaded successfully.`);
-              } else if (status === 'error') {
-                  message.error(`${info.file.name} file upload failed.`);
-              }
-          },
-      };
-
-      return (
-              <div>
-                {/*<UploadMusicSheet/>*/}
-                {/*<Profile/>*/}
-                <Stave/>
-                {/*<PersonalPage/>*/}
-                {/*<WrappedNormalLoginForm/>*/}
-                  {/*<LayoutFooter/>*/}
-                  {/*<Dragger {...props}>*/}
-                      {/*<p className="ant-upload-drag-icon">*/}
-                          {/*<Icon type="inbox" />*/}
-                      {/*</p>*/}
-                      {/*<p className="ant-upload-text">Click or drag file to this area to upload</p>*/}
-                      {/*<p className="ant-upload-hint">Support for a single or bulk upload. Strictly prohibit from uploading company data or other band files</p>*/}
-                  {/*</Dragger>*/}
-                  {/*<Header />*/}
-                  {/*<SheetContainer/>*/}
-                  {/*<Header />*/}
-                  {/*<div >*/}
-                      {/*/!*<Scheme />*!/*/}
-                      {/*<SheetContainer />*/}
-                  {/*</div>*/}
-              </div>
+  if(isSignOut) {
+    return (<Redirect to={'/login'}></Redirect>)
+  } else {
+    return (
+        <div>
+          <Stave/>
+        </div>
     );
   }
-}
+  }
 
-export default App;
+  const mapStateToProps = (state) => {
+    return ({
+      isSignOut: state.navigationReducer.isSignOut
+    })
+  }
+
+  const mapDispatchToProps = dispatch => {
+    return ({})
+  }
+export default connect(mapStateToProps, mapDispatchToProps)(App)
