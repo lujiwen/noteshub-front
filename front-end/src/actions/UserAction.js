@@ -22,7 +22,7 @@ const updatePassword = (dispatch, values) => {
 
 const login = (dispatch, values) => {
   let data = JSON.stringify({
-    username: values.userName,
+    phoneNumber: values.userName,
     password: values.password
   })
 

@@ -156,7 +156,10 @@ func isUserExist(phoneNumber string) bool {
 }
 
 func isUserValidated(phone string, password string) bool{
-	exist, _ := x.Where("phone_number=? and password=?", phone, password).Get(User{})
+	//exist, _ := x.Where("phone_number=? and password=?", phone, password).Get(User{})
+	//return exist
+	user := &User{PhoneNumber: phone, Password: password}
+	exist, _ := x.Get(user)
 	return exist
 }
 
