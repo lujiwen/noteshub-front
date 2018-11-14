@@ -1,7 +1,7 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import {Route, withRouter} from "react-router-dom";
-import { Form, Icon, Input, Button, Checkbox, message } from 'antd';
+import {Form, Icon, Input, Button, Checkbox, message, Alert} from 'antd';
 import { login, clear } from './../../actions/UserAction';
 import * as styles from './UserLogin.css';
 import store from "../../store/store";
@@ -11,7 +11,7 @@ import {redirectToPersonalPage, redirectToUpload} from "../../actions/LedtDrawer
 import Redirect from "react-router/es/Redirect";
 
 const FormItem = Form.Item;
-const UserLogin = ({isLogin, form, login}) => {
+const UserLogin = ({isLogin, form, login, loginSucceed, loginAlert}) => {
 
   const { getFieldDecorator } = form;
 
@@ -26,9 +26,10 @@ const UserLogin = ({isLogin, form, login}) => {
     })
   }
 
-    if(isLogin) {
+    if(loginSucceed) {
       return <Redirect to={'/sheet'}></Redirect>
-    } else {
+    }
+     else {
       return (
           <Form onSubmit={toLogin} className="login-form">
             <FormItem>
@@ -56,6 +57,11 @@ const UserLogin = ({isLogin, form, login}) => {
               <Button type="primary" htmlType="submit" className="login-form-button">登录</Button>
               或者 <a href="register">立即注册!</a>
             </FormItem>
+          {/*<FormItem>*/}
+              {/*{(! loginSucceed) &&*/}
+                {/*<Alert  message="Success Text" type="Error" />*/}
+              {/*}*/}
+          {/*</FormItem>*/}
           </Form>
       )
     }
@@ -73,13 +79,14 @@ const WrappedNormalLoginForm = Form.create()(UserLogin);
 function mapStateToProps(state) {
   return {
     isLogin: state.userReducer.isLogin,
+    loginSucceed: state.userReducer.loginSucceed
     };
 }
 
 const mapDispatchToProps = dispatch => ({
   toRegister: () => dispatch({type:"TO_REGISTER"}),
-  login: (values) => login(dispatch,values)
-
+  login: (values) => login(dispatch,values),
+  loginAlert: () => message.info('登陆失败！')
 })
 
 // mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射

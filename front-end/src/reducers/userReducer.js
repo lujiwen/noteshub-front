@@ -1,4 +1,10 @@
-import { initialState } from './../store/UserStore';
+
+export const initialState = {
+  isLogin: false,
+  isLoginPending: false,
+  message: '',
+  loginSucceed: false
+}
 
 const userReducer = (state = initialState, action) => {
   switch(action.type) {
@@ -17,11 +23,11 @@ const userReducer = (state = initialState, action) => {
       break
     case 'LOGIN_FAILED':
       console.log("LOGIN_FAILED")
-      return {isLogin: false, isLoginPending: false, message: action.payload}
+      return {isLogin: false, isLoginPending: false, message: action.payload, loginSucceed: false}
       break
     case 'LOGIN_SUCCEED':
       console.log("LOGIN_SUCCEED")
-      return {isLogin: true, isLoginPending: false, message: action.payload}
+      return {isLogin: true, isLoginPending: false, message: action.payload, loginSucceed: true}
       break
     case 'SIGN_OUT':
       console.log("SIGN_OUT")
