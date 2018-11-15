@@ -14,14 +14,14 @@ import (
 // AccessToken represents a personal access token.
 type AccessToken struct {
 	ID   int64
-	UID  int64 `xorm:"INDEX"`
-	Name string
+	UID  int64 `xorm:"INDEX" 'u_i_d'`
+	Name string `xorm:"INDEX" 'name'`
 	Sha1 string `xorm:"UNIQUE VARCHAR(40)"`
 
-	Created           time.Time `xorm:"-" json:"-"`
-	CreatedUnix       int64
+	Created           time.Time `xorm:"created" json:"-"`
+	CreatedUnix       int64 `xorm:"created" json:"-"`
 	Updated           time.Time `xorm:"-" json:"-"` // Note: Updated must below Created for AfterSet.
-	UpdatedUnix       int64
+	UpdatedUnix       int64 `xorm:"updated" json:"-"`
 	HasRecentActivity bool `xorm:"-" json:"-"`
 	HasUsed           bool `xorm:"-" json:"-"`
 }

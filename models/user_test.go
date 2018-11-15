@@ -129,3 +129,17 @@ func TestFindUserByPhoneNumber(t *testing.T) {
 		t.Error("failed! can not find user by phone number :" + phoneNumber + err.Error())
 	}
 }
+
+func TestGenerateAccessToken(t *testing.T) {
+	x, _ = GetConnection()
+	phoneNumber := "13548188553"
+	user, _ := findUserByPhoneNumber(phoneNumber)
+
+	token := generateAccessToken(user)
+	if token.Sha1 != "" {
+		t.Log("pass: token sha1: " +  token.Sha1 )
+	} else {
+		t.Error("failed to generate token !")
+	}
+
+}
