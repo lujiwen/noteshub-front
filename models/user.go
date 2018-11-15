@@ -23,14 +23,14 @@ type User struct {
 	Name      string `xorm:"UNIQUE NOT NULL"`
 	FullName  string
 	// Email is the primary email address (to be used for communication)
-	PhoneNumber       string `xorm:"UNIQUE NOT NULL" form:"phoneNumber" json:"phoneNumber" binding:"required"`
+	PhoneNumber       string `xorm:"UNIQUE NOT NULL 'phone_number'" form:"phoneNumber" json:"phoneNumber" binding:"required"`
 	Email             string
-	Password      string `xorm:"NOT NULL" form:"password" json:"password" binding:"required"`
+	Password      string `xorm:"NOT NULL " form:"password" json:"password" binding:"required"`
 	LoginType   LoginType
 	//LoginSource int64 `xorm:"NOT NULL DEFAULT 0"`
 	//LoginName   string
 	//Type        UserType
-	//OwnedOrgs   []*User       `xorm:"-" json:"-"`
+	//OwnedOrgs   []*User       `xorm:"-" json:"-"`  // - means 这个Field将不进行字段映射 https://www.kancloud.cn/kancloud/xorm-manual-zh-cn/56004
 	//Orgs        []*User       `xorm:"-" json:"-"`
 	//Repos       []*Repository `xorm:"-" json:"-"`
 	Location    string
@@ -138,6 +138,10 @@ func (User)Login(c *gin.Context) {
 		return
 	}
 	if isUserValidated(phone, password) {
+		// generate access token
+		// get UserId 
+		
+
 		session.Set("phone", phone) //In real world usage you'd set this to the users ID
 		err := session.Save()
 		if err != nil {
@@ -199,6 +203,16 @@ func (User)Logout(c *gin.Context) {
 		session.Delete("user")
 		session.Save()
 		c.JSON(http.StatusOK, gin.H{"message": "Successfully logged out"})
+	}
+}
+
+func findUserByPhoneNumber(phoneNumber string) (User, error) {
+	var user User
+	has, err := x.Table("user").Where("phone_number = ?", phoneNumber).Get(&user)
+	if has && err == nil {
+		return user, nil
+	} else {
+		return user, err
 	}
 }
 

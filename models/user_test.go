@@ -118,3 +118,14 @@ func TestIsUserExist(t *testing.T) {
 		t.Error("failed!")
 	}
 }
+
+func TestFindUserByPhoneNumber(t *testing.T) {
+	x, _ = GetConnection()
+	phoneNumber := "13548188553"
+	user, err := findUserByPhoneNumber(phoneNumber)
+	if err == nil  {
+		t.Log("pass: user name :" +  user.Name )
+	} else {
+		t.Error("failed! can not find user by phone number :" + phoneNumber + err.Error())
+	}
+}
