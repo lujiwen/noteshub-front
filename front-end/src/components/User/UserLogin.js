@@ -11,7 +11,7 @@ import {redirectToPersonalPage, redirectToUpload} from "../../actions/LedtDrawer
 import Redirect from "react-router/es/Redirect";
 
 const FormItem = Form.Item;
-const UserLogin = ({isLogin, form, login, loginSucceed, loginAlert}) => {
+const UserLogin = ({isLogin, form, login, loginResult }) => {
 
   const { getFieldDecorator } = form;
 
@@ -26,7 +26,8 @@ const UserLogin = ({isLogin, form, login, loginSucceed, loginAlert}) => {
     })
   }
 
-    if(loginSucceed) {
+    if(loginResult.isSucceed) {
+      localStorage.setItem("token", loginResult.token.Sha1)
       return <Redirect to={'/sheet'}></Redirect>
     }
      else {
@@ -79,7 +80,7 @@ const WrappedNormalLoginForm = Form.create()(UserLogin);
 function mapStateToProps(state) {
   return {
     isLogin: state.userReducer.isLogin,
-    loginSucceed: state.userReducer.loginSucceed
+    loginResult: {isSucceed: state.userReducer.loginSucceed, token: state.userReducer.message.token}
     };
 }
 
