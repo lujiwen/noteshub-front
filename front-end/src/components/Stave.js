@@ -15,7 +15,8 @@ class Stave extends Component {
   }
 
   componentWillMount() {
-    axios.get("http://127.0.0.1:8080/sheet/1")
+    let token = localStorage.getItem("token")
+    axios.get("http://127.0.0.1:8080/sheet/1", {headers: {"Access-Token": `${token}`}})
         .then(response => {
           this.setState({sheet: response.data});
         })

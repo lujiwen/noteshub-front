@@ -110,6 +110,13 @@ func (MusicSheet)Upload(c *gin.Context) {
 func (MusicSheet)GetSheet(c *gin.Context) {
 	c.Header("Content-Type", "application/json; charset=UTF-8")
 	c.Header("Access-Control-Allow-Origin", "*")
+	token := c.GetHeader("Access-Token")
+
+	if accessToken, e := GetAccessTokenBySHA(token); e==nil {
+		log.Info("access token of :" + accessToken.Name)
+	} else {
+		c.AbortWithStatus(http.StatusUnauthorized)
+	}
 	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
 		log.Info("get sheet by id : %s", &sheetId)
 		//sheet := MusicSheet{sheetId, "./location", "1", time.Now(), time.Now()}
