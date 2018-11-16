@@ -20,7 +20,7 @@ func main() {
 	config := cors.New(cors.Config{
 		AllowOriginFunc:  func(origin string) bool { return true },
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE", "PATCH"},
-		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type"},
+		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type, Access-Token"},
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 		//AllowOrigins:     []string{"http://localhost:3000"} ,
