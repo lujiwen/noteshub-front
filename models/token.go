@@ -52,6 +52,17 @@ func NewAccessToken(t *AccessToken) error {
 	return err
 }
 
+
+func GenerateAccessToken(user User) (AccessToken, error){
+	idString := string(user.ID)
+	sha1 := tool.SHA1(idString)
+	token := AccessToken{Sha1: sha1, Name: user.Name, UID: user.ID, HasUsed: false}
+	if _, e := x.InsertOne(token); e != nil {
+		return AccessToken{}, e
+	}
+	return token, nil
+}
+
 // GetAccessTokenBySHA returns access token by given sha1.
 func GetAccessTokenBySHA(sha string) (*AccessToken, error) {
 	if sha == "" {

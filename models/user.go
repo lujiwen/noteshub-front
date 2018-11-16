@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"noteshub/pkg/tool"
 	"strings"
 	"time"
 )
@@ -143,8 +142,8 @@ func (User)Login(c *gin.Context) {
 		// get UserId 
 		user, _ := findUserByPhoneNumber(phone)
 
-		token := generateAccessToken(user)
-		x.InsertOne(token)
+		token, _ := GenerateAccessToken(user)
+
 
 		session.Set("phone", phone) //In real world usage you'd set this to the users ID
 		err := session.Save()
@@ -158,12 +157,6 @@ func (User)Login(c *gin.Context) {
 	}
 }
 
-func generateAccessToken(user User) AccessToken {
-	idString := string(user.ID)
-	sha1 := tool.SHA1(idString)
-	token := AccessToken{Sha1: sha1, Name: user.Name, UID: user.ID, HasUsed: false}
-	return token
-}
 
 func isUserExist(phoneNumber string) bool {
     exist, _ := x.Get(&User{PhoneNumber: phoneNumber})
