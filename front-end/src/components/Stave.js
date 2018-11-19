@@ -5,80 +5,57 @@ import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import axios from 'axios'
 import {Rate} from "antd";
+import PlayButton from "./PlayButton";
 
-class Stave extends Component {
-
-  constructor(props) {
-      super(props);
-      this.state = {sheet: null};
-      // var sheet = this.props.sheet
+const Stave = ({sheet}) => {
+    if(sheet != null) {
+      return (
+          <div style={{"text-align":"center", "margin":"10px"}}>
+            <div style={{"font-size": "x-large", "font-family": "serif"}}>彩虹🌈</div>
+            <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>词：随便</p>
+            <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>曲：周杰伦</p>
+            <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>制谱：鲁继文</p>
+            <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>音调：C调</p>
+            <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>
+              难度：
+              <Rate allowHalf defaultValue={2.5} />
+            </p>
+            <Notes sheet={this.state.sheet} />
+          </div>)
+    } else {
+      return (<div>123</div>)
+    }
   }
-
-  componentWillMount() {
-    let token = localStorage.getItem("token")
-    axios.get("http://127.0.0.1:8080/sheet/1", {headers: {"Access-Token": `${token}`}})
-        .then(response => {
-          this.setState({sheet: response.data});
-        })
-  }
-
-    componentDidMount() {
-      window.addEventListener("resize", this.updateDimensions);
-    }
-
-    componentDidUpdate() {
-    }
-
-    componentWillUnmount() {
-      window.removeEventListener("resize", this.updateDimensions);
-    }
-
-    updateDimensions = () => {
-      this.setState({windowWidth:window.innerWidth});
-    }
-
-
-    shouldComponentUpdate(nextProps) {
-      return !nextProps.shouldUpdate
-    }
-
-    render() {
-      if(this.state.sheet != null) {
-        console.log(this.state.sheet)
-
-        return <div style={{"text-align":"center", "margin":"10px"}}>
-          <div style={{"font-size": "x-large", "font-family": "serif"}}>普通DISCO</div>
-          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>词：随便</p>
-          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>曲：周杰伦</p>
-          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>制谱：鲁继文</p>
-          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>音调：C调</p>
-          <p style={{"font-size": "small", "font-family": "serif", "text-align":"left", "vertical-align":"middle", "margin-left":10, "margin-bottom":0, "padding-left": "100px"}}>
-            难度：
-            <Rate allowHalf defaultValue={2.5} />
-          </p>
-          <Notes sheet={this.state.sheet} />
-
-        </div>
-      } else {
-        return <div></div>
-      }
-    }
-}
-
-Stave.propTypes = {
-  parts: PropTypes.array,
-  signature: PropTypes.string,
-  scale: PropTypes.number,
-  width: PropTypes.number,
-};
 
 const mapStateToProps = (state) => {
   return {
-    signature: state.settings.key,
-    scale: state.settings.scale,
-    parts: state.parts,
+
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return ({})
+}
 
-// export default connect(mapStateToProps)(Stave);
-export default Stave
+// componentWillMount() {
+//   let token = localStorage.getItem("token")
+//   axios.get("http://127.0.0.1:8080/sheet/1", {headers: {"Access-Token": `${token}`}})
+//       .then(response => {
+//         console.log("response is : ")
+//
+//         console.log(response.data)
+//
+//         switch (response.status) {
+//           case 401:
+//             console.log("not authorized!")
+//             this.setState({sheet: response.data});
+//             break;
+//           case 200:
+//             this.setState({sheet: response.data});
+//             break;
+//         }
+//       })
+// }
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stave);

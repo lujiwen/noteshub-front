@@ -87,7 +87,7 @@ func GetAccessToken(c *gin.Context) (*AccessToken) {
 	if  e == nil {
 		log.Info("access token of :" + accessToken.Name)
 	} else {
-		c.AbortWithStatus(http.StatusUnauthorized)
+		c.JSON(http.StatusUnauthorized, gin.H{"message": "Unauthorized"})
 	}
 	return accessToken
 }

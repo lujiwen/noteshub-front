@@ -27,6 +27,7 @@ import Profile from "./components/Profile";
 import history from "./reducers/history"
 import UploadMusicSheet from "./components/UploadMusicSheet";
 import Stave from "./components/Stave";
+import PersonalPage from "./components/PersonalPage";
 // const store = configureStore();
 const networkInterface = createNetworkInterface({ uri: 'http://localhost:4000/graphql' });
 
@@ -91,6 +92,8 @@ ReactDOM.render(
               <Route path="/profile" component={Profile}/>
               <Route path="/upload"  component={UploadMusicSheet}/>
               <Route path="/sheet"  component={Stave}/>
+              <Route path="/:username" component={PersonalPage}/>
+
               <Route component={Error}/>
             </Switch>
           </div>

@@ -19,10 +19,9 @@ const Navigation = ({isSignOut, dispatch }) => {
   }
 
   this.signOut = function () {
+    localStorage.setItem("token", "")
     dispatch({type:"SIGN_OUT"})
   }
-
-
 
   return (
     <div>

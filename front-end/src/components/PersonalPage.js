@@ -5,11 +5,13 @@ import {connect} from 'react-redux';
 import Profile from "./Profile";
 import Stave from "./Stave";
 import {Redirect} from "react-router";
+import PlayButton from "./PlayButton";
+import PropTypes from "prop-types";
 
 
-const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile}) => {
+const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile, username}) => {
+  console.log("username :" + username)
   if (startEdit) {
-
     return (
        /*<Redirect to={"/profile"} push={"/"} ></Redirect>*/
          <Profile/>
@@ -24,7 +26,7 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
               <div style={{"text-align": "center"}}>
                 <Avatar size={270} shape="square" icon="user" />
               </div>
-              <text style={{"text-align": "center"}}>名字</text>
+              <text style={{"text-align": "center"}}>{username}</text>
               <text style={{"text-align": "center"}}>写个签名吧</text>
               <Button type="default" onClick={editProfile}><Icon type="edit" theme="outlined"  />编辑资料</Button>
               <Divider />
@@ -55,12 +57,13 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(state,ownProps) {
   return {
     chooseTabNumber: state.personalPageReducer.chooseTabNumber,
     startEdit: state.profileReducer.start_edit,
     endEdit: state.profileReducer.end_edit,
-    viewSheet: state.sheetReducer.viewSheet
+    viewSheet: state.sheetReducer.viewSheet,
+    username: ownProps.match.params.username
   };
 }
 
@@ -75,7 +78,6 @@ const mapDispatchToProps = dispatch => ({
     dispatch({type: "EDIT_PROFILE"})
   }
 })
-
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalPage)
