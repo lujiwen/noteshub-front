@@ -36,7 +36,7 @@ type SheetFile struct {
 type MusicSheet struct {
 	ID               int64  // only set ID with type "int64", then it can be a primary key
 	Location         string `xorm:"UNIQUE NOT NULL" json:"location"  `
-	UserId           string `xorm:"UNIQUE NOT NULL" json:"userId"  `
+	UserId           int64 `xorm:"UNIQUE NOT NULL" json:"userId"  `
 	CreateTime       time.Time `xorm:"UNIQUE NOT NULL" json:"createTime"  `
 	LastModifiedTime time.Time `json:"lastModifiedTime"  `
 	SheetType        SheetType `json:"sheetType" binding:"required"`
@@ -52,12 +52,14 @@ type MusicSheet struct {
 }
 
 func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
+	accessToken := GetAccessToken(c)
+
 	var sheetFile MusicSheet
 	if err := c.ShouldBindJSON(&sheetFile); err == nil {
 		log.Info("receive")
 		//save to db upload
 		destinationDir := "/Users/lujiwen/noteshub/upload_files"
-		sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + sheetFile.Filename, Filename: sheetFile.Filename, CreateTime: time.Now(), UserId: "1" }
+		sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + sheetFile.Filename, Filename: sheetFile.Filename, CreateTime: time.Now(), UserId: accessToken.UID }
 		if  _, err := x.InsertOne(sheetFile); err != nil{
 			c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse! %s", sheetFile.Filename, err.Error()))
 
@@ -70,6 +72,7 @@ func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
 }
 
 func (MusicSheet)Upload(c *gin.Context) {
+	accessToken := GetAccessToken(c)
 	// single file
 	file, _ := c.FormFile("file")
 	log.Info(file.Filename)
@@ -91,7 +94,7 @@ func (MusicSheet)Upload(c *gin.Context) {
 	// todo: add transaction to ensure save to dir and db succeed or failed together
 	//save to db upload
 	destinationDir := "/Users/lujiwen/noteshub/upload_files"
-	sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + file.Filename, Filename: filename, CreateTime: time.Now(), UserId: "1" }
+	sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + file.Filename, Filename: filename, CreateTime: time.Now(), UserId: accessToken.UID}
 	if  _, err := x.InsertOne(sheetFile); err != nil{
 		c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse!", file.Filename))
 
@@ -110,13 +113,9 @@ func (MusicSheet)Upload(c *gin.Context) {
 func (MusicSheet)GetSheet(c *gin.Context) {
 	c.Header("Content-Type", "application/json; charset=UTF-8")
 	c.Header("Access-Control-Allow-Origin", "*")
-	token := c.GetHeader("Access-Token")
 
-	if accessToken, e := GetAccessTokenBySHA(token); e==nil {
-		log.Info("access token of :" + accessToken.Name)
-	} else {
-		c.AbortWithStatus(http.StatusUnauthorized)
-	}
+	GetAccessToken(c)
+
 	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
 		log.Info("get sheet by id : %s", &sheetId)
 		//sheet := MusicSheet{sheetId, "./location", "1", time.Now(), time.Now()}

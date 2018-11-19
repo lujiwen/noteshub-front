@@ -5,8 +5,10 @@
 package models
 
 import (
+	"github.com/gin-gonic/gin"
+	"net/http"
 	"time"
-
+	log "gopkg.in/clog.v1"
 	"github.com/go-xorm/xorm"
 	"github.com/gogs/gogs/pkg/tool"
 )
@@ -76,6 +78,18 @@ func GetAccessTokenBySHA(sha string) (*AccessToken, error) {
 		return nil, ErrAccessTokenNotExist{sha}
 	}
 	return t, nil
+}
+
+
+func GetAccessToken(c *gin.Context) (*AccessToken) {
+	token := c.GetHeader("Access-Token")
+	accessToken, e := GetAccessTokenBySHA(token)
+	if  e == nil {
+		log.Info("access token of :" + accessToken.Name)
+	} else {
+		c.AbortWithStatus(http.StatusUnauthorized)
+	}
+	return accessToken
 }
 
 // ListAccessTokens returns a list of access tokens belongs to given user.
