@@ -125,3 +125,21 @@ func (MusicSheet)GetSheet(c *gin.Context) {
 		c.AbortWithStatus(http.StatusNotFound)
 	}
 }
+
+func (MusicSheet)GetUploadSheetsByUser(c *gin.Context) {
+	accessToken := GetAccessToken(c)
+	userId := accessToken.UID
+	//sheet := &MusicSheet{UserId: userId}
+	if sheets, e := GetSheetByUserId(userId); e == nil {
+		c.JSON(http.StatusOK, sheets)
+	} else {
+		c.AbortWithStatus(http.StatusNotFound)
+	}
+
+}
+
+func GetSheetByUserId(userId int64) ([]MusicSheet, error) {
+	sheets := make([]MusicSheet, 0)
+	err := x.Where("user_id = ?", userId).Limit(10, 0).Find(&sheets)
+	return sheets,err
+}

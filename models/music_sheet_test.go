@@ -34,3 +34,14 @@ func TestSaveToDatabse(t *testing.T) {
 		t.Log("save file to db successfully")
 	}
 }
+
+func TestGetSheetByUserId(t *testing.T) {
+	x, _ = GetConnection()
+
+	if sheets, e := GetSheetByUserId(1); e==nil {
+		t.Log("get sheets successfully", sheets)
+	} else {
+		t.Error(e.Error())
+	}
+
+}

@@ -6,7 +6,7 @@ import Button from "antd/es/button/button";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
 
-const PersonalTab = ({chooseTabNumber, uploadSheet}) => {
+const PersonalTab = ({chooseTabNumber, uploadSheet, sheets}) => {
   console.log(chooseTabNumber.toString())
   switch (chooseTabNumber.toString()) {
     case "0":
@@ -42,8 +42,9 @@ const PersonalTab = ({chooseTabNumber, uploadSheet}) => {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, props) => {
   // return {willUploadSheet: state.sheetReducer.uploadSheet}
+  return {username: props.username}
 }
 
 

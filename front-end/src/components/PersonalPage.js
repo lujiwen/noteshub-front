@@ -2,23 +2,23 @@ import React from 'react'
 import {Anchor, Avatar, Button, Divider, Icon, Layout, Menu} from 'antd';
 import PersonalTab from "./PersonalTab";
 import {connect} from 'react-redux';
-import Profile from "./Profile";
 import Stave from "./Stave";
-import {Redirect} from "react-router";
-import PlayButton from "./PlayButton";
-import PropTypes from "prop-types";
+import Redirect from "react-router/es/Redirect";
+import {fetchTabData} from "../actions/PersonalAction";
 
 
-const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile, username}) => {
+const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile, username, fetchTabData}) => {
+
   console.log("username :" + username)
   if (startEdit) {
     return (
-       /*<Redirect to={"/profile"} push={"/"} ></Redirect>*/
-         <Profile/>
+        <Redirect to={"/profile"}></Redirect>
      )
   } else if (viewSheet) {
     return <Stave/>
   } else {
+    let data = fetchTabData(chooseTabNumber)
+
     return (
         <div style={{padding: "20px"}}>
           <div style={{float:"left", width:"20%", margin:20}}>
@@ -49,7 +49,7 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
                 </Menu>
               </Anchor>
 
-              <PersonalTab style={{"background-color":"white"}} chooseTabNumber={chooseTabNumber}/>
+              <PersonalTab style={{"background-color":"white"}} username={username} chooseTabNumber={chooseTabNumber}/>
             </Layout>
           </div>
         </div>
@@ -76,6 +76,9 @@ const mapDispatchToProps = dispatch => ({
   },
   editProfile: () => {
     dispatch({type: "EDIT_PROFILE"})
+  },
+  fetchTabData: (chooseTabNumber) => {
+    fetchTabData(dispatch, chooseTabNumber)
   }
 })
 
