@@ -5,45 +5,59 @@ import TimeLine from "./Timeline";
 import Button from "antd/es/button/button";
 import {connect} from "react-redux";
 import {Redirect} from "react-router";
+import {fetchTabData} from "../actions/PersonalAction";
 
-const PersonalTab = ({chooseTabNumber, uploadSheet, sheets}) => {
-  console.log(chooseTabNumber.toString())
-  switch (chooseTabNumber.toString()) {
-    case "0":
-      return (
-          <div>
+
+class PersonalTab extends React.Component  {
+
+   // {chooseTabNumber, uploadSheet, sheets}
+
+  componentWillMount() {
+    console.log("componentWillMount in PersonalTab")
+    const { fetchTabData, chooseTabNumber }= this.props
+    fetchTabData(chooseTabNumber)
+  }
+
+  render () {
+    const {chooseTabNumber, uploadSheet, sheets} = this.props
+
+    console.log(this.props)
+    console.log(chooseTabNumber.toString())
+    switch (chooseTabNumber.toString()) {
+      case "0":
+        return (
             <div>
-              <SheetIntroCard />
-              <SheetIntroCard style={{width: "30%"}}/>
-              <Button type="dashed" onClick={uploadSheet}>
-                <Icon type="plus" /> 上传曲谱
-              </Button>
+              <div>
+                <SheetIntroCard style={{width: "30%"}}/>
+                <Button type="dashed" onClick={uploadSheet}>
+                  <Icon type="plus" /> 上传曲谱
+                </Button>
+              </div>
             </div>
-          </div>
-      )
-    case "1":
-      return (
-          <TimeLine/>
-      )
-    case "2":
-      return (
-          <div>
+        );
+      case "1":
+        return (
+            <TimeLine/>
+        )
+      case "2":
+        return (
+            <div>
 
-          </div>
-      )
-    case "3":
-      return (
-          <div></div>
-      )
-    default:
-      return (
-          <div></div>
-      )
+            </div>
+        )
+      case "3":
+        return (
+            <div></div>
+        )
+      default:
+        return (
+            <div></div>
+        )
+    }
   }
 }
 
 const mapStateToProps = (state, props) => {
-  // return {willUploadSheet: state.sheetReducer.uploadSheet}
   return {username: props.username}
 }
 
@@ -51,6 +65,9 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = dispatch => ({
   uploadSheet: () => {
     dispatch({type: "UPLOAD_SHEET"})
+  },
+  fetchTabData: (chooseTabNumber) => {
+    fetchTabData(dispatch, chooseTabNumber)
   }
 })
 

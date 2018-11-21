@@ -7,7 +7,7 @@ import Redirect from "react-router/es/Redirect";
 import {fetchTabData} from "../actions/PersonalAction";
 
 
-const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile, username, fetchTabData}) => {
+const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect, editProfile, username}) => {
 
   console.log("username :" + username)
   if (startEdit) {
@@ -17,8 +17,6 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
   } else if (viewSheet) {
     return <Stave/>
   } else {
-    let data = fetchTabData(chooseTabNumber)
-
     return (
         <div style={{padding: "20px"}}>
           <div style={{float:"left", width:"20%", margin:20}}>
@@ -76,9 +74,6 @@ const mapDispatchToProps = dispatch => ({
   },
   editProfile: () => {
     dispatch({type: "EDIT_PROFILE"})
-  },
-  fetchTabData: (chooseTabNumber) => {
-    fetchTabData(dispatch, chooseTabNumber)
   }
 })
 
