@@ -34,4 +34,30 @@ const startToUploadSheet = (dispatch, values) => {
       })
 }
 
-export {startToUploadSheet}
+const fetchSheetByID = ({dispatch, sheetId}) => {
+  console.log("start to fetchSheetById: " + sheetId )
+
+  let token = localStorage.getItem("token")
+  axios.get("http://127.0.0.1:8080/sheet/"+sheetId, {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+      "Access-Token": `${token}`
+    }
+  }).then(function (response) {
+        console.log("success:" + response)
+        dispatch({
+          type:'DOWNLOAD_SHEET_BY_ID_SUCCEED',
+          payload: response.data
+        });
+      })
+      .catch((err) => {
+        console.log("failed :" + err)
+        dispatch({
+          type:'DOWNLOAD_SHEET_BY_ID_FAILED',
+          payload: err
+        });
+      })
+}
+
+
+export {startToUploadSheet, fetchSheetByID}

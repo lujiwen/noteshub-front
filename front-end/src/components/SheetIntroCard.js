@@ -2,6 +2,7 @@ import React from 'react'
 import {Card, Icon} from "antd";
 import SheetTypeIcon from "./SheetTypeIcon";
 import connect from "react-redux/es/connect/connect";
+import {fetchSheetByID} from "../actions/SheetActions";
 
 const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 
@@ -21,7 +22,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
             </div>}
           style={{ "margin-bottom": 10, "margin-top": 10 }}
       >
-        <div onClick={viewSheet.bind(this, sheetInfo.location)}>
+        <div onClick={viewSheet.bind(this, sheetInfo.ID)}>
           <p>
             <SheetTypeIcon instrument={sheetInfo.sheetType==0?"piano":"guitar"}/>
           </p>
@@ -45,10 +46,10 @@ function mapStateToProps(state, prop) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  viewSheet: (sheetLocation) => {
-    console.log("viewSheet: " + sheetLocation)
+  viewSheet: (sheetId) => {
+    console.log("viewSheet: " + sheetId)
     // dispatch({type: "VIEW_SHEET", sheetId: 0 })
-    // dispatch({type: "DOWNLOAD_SHEET", sheetPath: sheetPath})
+    fetchSheetByID({dispatch, sheetId: sheetId})
   }
 })
 
