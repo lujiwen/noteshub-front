@@ -14,7 +14,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 
   return (
       <Card
-          title="消愁"
+          title={sheetInfo.title}
           extra={<div>
             <Icon style={{"margin-right": 20}} type="cloud-download" theme="outlined" />
             <Icon type="delete" theme="outlined" />
@@ -23,11 +23,11 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
       >
         <div onClick={viewSheet}>
           <p>
-            <SheetTypeIcon instrument={"guitar"}/>
+            <SheetTypeIcon instrument={sheetInfo.sheetType==0?"piano":"guitar"}/>
           </p>
-          <p>毛不易</p>
+          <p>{sheetInfo.composer}</p>
           <p>
-            <IconText type="star-o" text="156" />  <IconText type="like-o" text="156" />  <IconText type="message" text="2" />
+            <IconText type="star-o" text={sheetInfo.liked} />  <IconText type="like-o" text={sheetInfo.thumbUp} />  <IconText type="message" text="2" />
           </p>
         </div>
 
@@ -38,7 +38,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 
 function mapStateToProps(state, prop) {
   return {
-    sheetInfo: prop.sheet,
+    sheetInfo: prop.sheet.sheet,
     // startEdit: state.profileReducer.start_edit,
     // endEdit: state.profileReducer.end_edit
   };
