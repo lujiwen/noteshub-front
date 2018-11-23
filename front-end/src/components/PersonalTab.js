@@ -28,7 +28,11 @@ class PersonalTab extends React.Component  {
         return (
             <div>
               <div>
-                <SheetIntroCard style={{width: "30%"}}/>
+                {sheets.length > 0 ?
+                 sheets.map(sheet =>
+                    <SheetIntroCard style={{width: "30%"}} sheet={{sheet}}/>) :
+                    <div>loading...</div>
+                }
                 <Button type="dashed" onClick={uploadSheet}>
                   <Icon type="plus" /> 上传曲谱
                 </Button>
@@ -58,7 +62,8 @@ class PersonalTab extends React.Component  {
 }
 
 const mapStateToProps = (state, props) => {
-  return {username: props.username}
+  return {username: props.username,
+          sheets: state.personalTabReducer.sheets }
 }
 
 

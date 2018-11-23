@@ -1,5 +1,5 @@
 
-const personalTabReducer = (state = {sheets: {}}, action) => {
+const personalTabReducer = (state = {sheets: []}, action) => {
   switch(action.type) {
     case "FETCH_SHEETS_OVERVIEW_SUCCEED":
       return {sheets: action.payload}

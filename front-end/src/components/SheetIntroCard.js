@@ -38,7 +38,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 
 function mapStateToProps(state, prop) {
   return {
-    sheetInfo: prop.sheetInfo,
+    sheetInfo: prop.sheet,
     // startEdit: state.profileReducer.start_edit,
     // endEdit: state.profileReducer.end_edit
   };
