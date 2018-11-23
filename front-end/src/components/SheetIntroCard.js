@@ -21,7 +21,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
             </div>}
           style={{ "margin-bottom": 10, "margin-top": 10 }}
       >
-        <div onClick={viewSheet}>
+        <div onClick={viewSheet.bind(this, sheetInfo.location)}>
           <p>
             <SheetTypeIcon instrument={sheetInfo.sheetType==0?"piano":"guitar"}/>
           </p>
@@ -45,9 +45,10 @@ function mapStateToProps(state, prop) {
 }
 
 const mapDispatchToProps = dispatch => ({
-  viewSheet: (e) => {
-    console.log("viewSheet" + e)
-    dispatch({type: "VIEW_SHEET", sheetId: 0 })
+  viewSheet: (sheetLocation) => {
+    console.log("viewSheet: " + sheetLocation)
+    // dispatch({type: "VIEW_SHEET", sheetId: 0 })
+    // dispatch({type: "DOWNLOAD_SHEET", sheetPath: sheetPath})
   }
 })
 
