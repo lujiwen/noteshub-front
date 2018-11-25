@@ -28,7 +28,7 @@ const UserLogin = ({isLogin, form, login, loginResult }) => {
 
     if(loginResult.isSucceed) {
       localStorage.setItem("token", loginResult.token.Sha1)
-      return <Redirect to={'/sheet'}></Redirect>
+      return <Redirect to={'/upload'}></Redirect>
     }
      else {
       return (

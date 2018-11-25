@@ -23,7 +23,7 @@ const Stave = ({sheet}) => {
             <Notes sheet={sheet} />
           </div>)
     } else {
-      return (<div>123</div>)
+      return (<div>sheet is not correct</div>)
     }
   }
 

@@ -24,9 +24,7 @@ const App = ({isSignOut}) =>  {
     return (<Redirect to={'/login'}></Redirect>)
   } else {
     return (
-        <div>
-          <Stave/>
-        </div>
+        <div></div>
     );
   }
   }
