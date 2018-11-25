@@ -3,8 +3,9 @@ import {Card, Icon} from "antd";
 import SheetTypeIcon from "./SheetTypeIcon";
 import connect from "react-redux/es/connect/connect";
 import {fetchSheetByID} from "../actions/SheetActions";
+import Redirect from "react-router/es/Redirect";
 
-const SheetIntroCard = ({sheetInfo, viewSheet}) => {
+const SheetIntroCard = ({sheetInfo, viewSheet, toViewSheet}) => {
 
   const IconText = ({ type, text }) => (
       <span style={{ marginRight: 8 }}>
@@ -12,6 +13,10 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
         {text}
   </span>
   );
+
+  // if (toViewSheet.isViewSheet) {
+  //   return <Redirect to={"/sheet"}></Redirect>
+  // }
 
   return (
       <Card
@@ -40,6 +45,7 @@ const SheetIntroCard = ({sheetInfo, viewSheet}) => {
 function mapStateToProps(state, prop) {
   return {
     sheetInfo: prop.sheet.sheet,
+    toViewSheet: {isViewSheet: state.sheetReducer.viewSheet, sheet: state.sheetReducer.sheetInfo}
     // startEdit: state.profileReducer.start_edit,
     // endEdit: state.profileReducer.end_edit
   };

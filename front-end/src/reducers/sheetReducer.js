@@ -32,6 +32,10 @@ export default function sheetReducer(state = initialState, action) {
       return {isOutdated : true }
     case 'VIEW_SHEET':
       return { viewSheet: true , sheetInfo: {} , sheetId : action.sheetId}
+    case 'DOWNLOAD_SHEET_BY_ID_SUCCEED':
+      return { viewSheet: true , sheetInfo: action.payload }
+    case 'DOWNLOAD_SHEET_BY_ID_FAILED':
+      return { viewSheet: true , sheetInfo: {} }
     case 'UPLOAD_SHEET':
       console.log("start to upload sheet! ")
       return {uploadSheet: true, data: action.values}

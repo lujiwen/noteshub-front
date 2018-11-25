@@ -14,8 +14,8 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
     return (
         <Redirect to={"/profile"}></Redirect>
      )
-  } else if (viewSheet) {
-    return <Stave/>
+  } else if (viewSheet.isViewSheet) {
+    return <Stave sheet={viewSheet.sheetInfo}/>
   } else {
     return (
         <div style={{padding: "20px"}}>
@@ -60,7 +60,7 @@ function mapStateToProps(state,ownProps) {
     chooseTabNumber: state.personalPageReducer.chooseTabNumber,
     startEdit: state.profileReducer.start_edit,
     endEdit: state.profileReducer.end_edit,
-    viewSheet: state.sheetReducer.viewSheet,
+    viewSheet: {isViewSheet: state.sheetReducer.viewSheet, sheetInfo: state.sheetReducer.sheetInfo},
     username: ownProps.match.params.username
   };
 }

@@ -20,16 +20,16 @@ const Stave = ({sheet}) => {
               难度：
               <Rate allowHalf defaultValue={2.5} />
             </p>
-            <Notes sheet={this.state.sheet} />
+            <Notes sheet={sheet} />
           </div>)
     } else {
       return (<div>123</div>)
     }
   }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
-
+    sheet: ownProps.sheet
   }
 }
 const mapDispatchToProps = (dispatch) => {
