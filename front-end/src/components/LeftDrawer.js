@@ -14,8 +14,10 @@ class LeftDrawer extends React.Component {
         console.log("redirecting to upload sheet")
         return <Redirect to='/upload'/>
       } else if (toPersonal) {
+        let username = localStorage.getItem("username")
         console.log("redirecting to personal page")
-        return <Redirect to='/profile'/>
+        let toPath = "/"+ username
+        return <Redirect to={toPath} />
       } else {
         return (
             <div>
@@ -43,7 +45,6 @@ class LeftDrawer extends React.Component {
             </div>
         )
       }
-
     }
 }
 

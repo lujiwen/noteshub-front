@@ -37,10 +37,10 @@ const Navigation = ({isSignOut, dispatch }) => {
               style={{ width: 200 }}
           />
         </Menu.Item>
-        <Menu.Item key="app">
+        <Menu.Item  style={{display: 'none'}} key="app">
           <Icon type="file-search" />探索
         </Menu.Item>
-        <SubMenu title={<span className="submenu-title-wrapper"><Icon type="shopping" />市场</span>}>
+        <SubMenu  style={{display: 'none'}}  title={<span className="submenu-title-wrapper"><Icon type="shopping" />市场</span>}>
           <MenuItemGroup title="Item 1">
             <Menu.Item key="setting:1">Option 1</Menu.Item>
             <Menu.Item key="setting:2">Option 2</Menu.Item>
@@ -50,7 +50,7 @@ const Navigation = ({isSignOut, dispatch }) => {
             <Menu.Item key="setting:4">Option 4</Menu.Item>
           </MenuItemGroup>
         </SubMenu>
-        <Menu.Item key="notification">
+        <Menu.Item  style={{display: 'none'}}  key="notification">
           <Icon type="notification" />消息
         </Menu.Item>
 
