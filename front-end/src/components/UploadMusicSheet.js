@@ -83,7 +83,7 @@ const UploadMusicSheetForm = ({form, onUpload, uploadSucceed}) => {
   }
 
   return (
-      <Form onSubmit={uploadSheetAndInfo} className="login-form" >
+      <Form style={{"overflow-y": "scroll"}} onSubmit={uploadSheetAndInfo} className="login-form" >
           <FormItem
               {...formItemLayout}
               label="歌曲"
