@@ -89,7 +89,7 @@ ReactDOM.render(
               <Route path="/" component={App} exact/>
               <Route path="/login" component={WrappedNormalLoginForm}/>
               <Route path="/register" component={UserRegister}/>
-              <Route path="/profile" component={Profile}/>
+              <Route path="/edit-profile" component={Profile}/>
               <Route path="/upload"  component={UploadMusicSheet}/>
               <Route path="/sheet/:sheetId"  component={Stave}/>
               <Route path="/:username" component={PersonalPage}/>

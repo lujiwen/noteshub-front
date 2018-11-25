@@ -12,7 +12,7 @@ const PersonalPage = ({viewSheet ,chooseTabNumber, startEdit, personalTabSelect,
   console.log("username :" + username)
   if (startEdit) {
     return (
-        <Redirect to={"/profile"}></Redirect>
+        <Redirect to={"/edit-profile"}></Redirect>
      )
   } else if (viewSheet.isViewSheet) {
     return <Stave sheet={viewSheet.sheetInfo}/>
