@@ -1,5 +1,5 @@
 
-export const initialState = {
+const initialState = {
   isRegister: false,
   isRegisterPending: false,
   message: '',

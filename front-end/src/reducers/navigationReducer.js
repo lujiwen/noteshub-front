@@ -10,7 +10,7 @@ const navigationReducer = (state = initState, action) => {
       return {visible: ! state.visible, placement: 'left', toUpload: false, toPersonalPage: true}
     case "SIGN_OUT":
       console.log("sign out !")
-      return {visible: state.visible, placement: 'left', toUpload: false, toPersonalPage: false, isSignOut: true}
+      return {isLogin: false, isLoginPending: false, message: action.payload, isSignOut: true}
     default:
       return state
   }

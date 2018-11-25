@@ -1,51 +1,43 @@
 import React,{ Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Input, Button, message } from 'antd';
-import { register, clear } from './../../actions/UserAction';
+import {registerUser, clear, login} from './../../actions/UserAction';
 import * as styles from './UserRegister.css';
 import {Redirect} from "react-router";
+
+
 import UserLogin from "./UserLogin";
 const FormItem = Form.Item;
-class UserRegister extends React.Component {
-  state = {
-    confirmDirty: false,
-  };
-  componentWillReceiveProps(nextProps) {
-    const { userRedu } = nextProps;
-    const { dispatch, history } = this.props;
-    let datas = {};
-    datas.userRedu = userRedu;
-    datas.dispatch = dispatch;
-    datas.clear = clear;
-    datas.history = history;
-    // tips.alertMessage.call(datas);
-  }
-  handleSubmit = (e) => {
+
+const UserRegister = ({registerSucceed, form, register}) => {
+  const { getFieldDecorator } = form;
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, values) => {
+    form.validateFieldsAndScroll((err, values) => {
       if (!err) {
-        const { dispatch } = this.props;
-        register(dispatch, values);
+        register(values)
       }
     });
   }
-  handleConfirmBlur = (e) => {
+
+  const handleConfirmBlur = (e) => {
     const value = e.target.value;
     this.setState({ confirmDirty: this.state.confirmDirty || !!value });
   }
-  compareToFirstPassword = (rule, value, callback) => {
-    const form = this.props.form;
+
+  const compareToFirstPassword = (rule, value, callback) => {
     if (value && value !== form.getFieldValue('password')) {
       callback('两个密码输入不一致！');
     } else {
       callback();
     }
   };
-  validateToNextName = (rule, value , callback) => {
-    const form = this.props.form;
-    const namePattern = /^\d/;
+  const validateToNextName = (rule, value , callback) => {
+    const wrongNamePattern = /^$/; //empty
+    // const wrongNamePattern = /^\d/;
     if(value) {
-      if(namePattern.test(value)) {
+      if(wrongNamePattern.test(value)) {
         callback('用户名不能以数字开头，应为字符串或中文组成');
       } else {
         callback();
@@ -54,14 +46,15 @@ class UserRegister extends React.Component {
       callback();
     }
   }
-  validateToNextPassword = (rule, value, callback) => {
-    const form = this.props.form;
+
+  const validateToNextPassword = (rule, value, callback) => {
     const passWordPattern = /^(?=.*\d)(?=.*[a-z]).{6,20}$/;
     if(value) {
       if(!passWordPattern.test(value)) {
         callback('密码应为6-20位，由大小写字母及数字组成');
       } else {
-        if (value && this.state.confirmDirty) {
+        // if (value && this.state.confirmDirty) {
+        if (value) {
           form.validateFields(['confirm'], { force: true });
         }
         callback();
@@ -70,15 +63,13 @@ class UserRegister extends React.Component {
       callback();
     }
   };
-  render() {
-    const { getFieldDecorator } = this.props.form;
-    const {registerSucceed} = this.state
+
     if(registerSucceed) {
       return (<UserLogin/>)
     }
 
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
+      <Form onSubmit={handleSubmit} className="login-form">
         <FormItem>
           {getFieldDecorator('userName', {
             rules: [{ 
@@ -86,7 +77,7 @@ class UserRegister extends React.Component {
               message: '请输入用户名!',
               whitespace: true
             }, {
-              // validator: this.validateToNextName,
+              validator: validateToNextName,
             }],
           })(
             <Input placeholder="请输入用户名" />
@@ -97,7 +88,7 @@ class UserRegister extends React.Component {
             rules: [{
               required: true, message: '请输入密码!',
             }, {
-              validator: this.validateToNextPassword,
+              validator: validateToNextPassword,
             }],
           })(
             <div>
@@ -110,7 +101,7 @@ class UserRegister extends React.Component {
             rules: [{
               required: true, message: '请确认密码!',
             }, {
-              validator: this.compareToFirstPassword,
+              validator: compareToFirstPassword,
             }],
           })(
             <Input type="password" placeholder="请确认密码" />
@@ -121,13 +112,20 @@ class UserRegister extends React.Component {
         </FormItem>
       </Form>
     );
-  }
 }
 
 const WrappedRegistrationForm = Form.create()(UserRegister);
-function mapStateToProps(state) {
+
+
+const mapStateToProps = (state) => {
+  console.log("mapStateToProps in userRegister!")
   return {
     registerSucceed: state.registerReducer.registerSucceed
   };
 }
-export default connect(mapStateToProps)(WrappedRegistrationForm);
+
+const mapDispatchToProps = (dispatch) => ({
+    register: (values) => registerUser(dispatch, values)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(WrappedRegistrationForm);

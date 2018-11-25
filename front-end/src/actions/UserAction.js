@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const register = (dispatch, values) => {
+const registerUser = (dispatch, values) => {
   let data = JSON.stringify({
     phoneNumber: values.userName,
     password: values.password
@@ -82,4 +82,4 @@ export const signOut = () => {
   return { type: AUTH_SIGNOUT };
 };
 
-export { register, clear, updatePassword, login };
+export { registerUser, clear, updatePassword, login };
