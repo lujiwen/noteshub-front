@@ -10,7 +10,7 @@ const userReducer = (state = initialState, action) => {
   switch(action.type) {
     case 'REGISTER_REDUCER':
       return Object.assign({}, state, action.data);
-    break;
+      break;
     case 'CLEAR_REDUCER':
       return Object.assign({}, state, initialState);
       break

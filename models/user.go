@@ -186,9 +186,10 @@ func (User)Register(c *gin.Context) {
 
 		newUser := User{ Name:"用户" + phone , PhoneNumber: phone, Password: password, Created: time.Now(), Updated:time.Now()}
 		if userId, err := x.InsertOne(newUser);  err != nil {
-			c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + string(userId)})
-		} else {
 			c.JSON(http.StatusInternalServerError, gin.H{"message": "用户注册失败 " + err.Error() })
+		} else {
+
+			c.JSON(http.StatusOK, gin.H{"message": "Successfully register " + string(userId)})
 		}
 		return
 	} else {

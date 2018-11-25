@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Form, Input, Button, message } from 'antd';
 import { register, clear } from './../../actions/UserAction';
 import * as styles from './UserRegister.css';
+import {Redirect} from "react-router";
+import UserLogin from "./UserLogin";
 const FormItem = Form.Item;
 class UserRegister extends React.Component {
   state = {
@@ -70,6 +72,11 @@ class UserRegister extends React.Component {
   };
   render() {
     const { getFieldDecorator } = this.props.form;
+    const {registerSucceed} = this.state
+    if(registerSucceed) {
+      return (<UserLogin/>)
+    }
+
     return (
       <Form onSubmit={this.handleSubmit} className="login-form">
         <FormItem>
@@ -79,7 +86,7 @@ class UserRegister extends React.Component {
               message: '请输入用户名!',
               whitespace: true
             }, {
-              validator: this.validateToNextName,
+              // validator: this.validateToNextName,
             }],
           })(
             <Input placeholder="请输入用户名" />
@@ -118,7 +125,9 @@ class UserRegister extends React.Component {
 }
 
 const WrappedRegistrationForm = Form.create()(UserRegister);
-function mapStateToProps(state,oWnprops) {
-  return state;
+function mapStateToProps(state) {
+  return {
+    registerSucceed: state.registerReducer.registerSucceed
+  };
 }
 export default connect(mapStateToProps)(WrappedRegistrationForm);

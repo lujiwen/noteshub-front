@@ -91,7 +91,7 @@ ReactDOM.render(
               <Route path="/register" component={UserRegister}/>
               <Route path="/profile" component={Profile}/>
               <Route path="/upload"  component={UploadMusicSheet}/>
-              <Route path="/sheet"  component={Stave}/>
+              <Route path="/sheet/:sheetId"  component={Stave}/>
               <Route path="/:username" component={PersonalPage}/>
 
               <Route component={Error}/>

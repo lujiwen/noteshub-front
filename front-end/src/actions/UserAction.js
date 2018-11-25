@@ -1,10 +1,30 @@
 import axios from 'axios'
 
 const register = (dispatch, values) => {
-  dispatch({
-    type:'REGISTER_SAGA',
-    values
-  });
+  let data = JSON.stringify({
+    phoneNumber: values.userName,
+    password: values.password
+  })
+
+  axios.post("http://127.0.0.1:8080/register", data, {
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8',
+    }
+  })
+      .then(function (response) {
+        console.log("success:" + response)
+        dispatch({
+          type:'REGISTER_SUCCEED',
+          payload: response.data
+        });
+      })
+      .catch((err) => {
+        console.log("failed :" + err)
+        dispatch({
+          type:'REGISTER_FAILED',
+          payload: err
+        });
+      })
 }
 
 const clear = (dispatch) => {
