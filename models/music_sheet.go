@@ -1,12 +1,12 @@
 package models
 
 import (
+	"../models/musicxml"
 	"fmt"
 	"github.com/gin-gonic/gin"
 	log "gopkg.in/clog.v1"
 	"io/ioutil"
 	"net/http"
-	"noteshub/models/musicxml"
 	"strconv"
 	"time"
 )

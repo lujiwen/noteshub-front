@@ -1,10 +1,10 @@
 package main
 
 import (
+	"../models"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"noteshub/models"
 	"time"
 )
 
