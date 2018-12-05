@@ -13,7 +13,6 @@ type Team struct {
 	LowerName   string
 	Name        string
 	Description string
-	Authorize   AccessMode
 	Repos       []*Repository `xorm:"-" json:"-"`
 	Members     []*User       `xorm:"-" json:"-"`
 	NumRepos    int
