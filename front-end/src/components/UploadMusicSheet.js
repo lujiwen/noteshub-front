@@ -46,7 +46,10 @@ const UploadMusicSheetForm = ({form, onUpload, uploadSucceed}) => {
   const props = {
     name: 'file',
     multiple: true,
-    action: '//localhost:9090/transcribe',
+    action: '//127.0.0.1:9090/transcribe',
+    data : {
+      "userId" : localStorage.getItem("userId")
+    },
     onChange(info) {
       const status = info.file.status;
       if (status !== 'uploading') {

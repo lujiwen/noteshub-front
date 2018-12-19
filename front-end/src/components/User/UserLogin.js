@@ -29,6 +29,7 @@ const UserLogin = ({isLogin, form, login, loginResult }) => {
     if(loginResult.isSucceed) {
       localStorage.setItem("token", loginResult.token.Sha1)
       localStorage.setItem("username", loginResult.token.Name)
+      localStorage.setItem("userId", loginResult.token.ID)
       return <Redirect to={'/upload'}></Redirect>
     }
      else {
