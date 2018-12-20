@@ -16,6 +16,7 @@ const startToUploadSheet = (dispatch, values) => {
   axios.post("http://127.0.0.1:8080/uploadSheetAndInfo", data, {
     headers: {
       'Content-Type': 'application/json; charset=utf-8',
+      "Access-Token": localStorage.getItem("token")
     }
   })
       .then(function (response) {
