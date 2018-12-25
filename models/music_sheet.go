@@ -1,12 +1,13 @@
 package models
 
 import (
-	"../models/musicxml"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/go-xorm/xorm"
 	log "gopkg.in/clog.v1"
 	"io/ioutil"
 	"net/http"
+	"noteshub/models/musicxml"
 	"strconv"
 	"time"
 )
@@ -58,9 +59,9 @@ func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
 	if err := c.ShouldBindJSON(&sheetFile); err == nil {
 		log.Info("receive")
 		//save to db upload
-		destinationDir := "/Users/lujiwen/noteshub/upload_files"
-		sheetFile := MusicSheet{SheetType: Stave, Location: destinationDir + "/" + sheetFile.Filename, Filename: sheetFile.Filename, CreateTime: time.Now(), UserId: accessToken.UID }
-		if  _, err := x.InsertOne(sheetFile); err != nil{
+		parsedFileLocation := sheetFile.Location
+		sheetFile := MusicSheet{SheetType: Stave, Location: parsedFileLocation, Filename: sheetFile.Filename, CreateTime: time.Now(), UserId: accessToken.UID }
+		if  err := sheetFile.SaveSheet(x); err != nil{
 			c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse! %s", sheetFile.Filename, err.Error()))
 
 		} else {
@@ -69,6 +70,14 @@ func (MusicSheet)UploadSheetAndInfo(c *gin.Context) {
 	} else {
 		c.JSON(http.StatusInternalServerError, fmt.Sprintf("'%s' can not be saved to databse! %s", sheetFile.Filename, err.Error()))
 	}
+}
+
+func (sheet *MusicSheet)SaveSheet(engine *xorm.Engine) (error) {
+	 if _,err := engine.InsertOne(sheet);  err != nil {
+	 	return err
+	 } else {
+	 	return nil
+	 }
 }
 
 func (MusicSheet)Upload(c *gin.Context) {
@@ -118,12 +127,17 @@ func (MusicSheet)GetSheet(c *gin.Context) {
 
 	if sheetId, err := strconv.Atoi(c.Param("sheetId")); err == nil {
 		log.Info("get sheet by id : %s", &sheetId)
-		//sheet := MusicSheet{sheetId, "./location", "1", time.Now(), time.Now()}
+		sheet,_ := GetSheetById(sheetId)
+		c.JSON(http.StatusOK, ParseMxmlFromString(sheet.Location))
 		//c.JSON(http.StatusOK, ParseMxmlFromString("resources/sample-chord.xml"))
-		c.JSON(http.StatusOK, ParseMxmlFromString("resources/sample-chord.xml"))
 	} else {
 		c.AbortWithStatus(http.StatusNotFound)
 	}
+}
+func GetSheetById(sheetId int)  (MusicSheet, error) {
+	var sheet MusicSheet
+	_, err := x.Table("music_sheet").Where("i_d = ?", sheetId).Get(&sheet)
+	return sheet ,err
 }
 
 func (MusicSheet)GetUploadSheetsByUser(c *gin.Context) {

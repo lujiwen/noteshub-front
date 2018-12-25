@@ -56,3 +56,14 @@ func TestGetSheetById(t *testing.T) {
 	}
 }
 
+func TestMusicSheet_SaveSheet(t *testing.T) {
+	x, _ = GetConnection()
+
+	sheetFile := MusicSheet{SheetType: Stave, Location: "path/to/sheetfile.xml", Filename: "testSheetFile", CreateTime: time.Now(), UserId: 6456546545}
+	if err := sheetFile.SaveSheet(x); err != nil {
+		t.Log("save sheets failed")
+	} else {
+		t.Log("save sheets succeed!")
+	}
+
+}
