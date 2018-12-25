@@ -45,3 +45,14 @@ func TestGetSheetByUserId(t *testing.T) {
 	}
 
 }
+
+func TestGetSheetById(t *testing.T) {
+	x, _ = GetConnection()
+
+	if sheets, e := GetSheetById(1); e==nil {
+		t.Log("get sheets successfully", sheets)
+	} else {
+		t.Error(e.Error())
+	}
+}
+

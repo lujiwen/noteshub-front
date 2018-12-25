@@ -42,7 +42,6 @@ func TestDropAllTables(t *testing.T)  {
 	x, _ = GetConnection()
 
 	if err := x.DropTables(
-		Access{},
 		AccessToken{},
 		EmailAddress{},
 		Follow{},
