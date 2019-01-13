@@ -6,6 +6,8 @@ import {connect} from "react-redux";
 import axios from 'axios'
 import {Rate} from "antd";
 import PlayButton from "./PlayButton";
+import OpenSheetMusicDisplay from '../lib/OpenSheetMusicDisplay'
+
 
 const Stave = ({sheet}) => {
     if(sheet != null) {
@@ -20,7 +22,9 @@ const Stave = ({sheet}) => {
               难度：
               <Rate allowHalf defaultValue={2.5} />
             </p>
-            <Notes sheet={sheet} />
+            {/*<Notes sheet={sheet} />*/}
+
+            <OpenSheetMusicDisplay file={"qhc.xml"} />
           </div>)
     } else {
       return (<div>sheet is not correct</div>)

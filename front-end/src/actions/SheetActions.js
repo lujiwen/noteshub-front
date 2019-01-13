@@ -10,7 +10,8 @@ const startToUploadSheet = (dispatch, values) => {
     scorer: values.scorer,
     sheetPath: values.sheetPath,
     sheetType: values.sheetType,
-    sheets : values.sheets
+    sheets : values.sheets,
+    location: values.location
   })
 
   axios.post("http://127.0.0.1:8080/uploadSheetAndInfo", data, {

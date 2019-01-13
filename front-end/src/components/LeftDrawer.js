@@ -22,7 +22,7 @@ class LeftDrawer extends React.Component {
         return (
             <div>
               <Drawer
-                  title="芸芸曲谱"
+                  title="奔奔曲谱"
                   placement="left"
                   closable={true}
                   onClose={onClose}

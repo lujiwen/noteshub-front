@@ -27,7 +27,7 @@ const Navigation = ({isSignOut, dispatch }) => {
     <div>
       <Menu mode="horizontal">
         <Menu.Item key="bars" onClick = {this.toggleDraw}>
-          <Icon type="bars" />芸芸
+          <Icon type="bars" />奔奔
         </Menu.Item>
 
         <Menu.Item key="search">

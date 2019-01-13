@@ -13,6 +13,7 @@
     "history": "^4.7.2",
     "mocha": "^5.2.0",
     "prop-types": "^15.6.2",
+    "opensheetmusicdisplay": "^0.6.6",
     "rc-slider": "^8.6.1",
     "react": "^16.4.1",
     "react-apollo": "^2.1.9",

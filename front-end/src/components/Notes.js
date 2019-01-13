@@ -73,8 +73,10 @@ export default class Notes extends Component {
     return measure.note.map(function (note, noteId) {
       console.log(note)
       let keys = []
-      let duration = 1 / (note.duration / this.divisions / this.beatType)
 
+      // divisions 个最小单位表示一个beatType分之一音符， duration表示有多少个最小单位
+      // let duration = ( 1 / (this.beatType * this.divisions) ) * note.duration
+      let duration = 1 / (note.duration / this.divisions / this.beatType)
       // if (note.grace.Local === "grace") {
       //   return
       // }
@@ -92,8 +94,11 @@ export default class Notes extends Component {
         keys = ["B/4"]  // temporary solution: in the middle of treble
       }
 
+      console.log("partId: " + partId + " measureId: " +  measureId + " duration: " + duration )
+
       let staveNote
-      staveNote = new StaveNote({keys: keys, duration: duration + "", clef: clefType});
+      // if(duration == "0.25r") duration = '4'
+      staveNote = new StaveNote({keys: keys, duration: duration + "" , clef: clefType});
 
       console.log(staveNote)
 
