@@ -53,7 +53,6 @@ class OpenSheetMusicDisplay extends Component {
 
 
 const mapStateToProps = (state, props) => {
-  console.log("mapStateToProps: " + state.musicSheetPlayerReducer.isStartToPlay)
   return {
     isStartToPlay : state.musicSheetPlayerReducer.isStartToPlay
   };
