@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import './App.css';
 
 import Vex from 'vexflow';
-import {message, Upload} from 'antd';
+import {Button, message, Upload} from 'antd';
 import WrappedNormalLoginForm from "./components/User/UserLogin"
 import WrappedRegistrationForm from "./components/User/UserRegister"
 import WrappedRForgetPswForm from "./components/User/UserForgetPassword"
@@ -14,19 +14,24 @@ import Profile from "./components/Profile";
 import UploadMusicSheet from "./components/UploadMusicSheet";
 import connect from "react-redux/es/connect/connect";
 import {Redirect} from "react-router";
+import OpenSheetMusicDisplay from "./lib/OpenSheetMusicDisplay";
 const {Accidental, StaveNote} = Vex.Flow;
 
 
 
-const App = ({isSignOut}) =>  {
+const App = ({isSignOut, playSheet}) =>  {
 
-  if(isSignOut) {
-    return (<Redirect to={'/login'}></Redirect>)
-  } else {
-    return (
-        <div></div>
-    );
-  }
+  return <div>
+          <Button onClick={playSheet}></Button>
+          <OpenSheetMusicDisplay file={"qhc.xml"}/>
+        </div>
+  // if(isSignOut) {
+  //   return (<Redirect to={'/login'}></Redirect>)
+  // } else {
+  //   return (
+  //       <div></div>
+  //   );
+  // }
   }
 
   const mapStateToProps = (state) => {
@@ -36,6 +41,8 @@ const App = ({isSignOut}) =>  {
   }
 
   const mapDispatchToProps = dispatch => {
-    return ({})
+    return ({
+      playSheet: ()=> {dispatch({type: "PLAY_SHEET"})}
+    })
   }
 export default connect(mapStateToProps, mapDispatchToProps)(App)

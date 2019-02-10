@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { OpenSheetMusicDisplay as OSMD } from 'opensheetmusicdisplay';
+import connect from "react-redux/es/connect/connect";
 
 class OpenSheetMusicDisplay extends Component {
     constructor(props) {
@@ -7,6 +8,7 @@ class OpenSheetMusicDisplay extends Component {
       this.state = { dataReady: false };
       this.osmd = undefined;
       this.divRef = React.createRef();
+      // this.handleClick = this.handleClick.bind(this);
     }
   
     setupOsmd() {
@@ -45,4 +47,16 @@ class OpenSheetMusicDisplay extends Component {
     }
   }
 
-  export default OpenSheetMusicDisplay;
+
+function mapStateToProps(state) {
+  return {
+
+  };
+}
+
+const mapDispatchToProps = dispatch => ({
+
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(OpenSheetMusicDisplay)
+
