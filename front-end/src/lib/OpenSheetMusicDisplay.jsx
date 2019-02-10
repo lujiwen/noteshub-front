@@ -35,6 +35,10 @@ class OpenSheetMusicDisplay extends Component {
         this.osmd.load(this.props.file).then(() => this.osmd.render());
       }
       window.addEventListener('resize', this.resize)
+
+      if(this.props.isStartToPlay) {
+        this.osmd.play()
+      }
     }
   
     // Called after render
@@ -48,9 +52,10 @@ class OpenSheetMusicDisplay extends Component {
   }
 
 
-function mapStateToProps(state) {
+const mapStateToProps = (state, props) => {
+  console.log("mapStateToProps: " + state.musicSheetPlayerReducer.isStartToPlay)
   return {
-
+    isStartToPlay : state.musicSheetPlayerReducer.isStartToPlay
   };
 }
 

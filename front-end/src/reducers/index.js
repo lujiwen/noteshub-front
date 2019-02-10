@@ -7,6 +7,8 @@ import profileReducer from "./ProfileReducer";
 import sheetReducer from "./sheetReducer";
 import personalTabReducer from "./PersonalTabReducer";
 import registerReducer from "./RegisterReducer";
+import musicSheetPlayerReducer from "./musicSheetPlayerReducer";
+
 
 const rootReducer = combineReducers({
     navigationReducer,
@@ -15,7 +17,8 @@ const rootReducer = combineReducers({
     personalTabReducer,
     profileReducer,
     sheetReducer,
-    registerReducer
+    registerReducer,
+    musicSheetPlayerReducer
 })
 
 export default rootReducer
