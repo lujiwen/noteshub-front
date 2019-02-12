@@ -29,15 +29,18 @@ class OpenSheetMusicDisplay extends Component {
     }
   
     componentDidUpdate(prevProps) {
-      if (this.props.drawTitle !== prevProps.drawTitle) {
-        this.setupOsmd();
-      } else {
-        this.osmd.load(this.props.file).then(() => this.osmd.render());
-      }
-      window.addEventListener('resize', this.resize)
+      // if (this.props.drawTitle !== prevProps.drawTitle) {
+      //   this.setupOsmd();
+      // } else {
+      //   this.osmd.load(this.props.file).then(() => this.osmd.render());
+      //   this.osmd.playStaff()
+      // }
+      // window.addEventListener('resize', this.resize)
 
       if(this.props.isStartToPlay) {
-        this.osmd.play()
+        // this.osmd.load(this.props.file).then(() => this.osmd.render());
+        this.osmd.playSheet()
+
       }
     }
   
