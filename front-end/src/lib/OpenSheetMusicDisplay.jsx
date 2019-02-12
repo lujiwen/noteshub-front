@@ -8,7 +8,6 @@ class OpenSheetMusicDisplay extends Component {
       this.state = { dataReady: false };
       this.osmd = undefined;
       this.divRef = React.createRef();
-      // this.handleClick = this.handleClick.bind(this);
     }
   
     setupOsmd() {
@@ -33,17 +32,16 @@ class OpenSheetMusicDisplay extends Component {
       //   this.setupOsmd();
       // } else {
       //   this.osmd.load(this.props.file).then(() => this.osmd.render());
-      //   this.osmd.playStaff()
       // }
-      // window.addEventListener('resize', this.resize)
+      window.addEventListener('resize', this.resize)
+    }
 
+    componentWillUpdate() {
       if(this.props.isStartToPlay) {
-        // this.osmd.load(this.props.file).then(() => this.osmd.render());
         this.osmd.playSheet()
-
       }
     }
-  
+
     // Called after render
     componentDidMount() {
       this.setupOsmd();

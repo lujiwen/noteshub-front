@@ -19,11 +19,12 @@ const {Accidental, StaveNote} = Vex.Flow;
 
 
 
-const App = ({isSignOut, playSheet}) =>  {
+const App = ({isSignOut, playSheet, stopSheet}) =>  {
 
   return <div>
-          <Button onClick={playSheet}></Button>
-          <OpenSheetMusicDisplay file={"qhc.xml"}/>
+          <Button type="primary" onClick={playSheet}></Button>
+          <Button type="danger" onClick={stopSheet}></Button>
+        <OpenSheetMusicDisplay file={"qhc.xml"}/>
         </div>
   // if(isSignOut) {
   //   return (<Redirect to={'/login'}></Redirect>)
@@ -42,7 +43,8 @@ const App = ({isSignOut, playSheet}) =>  {
 
   const mapDispatchToProps = dispatch => {
     return ({
-      playSheet: ()=> {dispatch({type: "PLAY_SHEET"})}
+      playSheet: ()=> {dispatch({type: "PLAY_SHEET"})},
+      stopSheet: ()=> {dispatch({type: "STOP_SHEET"})}
     })
   }
 export default connect(mapStateToProps, mapDispatchToProps)(App)
