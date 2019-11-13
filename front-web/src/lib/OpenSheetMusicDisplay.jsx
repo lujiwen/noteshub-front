@@ -9,7 +9,7 @@ class OpenSheetMusicDisplay extends Component {
       this.osmd = undefined;
       this.divRef = React.createRef();
     }
-  
+
     setupOsmd() {
       const options = {
         autoResize: this.props.autoResize ? this.props.autoResize : true,
@@ -18,15 +18,15 @@ class OpenSheetMusicDisplay extends Component {
       this.osmd = new OSMD(this.divRef.current, options);
       this.osmd.load(this.props.file).then(() => this.osmd.render());
     }
-  
+
     resize() {
       this.forceUpdate();
     }
-  
+
     componentWillUnmount() {
       window.removeEventListener('resize', this.resize)
     }
-  
+
     componentDidUpdate(prevProps) {
       // if (this.props.drawTitle !== prevProps.drawTitle) {
       //   this.setupOsmd();
@@ -38,7 +38,7 @@ class OpenSheetMusicDisplay extends Component {
 
     componentWillUpdate() {
       if(this.props.isStartToPlay) {
-        this.osmd.playSheet()
+        this.osmd()
       }
     }
 
@@ -46,7 +46,7 @@ class OpenSheetMusicDisplay extends Component {
     componentDidMount() {
       this.setupOsmd();
     }
-  
+
     render() {
       return (<div ref={this.divRef} />);
     }
